@@ -1,0 +1,330 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    line-height: 1.6;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+/* Navigation Bar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #121212;
+}
+
+header .logo {
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 30px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #00d8a3;
+}
+
+.case-studies-btn {
+    background-color: #00d8a3;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #121212;
+    font-weight: 600;
+    margin-right: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.case-studies-btn:hover {
+    background-color: #00b887;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 80px;
+    scroll-snap-align: start;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('background-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 100vh;
+    transition: transform 0.8s ease;
+}
+
+.hero-content {
+    max-width: 60%;
+    margin-left: 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero h1 span {
+    color: #00d8a3;
+}
+
+.hero h2 {
+    font-size: 35px;
+    margin-bottom: 25px;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.hero p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.hire-me-btn {
+    background-color: #00d8a3;
+    padding: 14px 30px;
+    text-decoration: none;
+    color: #121212;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.hire-me-btn:hover {
+    background-color: #00b887;
+}
+
+.hero-image img {
+    width: 400px;
+    border-radius: 50%;
+    margin-right: 40px;
+}
+
+/* About, Skills, Projects, Contact Section */
+section {
+    padding: 80px 80px;
+    scroll-snap-align: start;
+    background-color: #1a1a1a;
+    position: relative;
+    animation: slideIn 1s ease-in;
+}
+
+section h2 {
+    font-size: 45px;
+    margin-bottom: 20px;
+    color: #00d8a3;
+    font-weight: 700;
+}
+
+section p, section ul {
+    font-size: 22px;
+    line-height: 1.8;
+}
+
+section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+section ul li {
+    margin-bottom: 15px;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #00d8a3;
+    padding: 14px 30px;
+    text-decoration: none;
+    color: #121212;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #00b887;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #121212;
+    margin-top: 50px;
+}
+
+footer p {
+    color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content, .hero-image {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .hero-image img {
+        width: 350px;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+/* Add this to your existing CSS */
+html {
+    scroll-behavior: smooth;
+}
+
+.scroll-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+#contact-section {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Background color */
+    font-family: Arial, sans-serif;
+}
+
+#contact {
+    background-color: #111; /* Slightly lighter background for contrast */
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px; /* Adjust max-width as necessary */
+    box-shadow: 0px 0px 15px rgba(0, 255, 234, 0.2); /* Soft glowing effect */
+}
+
+#contact h2 {
+    color: #fff; /* White color */
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+#contact h2 span {
+    color: #00ffea; /* Highlighted text color */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: transparent;
+    border: 2px solid #00ffea;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: none;
+}
+
+button[type="submit"] {
+    padding: 15px 30px;
+    background-color: #00ffea;
+    border: none;
+    border-radius: 10px;
+    color: #000; /* Button text color */
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #00cccc; /* Hover effect */
+}
+
+.contact-links {
+    margin-top: 20px;
+}
+
+.contact-links a {
+    color: #00ffea; /* Link color */
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .form-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .form-group input:last-child,
+    .form-group textarea:last-child {
+        margin-right: 0;
+    }
+}
+

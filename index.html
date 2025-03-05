@@ -1,0 +1,1014 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Web Developer + UX Designer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      margin: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: pop-in 0.5s ease-out;
+    }
+    .icon-container {
+      position: absolute;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .icon-container > div {
+      pointer-events: auto;
+    }
+    @keyframes pop-in {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    nav a {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      transition: color 0.3s;
+    }
+    nav a::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: #a855f7;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out;
+    }
+    nav a:hover::before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+    nav a:hover {
+      color: #a855f7;
+    }
+    .typewriter h2 {
+      overflow: hidden;
+      border-right: .15em solid #a855f7;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .15em;
+      animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #a855f7; }
+    }
+    .project-card {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .project-card img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .project-card:hover img {
+        transform: scale(1.05);
+      }
+      .project-card .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .project-card:hover .overlay {
+        opacity: 1;
+      }
+      .project-card .overlay a {
+        margin: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: #000;
+        color: #fff;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .project-card .overlay a:hover {
+        background: #1f2937;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      .section-title {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 0.5rem;
+        margin-bottom: 2rem;
+      }
+      .section-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background: #000;
+        transform: translateX(-50%);
+      }
+      .hidden {
+        display: none;
+      }
+      .btn-custom {
+        background: linear-gradient(90deg, rgba(29,78,216,1) 0%, rgba(37,99,235,1) 50%, rgba(59,130,246,1) 100%);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .btn-custom:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .section {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        transform: translateY(20px);
+      }
+      .section.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .languages {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+      .language {
+        background: #f3f4f6;
+        color: #1f2937;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      #about {
+        animation: fadeInUp 1s ease-in-out;
+      }
+      
+
+    /* Scoped styles for #about section */
+    #about {
+        --bg-color: #e5e7eb; /* Light mode background */
+        --text-color: #1f2937; /* Light mode text */
+        --dark-bg-color: #1f2937; /* Dark mode background */
+        --dark-text-color: #e5e7eb; /* Dark mode text */
+    }
+
+    #about .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        grid-template-rows: repeat(3, 200px); /* 3 rows with fixed height */
+        gap: 16px; /* Gap between grid items */
+        grid-template-areas:
+            "about about education experience"
+            "about about certifications profiles"
+            "contact details1 details2 skills";
+    }
+
+    #about .grid-item {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
+        overflow: hidden; /* Hide overflowing content by default */
+        position: relative;
+        z-index: 1;
+        opacity: 0; /* Start invisible for animation */
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    /* Hover effect: Enlarge and show full content */
+    #about .grid-item:hover {
+        transform: scale(1.1); /* Enlarge on hover */
+        z-index: 2; /* Bring to front */
+        overflow: visible; /* Show overflowing content */
+    }
+
+    /* Scrollable content for non-hovered items */
+    #about .grid-item.scrollable {
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    /* Dark mode styles */
+    .dark #about .grid-item {
+        background-color: var(--dark-bg-color);
+        color: var(--dark-text-color);
+    }
+
+    /* Animation delays for staggered entry */
+    #about .grid-item:nth-child(1) { animation-delay: 0.2s; }
+    #about .grid-item:nth-child(2) { animation-delay: 0.4s; }
+    #about .grid-item:nth-child(3) { animation-delay: 0.6s; }
+    #about .grid-item:nth-child(4) { animation-delay: 0.8s; }
+    #about .grid-item:nth-child(5) { animation-delay: 1s; }
+    #about .grid-item:nth-child(6) { animation-delay: 1.2s; }
+    #about .grid-item:nth-child(7) { animation-delay: 1.4s; }
+    #about .grid-item:nth-child(8) { animation-delay: 1.6s; }
+    #about .grid-item:nth-child(9) { animation-delay: 1.8s; }
+
+    /* Grid areas */
+    #about .about { grid-area: about; }
+    #about .education { grid-area: education; }
+    #about .experience { grid-area: experience; }
+    #about .certifications { grid-area: certifications; }
+    #about .profiles { grid-area: profiles; }
+    #about .contact { grid-area: contact; }
+    #about .details1 { grid-area: details1; }
+    #about .details2 { grid-area: details2; }
+    #about .skills { grid-area: skills; }
+    
+  </style>
+</head>
+<body class="bg-gradient-to-r from-purple-900 to-black text-white relative">
+  <header class="flex justify-between items-center p-6">
+    <div class="text-4xl font-bold text-white" id="logo" style="font-family: 'Pacifico', cursive;">shakthi@S</div>
+    <nav class="space-x-6">
+      <a class="text-white hover:text-purple-400" href="#home">
+        <i class="fas fa-home mr-2"></i>Home
+      </a>
+      <a class="text-white hover:text-purple-400" href="#about">
+        <i class="fas fa-user mr-2"></i>About
+      </a>
+      <a class="text-white hover:text-purple-400" href="#skills">
+        <i class="fas fa-cogs mr-2"></i>Skills
+      </a>
+      <a class="text-white hover:text-purple-400" href="#projects">
+        <i class="fas fa-briefcase mr-2"></i>Projects
+      </a>
+      <a class="text-white hover:text-purple-400" href="#contact">
+        <i class="fas fa-envelope mr-2"></i>Contact
+      </a>
+    </nav>
+    <button class="bg-purple-700 text-white px-4 py-2 rounded-full" id="toggle-mode">
+      <i class="fas fa-adjust"></i>
+    </button>
+  </header>
+  <section id="home" class="flex flex-col md:flex-row items-center justify-between p-6 md:p-20 min-h-screen" data-aos="fade-up">
+    <div class="text-center md:text-left md:w-1/2">
+      <h1 class="text-4xl md:text-6xl font-bold">I am Shakthi Sri</h1>
+      <div class="typewriter">
+        <h2 class="text-3xl md:text-5xl font-bold text-purple-400">Web Developer +<br/>UX Designer</h2>
+      </div>
+      <p class="mt-4 text-lg md:text-xl">I craft clean and user-friendly web experiences. Greatly inspired by modern design trends and usability.</p>
+      <a href="https://drive.google.com/file/d/1TKjaHah84930f2qGfIN9mkDWJF-cvyzR/view?usp=sharing" target="_blank">
+        <button class="mt-6 bg-purple-700 text-white px-6 py-3 rounded-full">
+            Download CV
+        </button>
+    </a>
+          <div class="mt-6 flex justify-center md:justify-start space-x-4">
+        <i class="fab fa-linkedin-in text-2xl"></i>
+        <i class="fas fa-envelope text-2xl"></i>
+        <i class="fab fa-github text-2xl"></i>
+        <i class="fas fa-code text-2xl"></i>
+      </div>
+    </div>
+    <div class="mt-10 md:mt-0 md:w-1/2 flex justify-center relative">
+      <img alt="Portrait of Shakthi Sri, a web developer and UX designer" class="rounded-lg shadow-lg" height="500" src="https://i.ibb.co/XsSPqF2/Screenshot-2024-11-03-182856-removebg-preview.png" width="400"/>
+      <div class="icon-container">
+        <div class="icon-box" style="top: 20px; left: 50%; transform: translateX(-10%);">
+          <img alt="Java logo" src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" style="width: 20px;"/>
+        </div>
+        <div class="icon-box" style="top: 10%; left: 20%; transform: translate(-10%, -200%);">
+          <img alt="Figma logo" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" style="width: 20px;"/>
+        </div>
+        <div class="icon-box" style="top: 10%; left: -20px; transform: translateY(110%);">
+          <img alt="PHP logo" src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" style="width: 20px;"/>
+        </div>
+        <div class="icon-box" style="bottom: 80%; left: 120%; transform: translate(-10%, -410%);">
+          <img alt="React logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" style="width: 20px; filter: invert(1);"/>
+        </div>
+        <div class="icon-box" style="bottom: -20px; left: 450%; transform: translateX(270%);">
+          <img alt="HTML logo" src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" style="width: 20px;"/>
+        </div>
+        <div class="icon-box" style="bottom: 20%; left: 80%; transform: translate(150%, 150%);">
+          <img alt="CSS logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" style="width: 20px;"/>
+        </div>
+        <div class="icon-box" style="bottom: 50%; right: 20px; transform: translateY(-190%);">
+          <img alt="JavaScript logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" style="width: 20px;"/>
+        </div>
+        <div class="icon-box" style="bottom: 80%; left: 20%; transform: translate(50%, 90%);">
+          <img alt="Node.js logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" style="width: 20px;"/>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="p-6 md:p-10 min-h-screen py-8" data-aos="fade-up">
+    <div class="flex justify-around mb-10 transform -translate-y-4">
+      <div class="text-center">
+        <h3 class="text-2xl font-bold">3</h3>
+        <p class="text-lg">Years of Study</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-2xl font-bold">4+</h3>
+        <p class="text-lg">Internships Completed</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-2xl font-bold">5+</h3>
+        <p class="text-lg">Projects Worked On</p>
+      </div>
+      <div class="text-center">
+        <h3 class="text-2xl font-bold">10+</h3>
+        <p class="text-lg">Courses Completed</p>
+      </div>
+    </div>
+    
+    
+    </div>
+      <div class="container mx-auto px-4">
+          <!-- Custom Grid Layout -->
+          <div class="grid-container">
+              <!-- About Me Section -->
+              <div class="grid-item about scrollable">
+                  <h2 class="text-2xl font-bold mb-2">Shakthi Sri</h2>
+                  <p class="text-gray-700 dark:text-gray-300">Pre-Final Year Student</p>
+                  <p class="mt-4 text-gray-700 dark:text-gray-300">
+                      Passionate Full Stack Developer with 5+ years of experience in JavaScript, React, and Node.js. I specialize in building scalable web applications and have a keen interest in UI/UX design. Always eager to learn and solve complex problems.
+                  </p>
+                  <p class="mt-4 text-gray-700 dark:text-gray-300">
+                      In my free time, I contribute to open-source projects, write technical blogs, and explore the latest trends in web development.
+                  </p>
+              </div>
+
+              <!-- Education Section -->
+              <div class="grid-item education scrollable">
+                  <h3 class="text-xl font-bold mb-4">Education</h3>
+                  <div class="space-y-2">
+                      <div>
+                          <h4 class="text-lg font-semibold">2022 - 2026</h4>
+                          <p>B.Tech in IT</p>
+                          <p>Anna University</p>
+                          <p>CGPA: 9.03/10</p>
+                      </div>
+                      <div>
+                          <h4 class="text-lg font-semibold">2021 - 2022</h4>
+                          <p>HSC</p>
+                          <p>Sai Guruji School</p>
+                          <p>89.2%</p>
+                      </div>
+                      <div>
+                          <h4 class="text-lg font-semibold">2019 - 2020</h4>
+                          <p>SSLC</p>
+                          <p>Sai Guruji School</p>
+                          <p>92%</p>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Experience Section -->
+              <div class="grid-item experience scrollable">
+                  <h3 class="text-xl font-bold mb-4">Experience</h3>
+                  <div class="space-y-2">
+                      <div>
+                          <h4 class="text-lg font-semibold">FOCUSLOGIC</h4>
+                          <p>Web Developer</p>
+                          <p>Remote</p>
+                          <p class="text-sm">Tech: React, Tailwind, Node.js</p>
+                      </div>
+                      <div>
+                          <h4 class="text-lg font-semibold">BICS GLOBAL</h4>
+                          <p>MERN Intern</p>
+                          <p>Feb 2025</p>
+                          <p class="text-sm">Tech: MongoDB, Express, React</p>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Certifications Section -->
+              <div class="grid-item certifications scrollable">
+                  <h3 class="text-xl font-bold mb-4">Certifications</h3>
+                  <ul class="list-none">
+                      <li class="mb-2"><i class="fas fa-certificate text-gray-900 dark:text-gray-100 mr-2"></i>React (Infosys)</li>
+                      <li class="mb-2"><i class="fas fa-certificate text-gray-900 dark:text-gray-100 mr-2"></i>Web Dev (LetsUpgrade)</li>
+                      <li><i class="fas fa-certificate text-gray-900 dark:text-gray-100 mr-2"></i>Data Analytics (Google)</li>
+                  </ul>
+              </div>
+
+              <!-- Profiles Section -->
+              <div class="grid-item profiles scrollable">
+                  <h3 class="text-xl font-bold mb-4">Profiles</h3>
+                  <ul class="list-none">
+                      <li class="mb-2">
+                          <i class="fas fa-link text-gray-900 dark:text-gray-100 mr-2"></i>
+                          <a href="https://portfolioshakthi.netlify.app/" target="_blank" class="hover:underline">Portfolio</a>
+                      </li>
+                      <li class="mb-2">
+                          <i class="fas fa-link text-gray-900 dark:text-gray-100 mr-2"></i>
+                          <a href="https://leetcode.com/u/srishakthi799/" target="_blank" class="hover:underline">LeetCode</a>
+                      </li>
+                      <li class="mb-2">
+                          <i class="fas fa-link text-gray-900 dark:text-gray-100 mr-2"></i>
+                          <a href="https://www.sololearn.com/en/profile/32908217" target="_blank" class="hover:underline">SoloLearn</a>
+                      </li>
+                      <li>
+                          <i class="fas fa-link text-gray-900 dark:text-gray-100 mr-2"></i>
+                          <a href="https://www.codechef.com/users/shakthisri16" target="_blank" class="hover:underline">CodeChef</a>
+                      </li>
+                  </ul>
+              </div>
+
+              <!-- Contact Section -->
+              <div class="grid-item contact scrollable">
+                  <h3 class="text-xl font-bold mb-4">Contact</h3>
+                  <ul class="list-none">
+                      <li class="mb-2"><i class="fas fa-envelope text-gray-900 dark:text-gray-100 mr-2"></i>srishakthi799@gmail.com</li>
+                      <li class="mb-2"><i class="fas fa-phone text-gray-900 dark:text-gray-100 mr-2"></i>+123 456 7890</li>
+                      <li><i class="fas fa-map-marker-alt text-gray-900 dark:text-gray-100 mr-2"></i>San Francisco, CA</li>
+                  </ul>
+              </div>
+
+              <!-- Additional Details Section 1 -->
+              <div class="grid-item details1 scrollable">
+                  <h3 class="text-xl font-bold mb-4">Details</h3>
+                  <ul class="list-none">
+                      <li class="mb-2"><i class="fas fa-briefcase text-gray-900 dark:text-gray-100 mr-2"></i>Freelance: Available</li>
+                      <li class="mb-2"><i class="fas fa-code text-gray-900 dark:text-gray-100 mr-2"></i>Specialization: Full Stack Web Developer</li>
+                      <li><i class="fas fa-globe text-gray-900 dark:text-gray-100 mr-2"></i>Open to Remote Work: Yes</li>
+                  </ul>
+              </div>
+
+              <!-- Additional Details Section 2 -->
+              <div class="grid-item details2 scrollable">
+                  <h3 class="text-xl font-bold mb-4">Language & Work</h3>
+                  <ul class="list-none">
+                      <li class="mb-2"><i class="fas fa-language text-gray-900 dark:text-gray-100 mr-2"></i>English, German (Beginner)</li>
+                      <li><i class="fas fa-clock text-gray-900 dark:text-gray-100 mr-2"></i>Part-time/Full-time: Both</li>
+                  </ul>
+              </div>
+
+              <!-- Skills Section -->
+              <div class="grid-item skills scrollable">
+                  <h3 class="text-xl font-bold mb-4">Skills</h3>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div>
+                          <i class="fab fa-js text-2xl text-gray-900 dark:text-gray-100 mb-2"></i>
+                          <h4 class="text-lg font-semibold">JavaScript</h4>
+                      </div>
+                      <div>
+                          <i class="fab fa-react text-2xl text-gray-900 dark:text-gray-100 mb-2"></i>
+                          <h4 class="text-lg font-semibold">React</h4>
+                      </div>
+                      <div>
+                          <i class="fab fa-node-js text-2xl text-gray-900 dark:text-gray-100 mb-2"></i>
+                          <h4 class="text-lg font-semibold">Node.js</h4>
+                      </div>
+                      <div>
+                          <i class="fas fa-database text-2xl text-gray-900 dark:text-gray-100 mb-2"></i>
+                          <h4 class="text-lg font-semibold">MongoDB</h4>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+  <section id="skills" class="w-full h-screen" data-aos="fade-up">
+    <iframe src="skills.html" class="w-full h-full" style="border: none;"></iframe>
+</section>
+
+ 
+
+
+
+  <section id="projects" class="p-6 md:p-20 min-h-screen" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-4">Projects</h2>
+    <p class="text-lg mb-8"></p>
+  
+    <!-- Toggle Buttons for UI/UX and Web Development -->
+    <div class="flex justify-center mb-8">
+      <button class="btn-custom mr-4" onclick="showSection('uiux-section')">
+        UI/UX Design
+      </button>
+      <button class="btn-custom" onclick="showSection('webdev-section')">
+        Web Development
+      </button>
+    </div>
+  
+    <!-- UI/UX Design Projects -->
+    <div class="section hidden" id="uiux-section">
+      <h2 class="text-3xl font-bold text-center mb-8 section-title">UI/UX Design</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project Card 1 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+          <img alt="Learning Platform Website Design" class="object-cover w-full h-48" src="https://i.ibb.co/413tnkC/Screenshot-2025-01-17-232717.png"/>
+          <div class="p-4">
+            <h2 class="text-sm text-gray-600 mb-1">Learning Platform Website Design</h2>
+            <h3 class="text-lg font-bold mb-2">EduGo</h3>
+            <p class="text-gray-600">A clean, modern Figma design for "EduGo," an online learning platform showcasing courses, mentorship, certifications, and global community features, with vibrant visuals and strong CTAs.</p>
+          </div>
+          <div class="overlay">
+            <a class="github" href="https://www.figma.com/proto/823yMjZjFP7NlHpt7Cx6bQ/edugo?node-id=0-1&t=hCVNlFLv28bjlNfD-1" target="_blank">
+              <i class="fab fa-figma"></i> Figma
+            </a>
+          </div>
+        </div>
+  
+        <!-- Project Card 2 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+          <img alt="Sign-up flow Design" class="object-cover w-full h-48" src="https://i.ibb.co/mhpMpNL/Screenshot-2025-01-17-233410.png"/>
+          <div class="p-4">
+            <h2 class="text-sm text-gray-600 mb-1">Sign-up flow Design</h2>
+            <h3 class="text-lg font-bold mb-2">Modern Sign-up Flow</h3>
+            <p class="text-gray-600">Designed a modern and user-friendly sign-up and login flow.</p>
+          </div>
+          <div class="overlay">
+            <a class="github" href="https://www.figma.com/proto/I1ASQY2n71Ny3SHtDbZX3R/1UX-3UI-(Community)?node-id=0-1&t=4EV44mHU66c5LAuy-1" target="_blank">
+              <i class="fab fa-figma"></i> Figma
+            </a>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+            <img alt="Figma design for a mobile app interface" class="object-cover" src="https://i.ibb.co/XspL7xY/Screenshot-2025-01-17-233654.png"/>
+            <div class="p-4">
+             <h2 class="text-sm text-gray-600 mb-1">
+              E-commerce Design
+             </h2>
+             <h3 class="text-lg font-bold mb-2">
+              Men's Ecommerce
+             </h3>
+             <p class="text-gray-600">
+              Created a bold, modern, and classy e-commerce website named Flexy, dedicated exclusively to men's fashion, grooming, and lifestyle products.       </p>
+            </div>
+            <div class="overlay">
+             <a class="github" href="https://www.figma.com/proto/0DLbG9VmXQKAGVpXYc1WhG/heartbeat---Emails-(Community)?node-id=6709-1215&t=5ITMbVvYhh3WGuXd-1" target="_blank">
+              <i class="fab fa-figma">
+              </i>
+              Figma
+             </a>
+            </div>
+           </div>
+      
+           <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+              <img alt="Figma design for a modern e-commerce website" class="object-cover" src="https://i.ibb.co/gM4nY6tR/Screenshot-2025-02-18-200642.png"/>
+              <div class="p-4">
+               <h2 class="text-sm text-gray-600 mb-1">
+                Fragrance Design 
+               </h2>
+               <h3 class="text-lg font-bold mb-2">
+                Modern circular flow design
+               </h3>
+               <p class="text-gray-600">
+                Designed a modern and user-friendly fragrance with visually appealing animations with spotlight names .
+               </p>
+              </div>
+              <div class="overlay">
+               <a class="github" href="https://www.figma.com/proto/6Z7eRUtDhLp4pDR8ANijP6/Testimonial---Social-Proof-%26-Reviews-Widgets-(Community)?node-id=55-461&t=f9qW5Dgm8HuRIe0S-1" target="_blank">
+                <i class="fab fa-figma">
+                </i>
+                Figma
+               </a>
+              </div>
+             </div>
+      
+             <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+              <img alt="Figma design for a modern e-commerce website" class="object-cover" src="https://i.ibb.co/dJDD543P/Screenshot-2025-02-18-201035.png"/>
+              <div class="p-4">
+               <h2 class="text-sm text-gray-600 mb-1">
+                Headset Design 
+               </h2>
+               <h3 class="text-lg font-bold mb-2">
+                Modern vertical Flow falling design
+               </h3>
+               <p class="text-gray-600">
+                Designed a modern and user-friendly design for headset website with its features mentioned in the design  .
+               </p>
+              </div>
+              <div class="overlay">
+               <a class="github" href="https://www.figma.com/proto/vLWToiqyHX8zkr0VaFjraE/Cat-Dark-Website-(Practice-%23004)-(Community)?node-id=0-1&t=JKtbiFnTnKij7UBa-1" target="_blank">
+                <i class="fab fa-figma">
+                </i>
+                Figma
+               </a>
+              </div>
+         </div>
+      </div>
+      </div>
+      </div>
+        <!-- Add more UI/UX projects here -->
+      </div>
+    </div>
+  
+    <!-- Web Development Projects -->
+    <div class="section hidden" id="webdev-section">
+      <h2 class="text-3xl font-bold text-center mb-8 section-title">Web Development</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project Card 1 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+          <img alt="Weather App" class="object-cover w-full h-48" src="https://i.ibb.co/F0wPrRJ/Screenshot-2025-01-17-231636.png"/>
+          <div class="p-4">
+            <h2 class="text-sm text-gray-600 mb-1">Application</h2>
+            <h3 class="text-lg font-bold mb-2">Weather App</h3>
+            <p class="text-gray-600">Developed a real-time weather forecasting web app with accurate data from third-party APIs. Emphasized responsive design for optimal usability across devices.</p>
+            <div class="languages">
+              <span class="language">HTML</span>
+              <span class="language">CSS</span>
+              <span class="language">JavaScript</span>
+              <span class="language">API</span>
+            </div>
+          </div>
+          <div class="overlay">
+            <a class="github" href="https://github.com/Shakthi16/weather-app-" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a class="live-demo" href="https://weatherappweb1.netlify.app/" target="_blank">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+        </div>
+  
+        <!-- Project Card 2 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+          <img alt="Aurum Page" class="object-cover w-full h-48" src="https://i.ibb.co/YL0J9tL/Screenshot-2025-01-17-232117.png"/>
+          <div class="p-4">
+            <h2 class="text-sm text-gray-600 mb-1">Website Development</h2>
+            <h3 class="text-lg font-bold mb-2">Aurum Page</h3>
+            <p class="text-gray-600">A landing page with advanced animations and smooth UI, boosting user interactions.</p>
+            <div class="languages">
+              <span class="language">HTML</span>
+              <span class="language">CSS</span>
+              <span class="language">JavaScript</span>
+            </div>
+          </div>
+          <div class="overlay">
+            <a class="github" href="https://github.com/Shakthi16/aurumpage" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a class="live-demo" href="https://aurumpage5.netlify.app/" target="_blank">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+        </div>
+             
+
+        
+        <!-- Add more Web Development projects here -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+            <img alt="Portfolio website showcasing various projects and skills" class="object-cover" src="https://i.ibb.co/58M6xth/Screenshot-2025-01-17-235322.png"/>
+            <div class="p-4">
+             <h2 class="text-sm text-gray-600 mb-1">
+              IceCream Website
+             </h2>
+             <h3 class="text-lg font-bold mb-2">
+      FrostyDelight Website Devlopment       </h3>
+             <p class="text-gray-600">
+              Designed and developed "Frosty Delight," a responsive and user-friendly web application showcasing an ice cream shop, featuring an intuitive interface and modern design aesthetics.       </p>
+             <div class="languages">
+              <span class="language">
+               HTML
+              </span>
+              <span class="language">
+               CSS
+              </span>
+              <span class="language">
+               JavaScript
+              </span>
+              <span class="language">
+               Tailwind
+              </span>
+             </div>
+            </div>
+            <div class="overlay">
+             <a class="github" href="https://github.com/Shakthi16/icecream">
+              <i class="fab fa-github">
+              </i>
+              GitHub
+             </a>
+             <a class="live-demo" href="https://frostydelightice.netlify.app/" target="_blank">
+              <i class="fas fa-external-link-alt">
+              </i>
+              Live Demo
+             </a>
+            </div>
+           </div>
+           <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+            <img alt="E-commerce website with a modern and user-friendly interface" class="object-cover" src="https://i.ibb.co/CWv0rLy/Screenshot-2025-01-18-000050.png"/>
+            <div class="p-4">
+             <h2 class="text-sm text-gray-600 mb-1">
+              Star cursor Navigation
+             </h2>
+             <h3 class="text-lg font-bold mb-2">
+      Playful animations with quotes       </h3>
+             <p class="text-gray-600">
+              Developed a star cursor with dynamic effects and double-tap firework animations featuring motivational quotes.
+      
+      
+          </p>
+             <div class="languages">
+              <span class="language">
+               HTML
+              </span>
+              <span class="language">
+               CSS
+              </span>
+              <span class="language">
+               JavaScript
+              </span>
+              
+              
+             </div>
+            </div>
+            <div class="overlay">
+             <a class="github" href="https://github.com/Shakthi16/starscursor">
+              <i class="fab fa-github">
+              </i>
+              GitHub
+             </a>
+             <a class="live-demo" href="https://starcursor.netlify.app/" target="_blank">
+              <i class="fas fa-external-link-alt">
+              </i>
+              Live Demo
+             </a>
+            </div>
+           </div>
+           <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+            <img alt="Blog platform with features for writing and sharing articles" class="object-cover" src="https://i.ibb.co/MSJDKF2/Screenshot-2025-01-18-150736.png"/>
+            <div class="p-4">
+             <h2 class="text-sm text-gray-600 mb-1">
+              Alarm clock
+             </h2>
+             <h3 class="text-lg font-bold mb-2">
+              Neumorphism clock 
+             </h3>
+             <p class="text-gray-600">
+              This Neumorphism clock features a sleek, 3D-like design with soft shadows and gradients. Its minimalist style ensures both elegance and easy readability.
+      
+      
+      
+          </p>
+             <div class="languages">
+              <span class="language">
+               HTML
+              </span>
+              <span class="language">
+               CSS
+              </span>
+              <span class="language">
+               JavaScript
+              </span>
+              <span class="language">
+              Tailwind
+              </span>
+              
+             </div>
+            </div>
+            <div class="overlay">
+             <a class="github" href="https://github.com/Shakthi16/alarmclock">
+              <i class="fab fa-github">
+              </i>
+              GitHub
+             </a>
+             <a class="live-demo" href="https://extraordinary-lolly-c19e3e.netlify.app/" target="_blank">
+              <i class="fas fa-external-link-alt">
+              </i>
+              Live Demo
+             </a>
+            </div>
+           </div>
+           <div class="bg-white rounded-lg overflow-hidden shadow-lg project-card">
+            <img alt="Social media app with features for connecting and sharing with friends" class="object-cover" src="https://i.ibb.co/GJmNcYH/Screenshot-2025-01-18-153206.png"/>
+            <div class="p-4">
+             <h2 class="text-sm text-gray-600 mb-1">
+              3d house
+             </h2>
+             
+             <p class="text-gray-600">
+              Developed a 3d modern house .
+             </p>
+             <div class="languages">
+              <span class="language">
+               HTML
+              </span>
+              <span class="language">
+               CSS
+              </span>
+              <span class="language">
+               JavaScript
+              </span>
+          
+             </div>
+            </div>
+            <div class="overlay">
+             <a class="github" href="https://github.com/Shakthi16/3dhouse">
+              <i class="fab fa-github">
+              </i>
+              GitHub
+             </a>
+             <a class="live-demo" href="https://3dhouse1.netlify.app/" target="_blank">
+              <i class="fas fa-external-link-alt">
+              </i>
+              Live Demo
+             </a>
+            </div>
+           </div>
+          </div>
+         </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="p-6 md:p-20 min-h-screen" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-4">Contact</h2>
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0">
+        <!-- Form Section -->
+        <div class="w-full md:w-1/2 flex flex-col items-center justify-center space-y-6">
+            <h1 class="text-4xl font-extrabold text-white-800 mb-6 text-center">Get in touch</h1>
+            <form action="https://api.web3forms.com/submit" method="POST" class="w-full max-w-md space-y-6">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="3bc2b226-c830-4aa4-b8b0-592dddb5ea12" />
+                
+                <!-- User Name -->
+                <input 
+                    class="w-full p-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 shadow-lg" 
+                    placeholder="Your Name" 
+                    type="text" 
+                    name="name" 
+                    required 
+                />
+                
+                <!-- User Email -->
+                <input 
+                    class="w-full p-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 shadow-lg" 
+                    placeholder="Your Email" 
+                    type="email" 
+                    name="email" 
+                    required 
+                />
+                
+                <!-- Interest Dropdown -->
+                <select 
+                    class="w-full p-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 shadow-lg" 
+                    name="interest" 
+                    required
+                >
+                    <option value="" disabled selected>Select your interest</option>
+                    <option value="Front-End Development">Front-End Development</option>
+                    <option value="Back-End Development">Back-End Development</option>
+                    <option value="Full-Stack Development">Full-Stack Development</option>
+                    <option value="UI Design">UI Design</option>
+                    <option value="UX Research">UX Research</option>
+                    <option value="Prototyping">Prototyping</option>
+                    <option value="Wireframing">Wireframing</option>
+                </select>
+                
+                <!-- User Message -->
+                <textarea 
+                    class="w-full p-4 rounded-3xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600 h-32 shadow-lg" 
+                    placeholder="Your Message" 
+                    name="message" 
+                    required
+                ></textarea>
+                
+                <!-- Submit Button -->
+                <button 
+                    class="w-full p-4 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 text-white font-bold flex items-center justify-center shadow-lg transform transition-transform hover:scale-105" 
+                    type="submit"
+                >
+                    Submit
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- Image Section -->
+        <div class="w-full md:w-1/2 flex justify-center w-156 h-159">
+            <img 
+                alt="Decorative illustration with abstract shapes and chat bubbles" 
+                class="w-3/4 transform transition-transform hover:scale-105" 
+                src="https://i.ibb.co/NYyF5Kz/right-img.png"
+            />
+        </div>
+    </div>
+  </section>
+  <footer class="flex justify-around p-6 bg-black bg-opacity-50">
+  
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const toggleButton = document.getElementById('toggle-mode');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('bg-white');
+      document.body.classList.toggle('text-black');
+      document.body.classList.toggle('bg-gradient-to-r');
+      document.body.classList.toggle('from-purple-900');
+      document.body.classList.toggle('to-black');
+      document.querySelectorAll('header, footer, nav').forEach(element => {
+        element.classList.toggle('bg-black');
+        element.classList.toggle('bg-opacity-50');
+        element.classList.toggle('bg-white');
+        element.classList.toggle('bg-opacity-90');
+      });
+      document.querySelectorAll('a, h1, h2, p, button').forEach(element => {
+        element.classList.toggle('text-white');
+        element.classList.toggle('text-black');
+      });
+      document.querySelectorAll('.icon-box').forEach(element => {
+        element.classList.toggle('bg-white');
+        element.classList.toggle('bg-gray-800');
+      });
+      document.querySelectorAll('.rounded-lg').forEach(element => {
+        element.classList.toggle('shadow-lg');
+        element.classList.toggle('shadow-none');
+      });
+      document.getElementById('logo').classList.toggle('text-white');
+      document.getElementById('logo').classList.toggle('text-black');
+    });
+
+    const typewriterText = ["Web Developer +", "UX Designer"];
+    let typewriterIndex = 0;
+    const typewriterElement = document.querySelector('.typewriter h2');
+
+    setInterval(() => {
+      typewriterElement.textContent = typewriterText[typewriterIndex];
+      typewriterIndex = (typewriterIndex + 1) % typewriterText.length;
+    }, 1000);
+    function showSection(sectionId) {
+        document.querySelectorAll('.section').forEach(section => {
+          section.classList.remove('active');
+          section.classList.add('hidden');
+        });
+        const section = document.getElementById(sectionId);
+        section.classList.remove('hidden');
+        setTimeout(() => {
+          section.classList.add('active');
+        }, 10);
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        showSection('webdev-section');
+
+      });
+
+         // Fetch and insert skills.html content dynamically
+    fetch('skills.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('skills-content').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading skills.html:', error));
+  </script>
+</body>
+</html>

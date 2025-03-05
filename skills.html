@@ -1,0 +1,323 @@
+<html>
+<head>
+    <title>My Skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* Card Styling with 3D Shadow */
+        .card {
+            position: absolute;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: #374151; /* bg-gray-700 */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Left Card Size */
+        #left-card {
+            width: 400px; /* Increased width */
+            height: 400px; /* Increased height */
+            left: 5%;
+            top: 5%;
+        }
+
+        /* Right Card Size */
+        #right-card {
+            width: 300px;
+            height: 300px;
+            right: 5%;
+            top: 5%;
+        }
+
+        /* Icon Container */
+        .icon-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Icon Styling */
+        .icon-container i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* Percentage Text */
+        .icon-container .skill-percentage {
+            position: absolute;
+            top: -20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hover Effects */
+        .icon-container:hover i {
+            transform: scale(1.2); /* Pop-up effect */
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); /* Glow effect */
+        }
+
+        .icon-container:hover .skill-percentage {
+            opacity: 1;
+            transform: translateY(-10px); /* Move percentage up */
+        }
+
+        /* Connecting Lines */
+        .connecting-line {
+            position: absolute;
+            background: white;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .connecting-line.horizontal {
+            width: 40%;
+            height: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .connecting-line.vertical {
+            width: 2px;
+            height: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Center Dot */
+        .center-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        /* Full Stack Web Developer and UI/UX Designer Text */
+        .full-stack-text {
+            position: absolute;
+            top: 60%; /* Adjusted to position below the center line */
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 1s ease;
+            text-align: center;
+            z-index: 3;
+            margin-top: 20px; /* Added space between the center line and text */
+        }
+
+        /* Gradient Text Styling */
+        .text-gradient {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Typing Effect Container */
+        .typing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Typing Effect */
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid white; /* Cursor effect */
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .card {
+                width: 250px;
+                height: 250px;
+                padding: 1.5rem;
+            }
+            .icon-container i {
+                font-size: 2rem;
+            }
+            .icon-container .skill-percentage {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-800 text-white font-roboto">
+    <div class="container mx-auto p-4">
+        <h1 class="text-center text-3xl font-bold mb-8">My Skills</h1>
+        <div class="relative h-96">
+            <!-- Left Card -->
+            <div class="card" id="left-card">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="icon-container">
+                        <i class="fab fa-html5 text-orange-500" id="html-icon"></i>
+                        <span>HTML5</span>
+                        <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fab fa-css3-alt text-blue-500" id="css-icon"></i>
+                        <span>CSS3</span>
+                        <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fab fa-js-square text-yellow-500" id="js-icon"></i>
+                        <span>JavaScript</span>
+                        <div class="skill-percentage">80%</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fab fa-react text-blue-300" id="react-icon"></i>
+                        <span>React</span>
+                        <div class="skill-percentage">75%</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fab fa-node-js text-green-600" id="node-icon"></i>
+                        <span>Node.js</span>
+                        <div class="skill-percentage">70%</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fas fa-server text-gray-400" id="express-icon"></i>
+                        <span>Express</span>
+                        <div class="skill-percentage">65%</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fab fa-css3-alt text-blue-400" id="tailwind-icon"></i>
+                        <span>Tailwind</span>
+                        <div class="skill-percentage">60%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Card -->
+            <div class="card" id="right-card">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="icon-container">
+                        <i class="fas fa-palette text-pink-500" id="uiux-icon"></i>
+                        <span>UI/UX</span>
+                        <div class="skill-percentage">95%</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fab fa-figma text-purple-500" id="figma-icon"></i>
+                        <span>Figma</span>
+                        <div class="skill-percentage">90%</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fas fa-vector-square text-red-500" id="adobe-icon"></i>
+                        <span>Adobe XD</span>
+                        <div class="skill-percentage">85%</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fab fa-sketch text-orange-400" id="sketch-icon"></i>
+                        <span>Sketch</span>
+                        <div class="skill-percentage">80%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connecting Lines -->
+            <div class="connecting-line horizontal" id="left-line" style="left: 5%;"></div>
+            <div class="connecting-line horizontal" id="right-line" style="right: 5%;"></div>
+            <div class="connecting-line vertical" id="vertical-line" style="top: 50%;"></div>
+
+            <!-- Center Dot -->
+            <div class="center-dot" id="center-dot"></div>
+
+            <!-- Full Stack Web Developer and UI/UX Designer Text -->
+            <div class="full-stack-text" id="full-stack-text" style="margin-top: 70px; margin-left: 70px;">
+                <div class="typing-container">
+                    <div class="typing-effect text-2xl font-bold text-gradient">
+                        Full Stack Web Developer
+                    </div>
+                    <div class="text-2xl font-bold text-gradient">+</div>
+                    <div class="typing-effect text-2xl font-bold text-gradient">
+                        UI/UX Designer
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Icons in the left card
+        const leftIcons = [
+            { id: 'html-icon', delay: 500 },
+            { id: 'css-icon', delay: 1000 },
+            { id: 'js-icon', delay: 1500 },
+            { id: 'react-icon', delay: 2000 },
+            { id: 'node-icon', delay: 2500 },
+            { id: 'express-icon', delay: 3000 },
+            { id: 'tailwind-icon', delay: 3500 },
+        ];
+
+        // Icons in the right card
+        const rightIcons = [
+            { id: 'uiux-icon', delay: 500 },
+            { id: 'figma-icon', delay: 1000 },
+            { id: 'adobe-icon', delay: 1500 },
+            { id: 'sketch-icon', delay: 2000 },
+        ];
+
+        // Add glow effect to left icons sequentially
+        leftIcons.forEach((icon) => {
+            setTimeout(() => {
+                document.getElementById(icon.id).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+            }, icon.delay);
+        });
+
+        // Add glow effect to right icons sequentially
+        rightIcons.forEach((icon) => {
+            setTimeout(() => {
+                document.getElementById(icon.id).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+            }, icon.delay);
+        });
+
+        // Show connecting lines and center dot after all icons glow
+        setTimeout(() => {
+            document.getElementById('left-line').style.opacity = 1;
+            document.getElementById('right-line').style.opacity = 1;
+            document.getElementById('vertical-line').style.opacity = 1;
+            document.getElementById('center-dot').style.opacity = 1;
+        }, 4000);
+
+        // Show text after connecting lines are visible
+        setTimeout(() => {
+            document.getElementById('full-stack-text').style.opacity = 1;
+        }, 5000);
+    </script>
+</body>
+</html>
