@@ -1,5 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Skills</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -178,10 +181,10 @@
         }
     </style>
 </head>
-<body class="bg-gray-800 text-white font-roboto">
+<body class="bg-gradient-to-r from-purple-900 to-black text-white font-roboto">
     <div class="container mx-auto p-4">
         <h1 class="text-center text-3xl font-bold mb-8">My Skills</h1>
-        <div class="relative h-96">
+        <div class="relative h-96" id="skills-section">
             <!-- Left Card -->
             <div class="card" id="left-card">
                 <div class="flex flex-wrap justify-center gap-4">
@@ -273,51 +276,68 @@
     </div>
 
     <script>
-        // Icons in the left card
-        const leftIcons = [
-            { id: 'html-icon', delay: 500 },
-            { id: 'css-icon', delay: 1000 },
-            { id: 'js-icon', delay: 1500 },
-            { id: 'react-icon', delay: 2000 },
-            { id: 'node-icon', delay: 2500 },
-            { id: 'express-icon', delay: 3000 },
-            { id: 'tailwind-icon', delay: 3500 },
-        ];
+        // Function to trigger animations
+        function startAnimations() {
+            // Icons in the left card
+            const leftIcons = [
+                { id: 'html-icon', delay: 500 },
+                { id: 'css-icon', delay: 1000 },
+                { id: 'js-icon', delay: 1500 },
+                { id: 'react-icon', delay: 2000 },
+                { id: 'node-icon', delay: 2500 },
+                { id: 'express-icon', delay: 3000 },
+                { id: 'tailwind-icon', delay: 3500 },
+            ];
 
-        // Icons in the right card
-        const rightIcons = [
-            { id: 'uiux-icon', delay: 500 },
-            { id: 'figma-icon', delay: 1000 },
-            { id: 'adobe-icon', delay: 1500 },
-            { id: 'sketch-icon', delay: 2000 },
-        ];
+            // Icons in the right card
+            const rightIcons = [
+                { id: 'uiux-icon', delay: 500 },
+                { id: 'figma-icon', delay: 1000 },
+                { id: 'adobe-icon', delay: 1500 },
+                { id: 'sketch-icon', delay: 2000 },
+            ];
 
-        // Add glow effect to left icons sequentially
-        leftIcons.forEach((icon) => {
+            // Add glow effect to left icons sequentially
+            leftIcons.forEach((icon) => {
+                setTimeout(() => {
+                    document.getElementById(icon.id).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+                }, icon.delay);
+            });
+
+            // Add glow effect to right icons sequentially
+            rightIcons.forEach((icon) => {
+                setTimeout(() => {
+                    document.getElementById(icon.id).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+                }, icon.delay);
+            });
+
+            // Show connecting lines and center dot after all icons glow
             setTimeout(() => {
-                document.getElementById(icon.id).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
-            }, icon.delay);
-        });
+                document.getElementById('left-line').style.opacity = 1;
+                document.getElementById('right-line').style.opacity = 1;
+                document.getElementById('vertical-line').style.opacity = 1;
+                document.getElementById('center-dot').style.opacity = 1;
+            }, 4000);
 
-        // Add glow effect to right icons sequentially
-        rightIcons.forEach((icon) => {
+            // Show text after connecting lines are visible
             setTimeout(() => {
-                document.getElementById(icon.id).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
-            }, icon.delay);
-        });
+                document.getElementById('full-stack-text').style.opacity = 1;
+            }, 5000);
+        }
 
-        // Show connecting lines and center dot after all icons glow
-        setTimeout(() => {
-            document.getElementById('left-line').style.opacity = 1;
-            document.getElementById('right-line').style.opacity = 1;
-            document.getElementById('vertical-line').style.opacity = 1;
-            document.getElementById('center-dot').style.opacity = 1;
-        }, 4000);
+        // Intersection Observer to trigger animations when the section comes into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    startAnimations();
+                    observer.unobserve(entry.target); // Stop observing after triggering
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
 
-        // Show text after connecting lines are visible
-        setTimeout(() => {
-            document.getElementById('full-stack-text').style.opacity = 1;
-        }, 5000);
+        // Observe the skills section
+        const skillsSection = document.getElementById('skills-section');
+        observer.observe(skillsSection);
     </script>
 </body>
 </html>
