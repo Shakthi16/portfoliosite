@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>ShakthiSri - portfolio</title>
+  <title>Web Developer + UX Designer</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
@@ -282,6 +282,13 @@
     #about .details2 { grid-area: details2; }
     #about .skills { grid-area: skills; }
     
+
+    .text-2xl {
+      transition: opacity 0.5s ease-in-out;
+    }
+
+
+
   </style>
 </head>
 <body class="bg-gradient-to-r from-purple-900 to-black text-white relative">
@@ -357,29 +364,31 @@
       </div>
     </div>
   </section>
-  <section id="about" class="p-6 md:p-10 min-h-screen py-8" data-aos="fade-up">
+  <section id="about" class="p-6 md:p-10 min-h-screen py-8 " data-aos="fade-up">
     <div class="flex justify-around mb-10 transform -translate-y-4">
       <div class="text-center">
-        <h3 class="text-2xl font-bold">3</h3>
+        <h3 id="years" class="text-2xl font-bold">0</h3>
         <p class="text-lg">Years of Study</p>
       </div>
       <div class="text-center">
-        <h3 class="text-2xl font-bold">4+</h3>
+        <h3 id="internships" class="text-2xl font-bold">0+</h3>
         <p class="text-lg">Internships Completed</p>
       </div>
       <div class="text-center">
-        <h3 class="text-2xl font-bold">5+</h3>
+        <h3 id="projects" class="text-2xl font-bold">0+</h3>
         <p class="text-lg">Projects Worked On</p>
       </div>
       <div class="text-center">
-        <h3 class="text-2xl font-bold">10+</h3>
+        <h3 id="courses" class="text-2xl font-bold">0+</h3>
         <p class="text-lg">Courses Completed</p>
       </div>
+      <div class="text-center">
+        <h3 id="clients" class="text-2xl font-bold">0</h3>
+        <p class="text-lg">Number of Clients</p>
+      </div>
     </div>
-    
-    
     </div>
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-4 bg-gradient-to-r from-purple-900 to-black text-white relative">
           <!-- Custom Grid Layout -->
           <div class="grid-container">
               <!-- About Me Section -->
@@ -476,8 +485,8 @@
                   <h3 class="text-xl font-bold mb-4">Contact</h3>
                   <ul class="list-none">
                       <li class="mb-2"><i class="fas fa-envelope text-gray-900 dark:text-gray-100 mr-2"></i>srishakthi799@gmail.com</li>
-                      <li class="mb-2"><i class="fas fa-phone text-gray-900 dark:text-gray-100 mr-2"></i>8838198981</li>
-                      <li><i class="fas fa-map-marker-alt text-gray-900 dark:text-gray-100 mr-2"></i>Vellore,TamilNadu,India</li>
+                      <li class="mb-2"><i class="fas fa-phone text-gray-900 dark:text-gray-100 mr-2"></i>+123 456 7890</li>
+                      <li><i class="fas fa-map-marker-alt text-gray-900 dark:text-gray-100 mr-2"></i>San Francisco, CA</li>
                   </ul>
               </div>
 
@@ -1009,6 +1018,72 @@
         document.getElementById('skills-content').innerHTML = data;
     })
     .catch(error => console.error('Error loading skills.html:', error));
+
+    function animateValue(id, start, end, duration, hasPlusSign = false) {
+      let range = end - start;
+      let current = start;
+      let increment = end > start ? 1 : -1;
+      let stepTime = Math.abs(Math.floor(duration / range));
+      let obj = document.getElementById(id);
+      let timer = setInterval(function () {
+        current += increment;
+        // Add the "+" sign if required
+        obj.textContent = hasPlusSign ? `${current}+` : current;
+        if (current == end) {
+          clearInterval(timer);
+        }
+      }, stepTime);
+    }
+    
+    // Function to observe when the div enters the viewport
+    function startCountAnimation(entries, observer) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Start the animations
+          animateValue("years", 0, 3, 2000); // No "+" sign
+          animateValue("internships", 0, 4, 2000, true); // With "+" sign
+          animateValue("projects", 0, 5, 2000, true); // With "+" sign
+          animateValue("courses", 0, 10, 2000, true); // With "+" sign
+          animateValue("clients", 0, 1, 2000); // No "+" sign
+    
+          // Stop observing after the animation starts
+          observer.unobserve(entry.target);
+        }
+      });
+    }
+    
+    // Set up the Intersection Observer
+    const observer = new IntersectionObserver(startCountAnimation, {
+      root: null, // Use the viewport as the root
+      threshold: 0.5, // Trigger when 50% of the div is visible
+    });
+    
+    // Target the div to observe
+    const targetDiv = document.querySelector(".flex.justify-around.mb-10.transform.-translate-y-4");
+    observer.observe(targetDiv);
+
+
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check localStorage for theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+        }
+
+        // Toggle Theme on Button Click
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+
+            // Save theme preference to localStorage
+            const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+            localStorage.setItem('theme', currentTheme);
+        });
   </script>
 </body>
 </html>
