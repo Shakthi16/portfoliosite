@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGNI C2 | Case Study</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      background-color: #fcfcfc;
+      color: #1a1a1a;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    .brand-font {
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    /* Layout Helpers */
+    .section-container {
+      max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-24;
+    }
+    
+    .pill-tag {
+      border: 1px solid #e5e5e5;
+      border-radius: 9999px;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.875rem;
+      color: #4a4a4a;
+      background: white;
+    }
+
+    /* Placeholder Blocks */
+    .placeholder-block {
+      background: #f5f5f5;
+      border: 1px dashed #d1d1d1;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a3a3a3;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      min-height: 400px;
+      width: 100%;
+      margin: 2rem 0;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+</head>
+<body class="antialiased">
+
+  <!-- Navigation -->
+  <nav class="w-full py-8 px-6 md:px-12 flex justify-between items-center max-w-[1400px] mx-auto">
+    <a href="index.html#projects" class="text-black font-semibold text-sm flex items-center gap-2 hover:opacity-70 transition-opacity">
+      <i class="fas fa-chevron-left text-xs"></i> Projects / AGNI C2
+    </a>
+  </nav>
+
+  <!-- Header -->
+  <header class="max-w-6xl mx-auto px-6 md:px-12 mt-12 mb-16 gs-reveal">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 pb-12 gap-8">
+      <div class="flex items-center gap-6">
+        <div class="w-16 h-16 bg-purple-600 text-white rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg">
+          A
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold brand-font tracking-tight">AGNI C2</h1>
+      </div>
+      
+      <div class="text-left md:text-right">
+        <p class="font-bold text-sm tracking-widest uppercase text-gray-800">Cybersecurity | AI Platform</p>
+        <p class="text-gray-500 mt-2 font-medium">2026</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Introduction -->
+  <section class="max-w-6xl mx-auto px-6 md:px-12 mb-24 gs-reveal">
+    <p class="text-xl md:text-3xl text-gray-800 leading-relaxed font-light mb-20 max-w-5xl">
+      <strong class="font-semibold">AGNI C2</strong> is a next-generation Command & Control framework that integrates Local Large Language Models directly into the offensive security workflow. The platform was designed to reduce the cognitive overload of managing multiple beacons while providing real-time, explainable AI assistance for red team operators.
+    </p>
+
+    <!-- Metadata Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div>
+        <h3 class="text-xl font-bold mb-6">Domains:</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="pill-tag">Offensive Security</span>
+          <span class="pill-tag">AI Integration</span>
+          <span class="pill-tag">Full-Stack Dev</span>
+          <span class="pill-tag">Data Visualization</span>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-bold mb-6">Tech Stack:</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="pill-tag">React / TypeScript</span>
+          <span class="pill-tag">FastAPI</span>
+          <span class="pill-tag">Sliver C2</span>
+          <span class="pill-tag">Ollama (Qwen)</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-4">Challenge:</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Modern red team operations suffer from tool fragmentation and cognitive overload. Operators lack a unified platform that correlates live campaign data with the MITRE ATT&CK framework while providing real-time tactical intelligence.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-4">Role:</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Sole researcher and full-stack developer. Responsible for the complete system architecture, from the React/Tailwind frontend to the FastAPI/WebSocket backend and the seamless integration of Sliver and Local LLMs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Content -->
+  <main class="max-w-6xl mx-auto px-6 md:px-12 mb-32">
+    
+    <!-- Vision Shift -->
+    <div class="mb-32 gs-reveal">
+      <h2 class="text-3xl font-bold brand-font mb-6">The Vision Shift</h2>
+      <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl">
+        The core problem with existing frameworks wasn't execution—it was cognition. Traditional setups map: <strong>Operator → Commands → Target</strong>. AGNI introduces a cognitive layer: <strong>Operator → AI Intelligence → Risk Analysis → Visualization → Target</strong>.
+      </p>
+      <div class="placeholder-block">
+        [ Product Vision / Architecture Diagram Goes Here ]
+      </div>
+    </div>
+
+    <!-- Core Features -->
+    <div class="mb-32 gs-reveal">
+      <h2 class="text-3xl font-bold brand-font mb-12 border-b border-gray-200 pb-4">Core Features</h2>
+      
+      <div class="grid grid-cols-1 gap-24">
+        
+        <!-- Feature 1 -->
+        <div>
+          <h3 class="text-2xl font-bold mb-4">1. The AI Mentor</h3>
+          <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl">
+            Powered by local LLMs (Qwen) via Ollama, the AI Mentor provides real-time SSE streaming assistance. It understands the operational context and suggests OPSEC-safe commands while automatically mapping actions to the MITRE ATT&CK framework.
+          </p>
+          <div class="placeholder-block min-h-[500px]">
+            [ Fullscreen Screenshot: AgniAI Interface ]
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div>
+          <h3 class="text-2xl font-bold mb-4">2. Interactive Attack Graph Engine</h3>
+          <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl">
+            An SVG-based visualizer for attack paths. Nodes represent compromised systems while edges represent MITRE techniques. The system calculates risk and allows the AI to suggest optimal lateral movement paths directly from the graph.
+          </p>
+          <div class="placeholder-block min-h-[500px]">
+            [ Fullscreen Screenshot: Attack Graph Visualizer ]
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div>
+          <h3 class="text-2xl font-bold mb-4">3. Defensive Bridge</h3>
+          <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl">
+            Bridging the gap between Red and Blue teams. AGNI can automatically generate Sigma, YARA, and Suricata detection rules based on the attack techniques executed during a campaign.
+          </p>
+          <div class="placeholder-block min-h-[500px]">
+            [ Fullscreen Screenshot: RedBlueBridge Interface ]
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Results & Innovations -->
+    <div class="mb-32 gs-reveal">
+      <h2 class="text-3xl font-bold brand-font mb-12 border-b border-gray-200 pb-4">Innovations & Results</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <div>
+          <h4 class="text-xl font-bold text-purple-600 mb-2">Intent Compiler</h4>
+          <p class="text-gray-600">Translating high-level operator intent into OPSEC-safe low-level commands via AI.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-purple-600 mb-2">Operational Exposure Index</h4>
+          <p class="text-gray-600">Internal metrics for stealth and risk assessment dynamically calculated during operations.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-purple-600 mb-2">Reality Gap Minimization</h4>
+          <p class="text-gray-600">Bridging theoretical attack paths with actual network topologies in real-time.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-purple-600 mb-2">Comprehensive Mapping</h4>
+          <p class="text-gray-600">Successfully mapped and automated 25+ distinct MITRE ATT&CK techniques.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-16 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 md:px-12 text-center">
+      <h2 class="text-3xl font-bold brand-font mb-8">
+        Explore More
+      </h2>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="#" class="px-8 py-3 bg-white border border-gray-300 rounded-full hover:border-gray-500 transition-colors font-semibold text-sm">GitHub Repo</a>
+        <a href="#" class="px-8 py-3 bg-white border border-gray-300 rounded-full hover:border-gray-500 transition-colors font-semibold text-sm">Read Technical Report</a>
+        <a href="index.html#projects" class="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors font-semibold text-sm">Back to Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Initialize Lenis (Smooth Scroll)
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // GSAP ScrollTrigger Integration
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Fade Up Elements
+    const reveals = document.querySelectorAll('.gs-reveal');
+    reveals.forEach(el => {
+      gsap.fromTo(el, 
+        { y: 40, opacity: 0 },
+        {
+          y: 0, 
+          opacity: 1, 
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+  </script>
+</body>
+
+</html>
