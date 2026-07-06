@@ -1,15 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Shakthi Sri | Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <!-- Premium Fonts for Awwwards Style -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shakthi Sri | Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<!-- Premium Fonts for Awwwards Style -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
     /* Custom CSS for Awwwards style */
 :root {
       --bg: #050505;
@@ -164,6 +164,74 @@
     .ach-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
+    }
+
+    /* Academic Background Premium Cards */
+    .edu-card {
+      border-radius: 2rem;
+      position: relative;
+      cursor: pointer;
+      overflow: visible;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+    @media (min-width: 768px) {
+      .edu-card {
+        min-height: 460px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .edu-card {
+        min-height: 520px;
+      }
+    }
+    .edu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
+    }
+    .edu-card-bt {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .edu-card-hsc {
+      background: linear-gradient(135deg, #064e3b 0%, #0c4a6e 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .edu-card-sslc {
+      background: linear-gradient(135deg, #7c2d12 0%, #451a03 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    body.light-mode .edu-card {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+    body.light-mode .edu-card:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    }
+    body.light-mode .edu-card-bt {
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    body.light-mode .edu-card-hsc {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    body.light-mode .edu-card-sslc {
+      background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    body.light-mode .edu-card h3,
+    body.light-mode .edu-card .font-black {
+      color: #111111 !important;
+    }
+    body.light-mode .edu-card p {
+      color: #4b5563 !important;
+    }
+    body.light-mode .edu-card .text-xs {
+      color: inherit !important;
     }
     
     /* Fullscreen detail modal overlay style */
@@ -384,7 +452,7 @@
       white-space: nowrap;
       position: relative;
       display: flex;
-      background: var(--accent);
+      background: var(--accent) !important;
       color: var(--bg);
       padding: 1rem 0;
       transform: rotate(-2deg) scale(1.05);
@@ -1033,697 +1101,1309 @@
       background: #fafafa;
     }
 
-</style>
+
+    /* --- AWWWARDS DESIGN SYSTEM --- */
+    :root {
+      --charcoal-bg: #0a0a0a;
+      --charcoal-warm: #0f0d0a;
+      --off-white: #f5f5f0;
+      --gold-accent: #a855f7;
+      --gold-warm: #9333ea;
+      --pearl: #f8f6f0;
+    }
+
+    body {
+      background-color: var(--charcoal-bg);
+      color: var(--off-white);
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+    
+    body.light-mode {
+      --charcoal-bg: #fafafa;
+      --charcoal-warm: #ffffff;
+      --off-white: #111111;
+      --pearl: #333333;
+    }
+    
+    body.light-mode #home .hero-subtitle .text-white,
+    body.light-mode #home p.text-gray-400,
+    body.light-mode #achievements h2.text-white,
+    body.light-mode #aww-hero .text-white,
+    body.light-mode #aww-hero .text-white\/90,
+    body.light-mode #aww-hero .text-white\/60,
+    body.light-mode #aww-hero h1,
+    body.light-mode #studio-badge .text-white,
+    body.light-mode #studio-badge .text-white\/90,
+    body.light-mode #studio-badge .text-white\/60 {
+      color: #111111 !important;
+      mix-blend-mode: normal !important;
+    }
+    /* Light Mode Overrides for Navigation */
+    body.light-mode #menu-toggle span {
+      background-color: #111111 !important;
+    }
+    body.light-mode .theme-pill {
+      background: rgba(0, 0, 0, 0.05) !important;
+      border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    }
+    body.light-mode .theme-thumb {
+      background-color: #111111 !important;
+    }
+    body.light-mode .moon-icon {
+      color: #ffffff !important;
+    }
+    
+    body.light-mode #studio-badge {
+      background-color: #ffffff !important;
+      border-color: #f3f4f6 !important;
+    }
+    /* Light Mode Overrides for Skills Orbital Section */
+    body.light-mode #active-category-indicator,
+    body.light-mode #active-skill-name,
+    body.light-mode #skills .text-white,
+    body.light-mode #skills .text-gray-400,
+    body.light-mode #skills-category-selector button {
+      color: #111111 !important;
+      border-color: #e5e7eb !important;
+    }
+    body.light-mode #skills .skills-orbit-ring {
+      border-color: rgba(0,0,0,0.05) !important;
+    }
+    
+    /* Additional Light Mode Legibility and Contrast Overrides */
+    body.light-mode #ed-pinned-text h1,
+    body.light-mode #ed-pinned-text p,
+    body.light-mode #ed-pinned-text span {
+      color: #111111 !important;
+      mix-blend-mode: normal !important;
+    }
+
+    body.light-mode #about .z-0 span.text-white {
+      color: #000000 !important;
+      opacity: 0.03 !important;
+    }
+    body.light-mode .timeline-card {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    }
+    body.light-mode .timeline-card h4.text-white {
+      color: #111111 !important;
+    }
+    body.light-mode .timeline-card p {
+      color: #4b5563 !important;
+    }
+
+    body.light-mode #achievements .text-gray-400 {
+      color: #4b5563 !important;
+    }
+    body.light-mode #achievements {
+      border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+    body.light-mode #contact .border-white\/10 {
+      border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+    body.light-mode #home .text-gray-400,
+    body.light-mode #home .text-gray-400 a {
+      color: #4b5563 !important;
+    }
+    body.light-mode #home .text-gray-400 a:hover {
+      color: #111111 !important;
+    }
+    body.light-mode #home .text-gray-400 a::after {
+      background-color: #111111 !important;
+    }
+    body.light-mode #home a.border-white\/30 {
+      border-color: rgba(0, 0, 0, 0.2) !important;
+      color: #111111 !important;
+    }
+    body.light-mode #home a.border-white\/30:hover {
+      background-color: #111111 !important;
+      color: #ffffff !important;
+    }
+    body.light-mode .text-purple-400 {
+      color: #7c3aed !important;
+    }
+    
+    /* Academic Cards Custom Colors */
+    .academic-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: rgba(168, 85, 247, 0.25) !important;
+    }
+    .academic-card h3 {
+      color: #ffffff;
+    }
+    .academic-card .academic-accent {
+      color: #a855f7 !important;
+    }
+    
+    body.light-mode .academic-card {
+      background-color: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+    body.light-mode .academic-card h3 {
+      color: #111111;
+    }
+    body.light-mode .academic-card .academic-accent {
+      color: #a855f7 !important;
+    }
+
+    /* Global Font Override for Absolute Consistency */
+    body, h1, h2, h3, h4, h5, h6, p, a, div, 
+    .font-sans, .font-serif, .font-mono, 
+    .font-sans-aww, .font-serif-aww, 
+    .brand, .split-text-tagline, .split-text-hero {
+      font-family: 'Inter', sans-serif !important;
+    }
+    
+    /* Enforce thick geometric bold for headings like the image */
+    h1, h2, h3, .brand {
+      font-weight: 700 !important;
+      letter-spacing: -0.04em;
+    }
+
+    /* Lenis Smooth Scroll Base */
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+    .lenis.lenis-scrolling iframe {
+      pointer-events: none;
+    }
+
+    /* Custom Cursor */
+    #custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background-color: var(--gold-accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), height 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), background-color 0.3s;
+      mix-blend-mode: difference;
+    }
+    #custom-cursor.hovering {
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      border: 1px solid var(--gold-accent);
+    }
+    #custom-cursor.clicking {
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    @media (hover: none) and (pointer: coarse) {
+      #custom-cursor { display: none; }
+    }
+
+    /* Specific Section: Hero Parallax */
+    .aww-hero {
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(168,85,247,0.08) 0%, transparent 40%), var(--charcoal-bg);
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    /* Studio Glass Badge */
+    .glass-card {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(168,85,247,0.15);
+      border-radius: 20px;
+      transition: box-shadow 0.3s ease;
+    }
+    .glass-card:hover {
+      box-shadow: inset 0 0 40px rgba(168,85,247,0.1), 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Orbital Links */
+    .orbital-link {
+      background: transparent;
+      border: 1px solid rgba(245,245,240,0.2);
+      color: var(--off-white);
+      transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .orbital-link:hover {
+      background: linear-gradient(135deg, var(--gold-accent), var(--gold-warm));
+      color: #000;
+      border-color: transparent;
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(168,85,247,0.3);
+    }
+    .orbital-link:active {
+      transform: scale(0.98);
+    }
+
+    /* Timeline & Cards */
+    .timeline-line-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(168,85,247,0.1);
+    }
+    .timeline-line-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: var(--gold-accent);
+      box-shadow: 0 0 10px var(--gold-accent);
+    }
+    .timeline-card {
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* 3D Perspective Cards Disabled */
+    .perspective-container { }
+    .tilt-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 100%);
+      border: 1px solid rgba(168,85,247,0.1);
+      border-radius: 16px;
+      padding: 40px;
+      transition: border-color 0.3s, transform 0.3s ease-out;
+    }
+    .tilt-card:hover {
+      border-color: rgba(168,85,247,0.4);
+    }
+
+    /* Marquee */
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .marquee-track {
+      display: inline-block;
+      animation: marquee-scroll 30s linear infinite;
+    }
+    .marquee-track.reverse {
+      animation-direction: reverse;
+    }
+    .marquee-container:hover .marquee-track {
+      animation-play-state: paused;
+    }
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    
+    .cert-badge {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+    }
+    .cert-badge h4 {
+      color: #ffffff !important;
+    }
+    .cert-badge p {
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+    .cert-badge span {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* Section Divider */
+    .cinematic-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(168,85,247,0.3);
+      transform-origin: center;
+      transform: scaleX(0);
+    }
+
+    /* Text link underline */
+    .link-underline {
+      position: relative;
+    }
+    .link-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--gold-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .link-underline:hover::after {
+      transform: scaleX(1);
+    }
+
+
+    /* End of AWWWARDS DESIGN SYSTEM */
+  </style>
+<!-- Awwwards Fonts & Lenis -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 </head>
 <body class="antialiased">
 <div class="noise-overlay" style="pointer-events: none;"></div>
 <div class="cursor"></div>
 <div class="fixed top-8 right-8 z-[100] flex items-center gap-8">
-  <div class="w-16 h-8 rounded-full transition-all duration-300 relative flex items-center px-1 theme-pill cursor-pointer hoverable" id="theme-toggle">
-    <div class="w-6 h-6 rounded-full bg-white transition-all duration-500 transform translate-x-0 theme-thumb shadow-md flex items-center justify-center overflow-hidden">
-      <i class="fas fa-moon text-black text-[10px] moon-icon transition-transform duration-500 absolute"></i>
-    </div>
-  </div>
-  
-  <div class="cursor-pointer hoverable flex flex-col gap-2.5 relative w-10 group mix-blend-difference" id="menu-toggle">
-    <span class="w-full h-[2px] bg-white block transition-all duration-300 line-1"></span>
-    <span class="w-full h-[2px] bg-white block transition-all duration-300 group-hover:w-1/2 line-2"></span>
-  </div>
+<div class="w-16 h-8 rounded-full transition-all duration-300 relative flex items-center px-1 theme-pill cursor-pointer hoverable" id="theme-toggle">
+<div class="w-6 h-6 rounded-full bg-white transition-all duration-500 transform translate-x-0 theme-thumb shadow-md flex items-center justify-center overflow-hidden">
+<i class="fas fa-moon text-black text-[10px] moon-icon transition-transform duration-500 absolute"></i>
 </div>
-
+</div>
+<div class="cursor-pointer hoverable flex flex-col gap-2.5 relative w-10 group mix-blend-difference" id="menu-toggle">
+<span class="w-full h-[2px] bg-white block transition-all duration-300 line-1"></span>
+<span class="w-full h-[2px] bg-white block transition-all duration-300 group-hover:w-1/2 line-2"></span>
+</div>
+</div>
 <div class="fixed inset-0 bg-[#ebebeb] z-[90] flex flex-col p-6 md:p-12 transition-colors duration-500 overflow-hidden" id="overlay-menu" style="clip-path: circle(0% at 100% 0%); pointer-events: none;">
-  
-  <div class="flex-grow flex flex-col md:flex-row mt-24 w-full max-w-7xl mx-auto gap-12 relative z-10">
-    <nav class="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-4 text-left w-full md:w-2/3">
-      <div class="overflow-hidden"><a href="#home" class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" style="transform: translateY(100%);">Home</a></div>
-      <div class="overflow-hidden"><a href="#projects" class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" style="transform: translateY(100%);">Projects</a></div>
-      <div class="overflow-hidden"><a href="#about" class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" style="transform: translateY(100%);">About us</a></div>
-      <div class="overflow-hidden"><a href="#skills" class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" style="transform: translateY(100%);">Arsenal</a></div>
-      <div class="overflow-hidden"><a href="#contact" class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" style="transform: translateY(100%);">Contact</a></div>
-    </nav>
-    
-    <div class="w-full md:w-1/3 flex flex-col justify-end text-[#111] pb-12">
-      <div class="mb-12 border-b border-black/20 pb-6">
-        <p class="text-sm font-bold text-black/50 uppercase tracking-widest mb-4">Focus</p>
-        <p class="text-xl font-light text-black/80 italic leading-relaxed">"Bridging the gap between intelligent automation, robust security, and seamless user experiences."</p>
-      </div>
-      
-      <div class="flex gap-3 text-sm font-bold text-black/50 mb-12 flex-wrap">
-        <span class="text-black uppercase tracking-wider">Software</span> &bull; <span class="uppercase tracking-wider">Cybersecurity</span> &bull; <span class="uppercase tracking-wider">UI/UX</span>
-      </div>
-      
-      <div class="flex flex-col gap-2 text-xl text-black/50 font-medium">
-        <a href="#" class="hover:text-black transition-colors hoverable">Instagram</a>
-        <a href="https://linkedin.com/in/shakthisri" class="hover:text-black transition-colors hoverable">LinkedIn</a>
-        <a href="https://github.com/Shakthi16" class="hover:text-black transition-colors hoverable">GitHub</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="absolute bottom-[-5%] right-0 w-full flex justify-end items-end opacity-10" style="pointer-events: none;">
-    <h1 class="text-[20vw] font-bold leading-none tracking-tighter text-black" style="font-family: 'Outfit', sans-serif; margin-right: -2vw; pointer-events: none;">Shakthi.</h1>
-  </div>
+<div class="flex-grow flex flex-col md:flex-row mt-24 w-full max-w-7xl mx-auto gap-12 relative z-10">
+<nav class="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-4 text-left w-full md:w-2/3">
+<div class="overflow-hidden"><a class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" href="#home" style="transform: translateY(100%);">Home</a></div>
+<div class="overflow-hidden"><a class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" href="#projects" style="transform: translateY(100%);">Projects</a></div>
+<div class="overflow-hidden"><a class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" href="#about" style="transform: translateY(100%);">About me</a></div>
+<div class="overflow-hidden"><a class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" href="#skills" style="transform: translateY(100%);">Arsenal</a></div>
+<div class="overflow-hidden"><a class="menu-link inline-block text-5xl md:text-7xl font-medium text-black hover:opacity-100 opacity-40 transition-opacity" href="#contact" style="transform: translateY(100%);">Contact</a></div>
+</nav>
+<div class="w-full md:w-1/3 flex flex-col justify-end text-[#111] pb-12">
+<div class="mb-12 border-b border-black/20 pb-6">
+<p class="text-sm font-bold text-black/50 uppercase tracking-widest mb-4">Focus</p>
+<p class="text-xl font-light text-black/80 italic leading-relaxed">"Bridging the gap between intelligent automation, robust security, and seamless user experiences."</p>
 </div>
-
-
+<div class="flex gap-3 text-sm font-bold text-black/50 mb-12 flex-wrap">
+<span class="text-black uppercase tracking-wider">Software</span> • <span class="uppercase tracking-wider">Cybersecurity</span> • <span class="uppercase tracking-wider">UI/UX</span>
+</div>
+<div class="flex flex-col gap-2 text-xl text-black/50 font-medium">
+<a class="hover:text-black transition-colors hoverable" href="#">Instagram</a>
+<a class="hover:text-black transition-colors hoverable" href="https://linkedin.com/in/shakthisri">LinkedIn</a>
+<a class="hover:text-black transition-colors hoverable" href="https://github.com/Shakthi16">GitHub</a>
+</div>
+</div>
+</div>
+<div class="absolute bottom-[-5%] right-0 w-full flex justify-end items-end opacity-10" style="pointer-events: none;">
+<h1 class="text-[20vw] font-bold leading-none tracking-tighter text-black" style="font-family: 'Outfit', sans-serif; margin-right: -2vw; pointer-events: none;">Shakthi.</h1>
+</div>
+</div>
 <main>
-  <!-- HOME -->
-  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 px-6">
-    <!-- Interactive Background Image Spotlight Canvas -->
-    <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 0;"></canvas>
-    
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div class="z-10">
-        <h1 class="hero-title gs-reveal">I am<br><span id="typed-name" class="text-purple-400 typing-cursor"></span></h1>
-        <h2 class="hero-subtitle mt-6 gs-reveal">
-          <span class="text-white font-bold">Software Engineer</span> <span class="text-purple-500 font-bold mx-1">|</span> 
-          <span class="text-white font-bold">Cybersecurity Researcher</span> <span class="text-purple-500 font-bold mx-1">|</span> 
-          <span class="text-white font-bold">UI/UX Designer</span>
-        </h2>
-        <p class="mt-6 text-lg md:text-xl text-gray-400 max-w-md gs-reveal">
+<!-- HOME -->
+<section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 px-6" id="home">
+<!-- Interactive Background Image Spotlight Canvas -->
+<canvas class="absolute inset-0 w-full h-full pointer-events-none" id="hero-canvas" style="z-index: 0;"></canvas>
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<h1 class="hero-title gs-reveal">I am<br/><span class="text-purple-400 typing-cursor" id="typed-name"></span></h1>
+<h2 class="hero-subtitle mt-6 gs-reveal">
+<span class="text-white font-bold">Software Engineer</span> <span class="text-purple-500 font-bold mx-1">|</span>
+<span class="text-white font-bold">Cybersecurity Researcher</span> <span class="text-purple-500 font-bold mx-1">|</span>
+<span class="text-white font-bold">UI/UX Designer</span>
+</h2>
+<p class="mt-6 text-lg md:text-xl text-gray-400 max-w-md gs-reveal">
           I craft clean and user-friendly web experiences. Greatly inspired by modern design trends and usability.
         </p>
-        <div class="mt-10 gs-reveal">
-          <a href="https://drive.google.com/file/d/1Ab4sLy4vXukf_OqEZe7Lw0VF51WX6LJj/view?usp=sharing" target="_blank" class="inline-block border border-white/30 rounded-full px-8 py-4 text-sm uppercase tracking-widest font-bold hover:bg-white hover:text-black transition-colors hoverable">
+<div class="mt-10 gs-reveal">
+<a class="inline-block border border-white/30 rounded-full px-8 py-4 text-sm uppercase tracking-widest font-bold hover:bg-white hover:text-black transition-colors hoverable" href="https://drive.google.com/file/d/1Ab4sLy4vXukf_OqEZe7Lw0VF51WX6LJj/view?usp=sharing" target="_blank">
             Download Resume
           </a>
-        </div>
-        <div class="mt-12 flex space-x-8 gs-reveal text-sm tracking-widest font-medium uppercase text-gray-400">
-          <a href="#" class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">LinkedIn</a>
-          <a href="mailto:srishakthi799@gmail.com" class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">Email</a>
-          <a href="https://github.com/Shakthi16" class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">GitHub</a>
-          <a href="#" class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full">LeetCode</a>
-        </div>
-      </div>
-      <div class="relative flex justify-center items-center h-[500px] gs-reveal" id="hero-img-container" style="perspective: 1000px;">
-        <div class="relative z-10 w-full max-w-sm h-full overflow-hidden" id="hero-avatar">
-          <img alt="Portrait of Shakthi Sri" class="absolute inset-0 w-full h-full object-contain" src="1.png" />
-        </div>
-      </div>
+</div>
+<div class="mt-12 flex space-x-8 gs-reveal text-sm tracking-widest font-medium uppercase text-gray-400">
+<a class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full" href="#">LinkedIn</a>
+<a class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full" href="mailto:srishakthi799@gmail.com">Email</a>
+<a class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full" href="https://github.com/Shakthi16">GitHub</a>
+<a class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full" href="#">LeetCode</a>
+</div>
+</div>
+<div class="relative flex justify-center items-center h-[500px] gs-reveal" id="hero-img-container" style="perspective: 1000px;">
+<div class="relative z-10 w-full max-w-sm h-full overflow-hidden" id="hero-avatar">
+<img alt="Portrait of Shakthi Sri" class="absolute inset-0 w-full h-full object-contain" src="1.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT: CINEMATIC EDITORIAL CANVAS -->
+<section class="editorial-canvas font-sans relative z-20 overflow-hidden bg-[var(--charcoal-bg)]" id="about">
+<!-- STATIONARY WATERMARK -->
+<div class="absolute inset-0 flex items-center justify-center opacity-[0.03] overflow-hidden pointer-events-none z-0">
+<span class="text-[30vw] font-black leading-none whitespace-nowrap text-white">SHAKTHI</span>
+</div>
+<!-- Cinematic glowing orbs -->
+<div class="absolute top-1/2 left-1/4 w-[40rem] h-[40rem] bg-purple-600/20 rounded-full blur-[120px] -translate-y-1/2 mix-blend-screen pointer-events-none z-0"></div>
+<!-- EDITORIAL CONTENT (CHAPTERS) -->
+<div class="relative w-full z-10 min-h-screen" id="ed-scroll-container">
+<!-- 1. The Pinned Center Text -->
+<div class="absolute top-0 left-0 w-full h-screen flex items-center justify-center pointer-events-none z-30" id="ed-pinned-text-container">
+<div class="text-center transform-gpu max-w-lg px-4" id="ed-pinned-text">
+<h1 class="brand font-bold text-[clamp(24px,3vw,48px)] leading-[1.0] text-white tracking-tighter mb-8 mix-blend-difference">
+            I design intelligent systems.<br/>
+            I build premium interfaces.
+          </h1>
+<p class="font-sans text-[clamp(14px,1.5vw,20px)] text-white/60 leading-[1.3] tracking-tighter font-bold mix-blend-difference">
+            Class of 2026 Graduate learning scale.<br/>
+            Software engineer &amp; cybersecurity researcher learning speed.<br/>
+            Published researcher at <span class="text-white/80">ICTACA'26.</span>
+</p>
+</div>
+</div>
+<!-- 2. The Scrolling Elements (Left and Right tracks) -->
+<div class="relative w-full max-w-[1400px] mx-auto px-6 lg:px-12 z-10 flex flex-col gap-[20vh] pt-[15vh] pb-[40vh] pointer-events-none" id="ed-scroll-tracks"><div class="w-full flex justify-start pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><div class="ed-parallax-item w-full aspect-[4/5] max-h-[400px] relative rounded-[2rem] overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.02]">
+<img alt="Editorial Side" class="w-full h-full object-cover" src="bg1.png"/>
+</div></div></div><div class="w-full flex justify-end pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><div class="ed-parallax-item w-full aspect-[4/5] max-h-[400px] relative rounded-[2rem] overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.02]">
+<img alt="Shakthi Sri" class="w-full h-full object-contain bg-white" src="me.png"/>
+</div></div></div><div class="w-full flex justify-start pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://linkedin.com/in/shakthisri" target="_blank" class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
+<div class="flex justify-between items-start w-full">
+<div class="w-12 h-12 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-inner">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">LinkedIn</h3>
+<p class="text-xs text-gray-400 font-medium">Professional Network</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Connect</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Hire Me</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-bold text-md text-gray-900 truncate max-w-[120px]">@Shakthi16</span>
+<span class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">View Profile</span>
+</div>
+</a></div></div><div class="w-full flex justify-end pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://www.instagram.com/shaviraworks" target="_blank" class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block -mt-[15vh]">
+  <div class="flex justify-between items-start w-full">
+    <div class="w-12 h-12 rounded-full bg-[#a855f7] flex items-center justify-center shadow-inner">
+      <span class="text-white font-bold font-sans text-xl">S</span>
     </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="py-24 px-6 relative">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-wrap justify-around mb-16 border-y border-white/10 py-8 gs-reveal">
-        <div class="text-center"><h3 class="text-5xl font-bold brand">04</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">Years of Study</p></div>
-        <div class="text-center"><h3 class="text-5xl font-bold brand">04+</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">Internships</p></div>
-        <div class="text-center"><h3 class="text-5xl font-bold brand">05+</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">Projects</p></div>
-        <div class="text-center"><h3 class="text-5xl font-bold brand">10+</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">Courses</p></div>
-        <div class="text-center"><h3 class="text-5xl font-bold brand">9.03</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">CGPA</p></div>
-      </div>
-
-      <div class="bento-grid">
-        <!-- Main Bio Card -->
-        <div class="bento-item gs-bento hoverable md:col-span-2">
-          <h2 class="text-5xl md:text-7xl font-bold mb-6 brand leading-tight">I design <br/><span class="text-gray-500">intelligent systems</span><br/>& premium interfaces.</h2>
-          <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl">Class of 2026 Graduate. Software engineer and cybersecurity researcher with experience in automation systems, full-stack application development, and security-oriented research workflows. Published researcher at ICTACA’26.</p>
-        </div>
-        
-        <!-- Experience Card -->
-        <div class="bento-item gs-bento hoverable">
-          <h3 class="text-xl font-bold mb-4 brand text-purple-400">Experience</h3>
-          <div class="space-y-4">
-            <div>
-              <h4 class="text-lg font-semibold text-white">IIT Madras -- CYSTAR Lab</h4>
-              <p class="text-gray-300 text-sm">Cybersecurity Research Intern</p>
-              <p class="text-xs text-purple-400 mt-1 mb-2">Aug 2025 -- Present</p>
-              <p class="text-gray-400 text-xs leading-relaxed">Offensive security research workflows including exposure analysis, EDR/AV study, explainable security, and technical documentation.</p>
-            </div>
-            <div class="mt-4">
-              <h4 class="text-lg font-semibold text-white">OpsIntellix</h4>
-              <p class="text-gray-300 text-sm">Operations Intern -- AP Automation</p>
-              <p class="text-xs text-purple-400 mt-1 mb-2">Nov 2025 -- Feb 2026</p>
-              <p class="text-gray-400 text-xs leading-relaxed">Automated banking workflows, document classification, and validation using Python, boosting pipeline efficiency by 30%.</p>
-            </div>
-            <div class="mt-4">
-              <h4 class="text-lg font-semibold text-white">Focuslogic IT Services</h4>
-              <p class="text-gray-300 text-sm">Web Development Intern</p>
-              <p class="text-xs text-purple-400 mt-1 mb-2">Mar 2025 -- May 2025</p>
-              <p class="text-gray-400 text-xs leading-relaxed">Built responsive React.js frontends from Figma, integrated REST APIs, conducted manual UI testing, and reduced load latency by 25%.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Shavira Freelance Spotlight Card (Fills Widescreen Column 4 Space Perfectly!) -->
-        <div class="bento-item gs-bento hoverable relative overflow-hidden flex flex-col justify-between min-h-[340px] group !p-0">
-          <!-- Background visual graphic -->
-          <img src="bento-tech.png" alt="Cyber & Tech Visual Mockup" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none opacity-40" />
-          <!-- Dark gradient overlay for text readability -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/95 to-transparent z-0"></div>
-          
-          <!-- Top Row: Badge -->
-          <div class="relative z-10 p-6 pb-0 flex justify-between items-start">
-            <span class="text-[10px] font-mono uppercase tracking-[0.2em] bg-purple-500/20 border border-purple-500/30 text-purple-300 px-2.5 py-1 rounded-full">STUDIO // ACTIVE</span>
-          </div>
-
-          <!-- Bottom Area: Title, description & CTA -->
-          <div class="relative z-10 p-6 pt-0">
-            <h3 class="text-3xl font-extrabold brand text-white tracking-tight mb-1">SHAVIRA</h3>
-            <p class="text-[10px] text-purple-400 font-bold uppercase tracking-wider mb-3">Creative Freelance & Design</p>
-            <p class="text-xs text-gray-300 leading-relaxed mb-5">
-              Designing premium web interfaces, robust backend systems, and secure applications. Available for contract collaborations.
-            </p>
-            
-            <a href="https://www.instagram.com/shaviraworks" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-white/20 hover:border-purple-500 bg-white/5 hover:bg-purple-500 text-white rounded-full px-4 py-2.5 text-xs font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 hoverable w-full justify-center">
-              <i class="fab fa-instagram text-sm"></i>
-              Follow @shaviraworks
-            </a>
-          </div>
-        </div>
-
-        <!-- Education Card -->
-        <div class="bento-item gs-bento hoverable md:col-span-2">
-           <h3 class="text-xl font-bold mb-4 brand text-purple-400">Education</h3>
-           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-             <div>
-               <h4 class="text-lg font-semibold text-white">2022 - 2026</h4>
-               <p class="font-medium">B.Tech in IT</p>
-               <p class="text-gray-400 text-sm">Kingston Eng. College<br>CGPA: 9.03/10</p>
-             </div>
-             <div>
-               <h4 class="text-lg font-semibold text-white">2021 - 2022</h4>
-               <p class="font-medium">HSC</p>
-               <p class="text-gray-400 text-sm">Sai Guruji School<br>89.2%</p>
-             </div>
-             <div>
-               <h4 class="text-lg font-semibold text-white">2019 - 2020</h4>
-               <p class="font-medium">SSLC</p>
-               <p class="text-gray-400 text-sm">Sai Guruji School<br>92%</p>
-             </div>
-           </div>
-        </div>
-
-        <!-- Certifications Card -->
-        <div class="bento-item gs-bento hoverable">
-           <h3 class="text-xl font-bold mb-4 brand text-purple-400">Certifications</h3>
-           <ul class="text-gray-400 text-sm space-y-2">
-             <li><i class="fas fa-certificate text-purple-500 mr-2"></i>UI/UX, React, AI, Python - Infosys</li>
-             <li><i class="fas fa-certificate text-purple-500 mr-2"></i>Cybersecurity - Udemy</li>
-             <li><i class="fas fa-certificate text-purple-500 mr-2"></i>Full Stack Web Dev - NoviTech</li>
-             <li><i class="fas fa-certificate text-purple-500 mr-2"></i>Data Analytics & Cloud - Google</li>
-           </ul>
-        </div>
-
-        <!-- Profiles Card -->
-        <div class="bento-item gs-bento hoverable">
-           <h3 class="text-xl font-bold mb-4 brand text-purple-400">Profiles</h3>
-           <ul class="text-gray-400 text-sm space-y-2">
-             <li><a href="https://linkedin.com/in/shakthisri" target="_blank" class="hover:text-white transition-colors hoverable"><i class="fab fa-linkedin text-purple-500 mr-2"></i>LinkedIn</a></li>
-             <li><a href="https://github.com/Shakthi16" target="_blank" class="hover:text-white transition-colors hoverable"><i class="fab fa-github text-purple-500 mr-2"></i>GitHub</a></li>
-             <li><a href="https://leetcode.com/u/srishakthi799/" target="_blank" class="hover:text-white transition-colors hoverable"><i class="fab fa-code text-purple-500 mr-2"></i>LeetCode</a></li>
-             <li><a href="https://tryhackme.com/p/shakthisri1929" target="_blank" class="hover:text-white transition-colors hoverable"><i class="fas fa-shield-alt text-purple-500 mr-2"></i>TryHackMe</a></li>
-             <li><a href="https://rb.gy/l6f8ss" target="_blank" class="hover:text-white transition-colors hoverable"><i class="fas fa-certificate text-purple-500 mr-2"></i>Google Certs</a></li>
-           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="py-32 px-6 bg-[#0a0a0a] transition-all duration-500 overflow-hidden min-h-[90vh] flex items-center relative">
-    <div id="skills-bg-glow" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500" style="background: radial-gradient(600px circle at 0px 0px, rgba(168, 85, 247, 0.07), transparent 80%); z-index: 0;"></div>
-    <canvas id="skills-dot-grid" class="absolute inset-0 pointer-events-none w-full h-full" style="z-index: 0;"></canvas>
-    <div id="active-category-indicator" class="text-white">PROGRAMMING</div>
-    
-    <!-- Decorative Tech elements for Awwwards style -->
-    <div class="absolute top-10 left-10 font-mono text-[10px] text-purple-500/30 select-none hidden md:block uppercase tracking-wider">SYS_STATUS: ENGAGED // DETECT_MODE: ACTIVE</div>
-    <div class="absolute bottom-10 left-10 font-mono text-[10px] text-purple-500/30 select-none hidden md:block uppercase tracking-wider">COORDS: [53.82.11.9] // SYS_ROT: <span id="wheel-rotation-display">180deg</span></div>
-
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
-      
-      <!-- Left Column: Premium Console, Categories and Dial Nav Buttons -->
-      <div class="lg:col-span-6 flex flex-col justify-center relative">
-        <h2 class="text-xs uppercase tracking-[0.2em] text-purple-500 font-bold mb-4 font-mono">My Arsenal</h2>
-        
-        <!-- Category Pill Buttons -->
-        <div class="flex flex-wrap gap-3 mb-10" id="skills-category-selector">
-          <button class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn active" onclick="spinToCategory('programming', this)">Programming</button>
-          <button class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn" onclick="spinToCategory('web', this)">Web & Backend</button>
-          <button class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn" onclick="spinToCategory('cyber', this)">Cybersecurity</button>
-          <button class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn" onclick="spinToCategory('ai', this)">AI & Automation</button>
-        </div>
-
-        <!-- Big Focus Text Display (Awwwards Style) -->
-        <div class="min-h-[250px] flex flex-col justify-between">
-          <div>
-            <span class="text-xs font-mono text-purple-500 uppercase tracking-widest block mb-2" id="skill-index-display">01 / 17</span>
-            <h3 class="text-5xl md:text-7xl font-bold brand text-white leading-tight mb-6" id="active-skill-name">Python</h3>
-            <p class="text-gray-400 text-lg leading-relaxed max-w-lg" id="active-skill-desc">
-              Core language for scripting, advanced malware analysis tools, automation pipelines, and API setups.
-            </p>
-          </div>
-          
-          <!-- Wheel Navigation arrows & hint -->
-          <div class="flex items-center gap-6 mt-12">
-            <div class="flex gap-3">
-              <button class="wheel-nav-btn hoverable" onclick="rotateWheelPrev()" aria-label="Previous Skill"><i class="fas fa-chevron-left"></i></button>
-              <button class="wheel-nav-btn hoverable" onclick="rotateWheelNext()" aria-label="Next Skill"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <span class="text-xs text-gray-500 uppercase tracking-widest font-mono hidden sm:inline-block">&bull; Use mouse scroll wheel over dial to spin</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Right Column: The Circular Wheel Carousel -->
-      <div class="lg:col-span-6 overflow-visible">
-        <div id="skills-wheel-container">
-          <!-- Background decorative orbit rings to fill up whitespace and make it Awwwards-worthy -->
-          <div class="skills-orbit-ring border border-purple-500/[0.01] w-[900px] h-[900px]"></div>
-          <div class="skills-orbit-ring border border-purple-500/[0.02] w-[750px] h-[750px]"></div>
-          <div class="skills-orbit-ring border border-dashed border-purple-500/[0.05] w-[600px] h-[600px]"></div>
-          <div class="skills-orbit-ring border border-purple-500/[0.04] w-[450px] h-[450px]"></div>
-          <div class="skills-orbit-ring border border-dashed border-purple-500/[0.06] w-[300px] h-[300px]"></div>
-          <div class="skills-orbit-ring border border-purple-500/[0.08] w-[180px] h-[180px]"></div>
-
-          <div id="skills-wheel">
-            <!-- JavaScript will populate wheel items here -->
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </section>
-
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements" class="relative border-t border-white/10 px-4 md:px-6" style="padding: 2rem 0;">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12 gs-reveal gap-3 md:gap-4">
-        <div>
-          <p class="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold mb-2 font-mono">My Milestones</p>
-          <h2 class="text-5xl md:text-7xl font-bold brand text-white">Achievements</h2>
-        </div>
-        <p class="text-sm text-gray-400 max-w-sm">
-          A showcase of academic honors, research papers, patents, and hackathon victories. Click any card to view details.
-        </p>
-      </div>
-
-      <!-- Horizontal Scroll Cards Wrapper -->
-      <div class="ach-carousel relative z-10 gs-reveal" id="ach-carousel">
-        
-        <!-- Card 1: Research -->
-        <div class="ach-card relative group flex flex-col justify-end p-8" data-index="0" style="background: linear-gradient(135deg, #1e1b4b 0%, #1e293b 100%); border: 1px solid rgba(255,255,255,0.05);">
-          <!-- Character PNG pop-out -->
-          <div class="absolute inset-x-0 top-0 bottom-0 flex justify-center items-start pointer-events-none -top-16 z-20">
-            <img src="research.png" alt="Research Character" class="object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.6)] transition-all duration-700 group-hover:scale-108 group-hover:-translate-y-2" style="height:clamp(140px,28vh,300px)" onerror="this.style.display='none'" />
-          </div>
-          <!-- Card content base background gradient container -->
-          <div class="absolute inset-x-0 bottom-0 h-[55%] rounded-[2rem] bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0 pointer-events-none"></div>
-          
-          <div class="relative z-10 text-left pointer-events-none mt-auto">
-            <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-purple-400 font-bold mb-1">Research</p>
-            <h3 class="text-2xl font-bold text-white mb-1 leading-tight">Published<br>Researcher</h3>
-            <p class="text-[10px] text-gray-400">ICTACA'26 Conference</p>
-          </div>
-        </div>
-
-        <!-- Card 2: Patent -->
-        <div class="ach-card relative group flex flex-col justify-end p-8" data-index="1" style="background: linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%); border: 1px solid rgba(255,255,255,0.05);">
-          <!-- Character PNG pop-out -->
-          <div class="absolute inset-x-0 top-0 bottom-0 flex justify-center items-start pointer-events-none -top-16 z-20">
-            <img src="patent.png" alt="Patent Character" class="object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.6)] transition-all duration-700 group-hover:scale-108 group-hover:-translate-y-2" style="height:clamp(140px,28vh,300px)" onerror="this.style.display='none'" />
-          </div>
-          <!-- Card content base background gradient container -->
-          <div class="absolute inset-x-0 bottom-0 h-[55%] rounded-[2rem] bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0 pointer-events-none"></div>
-          
-          <div class="relative z-10 text-left pointer-events-none mt-auto">
-            <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-purple-400 font-bold mb-1">Intellectual Property</p>
-            <h3 class="text-2xl font-bold text-white mb-1 leading-tight">Patent<br>Filed</h3>
-            <p class="text-[10px] text-gray-400">Nanosafe Cloak</p>
-          </div>
-        </div>
-
-        <!-- Card 3: Hackathon -->
-        <div class="ach-card relative group flex flex-col justify-end p-8" data-index="2" style="background: linear-gradient(135deg, #064e3b 0%, #0c4a6e 100%); border: 1px solid rgba(255,255,255,0.05);">
-          <!-- Character PNG pop-out -->
-          <div class="absolute inset-x-0 top-0 bottom-0 flex justify-center items-start pointer-events-none -top-16 z-20">
-            <img src="hackathon.png" alt="Hackathon Character" class="object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.6)] transition-all duration-700 group-hover:scale-108 group-hover:-translate-y-2" style="height:clamp(140px,28vh,300px)" onerror="this.style.display='none'" />
-          </div>
-          <!-- Card content base background gradient container -->
-          <div class="absolute inset-x-0 bottom-0 h-[55%] rounded-[2rem] bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0 pointer-events-none"></div>
-          
-          <div class="relative z-10 text-left pointer-events-none mt-auto">
-            <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-purple-400 font-bold mb-1">Competition</p>
-            <h3 class="text-2xl font-bold text-white mb-1 leading-tight">Hackathon<br>Winner</h3>
-            <p class="text-[10px] text-gray-400">3rd Place Vibeaithon</p>
-          </div>
-        </div>
-
-        <!-- Card 4: Outgoing Student -->
-        <div class="ach-card relative group flex flex-col justify-end p-8" data-index="3" style="background: linear-gradient(135deg, #7c2d12 0%, #451a03 100%); border: 1px solid rgba(255,255,255,0.05);">
-          <!-- Character PNG pop-out -->
-          <div class="absolute inset-x-0 top-0 bottom-0 flex justify-center items-start pointer-events-none -top-16 z-20">
-            <img src="beststudent.png" alt="Outgoing Student Character" class="object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.6)] transition-all duration-700 group-hover:scale-108 group-hover:-translate-y-2" style="height:clamp(140px,28vh,300px)" onerror="this.style.display='none'" />
-          </div>
-          <!-- Card content base background gradient container -->
-          <div class="absolute inset-x-0 bottom-0 h-[55%] rounded-[2rem] bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0 pointer-events-none"></div>
-          
-          <div class="relative z-10 text-left pointer-events-none mt-auto">
-            <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-purple-400 font-bold mb-1">Academic Excellence</p>
-            <h3 class="text-2xl font-bold text-white mb-1 leading-tight">Best Outgoing<br>Student</h3>
-            <p class="text-[10px] text-gray-400">Kingston Engineering College</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TEXT MASKING SECTION -->
-  <section class="py-24 px-6 gs-reveal relative" id="text-mask-section">
-    <div class="max-w-7xl mx-auto text-center hoverable flex justify-center items-center min-h-[40vh]">
-      <h2 id="flowing-text" class="text-[12vw] font-black brand leading-none uppercase tracking-tighter w-full" 
-          style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop'); background-size: 150%; background-position: 50% 50%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-        Shaping<br/>Tomorrow
-      </h2>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="py-32 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gs-reveal gap-8">
-        <h2 class="text-5xl md:text-7xl font-bold brand">Selected<br>Works</h2>
-        <div class="flex flex-col gap-6">
-          <div class="flex flex-wrap gap-4" id="main-filters">
-            <button class="px-6 py-2 rounded-full hoverable btn-main active" onclick="filterMain('web', this)">Web Dev</button>
-            <button class="px-6 py-2 rounded-full hoverable btn-main" onclick="filterMain('uiux', this)">UI/UX Design</button>
-            <button class="px-6 py-2 rounded-full hoverable btn-main" onclick="filterMain('graphic', this)">Graphic Design</button>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
-        <!-- Cybersecurity & Core Projects -->
-        <div class="project-card hoverable proj-item web" onclick="window.location.href='agni-c2.html'" style="cursor: pointer;">
-          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop" alt="AgNIC2">
-          <div class="project-overlay">
-            <p class="text-[10px] text-purple-400 mb-2 uppercase tracking-widest font-bold">AI • Cybersecurity • Full-Stack</p>
-            <h3 class="text-3xl font-bold mb-2 brand text-white">AGNI C2</h3>
-            <p class="text-sm font-bold text-gray-200 mb-2">AI-Powered Cognitive Command & Control Platform</p>
-            <p class="text-xs text-gray-400 mb-6 line-clamp-2">A cinematic case study of a next-generation Red Team C2 framework integrating Local LLMs for explainable offensive security workflows.</p>
-            <a href="agni-c2.html" class="inline-block border border-white/30 rounded-full px-6 py-2 text-xs uppercase tracking-widest font-bold text-white hover:bg-white hover:text-black transition-colors">View Case Study</a>
-          </div>
-        </div>
-
-        <div class="project-card hoverable proj-item web">
-          <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1000&auto=format&fit=crop" alt="Reality Lag">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Deception Security</p>
-            <h3 class="text-2xl font-bold mb-2 brand text-white">Reality Lag</h3>
-            <p class="text-xs text-gray-300 mb-4 line-clamp-3">Deception-based security prototype with behavioral pattern monitoring and threat simulation logic for controlled attacker environments.</p>
-            <a href="https://github.com/Shakthi16/realitylagv1" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-github text-2xl"></i></a>
-          </div>
-        </div>
-
-        <div class="project-card hoverable proj-item web">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Syclone">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Web App</p>
-            <h3 class="text-2xl font-bold mb-2 brand text-white">Syclone</h3>
-            <p class="text-xs text-gray-300 mb-4 line-clamp-3">Modern web application with premium animations and robust backend integration.</p>
-            <a href="https://syclone.onrender.com" target="_blank" class="text-white hover:text-purple-400"><i class="fas fa-external-link-alt text-2xl"></i></a>
-          </div>
-        </div>
-
-        <!-- UI/UX Projects -->
-        <div class="project-card hoverable proj-item uiux">
-          <img src="https://i.ibb.co/413tnkC/Screenshot-2025-01-17-232717.png" alt="EduGo">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Learning Platform</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">EduGo</h3>
-            <a href="https://www.figma.com/proto/823yMjZjFP7NlHpt7Cx6bQ/edugo?node-id=0-1&t=hCVNlFLv28bjlNfD-1" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-figma text-2xl"></i></a>
-          </div>
-        </div>
-
-        <div class="project-card hoverable proj-item uiux">
-          <img src="https://i.ibb.co/mhpMpNL/Screenshot-2025-01-17-233410.png" alt="Sign-up Flow">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Sign-up flow Design</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">Modern Sign-up Flow</h3>
-            <a href="https://www.figma.com/proto/I1ASQY2n71Ny3SHtDbZX3R/1UX-3UI-(Community)?node-id=0-1&t=4EV44mHU66c5LAuy-1" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-figma text-2xl"></i></a>
-          </div>
-        </div>
-
-        <div class="project-card hoverable proj-item uiux">
-          <img src="https://i.ibb.co/XspL7xY/Screenshot-2025-01-17-233654.png" alt="Men's Ecommerce">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">E-commerce Design</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">Flexy Men's Ecommerce</h3>
-            <a href="https://www.figma.com/proto/0DLbG9VmXQKAGVpXYc1WhG/heartbeat---Emails-(Community)?node-id=6709-1215&t=5ITMbVvYhh3WGuXd-1" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-figma text-2xl"></i></a>
-          </div>
-        </div>
-        
-        <div class="project-card hoverable proj-item uiux">
-          <img src="nudge.png" alt="Nudge Finance">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Fintech UI/UX</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">Nudge for Finance Management for the Youngsters</h3>
-            <a href="https://www.figma.com/proto/I1ASQY2n71Ny3SHtDbZX3R/1UX-3UI--Community-?node-id=749-6400&t=jxYqx0AmNc6LpMJF-1" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-figma text-2xl"></i></a>
-          </div>
-        </div>
-
-        <div class="project-card hoverable proj-item uiux">
-          <img src="new.png" alt="Perfume Design">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Perfume Design</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">Perfume Design</h3>
-            <a href="https://www.figma.com/proto/6Z7eRUtDhLp4pDR8ANijP6/Testimonial---Social-Proof---Reviews-Widgets--Community-?node-id=124-22&starting-point-node-id=160%3A31&scaling=scale-down&content-scaling=fixed&t=g1y27AwkLJ9hspAW-1" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-figma text-2xl"></i></a>
-          </div>
-        </div>
-
-        <!-- Web Dev Projects -->
-        <div class="project-card hoverable proj-item web">
-          <img src="https://i.ibb.co/F0wPrRJ/Screenshot-2025-01-17-231636.png" alt="Weather App">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Application</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">Weather App</h3>
-            <div class="flex gap-4">
-              <a href="https://github.com/Shakthi16/weather-app-" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-github text-2xl"></i></a>
-              <a href="https://weatherappweb1.netlify.app/" target="_blank" class="text-white hover:text-purple-400"><i class="fas fa-external-link-alt text-2xl"></i></a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card hoverable proj-item web">
-          <img src="https://i.ibb.co/YL0J9tL/Screenshot-2025-01-17-232117.png" alt="Aurum Page">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Website Development</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">Aurum Page</h3>
-            <div class="flex gap-4">
-              <a href="https://github.com/Shakthi16/aurumpage" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-github text-2xl"></i></a>
-              <a href="https://aurumpage5.netlify.app/" target="_blank" class="text-white hover:text-purple-400"><i class="fas fa-external-link-alt text-2xl"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card hoverable proj-item web">
-          <img src="https://i.ibb.co/HptDXhJr/Screenshot-2025-06-17-140305.png" alt="3D Cosmic">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Three.js</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">3D View Milky Way</h3>
-            <div class="flex gap-4">
-              <a href="https://github.com/Shakthi16/cosmic" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-github text-2xl"></i></a>
-              <a href="https://cosmicstar.netlify.app/" target="_blank" class="text-white hover:text-purple-400"><i class="fas fa-external-link-alt text-2xl"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card hoverable proj-item web">
-          <img src="https://i.ibb.co/x4kByFX/Screenshot-2025-06-17-135332.png" alt="URL Convertor">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">React & Node</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">URL Convertor</h3>
-            <div class="flex gap-4">
-              <a href="https://github.com/Shakthi16/url_convertor" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-github text-2xl"></i></a>
-              <a href="https://url-convertor.onrender.com/" target="_blank" class="text-white hover:text-purple-400"><i class="fas fa-external-link-alt text-2xl"></i></a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card hoverable proj-item web">
-          <img src="https://i.ibb.co/GzNNXXV/Screenshot-2025-06-17-141044.png" alt="MelodyWave">
-          <div class="project-overlay">
-            <p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">React Streaming</p>
-            <h3 class="text-2xl font-bold mb-4 brand text-white">MelodyWave</h3>
-            <div class="flex gap-4">
-              <a href="https://github.com/Shakthi16/meloadywave" target="_blank" class="text-white hover:text-purple-400"><i class="fab fa-github text-2xl"></i></a>
-              <a href="https://melodywavemusicm.netlify.app/" target="_blank" class="text-white hover:text-purple-400"><i class="fas fa-external-link-alt text-2xl"></i></a>
-            </div>
-          </div>
-        </div>
-
-      
-        <!-- Graphic Design Placeholders (Styled exactly like Startuptn.in with clean overlays) -->
-        <div class="project-card hoverable proj-item graphic hidden">
-          <div class="h-64 bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/10">
-            <i class="fas fa-image text-4xl text-purple-500/50"></i>
-          </div>
-          <div class="project-overlay flex flex-col justify-end p-6">
-            <h3 class="text-3xl font-bold brand text-white">Startuptn.in</h3>
-            <p class="text-sm text-gray-300 font-medium">Poster Design</p>
-          </div>
-        </div>
-        
-        <div class="project-card hoverable proj-item graphic hidden">
-          <div class="h-64 bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/10">
-            <i class="fas fa-pen-nib text-4xl text-purple-500/50"></i>
-          </div>
-          <div class="project-overlay flex flex-col justify-end p-6">
-            <h3 class="text-3xl font-bold brand text-white">Brand Identity</h3>
-            <p class="text-sm text-gray-300 font-medium">Logo Design</p>
-          </div>
-        </div>
-
-        <div class="project-card hoverable proj-item graphic hidden">
-          <div class="h-64 bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/10">
-            <i class="fas fa-id-card text-4xl text-purple-500/50"></i>
-          </div>
-          <div class="project-overlay flex flex-col justify-end p-6">
-            <h3 class="text-3xl font-bold brand text-white">Corporate Card</h3>
-            <p class="text-sm text-gray-300 font-medium">Business Cards</p>
-          </div>
-        </div>
-
-        <div class="project-card hoverable proj-item graphic hidden">
-          <div class="h-64 bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/10">
-            <i class="fas fa-desktop text-4xl text-purple-500/50"></i>
-          </div>
-          <div class="project-overlay flex flex-col justify-end p-6">
-            <h3 class="text-3xl font-bold brand text-white">Investor Pitch Deck</h3>
-            <p class="text-sm text-gray-300 font-medium">Presentation (PPT) Designs</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- CONTACT -->
-  <section id="contact" class="py-24 px-6 md:px-12 bg-[#050505] text-white relative overflow-hidden transition-colors duration-500 border-t border-white/10">
-    <!-- Dotted Grid Background -->
-    <div id="contact-dot-grid" class="absolute inset-0 opacity-[0.04] md:opacity-[0.06] transition-opacity duration-500" style="background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.15) 1.5px, transparent 0); background-size: 24px 24px;"></div>
-    
-    <div class="max-w-7xl mx-auto relative z-10 flex flex-col min-h-[75vh] justify-between border-l border-r border-white/10">
-      
-      <!-- Top Section: Giant Brand text and portrait character inside a grid box -->
-      <div class="flex-grow flex flex-col justify-center items-center py-24 relative border-b border-white/10">
-        <!-- Giant outline name text -->
-        <h2 class="contact-bg-text select-none text-center tracking-tighter w-full">
-          SHAKTHI SRI T S
-        </h2>
-        
-        <!-- Character positioned in front of outline text -->
-        <div class="absolute inset-0 flex justify-center items-center pointer-events-none" style="top: 50%; transform: translateY(-50%);">
-          <img src="img.png" alt="Shakthi Character" class="h-[250px] md:h-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 pointer-events-auto" style="filter: drop-shadow(0 0 35px rgba(168,85,247,0.5));" />
-        </div>
-      </div>
-      
-      <!-- Middle Row: divided left and right by vertical border line -->
-      <div class="grid grid-cols-1 md:grid-cols-2 border-b border-white/10">
-        
-        <!-- Left Column: Tagline -->
-        <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 flex flex-col justify-center">
-          <p class="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold mb-3 font-mono">Let's build something</p>
-          <h3 class="text-3xl md:text-5xl font-bold brand text-white leading-[1.1] tracking-tight">
-            MEANINGFUL &<br>MEMORABLE
-          </h3>
-        </div>
-        
-        <!-- Right Column: Reach out & socials -->
-        <div class="p-8 md:p-12 flex flex-col justify-center">
-          <p class="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold mb-5 font-mono">Reach out</p>
-          <div class="flex items-center gap-4">
-            <a href="https://www.instagram.com/shaviraworks" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-purple-500 hover:border-purple-500 hover:text-white hover:scale-105 transition-all text-xl" aria-label="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://linkedin.com/in/shakthisri" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-purple-500 hover:border-purple-500 hover:text-white hover:scale-105 transition-all text-xl" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="mailto:srishakthi799@gmail.com" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-purple-500 hover:border-purple-500 hover:text-white hover:scale-105 transition-all text-xl" aria-label="Email">
-              <i class="fas fa-at"></i>
-            </a>
-          </div>
-        </div>
-        
-      </div>
-      
-      <!-- Bottom Metadata Footer Row -->
-      <div class="flex flex-col sm:flex-row justify-between items-center p-6 text-xs text-gray-500 uppercase tracking-widest font-mono">
-        <div>Designed in Figma & Developed by Shakthi</div>
-        <div class="mt-2 sm:mt-0">&copy; 2026 All Rights Reserved</div>
-      </div>
-      
-    </div>
-  </section>
-  
-  
-
-  <!-- FULLSCREEN DETAILED EXPANSION OVERLAY -->
-  <div id="ach-detail-overlay">
-    <div class="detail-panel w-full h-full md:w-[90vw] md:h-[85vh] md:rounded-[2rem] shadow-2xl relative grid grid-cols-1 md:grid-cols-12 overflow-y-auto md:overflow-hidden">
-      
-      <!-- Close Button -->
-      <button id="detail-close" class="absolute top-4 md:top-6 right-4 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 text-white flex items-center justify-center border border-white/10 hover:bg-white hover:text-black hover:scale-105 transition-all text-sm uppercase font-bold tracking-widest pointer-events-auto">
-        <i class="fas fa-times"></i>
-      </button>
-
-      <!-- Left Column: Graphic and character (Col span 5) -->
-      <div id="detail-left-col" class="md:col-span-5 relative min-h-[25vh] md:min-h-full flex items-center justify-center overflow-hidden">
-        <!-- Floating colorful gradient background overlay -->
-        <div id="detail-bg-gradient" class="absolute inset-0 z-0"></div>
-        <!-- Cyber grid background details -->
-        <div class="absolute inset-0 opacity-[0.06] z-1 pointer-events-none" style="background-image: radial-gradient(circle at 1.5px 1.5px, white 1.5px, transparent 0); background-size: 20px 20px;"></div>
-        
-        <!-- Expanded character image popped up -->
-        <img id="detail-character-img" src="" alt="Detail Character" class="relative z-10 object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.75)] pointer-events-none" style="height:clamp(160px,30vh,450px)" onerror="this.style.display='none'" />
-      </div>
-
-      <!-- Right Column: Metadata details (Col span 7) -->
-      <div id="detail-right-col" class="md:col-span-7 p-6 md:p-12 lg:p-16 flex flex-col justify-center overflow-y-auto z-10">
-        <div class="w-full max-w-2xl mx-auto md:mx-0">
-          <p id="detail-category" class="detail-text-reveal text-xs uppercase tracking-[0.25em] text-purple-400 font-bold mb-2 md:mb-3 font-mono"></p>
-          <h2 id="detail-title" class="detail-text-reveal text-3xl md:text-4xl lg:text-5xl font-black brand leading-tight md:leading-none mb-3 md:mb-6 text-white uppercase tracking-tight"></h2>
-          <h4 id="detail-subtitle" class="detail-text-reveal text-base md:text-lg font-bold text-gray-300 mb-4 md:mb-6 font-mono"></h4>
-          <p id="detail-desc" class="detail-text-reveal text-xs md:text-sm text-gray-400 leading-relaxed md:leading-relaxed mb-6 md:mb-8"></p>
-          
-          <!-- Key details list -->
-          <div class="detail-text-reveal border-t border-white/10 pt-4 md:pt-6">
-            <h5 class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-3 md:mb-4 font-mono">Milestone Metadata</h5>
-            <ul id="detail-meta-list" class="space-y-2 md:space-y-3 text-xs text-gray-400">
-              <!-- Dynamically populated -->
-            </ul>
-          </div>
-          
-          <!-- Thumbnail clips area like Disney UI -->
-          <div class="detail-text-reveal border-t border-white/10 pt-4 md:pt-6 mt-4 md:mt-6">
-            <h5 class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-3 md:mb-4 font-mono">Gallery Mockups</h5>
-            <div class="grid grid-cols-3 gap-3 md:gap-4">
-              <div class="h-12 md:h-16 bg-zinc-900 border border-white/5 rounded-xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
-                <i class="fas fa-image text-purple-500/50 text-sm md:text-base"></i>
-              </div>
-              <div class="h-12 md:h-16 bg-zinc-900 border border-white/5 rounded-xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
-                <i class="fas fa-file-code text-purple-500/50 text-sm md:text-base"></i>
-              </div>
-              <div class="h-12 md:h-16 bg-zinc-900 border border-white/5 rounded-xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
-                <i class="fas fa-shield-alt text-purple-500/50 text-sm md:text-base"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <div class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
+      <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Studio</span>
     </div>
   </div>
+  <div class="mt-4 mb-auto">
+    <h3 class="font-bold text-xl text-gray-900 mb-1">SHAVIRA</h3>
+    <p class="text-xs text-gray-400 font-medium mb-2">Creative Freelance &amp; Design</p>
+    <p class="text-xs text-gray-600 leading-relaxed line-clamp-3">Designing premium web interfaces, robust backend systems, and secure applications. Available for contract collaborations.</p>
+  </div>
+  <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+    <span class="font-bold text-md text-gray-900 truncate max-w-[120px]">@shaviraworks</span>
+    <span class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">Follow</span>
+  </div>
+</a></div></div><div class="w-full flex justify-start pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://leetcode.com/u/srishakthi799" target="_blank" class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
+<div class="flex justify-between items-start w-full">
+<div class="w-12 h-12 rounded-full bg-[#ffa116] flex items-center justify-center shadow-inner">
+<span class="text-white font-bold font-sans text-xl">L</span>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">LeetCode</h3>
+<p class="text-xs text-gray-400 font-medium">Algorithm Practice</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">DSA</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Problem Solving</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-bold text-md text-gray-900 truncate max-w-[120px]">@Shakthi16</span>
+<span class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">View Stats</span>
+</div>
+</a></div></div><div class="w-full flex justify-end pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://github.com/Shakthi16" target="_blank" class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
+<div class="flex justify-between items-start w-full">
+<div class="w-12 h-12 rounded-full bg-black flex items-center justify-center shadow-inner">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">GitHub</h3>
+<p class="text-xs text-gray-400 font-medium">Code Repository</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Open Source</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Contributions</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-bold text-md text-gray-900">@Shakthi16</span>
+<span class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">View Code</span>
+</div>
+</a></div></div><div class="w-full flex justify-start pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://drive.google.com/file/d/1o2c54e05jnfnnCYniQQSK9VraQUuUwUc/view?usp=sharing" target="_blank" class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
+<div class="flex justify-between items-start w-full">
+<div class="w-10 h-10 rounded-full bg-[#ef4444] flex items-center justify-center shadow-inner">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Saved</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">Research</h3>
+<p class="text-[11px] text-gray-400 font-medium">ICTACA'26 Publication</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Paper</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Security</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-black text-4xl text-gray-900 tracking-tighter">01</span>
+<span class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">Details</span>
+</div>
+</a></div></div><div class="w-full flex justify-end pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://tryhackme.com/p/shakthisri1929" target="_blank" class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
+<div class="flex justify-between items-start w-full">
+<div class="w-12 h-12 rounded-full bg-[#111827] flex items-center justify-center shadow-inner">
+<span class="text-[#a855f7] font-bold font-sans text-xl">T</span>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">TryHackMe</h3>
+<p class="text-xs text-gray-400 font-medium">Cybersecurity Training</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">CTF</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">PenTesting</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-bold text-md text-gray-900 truncate max-w-[120px]">@Shakthi16</span>
+<span class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">View Rank</span>
+</div>
+</a></div></div><div class="w-full flex justify-start pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://portfoliositeshakthi.netlify.app" target="_blank" class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
+<div class="flex justify-between items-start w-full">
+<div class="w-10 h-10 rounded-full bg-[#f59e0b] flex items-center justify-center shadow-inner">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">Projects</h3>
+<p class="text-[11px] text-gray-400 font-medium">Deployed Applications</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Full-Stack</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">AI</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-black text-4xl text-gray-900 tracking-tighter">05<span class="text-2xl opacity-50">+</span></span>
+<span class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">Details</span>
+</div>
+</a></div></div><div class="w-full flex justify-end pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://rb.gy/l6f8ss" target="_blank" class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
+<div class="flex justify-between items-start w-full">
+<div class="w-12 h-12 rounded-full bg-[#a855f7] flex items-center justify-center shadow-inner">
+<span class="text-white font-bold font-sans text-xl">C</span>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">Certifications</h3>
+<p class="text-xs text-gray-400 font-medium">Professional Certificates</p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Data</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Cloud</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-bold text-md text-gray-900 truncate max-w-[120px]">Verified</span>
+<span class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">Verify</span>
+</div>
+</a></div></div><div class="w-full flex justify-start pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><div class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100">
+<div class="flex justify-between items-start w-full">
+<div class="w-10 h-10 rounded-full bg-[#a855f7] flex items-center justify-center shadow-inner">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Saved</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">CGPA</h3>
+<p class="text-[11px] text-gray-400 font-medium">Academic Excellence</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">B.Tech IT</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">2022-2026</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-black text-4xl text-gray-900 tracking-tighter">9.00</span>
+<button class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors">Details</button>
+</div>
+</div></div></div><div class="w-full flex justify-end pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><div class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100">
+<div class="flex justify-between items-start w-full">
+<div class="w-10 h-10 rounded-full bg-[#10b981] flex items-center justify-center shadow-inner">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Saved</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">Internships</h3>
+<p class="text-[11px] text-gray-400 font-medium">Industry Experience</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Remote</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">On-site</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-black text-4xl text-gray-900 tracking-tighter">03</span>
+<button class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors">Details</button>
+</div>
+</div></div></div><div class="w-full flex justify-start pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><div class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100">
+<div class="flex justify-between items-start w-full">
+<div class="w-10 h-10 rounded-full bg-[#3b82f6] flex items-center justify-center shadow-inner">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
+<span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Saved</span>
+</div>
+</div>
+<div class="mt-4 mb-auto">
+<h3 class="font-bold text-xl text-gray-900 mb-1">Technologies</h3>
+<p class="text-[11px] text-gray-400 font-medium">Frameworks &amp; Tools</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Frontend</span>
+<span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Backend</span>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
+<span class="font-black text-4xl text-gray-900 tracking-tighter">20<span class="text-2xl opacity-50">+</span></span>
+<button class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors">Details</button>
+</div>
+</div></div></div></div>
+</div>
+<!-- 3. PROFESSIONAL JOURNEY -->
+<div class="py-[100px] relative">
+<h2 class="font-sans text-5xl md:text-7xl mb-[120px] text-center reveal-blur">Professional Journey</h2>
+<div class="relative pl-6 md:pl-0 max-w-5xl mx-auto" id="timeline-container">
+<!-- The Scroll Line -->
+<div class="timeline-line-container md:left-1/2 md:-ml-[0.5px]">
+<div class="timeline-line-fill" id="timeline-fill"></div>
+</div>
+<div class="space-y-[120px]">
+<!-- Experience 1 -->
+<div class="relative flex flex-col md:flex-row justify-between w-full timeline-item reveal-blur">
+<div class="md:w-[45%] text-left md:text-right md:pr-16 pb-4 md:pb-0 order-2 md:order-1 sticky top-32 self-start">
+<p class="font-sans uppercase tracking-[0.2em] text-[var(--gold-accent)] text-sm font-bold mb-2">Aug 2025 -- Present</p>
+<h3 class="font-sans text-2xl text-[var(--off-white)]">IIT Madras — CYSTAR Lab</h3>
+</div>
+<div class="absolute left-[-24px] md:left-1/2 md:-ml-2 top-0 w-4 h-4 rounded-full bg-[var(--charcoal-bg)] border-2 border-[var(--gold-accent)] timeline-dot z-10 shadow-[0_0_15px_rgba(168,85,247,0.5)]"></div>
+<div class="md:w-[45%] md:pl-16 order-1 md:order-2 timeline-card p-8">
+<h4 class="font-sans text-xl font-bold text-white mb-4">Cybersecurity Research Intern</h4>
+<p class="font-sans text-[var(--off-white)] opacity-70 leading-[1.6]">Offensive security research workflows including exposure analysis, EDR/AV study, explainable security, and technical documentation.</p>
+</div>
+</div>
+<!-- Experience 2 -->
+<div class="relative flex flex-col md:flex-row justify-between w-full timeline-item reveal-blur">
+<div class="md:w-[45%] text-left md:text-right md:pr-16 pb-4 md:pb-0 order-2 md:order-1 sticky top-32 self-start">
+<p class="font-sans uppercase tracking-[0.2em] text-[var(--gold-accent)] text-sm font-bold mb-2">Nov 2025 -- Feb 2026</p>
+<h3 class="font-sans text-2xl text-[var(--off-white)]">OpsIntellix</h3>
+</div>
+<div class="absolute left-[-24px] md:left-1/2 md:-ml-2 top-0 w-4 h-4 rounded-full bg-[var(--charcoal-bg)] border-2 border-[var(--gold-accent)] timeline-dot z-10 shadow-[0_0_15px_rgba(168,85,247,0.5)]"></div>
+<div class="md:w-[45%] md:pl-16 order-1 md:order-2 timeline-card p-8">
+<h4 class="font-sans text-xl font-bold text-white mb-4">Operations Intern — AP Automation</h4>
+<p class="font-sans text-[var(--off-white)] opacity-70 leading-[1.6]">Automated banking workflows, document classification, and validation using Python, boosting pipeline efficiency by 30%.</p>
+</div>
+</div>
+<!-- Experience 3 -->
+<div class="relative flex flex-col md:flex-row justify-between w-full timeline-item reveal-blur">
+<div class="md:w-[45%] text-left md:text-right md:pr-16 pb-4 md:pb-0 order-2 md:order-1 sticky top-32 self-start">
+<p class="font-sans uppercase tracking-[0.2em] text-[var(--gold-accent)] text-sm font-bold mb-2">Mar 2025 -- May 2025</p>
+<h3 class="font-sans text-2xl text-[var(--off-white)]">Focuslogic IT Services</h3>
+</div>
+<div class="absolute left-[-24px] md:left-1/2 md:-ml-2 top-0 w-4 h-4 rounded-full bg-[var(--charcoal-bg)] border-2 border-[var(--gold-accent)] timeline-dot z-10 shadow-[0_0_15px_rgba(168,85,247,0.5)]"></div>
+<div class="md:w-[45%] md:pl-16 order-1 md:order-2 timeline-card p-8">
+<h4 class="font-sans text-xl font-bold text-white mb-4">Web Development Intern</h4>
+<p class="font-sans text-[var(--off-white)] opacity-70 leading-[1.6]">Built responsive React.js frontends from Figma, integrated REST APIs, conducted manual UI testing, and reduced load latency by 25%.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cinematic-divider my-20"></div>
+<!-- 4. ACADEMIC BACKGROUND -->
+<div class="py-[100px] perspective-container">
+<h2 class="font-sans text-5xl md:text-7xl mb-[100px] text-center reveal-blur">Academic Background</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+<div class="tilt-card academic-card cursor-hover flex flex-col justify-between min-h-[220px] backdrop-blur-2xl border rounded-[2rem] p-6 md:p-8 shadow-xl transform-gpu hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" style="background-image: url('https://www.transparenttextures.com/patterns/stardust.png');"></div>
+<div class="relative z-10">
+<p class="font-sans uppercase tracking-[0.2em] text-xs font-bold mb-2 academic-accent">2022 - 2026</p>
+<h3 class="font-sans text-2xl md:text-3xl font-bold leading-tight mb-1 tracking-tight">B.Tech in IT</h3>
+<p class="font-sans text-sm text-gray-500">Kingston Eng. College</p>
+</div>
+<div class="mt-6 text-right relative z-10">
+<span class="font-sans text-4xl md:text-5xl font-bold tracking-tighter drop-shadow-sm academic-accent">9.03</span>
+</div>
+</div>
+<div class="tilt-card academic-card cursor-hover flex flex-col justify-between min-h-[220px] backdrop-blur-2xl border rounded-[2rem] p-6 md:p-8 shadow-xl transform-gpu hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" style="background-image: url('https://www.transparenttextures.com/patterns/stardust.png');"></div>
+<div class="relative z-10">
+<p class="font-sans uppercase tracking-[0.2em] text-xs font-bold mb-2 academic-accent">2021 - 2022</p>
+<h3 class="font-sans text-2xl md:text-3xl font-bold leading-tight mb-1 tracking-tight">HSC</h3>
+<p class="font-sans text-sm text-gray-500">Sai Guruji School</p>
+</div>
+<div class="mt-6 text-right relative z-10">
+<span class="font-sans text-4xl md:text-5xl font-bold tracking-tighter drop-shadow-sm academic-accent">89.2%</span>
+</div>
+</div>
+<div class="tilt-card academic-card cursor-hover flex flex-col justify-between min-h-[220px] backdrop-blur-2xl border rounded-[2rem] p-6 md:p-8 shadow-xl transform-gpu hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" style="background-image: url('https://www.transparenttextures.com/patterns/stardust.png');"></div>
+<div class="relative z-10">
+<p class="font-sans uppercase tracking-[0.2em] text-xs font-bold mb-2 academic-accent">2019 - 2020</p>
+<h3 class="font-sans text-2xl md:text-3xl font-bold leading-tight mb-1 tracking-tight">SSLC</h3>
+<p class="font-sans text-sm text-gray-500">Sai Guruji School</p>
+</div>
+<div class="mt-6 text-right relative z-10">
+<span class="font-sans text-4xl md:text-5xl font-bold tracking-tighter drop-shadow-sm academic-accent">92%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cinematic-divider my-20"></div>
+<!-- 5. CERTIFICATIONS -->
+<div class="py-[100px] pb-[160px] overflow-hidden relative">
+<h2 class="font-sans text-5xl md:text-7xl mb-[100px] text-center reveal-blur relative z-10">Continuous Learning</h2>
+<!-- Expanded width so it bleeds off both edges -->
+<div class="marquee-container w-[150vw] ml-[-25vw] rotate-[-2deg] opacity-90 hover:opacity-100 transition-opacity mb-8">
+<div class="marquee-track cursor-hover">
+<!-- Row 1 Items -->
+<div class="inline-flex gap-6 pr-6">
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">IN</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">Infosys</h4>
+<p class="font-sans text-[#aaa] text-sm">UI/UX, React, AI, Python</p>
+</div>
+</div>
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">UD</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">Udemy</h4>
+<p class="font-sans text-[#aaa] text-sm">Cybersecurity</p>
+</div>
+</div>
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">NT</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">NoviTech</h4>
+<p class="font-sans text-[#aaa] text-sm">Full Stack Web Dev</p>
+</div>
+</div>
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">GO</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">Google</h4>
+<p class="font-sans text-[#aaa] text-sm">Data Analytics &amp; Cloud</p>
+</div>
+</div>
+<!-- Duplicate for seamless loop -->
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">IN</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">Infosys</h4>
+<p class="font-sans text-[#aaa] text-sm">UI/UX, React, AI, Python</p>
+</div>
+</div>
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">UD</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">Udemy</h4>
+<p class="font-sans text-[#aaa] text-sm">Cybersecurity</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="marquee-container">
+<div class="marquee-track reverse cursor-hover">
+<!-- Row 2 Items -->
+<div class="inline-flex gap-6 pr-6">
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">NT</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">NoviTech</h4>
+<p class="font-sans text-[#aaa] text-sm">Full Stack Web Dev</p>
+</div>
+</div>
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">GO</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">Google</h4>
+<p class="font-sans text-[#aaa] text-sm">Data Analytics &amp; Cloud</p>
+</div>
+</div>
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">IN</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">Infosys</h4>
+<p class="font-sans text-[#aaa] text-sm">UI/UX, React, AI, Python</p>
+</div>
+</div>
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">UD</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">Udemy</h4>
+<p class="font-sans text-[#aaa] text-sm">Cybersecurity</p>
+</div>
+</div>
+<!-- Duplicate for seamless loop -->
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">NT</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">NoviTech</h4>
+<p class="font-sans text-[#aaa] text-sm">Full Stack Web Dev</p>
+</div>
+</div>
+<div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
+<span class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">GO</span>
+<div>
+<h4 class="font-sans font-bold text-white text-lg">Google</h4>
+<p class="font-sans text-[#aaa] text-sm">Data Analytics &amp; Cloud</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
+</section>
+<!-- SKILLS -->
+<section class="py-32 px-6 bg-[#0a0a0a] transition-all duration-500 overflow-hidden min-h-[90vh] flex items-center relative" id="skills">
+<div class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500" id="skills-bg-glow" style="background: radial-gradient(600px circle at 0px 0px, rgba(168, 85, 247, 0.07), transparent 80%); z-index: 0;"></div>
+<canvas class="absolute inset-0 pointer-events-none w-full h-full" id="skills-dot-grid" style="z-index: 0;"></canvas>
+<div class="text-white" id="active-category-indicator">PROGRAMMING</div>
+<!-- Decorative Tech elements for Awwwards style -->
+<div class="absolute top-10 left-10 font-sans text-[10px] text-purple-500/30 select-none hidden md:block uppercase tracking-wider">SYS_STATUS: ENGAGED // DETECT_MODE: ACTIVE</div>
+<div class="absolute bottom-10 left-10 font-sans text-[10px] text-purple-500/30 select-none hidden md:block uppercase tracking-wider">COORDS: [53.82.11.9] // SYS_ROT: <span id="wheel-rotation-display">180deg</span></div>
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+<!-- Left Column: Premium Console, Categories and Dial Nav Buttons -->
+<div class="lg:col-span-6 flex flex-col justify-center relative">
+<h2 class="text-xs uppercase tracking-[0.2em] text-purple-500 font-bold mb-4 font-sans">My Arsenal</h2>
+<!-- Category Pill Buttons -->
+<div class="flex flex-wrap gap-3 mb-10" id="skills-category-selector">
+<button class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn active" onclick="spinToCategory('programming', this)">Programming</button>
+<button class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn" onclick="spinToCategory('web', this)">Web &amp; Backend</button>
+<button class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn" onclick="spinToCategory('cyber', this)">Cybersecurity</button>
+<button class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn" onclick="spinToCategory('ai', this)">AI &amp; Automation</button>
+</div>
+<!-- Big Focus Text Display (Awwwards Style) -->
+<div class="min-h-[250px] flex flex-col justify-between">
+<div>
+<span class="text-xs font-sans text-purple-500 uppercase tracking-widest block mb-2" id="skill-index-display">01 / 17</span>
+<h3 class="text-5xl md:text-7xl font-bold brand text-white leading-tight mb-6" id="active-skill-name">Python</h3>
+<p class="text-gray-400 text-lg leading-relaxed max-w-lg" id="active-skill-desc">
+              Core language for scripting, advanced malware analysis tools, automation pipelines, and API setups.
+            </p>
+</div>
+<!-- Wheel Navigation arrows & hint -->
+<div class="flex items-center gap-6 mt-12">
+<div class="flex gap-3">
+<button aria-label="Previous Skill" class="wheel-nav-btn hoverable" onclick="rotateWheelPrev()"><i class="fas fa-chevron-left"></i></button>
+<button aria-label="Next Skill" class="wheel-nav-btn hoverable" onclick="rotateWheelNext()"><i class="fas fa-chevron-right"></i></button>
+</div>
+<span class="text-xs text-gray-500 uppercase tracking-widest font-sans hidden sm:inline-block">• Use mouse scroll wheel over dial to spin</span>
+</div>
+</div>
+</div>
+<!-- Right Column: The Circular Wheel Carousel -->
+<div class="lg:col-span-6 overflow-visible">
+<div data-lenis-prevent="" id="skills-wheel-container">
+<!-- Background decorative orbit rings to fill up whitespace and make it Awwwards-worthy -->
+<div class="skills-orbit-ring border border-purple-500/[0.01] w-[900px] h-[900px]"></div>
+<div class="skills-orbit-ring border border-purple-500/[0.02] w-[750px] h-[750px]"></div>
+<div class="skills-orbit-ring border border-dashed border-purple-500/[0.05] w-[600px] h-[600px]"></div>
+<div class="skills-orbit-ring border border-purple-500/[0.04] w-[450px] h-[450px]"></div>
+<div class="skills-orbit-ring border border-dashed border-purple-500/[0.06] w-[300px] h-[300px]"></div>
+<div class="skills-orbit-ring border border-purple-500/[0.08] w-[180px] h-[180px]"></div>
+<div id="skills-wheel">
+<!-- JavaScript will populate wheel items here -->
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ACHIEVEMENTS -->
+<section class="relative border-t border-white/10 px-4 md:px-6" id="achievements" style="padding: 2rem 0;">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12 gs-reveal gap-3 md:gap-4">
+<div>
+<p class="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold mb-2 font-sans">My Milestones</p>
+<h2 class="text-5xl md:text-7xl font-bold brand text-white">Achievements</h2>
+</div>
+<p class="text-sm text-gray-400 max-w-sm">
+          A showcase of academic honors, research papers, patents, and hackathon victories. Click any card to view details.
+        </p>
+</div>
+<!-- Horizontal Scroll Cards Wrapper -->
+<div class="ach-carousel relative z-10 gs-reveal" id="ach-carousel">
+<!-- Card 1: Research -->
+<div class="ach-card relative flex flex-col justify-center items-center p-8 shadow-2xl" data-index="0" style="background: linear-gradient(135deg, #1e1b4b 0%, #1e293b 100%); border: 1px solid rgba(255,255,255,0.1);">
+<!-- Character PNG pop-out -->
+<div class="absolute inset-x-0 top-0 bottom-0 flex justify-center items-start pointer-events-none -top-16 z-20">
+<img alt="Research Character" class="object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.6)]" onerror="this.style.display='none'" src="research.png" style="height:clamp(140px,28vh,300px)"/>
+</div>
+<!-- Card content base background gradient container -->
+<div class="absolute inset-x-0 bottom-0 h-[55%] rounded-[2rem] bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0 pointer-events-none"></div>
+<div class="relative z-10 text-center pointer-events-none flex flex-col items-center justify-end h-full w-full pb-4">
+<p class="text-xs font-sans uppercase tracking-[0.2em] text-[#a855f7] font-bold mb-3">Research</p>
+<h3 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">Published<br/>Researcher</h3>
+<p class="text-xs text-white/60">ICTACA'26 Conference</p>
+</div>
+</div>
+<!-- Card 2: Patent -->
+<div class="ach-card relative flex flex-col justify-center items-center p-8 shadow-2xl" data-index="1" style="background: linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%); border: 1px solid rgba(255,255,255,0.1);">
+<!-- Character PNG pop-out -->
+<div class="absolute inset-x-0 top-0 bottom-0 flex justify-center items-start pointer-events-none -top-16 z-20">
+<img alt="Patent Character" class="object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.6)]" onerror="this.style.display='none'" src="patent.png" style="height:clamp(140px,28vh,300px)"/>
+</div>
+<!-- Card content base background gradient container -->
+<div class="absolute inset-x-0 bottom-0 h-[55%] rounded-[2rem] bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0 pointer-events-none"></div>
+<div class="relative z-10 text-center pointer-events-none flex flex-col items-center justify-end h-full w-full pb-4">
+<p class="text-xs font-sans uppercase tracking-[0.2em] text-[#a855f7] font-bold mb-3">Intellectual Property</p>
+<h3 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">Patent<br/>Filed</h3>
+<p class="text-xs text-white/60">Nanosafe Cloak</p>
+</div>
+</div>
+<!-- Card 3: Hackathon -->
+<div class="ach-card relative flex flex-col justify-center items-center p-8 shadow-2xl" data-index="2" style="background: linear-gradient(135deg, #064e3b 0%, #0c4a6e 100%); border: 1px solid rgba(255,255,255,0.1);">
+<!-- Character PNG pop-out -->
+<div class="absolute inset-x-0 top-0 bottom-0 flex justify-center items-start pointer-events-none -top-16 z-20">
+<img alt="Hackathon Character" class="object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.6)]" onerror="this.style.display='none'" src="hackathon.png" style="height:clamp(140px,28vh,300px)"/>
+</div>
+<!-- Card content base background gradient container -->
+<div class="absolute inset-x-0 bottom-0 h-[55%] rounded-[2rem] bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0 pointer-events-none"></div>
+<div class="relative z-10 text-center pointer-events-none flex flex-col items-center justify-end h-full w-full pb-4">
+<p class="text-xs font-sans uppercase tracking-[0.2em] text-[#a855f7] font-bold mb-3">Competition</p>
+<h3 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">Hackathon<br/>Winner</h3>
+<p class="text-xs text-white/60">3rd Place Vibeaithon</p>
+</div>
+</div>
+<!-- Card 4: Outgoing Student -->
+<div class="ach-card relative flex flex-col justify-center items-center p-8 shadow-2xl" data-index="3" style="background: linear-gradient(135deg, #7c2d12 0%, #451a03 100%); border: 1px solid rgba(255,255,255,0.1);">
+<!-- Character PNG pop-out -->
+<div class="absolute inset-x-0 top-0 bottom-0 flex justify-center items-start pointer-events-none -top-16 z-20">
+<img alt="Outgoing Student Character" class="object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.6)]" onerror="this.style.display='none'" src="beststudent.png" style="height:clamp(140px,28vh,300px)"/>
+</div>
+<!-- Card content base background gradient container -->
+<div class="absolute inset-x-0 bottom-0 h-[55%] rounded-[2rem] bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0 pointer-events-none"></div>
+<div class="relative z-10 text-center pointer-events-none flex flex-col items-center justify-end h-full w-full pb-4">
+<p class="text-xs font-sans uppercase tracking-[0.2em] text-[#a855f7] font-bold mb-3">Academic Excellence</p>
+<h3 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">Best Outgoing<br/>Student</h3>
+<p class="text-xs text-white/60">Kingston Engineering College</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TEXT MASKING SECTION -->
+<section class="py-24 px-6 gs-reveal relative" id="text-mask-section">
+<div class="max-w-7xl mx-auto text-center hoverable flex justify-center items-center min-h-[40vh]">
+<h2 class="text-[12vw] font-black brand leading-none uppercase tracking-tighter w-full" id="flowing-text" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=2000&amp;auto=format&amp;fit=crop'); background-size: 150%; background-position: 50% 50%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Shaping<br/>Tomorrow
+      </h2>
+</div>
+</section>
+<!-- PROJECTS -->
+<section class="py-32 px-6" id="projects">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gs-reveal gap-8">
+<h2 class="text-5xl md:text-7xl font-bold brand">Selected<br/>Works</h2>
+<div class="flex flex-col gap-6">
+<div class="flex flex-wrap gap-4" id="main-filters">
+<button class="px-6 py-2 rounded-full hoverable btn-main active" onclick="filterMain('web', this)">Web Dev</button>
+<button class="px-6 py-2 rounded-full hoverable btn-main" onclick="filterMain('uiux', this)">UI/UX Design</button>
+<button class="px-6 py-2 rounded-full hoverable btn-main" onclick="filterMain('graphic', this)">Graphic Design</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+<!-- Cybersecurity & Core Projects -->
+<a href="agni-c2.html" class="project-card hoverable proj-item web block">
+<img alt="AgNIC2" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&amp;w=1000&amp;auto=format&amp;fit=crop"/>
+<div class="project-overlay">
+<p class="text-[10px] text-purple-400 mb-2 uppercase tracking-widest font-bold">AI • Cybersecurity • Full-Stack</p>
+<h3 class="text-3xl font-bold mb-2 brand text-white">AGNI C2</h3>
+<p class="text-sm font-bold text-gray-200 mb-2">AI-Powered Cognitive Command &amp; Control Platform</p>
+<p class="text-xs text-gray-400 mb-6 line-clamp-2">A cinematic case study of a next-generation Red Team C2 framework integrating Local LLMs for explainable offensive security workflows.</p>
+<span class="inline-block border border-white/30 rounded-full px-6 py-2 text-xs uppercase tracking-widest font-bold text-white hover:bg-white hover:text-black transition-colors">View Case Study</span>
+</div>
+</a>
+<div class="project-card hoverable proj-item web">
+<img alt="Reality Lag" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&amp;w=1000&amp;auto=format&amp;fit=crop"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Deception Security</p>
+<h3 class="text-2xl font-bold mb-2 brand text-white">Reality Lag</h3>
+<p class="text-xs text-gray-300 mb-4 line-clamp-3">Deception-based security prototype with behavioral pattern monitoring and threat simulation logic for controlled attacker environments.</p>
+<a class="text-white hover:text-purple-400" href="https://github.com/Shakthi16/realitylagv1" target="_blank"><i class="fab fa-github text-2xl"></i></a>
+</div>
+</div>
+<div class="project-card hoverable proj-item web">
+<img alt="Syclone" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=1000&amp;auto=format&amp;fit=crop"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Web App</p>
+<h3 class="text-2xl font-bold mb-2 brand text-white">Syclone</h3>
+<p class="text-xs text-gray-300 mb-4 line-clamp-3">Modern web application with premium animations and robust backend integration.</p>
+<a class="text-white hover:text-purple-400" href="https://syclone.onrender.com" target="_blank"><i class="fas fa-external-link-alt text-2xl"></i></a>
+</div>
+</div>
+<!-- UI/UX Projects -->
+<div class="project-card hoverable proj-item uiux">
+<img alt="EduGo" src="https://i.ibb.co/413tnkC/Screenshot-2025-01-17-232717.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Learning Platform</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">EduGo</h3>
+<a class="text-white hover:text-purple-400" href="https://www.figma.com/proto/823yMjZjFP7NlHpt7Cx6bQ/edugo?node-id=0-1&amp;t=hCVNlFLv28bjlNfD-1" target="_blank"><i class="fab fa-figma text-2xl"></i></a>
+</div>
+</div>
+<div class="project-card hoverable proj-item uiux">
+<img alt="Sign-up Flow" src="https://i.ibb.co/mhpMpNL/Screenshot-2025-01-17-233410.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Sign-up flow Design</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">Modern Sign-up Flow</h3>
+<a class="text-white hover:text-purple-400" href="https://www.figma.com/proto/I1ASQY2n71Ny3SHtDbZX3R/1UX-3UI-(Community)?node-id=0-1&amp;t=4EV44mHU66c5LAuy-1" target="_blank"><i class="fab fa-figma text-2xl"></i></a>
+</div>
+</div>
+<div class="project-card hoverable proj-item uiux">
+<img alt="Men's Ecommerce" src="https://i.ibb.co/XspL7xY/Screenshot-2025-01-17-233654.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">E-commerce Design</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">Flexy Men's Ecommerce</h3>
+<a class="text-white hover:text-purple-400" href="https://www.figma.com/proto/0DLbG9VmXQKAGVpXYc1WhG/heartbeat---Emails-(Community)?node-id=6709-1215&amp;t=5ITMbVvYhh3WGuXd-1" target="_blank"><i class="fab fa-figma text-2xl"></i></a>
+</div>
+</div>
+<div class="project-card hoverable proj-item uiux">
+<img alt="Nudge Finance" src="nudge.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Fintech UI/UX</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">Nudge for Finance Management for the Youngsters</h3>
+<a class="text-white hover:text-purple-400" href="https://www.figma.com/proto/I1ASQY2n71Ny3SHtDbZX3R/1UX-3UI--Community-?node-id=749-6400&amp;t=jxYqx0AmNc6LpMJF-1" target="_blank"><i class="fab fa-figma text-2xl"></i></a>
+</div>
+</div>
+<div class="project-card hoverable proj-item uiux">
+<img alt="Perfume Design" src="new.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Perfume Design</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">Perfume Design</h3>
+<a class="text-white hover:text-purple-400" href="https://www.figma.com/proto/6Z7eRUtDhLp4pDR8ANijP6/Testimonial---Social-Proof---Reviews-Widgets--Community-?node-id=124-22&amp;starting-point-node-id=160%3A31&amp;scaling=scale-down&amp;content-scaling=fixed&amp;t=g1y27AwkLJ9hspAW-1" target="_blank"><i class="fab fa-figma text-2xl"></i></a>
+</div>
+</div>
+<!-- Web Dev Projects -->
+<div class="project-card hoverable proj-item web">
+<img alt="Weather App" src="https://i.ibb.co/F0wPrRJ/Screenshot-2025-01-17-231636.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Application</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">Weather App</h3>
+<div class="flex gap-4">
+<a class="text-white hover:text-purple-400" href="https://github.com/Shakthi16/weather-app-" target="_blank"><i class="fab fa-github text-2xl"></i></a>
+<a class="text-white hover:text-purple-400" href="https://weatherappweb1.netlify.app/" target="_blank"><i class="fas fa-external-link-alt text-2xl"></i></a>
+</div>
+</div>
+</div>
+<div class="project-card hoverable proj-item web">
+<img alt="Aurum Page" src="https://i.ibb.co/YL0J9tL/Screenshot-2025-01-17-232117.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Website Development</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">Aurum Page</h3>
+<div class="flex gap-4">
+<a class="text-white hover:text-purple-400" href="https://github.com/Shakthi16/aurumpage" target="_blank"><i class="fab fa-github text-2xl"></i></a>
+<a class="text-white hover:text-purple-400" href="https://aurumpage5.netlify.app/" target="_blank"><i class="fas fa-external-link-alt text-2xl"></i></a>
+</div>
+</div>
+</div>
+<div class="project-card hoverable proj-item web">
+<img alt="3D Cosmic" src="https://i.ibb.co/HptDXhJr/Screenshot-2025-06-17-140305.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">Three.js</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">3D View Milky Way</h3>
+<div class="flex gap-4">
+<a class="text-white hover:text-purple-400" href="https://github.com/Shakthi16/cosmic" target="_blank"><i class="fab fa-github text-2xl"></i></a>
+<a class="text-white hover:text-purple-400" href="https://cosmicstar.netlify.app/" target="_blank"><i class="fas fa-external-link-alt text-2xl"></i></a>
+</div>
+</div>
+</div>
+<div class="project-card hoverable proj-item web">
+<img alt="URL Convertor" src="https://i.ibb.co/x4kByFX/Screenshot-2025-06-17-135332.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">React &amp; Node</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">URL Convertor</h3>
+<div class="flex gap-4">
+<a class="text-white hover:text-purple-400" href="https://github.com/Shakthi16/url_convertor" target="_blank"><i class="fab fa-github text-2xl"></i></a>
+<a class="text-white hover:text-purple-400" href="https://url-convertor.onrender.com/" target="_blank"><i class="fas fa-external-link-alt text-2xl"></i></a>
+</div>
+</div>
+</div>
+<div class="project-card hoverable proj-item web">
+<img alt="MelodyWave" src="https://i.ibb.co/GzNNXXV/Screenshot-2025-06-17-141044.png"/>
+<div class="project-overlay">
+<p class="text-xs text-purple-400 mb-2 uppercase tracking-wider">React Streaming</p>
+<h3 class="text-2xl font-bold mb-4 brand text-white">MelodyWave</h3>
+<div class="flex gap-4">
+<a class="text-white hover:text-purple-400" href="https://github.com/Shakthi16/meloadywave" target="_blank"><i class="fab fa-github text-2xl"></i></a>
+<a class="text-white hover:text-purple-400" href="https://melodywavemusicm.netlify.app/" target="_blank"><i class="fas fa-external-link-alt text-2xl"></i></a>
+</div>
+</div>
+</div>
+<!-- Graphic Design Placeholders (Styled exactly like Startuptn.in with clean overlays) -->
+<a href="startuptn.html" class="project-card hoverable proj-item graphic hidden block">
+<img alt="Startuptn.in" class="w-full h-64 object-cover rounded-2xl border border-white/10" src="Picture4.png"/>
+<div class="project-overlay flex flex-col justify-end p-6">
+<h3 class="text-3xl font-bold brand text-white">Startuptn.in</h3>
+<p class="text-sm text-gray-300 font-medium">Poster Design</p>
+</div>
+</a>
+<a href="brand-identity.html" class="project-card hoverable proj-item graphic hidden block">
+<div class="h-64 bg-zinc-950 rounded-2xl grid grid-cols-3 gap-2 p-2 border border-white/10 overflow-hidden">
+  <img src="logo1.png" alt="Logo 1" class="w-full h-full object-contain bg-zinc-900 rounded-xl" />
+  <img src="logo2.png" alt="Logo 2" class="w-full h-full object-contain bg-zinc-900 rounded-xl" />
+  <img src="logo3.png" alt="Logo 3" class="w-full h-full object-contain bg-zinc-900 rounded-xl" />
+</div>
+<div class="project-overlay flex flex-col justify-end p-6">
+<h3 class="text-3xl font-bold brand text-white">Brand Identity</h3>
+<p class="text-sm text-gray-300 font-medium">Logo Design</p>
+</div>
+</a>
+<a href="corporate-card.html" class="project-card hoverable proj-item graphic hidden block">
+<img alt="Corporate Card" class="w-full h-64 object-cover rounded-2xl border border-white/10" src="Picture2.png"/>
+<div class="project-overlay flex flex-col justify-end p-6">
+<h3 class="text-3xl font-bold brand text-white">Corporate Card</h3>
+<p class="text-sm text-gray-300 font-medium">Business Cards</p>
+</div>
+</a>
+<a href="pitch-deck.html" class="project-card hoverable proj-item graphic hidden block">
+<img alt="Investor Pitch Deck" class="w-full h-64 object-cover rounded-2xl border border-white/10" src="Picture3.png"/>
+<div class="project-overlay flex flex-col justify-end p-6">
+<h3 class="text-3xl font-bold brand text-white">Investor Pitch Deck</h3>
+<p class="text-sm text-gray-300 font-medium">Presentation (PPT) Designs</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="py-24 px-6 md:px-12 bg-[#050505] text-white relative overflow-hidden transition-colors duration-500 border-t border-white/10" id="contact">
+<!-- Dotted Grid Background -->
+<div class="absolute inset-0 opacity-[0.04] md:opacity-[0.06] transition-opacity duration-500" id="contact-dot-grid" style="background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.15) 1.5px, transparent 0); background-size: 24px 24px;"></div>
+<div class="max-w-7xl mx-auto relative z-10 flex flex-col min-h-[75vh] justify-between border-l border-r border-white/10">
+<!-- Top Section: Giant Brand text and portrait character inside a grid box -->
+<div class="flex-grow flex flex-col justify-center items-center py-24 relative border-b border-white/10">
+<!-- Giant outline name text -->
+<h2 class="contact-bg-text select-none text-center tracking-tighter w-full">
+          SHAKTHI SRI T S
+        </h2>
+<!-- Character positioned in front of outline text -->
+<div class="absolute inset-0 flex justify-center items-center pointer-events-none" style="top: 50%; transform: translateY(-50%);">
+<img alt="Shakthi Character" class="h-[250px] md:h-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 pointer-events-auto" src="img.png" style="filter: drop-shadow(0 0 35px rgba(168,85,247,0.5));"/>
+</div>
+</div>
+<!-- Middle Row: divided left and right by vertical border line -->
+<div class="grid grid-cols-1 md:grid-cols-2 border-b border-white/10">
+<!-- Left Column: Tagline -->
+<div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 flex flex-col justify-center">
+<p class="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold mb-3 font-sans">Let's build something</p>
+<h3 class="text-3xl md:text-5xl font-bold brand text-white leading-[1.1] tracking-tight">
+            MEANINGFUL &amp;<br/>MEMORABLE
+          </h3>
+</div>
+<!-- Right Column: Reach out & socials -->
+<div class="p-8 md:p-12 flex flex-col justify-center">
+<p class="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold mb-5 font-sans">Reach out</p>
+<div class="flex items-center gap-4">
+<a aria-label="Instagram" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-purple-500 hover:border-purple-500 hover:text-white hover:scale-105 transition-all text-xl" href="https://www.instagram.com/shaviraworks" rel="noopener" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+<a aria-label="LinkedIn" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-purple-500 hover:border-purple-500 hover:text-white hover:scale-105 transition-all text-xl" href="https://linkedin.com/in/shakthisri" rel="noopener" target="_blank">
+<i class="fab fa-linkedin-in"></i>
+</a>
+<a aria-label="Email" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-purple-500 hover:border-purple-500 hover:text-white hover:scale-105 transition-all text-xl" href="mailto:srishakthi799@gmail.com">
+<i class="fas fa-at"></i>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Metadata Footer Row -->
+<div class="flex flex-col sm:flex-row justify-between items-center p-6 text-xs text-gray-500 uppercase tracking-widest font-sans">
+<div>Designed in Figma &amp; Developed by Shakthi</div>
+<div class="mt-2 sm:mt-0">© 2026 All Rights Reserved</div>
+</div>
+</div>
+</section>
+<!-- FULLSCREEN DETAILED EXPANSION OVERLAY -->
+<div id="ach-detail-overlay">
+<div class="detail-panel w-full h-full md:w-[90vw] md:h-[85vh] md:rounded-[2rem] shadow-2xl relative grid grid-cols-1 md:grid-cols-12 overflow-y-auto md:overflow-hidden" data-lenis-prevent="">
+<!-- Close Button -->
+<button class="absolute top-4 md:top-6 right-4 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 text-white flex items-center justify-center border border-white/10 hover:bg-white hover:text-black hover:scale-105 transition-all text-sm uppercase font-bold tracking-widest pointer-events-auto" id="detail-close">
+<i class="fas fa-times"></i>
+</button>
+<!-- Left Column: Graphic and character (Col span 5) -->
+<div class="md:col-span-5 relative min-h-[25vh] md:min-h-full flex items-center justify-center overflow-hidden" id="detail-left-col">
+<!-- Floating colorful gradient background overlay -->
+<div class="absolute inset-0 z-0" id="detail-bg-gradient"></div>
+<!-- Cyber grid background details -->
+<div class="absolute inset-0 opacity-[0.06] z-1 pointer-events-none" style="background-image: radial-gradient(circle at 1.5px 1.5px, white 1.5px, transparent 0); background-size: 20px 20px;"></div>
+<!-- Expanded character image popped up -->
+<img alt="Detail Character" class="relative z-10 object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.75)] pointer-events-none" id="detail-character-img" onerror="this.style.display='none'" src="" style="height:clamp(160px,30vh,450px)"/>
+</div>
+<!-- Right Column: Metadata details (Col span 7) -->
+<div class="md:col-span-7 p-6 md:p-12 lg:p-16 flex flex-col justify-start overflow-y-auto z-10" id="detail-right-col" data-lenis-prevent="">
+<div class="w-full max-w-2xl mx-auto md:mx-0">
+<p class="detail-text-reveal text-xs uppercase tracking-[0.25em] text-purple-400 font-bold mb-2 md:mb-3 font-sans" id="detail-category"></p>
+<h2 class="detail-text-reveal text-3xl md:text-4xl lg:text-5xl font-black brand leading-tight md:leading-none mb-3 md:mb-6 text-white uppercase tracking-tight" id="detail-title"></h2>
+<h4 class="detail-text-reveal text-base md:text-lg font-bold text-gray-300 mb-4 md:mb-6 font-sans" id="detail-subtitle"></h4>
+<p class="detail-text-reveal text-xs md:text-sm text-gray-400 leading-relaxed md:leading-relaxed mb-6 md:mb-8" id="detail-desc"></p>
+<!-- Key details list -->
+<div class="detail-text-reveal border-t border-white/10 pt-4 md:pt-6">
+<h5 class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-3 md:mb-4 font-sans">Milestone Metadata</h5>
+<ul class="space-y-2 md:space-y-3 text-xs text-gray-400" id="detail-meta-list">
+<!-- Dynamically populated -->
+</ul>
+</div>
+<!-- Thumbnail clips area like Disney UI -->
+<div class="detail-text-reveal border-t border-white/10 pt-4 md:pt-6 mt-4 md:mt-6">
+<h5 class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-3 md:mb-4 font-sans">Gallery Mockups</h5>
+<div class="grid grid-cols-3 gap-3 md:gap-4">
+<div class="h-12 md:h-16 bg-zinc-900 border border-white/5 rounded-xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
+<i class="fas fa-image text-purple-500/50 text-sm md:text-base"></i>
+</div>
+<div class="h-12 md:h-16 bg-zinc-900 border border-white/5 rounded-xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
+<i class="fas fa-file-code text-purple-500/50 text-sm md:text-base"></i>
+</div>
+<div class="h-12 md:h-16 bg-zinc-900 border border-white/5 rounded-xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
+<i class="fas fa-shield-alt text-purple-500/50 text-sm md:text-base"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </main>
-
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
-
 <script>
   // Smooth Scroll Initialization & GSAP integration
   let lenis;
@@ -1759,6 +2439,11 @@
     }
   } catch (e) {
     console.error("Lenis smooth scroll failed to initialize:", e);
+  }
+
+  // Refresh ScrollTrigger after Lenis initializes so trigger points are correct
+  if (typeof ScrollTrigger !== 'undefined') {
+    setTimeout(() => { ScrollTrigger.refresh(); }, 100);
   }
 
   // Robust RAF loop
@@ -2368,6 +3053,19 @@
   // Initialize skills wheel
   try {
     initSkillsWheel();
+    
+    // Auto-rotate the orbital wheel
+    let autoRotateInterval = setInterval(rotateWheelNext, 3000);
+    const container = document.getElementById('skills-wheel-container');
+    if (container) {
+      container.addEventListener('mouseenter', () => clearInterval(autoRotateInterval));
+      container.addEventListener('mouseleave', () => {
+        clearInterval(autoRotateInterval);
+        autoRotateInterval = setInterval(rotateWheelNext, 3000);
+      });
+      // Also pause when touching on mobile
+      container.addEventListener('touchstart', () => clearInterval(autoRotateInterval), {passive: true});
+    }
   } catch (e) {
     console.error("Skills wheel DOM load init failed:", e);
   }
@@ -2769,5 +3467,163 @@
     if (main) main.style.pointerEvents = 'auto';
   });
 </script>
+<!-- AWWWARDS JS LOGIC (Lenis, GSAP, Cursor, 3D) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Lenis Smooth Scroll (Handled globally in main script block)
+
+      // 2. Custom Cursor (only on non-touch)
+      if (window.matchMedia("(pointer: fine)").matches) {
+        const cursor = document.createElement('div');
+        cursor.id = 'custom-cursor';
+        document.body.appendChild(cursor);
+        
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let cursorX = mouseX;
+        let cursorY = mouseY;
+        
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          // Update CSS vars for parallax mesh
+          document.documentElement.style.setProperty('--mouse-x', `${(mouseX / window.innerWidth) * 100}%`);
+          document.documentElement.style.setProperty('--mouse-y', `${(mouseY / window.innerHeight) * 100}%`);
+        });
+        
+        // Render loop for cursor lerp
+        const renderCursor = () => {
+          cursorX += (mouseX - cursorX) * 0.2;
+          cursorY += (mouseY - cursorY) * 0.2;
+          cursor.style.left = `${cursorX}px`;
+          cursor.style.top = `${cursorY}px`;
+          requestAnimationFrame(renderCursor);
+        };
+        requestAnimationFrame(renderCursor);
+
+        // Hover states
+        document.querySelectorAll('.cursor-hover, a, button').forEach(el => {
+          el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+          el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+        window.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+        window.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
+      }
+
+      // 3. Editorial Scroll Canvas (Floema-style)
+      if (document.querySelector('#ed-scroll-container')) {
+        
+        // Pin the text container for the duration of the entire section
+        ScrollTrigger.create({
+          trigger: "#ed-scroll-container",
+          start: "top top",
+          end: "bottom bottom",
+          pin: "#ed-pinned-text-container",
+          pinSpacing: false
+        });
+
+        // Pinned Text Slide to Center
+        gsap.fromTo("#ed-pinned-text", 
+          { x: "30vw", opacity: 0 }, 
+          {
+            x: "0vw",
+            opacity: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "#ed-scroll-container",
+              start: "top 80%",
+              end: "top 30%",
+              scrub: true
+            }
+          }
+        );
+
+        // Parallax scroll effect for images and cards
+        const parallaxItems = document.querySelectorAll('.ed-parallax-item, .bg-white.rounded-\\[2rem\\]');
+        parallaxItems.forEach((item, i) => {
+          gsap.to(item, {
+            yPercent: -15, // moves UP faster than scroll
+            ease: "none",
+            scrollTrigger: {
+              trigger: item,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true
+            }
+          });
+        });
+      }
+
+
+      // 4. Reveal Animations (Blur -> Sharp)
+      const revealElements = document.querySelectorAll('.reveal-blur');
+      revealElements.forEach(el => {
+        gsap.fromTo(el, 
+          { filter: "blur(10px)", opacity: 0, y: 40 },
+          { filter: "blur(0px)", opacity: 1, y: 0, duration: 1.2, ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      });
+
+      // 5. Staggered Link Array
+      gsap.fromTo('.stagger-link', 
+        { opacity: 0, x: -20 },
+        { opacity: 1, x: 0, duration: 0.8, stagger: 0.1, ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".stagger-link",
+            start: "top 90%"
+          }
+        }
+      );
+
+      // 6. Magnetic Studio Badge removed
+
+      // 7. Timeline Scrub Animation
+      if(document.getElementById('timeline-container')) {
+        gsap.to('#timeline-fill', {
+          height: "100%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#timeline-container",
+            start: "top 50%",
+            end: "bottom 50%",
+            scrub: 0.5
+          }
+        });
+        
+        // Pulse dots when active
+        document.querySelectorAll('.timeline-item').forEach(item => {
+          const dot = item.querySelector('.timeline-dot');
+          ScrollTrigger.create({
+            trigger: item,
+            start: "top 50%",
+            onEnter: () => gsap.to(dot, {backgroundColor: "var(--gold-accent)", scale: 1.3, duration: 0.3}),
+            onLeaveBack: () => gsap.to(dot, {backgroundColor: "var(--charcoal-bg)", scale: 1, duration: 0.3})
+          });
+        });
+      }
+
+      // 8. 3D Tilt Cards Disabled
+
+      // 9. Cinematic Dividers
+      document.querySelectorAll('.cinematic-divider').forEach(div => {
+        gsap.to(div, {
+          scaleX: 1,
+          duration: 1.5,
+          ease: "power4.inOut",
+          scrollTrigger: {
+            trigger: div,
+            start: "top 90%"
+          }
+        });
+      });
+      
+    });
+  </script>
 </body>
 </html>
