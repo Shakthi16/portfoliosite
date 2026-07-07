@@ -12,6 +12,50 @@
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;display=swap" rel="stylesheet"/>
 <style>
     /* Custom CSS for Awwwards style */
+
+    /* Collage Desktop Styles */
+    .collage-grid-bg {
+      background-color: #faf9f6 !important;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px) !important;
+      background-size: 40px 40px !important;
+      color: #111111 !important;
+    }
+
+    .collage-item {
+      position: absolute;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+      transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 10;
+    }
+    .collage-item:active {
+      cursor: grabbing;
+      z-index: 100 !important;
+      transform: scale(1.03) !important;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+    }
+    .collage-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Tape effect styling for polaroids */
+    .tape-strip {
+      position: absolute;
+      width: 75px;
+      height: 22px;
+      background-color: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(1px);
+      transform: translate(-50%, -50%) rotate(-12deg);
+      border-left: 1px dashed rgba(0,0,0,0.08);
+      border-right: 1px dashed rgba(0,0,0,0.08);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      z-index: 30;
+      pointer-events: none;
+    }
     
     /* Preloader Styles - Yan Liu inspired letter fly-in */
     #preloader {
@@ -1564,158 +1608,6 @@
       transform: scaleX(1);
     }
 
-    /* Hero Page Collage Styles */
-    #home {
-      background-color: var(--bg);
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      z-index: 10;
-    }
-    body.light-mode #home {
-      background-color: #faf9f6;
-      background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-    }
-
-    .hero-cursive-name {
-      font-family: 'Pinyon Script', 'Great Vibes', cursive;
-      font-size: clamp(3.5rem, 11vw, 9rem);
-      color: var(--text);
-      line-height: 1.0;
-    }
-
-    .hero-type-subtitle {
-      font-family: 'Outfit', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      font-size: clamp(0.7rem, 1.3vw, 0.95rem);
-      color: #999;
-    }
-    body.light-mode .hero-type-subtitle {
-      color: #555;
-    }
-
-    .collage-element {
-      position: absolute;
-      transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-      will-change: transform;
-    }
-
-    /* Polaroid Card */
-    .collage-polaroid {
-      background: #18181b;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 12px 12px 24px 12px;
-      border-radius: 4px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      cursor: pointer;
-      z-index: 5;
-    }
-    body.light-mode .collage-polaroid {
-      background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.06);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-    }
-    .collage-polaroid:hover {
-      z-index: 20 !important;
-      transform: scale(1.05) rotate(0deg) !important;
-    }
-
-    /* Semi-transparent tape */
-    .collage-tape {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%) rotate(-4deg);
-      width: 90px;
-      height: 25px;
-      background-color: rgba(244, 244, 240, 0.35);
-      backdrop-filter: blur(1px);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
-    body.light-mode .collage-tape {
-      background-color: rgba(220, 220, 210, 0.5);
-    }
-
-    /* ID Badge Card */
-    .collage-badge {
-      width: 250px;
-      background: linear-gradient(135deg, rgba(24, 24, 27, 0.95), rgba(12, 12, 14, 0.95));
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 20px;
-      color: white;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-      z-index: 6;
-      cursor: pointer;
-    }
-    body.light-mode .collage-badge {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 240, 0.95));
-      border-color: rgba(0, 0, 0, 0.08);
-      color: #111111;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-    }
-    .collage-badge:hover {
-      z-index: 20 !important;
-      transform: scale(1.03) rotate(0deg) !important;
-    }
-
-    /* Vinyl Disc */
-    .collage-vinyl {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #222 20%, #111 25%, #050505 50%, #222 55%, #050505 70%);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 4;
-      cursor: pointer;
-    }
-
-    /* Terminal Mock */
-    .collage-terminal {
-      background: #18181b;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      width: 270px;
-      color: #a855f7;
-      font-family: monospace;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-      overflow: hidden;
-      z-index: 7;
-      cursor: pointer;
-      text-align: left;
-    }
-    body.light-mode .collage-terminal {
-      background: #f4f4f5;
-      border-color: rgba(0, 0, 0, 0.08);
-      color: #7c3aed;
-    }
-
-    .terminal-header {
-      background: #202023;
-      padding: 6px 12px;
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    body.light-mode .terminal-header {
-      background: #e4e4e7;
-      border-color: rgba(0, 0, 0, 0.08);
-    }
 
     /* End of AWWWARDS DESIGN SYSTEM */
   </style>
@@ -1724,66 +1616,138 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 </head>
-<body class="antialiased">
+<body class="antialiased light-mode">
 <!-- Premium Preloader Overlay -->
-<div id="preloader">
-  <!-- Phase 1: Initials "SS" centered, then fade -->
-  <div class="initials">SS</div>
+<div id="preloader" style="position: fixed; inset: 0; background-color: #050505; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
+  <div class="preloader-content" style="position: relative; text-align: center; width: 100%; max-width: 1200px; padding: 0 20px;">
+    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 400; font-size: clamp(3.5rem, 11vw, 9.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: 0.02em; padding: 0 30px;">
+      
+      <!-- Word 1: Shakthi -->
+      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
+        <span class="char initial" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">S</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">h</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">a</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">k</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">t</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">h</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">i</span>
+      </span>
 
-  <!-- Phase 2 & 3: Letters fly in from specific directions -->
-  <div class="name-wrap">
-    <div class="word">
-      <span class="letter letter-s1">S</span>
-      <span class="letter letter-h1">h</span>
-      <span class="letter letter-a1">a</span>
-      <span class="letter letter-k">k</span>
-      <span class="letter letter-t">t</span>
-      <span class="letter letter-h2">h</span>
-      <span class="letter letter-i">i</span>
-    </div>
-    <div class="word">
-      <span class="letter letter-s2">S</span>
-      <span class="letter letter-r">r</span>
-      <span class="letter letter-i2">i</span>
+      <!-- Separator spacing -->
+      <span class="separator" style="width: clamp(1rem, 4vw, 3rem); display: inline-block; vertical-align: middle;"></span>
+
+      <!-- Word 2: Sri -->
+      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
+        <span class="char initial" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">S</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">r</span>
+        <span class="char last-i" style="display: inline-block; position: relative; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">i</span>
+      </span>
+
+      <!-- Glowing dot trailing/sweeping across -->
+      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 35px; height: 35px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
     </div>
   </div>
 </div>
 
 <script>
   (function() {
+    // 1. Lock scrolling immediately to prevent user interaction during loading
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     
-    // Remove preloader after all animations complete (~4.5s)
-    setTimeout(function() {
-      var preloader = document.getElementById('preloader');
-      if (preloader) {
-        preloader.style.transition = 'opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1), transform 0.6s cubic-bezier(0.19, 1, 0.22, 1)';
-        preloader.style.opacity = '0';
-        preloader.style.transform = 'scale(1.05)';
-        preloader.style.pointerEvents = 'none';
+    // Scatter the characters programmatically on script evaluation
+    const chars = document.querySelectorAll('#preloader .char');
+    chars.forEach((char) => {
+      if (char.classList.contains('initial')) {
+        // Initials start centered but hidden/faded
+        char.style.opacity = '0';
+        char.style.filter = 'blur(10px)';
+        char.style.transform = 'translate3d(0, 40px, 0) scale(0.8)';
+      } else {
+        // Scatter characters to random coordinates, rotations, scales and blurs
+        const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
+        const randomY = (Math.random() - 0.5) * window.innerHeight * 0.7;
+        const randomRotate = (Math.random() - 0.5) * 80; // -40deg to 40deg
+        const randomScale = 0.5 + Math.random() * 0.8;
         
-        setTimeout(function() {
-          preloader.remove();
-          document.documentElement.style.overflow = '';
-          document.body.style.overflow = '';
-          if (typeof lenis !== 'undefined') {
-            lenis.start();
-          }
-        }, 600);
+        char.style.opacity = '0';
+        char.style.filter = 'blur(15px)';
+        char.style.transform = 'translate3d(' + randomX + 'px, ' + randomY + 'px, 0) rotate(' + randomRotate + 'deg) scale(' + randomScale + ')';
       }
-    }, 4200);
+    });
+
+    // 2. Animate the initials "S S" to lock into position first after 400ms
+    setTimeout(function() {
+      const initials = document.querySelectorAll('#preloader .char.initial');
+      initials.forEach(char => {
+        char.style.opacity = '1';
+        char.style.filter = 'blur(0px)';
+        char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
+      });
+    }, 400);
+
+    // 3. Stagger all other letters to drift into position after 1100ms
+    setTimeout(function() {
+      const nonInitials = document.querySelectorAll('#preloader .char:not(.initial)');
+      nonInitials.forEach((char, index) => {
+        setTimeout(function() {
+          char.style.opacity = '1';
+          char.style.filter = 'blur(0px)';
+          char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
+        }, index * 80); // 80ms stagger
+      });
+    }, 1100);
+
+    // 4. Trigger the sweep dot once letters have aligned (around 3100ms)
+    setTimeout(function() {
+      const sweep = document.querySelector('#preloader .sweep-glow');
+      const lastI = document.querySelector('#preloader .last-i');
+      const wrapper = document.querySelector('#preloader .logo-text-wrapper');
+      
+      if (sweep && lastI && wrapper) {
+        // Calculate the exact horizontal offset of the last "i" relative to the wrapper using client bounds
+        const rectWrapper = wrapper.getBoundingClientRect();
+        const rectI = lastI.getBoundingClientRect();
+        const xOffset = rectI.left - rectWrapper.left + (rectI.width / 2);
+        
+        sweep.style.opacity = '1';
+        // Sweep across and land exactly on the dot position of the last cursive 'i'
+        sweep.style.transition = 'left 1.6s cubic-bezier(0.25, 1, 0.35, 1), top 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.5s ease';
+        sweep.style.left = xOffset + 'px';
+        sweep.style.top = '12%'; // Landing spot matching the cursive 'i' dot height
+        
+        // 5. Trigger the screen-filling white flash when the sweep dot arrives on the 'i'
+        setTimeout(function() {
+          sweep.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.6s ease';
+          sweep.style.transform = 'translate(-50%, -50%) scale(180)';
+          sweep.style.backgroundColor = '#ffffff';
+          sweep.style.filter = 'blur(0px)';
+          
+          const preloader = document.getElementById('preloader');
+          if (preloader) {
+            preloader.style.transition = 'opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
+            preloader.style.opacity = '0';
+            preloader.style.transform = 'scale(1.03)';
+            preloader.style.pointerEvents = 'none';
+            
+            setTimeout(function() {
+              preloader.remove();
+              document.documentElement.style.overflow = '';
+              document.body.style.overflow = '';
+              if (typeof lenis !== 'undefined') {
+                lenis.start();
+              }
+            }, 800);
+          }
+        }, 1600); // Wait for the 1.6s sweep transition to end
+      }
+    }, 3100);
   })();
 </script>
 
 <div class="noise-overlay" style="pointer-events: none;"></div>
 <div class="cursor"></div>
 <div class="fixed top-8 right-8 z-[100] flex items-center gap-8">
-<div class="w-16 h-8 rounded-full transition-all duration-300 relative flex items-center px-1 theme-pill cursor-pointer hoverable" id="theme-toggle">
-<div class="w-6 h-6 rounded-full bg-white transition-all duration-500 transform translate-x-0 theme-thumb shadow-md flex items-center justify-center overflow-hidden">
-<i class="fas fa-moon text-black text-[10px] moon-icon transition-transform duration-500 absolute"></i>
-</div>
-</div>
 <div class="cursor-pointer hoverable flex flex-col gap-2.5 relative w-10 group mix-blend-difference" id="menu-toggle">
 <span class="w-full h-[2px] bg-white block transition-all duration-300 line-1"></span>
 <span class="w-full h-[2px] bg-white block transition-all duration-300 group-hover:w-1/2 line-2"></span>
@@ -1819,94 +1783,184 @@
 </div>
 <main>
 <!-- HOME -->
-<section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 px-6" id="home">
-  <!-- Centered Branding Text Box -->
-  <div class="hero-center-box z-10 select-none">
-    <h1 class="hero-cursive-name">Shakthi Sri</h1>
-    <h2 class="hero-type-subtitle mt-4">Software &bull; Cybersecurity &bull; UI/UX Design</h2>
-    <p class="mt-4 text-xs md:text-sm text-gray-500 max-w-sm mx-auto uppercase tracking-widest font-mono">Think, then I build</p>
+<section class="min-h-screen relative overflow-hidden pt-20 px-6 collage-grid-bg flex items-center justify-center" id="home">
+  <!-- Center Main Title and Subtitle -->
+  <div class="text-center z-20 pointer-events-none select-none">
+    <h1 class="font-normal text-black leading-none tracking-tight" style="font-family: 'Pinyon Script', 'Great Vibes', cursive; font-size: clamp(4.5rem, 13vw, 11rem); text-shadow: 0 2px 10px rgba(0,0,0,0.02);">Shakthi Sri</h1>
+    <p class="font-bold text-gray-500 uppercase tracking-[0.25em] text-xs md:text-sm mt-4" style="font-family: 'Outfit', sans-serif;">THINK, THEN I BUILD</p>
   </div>
 
-  <!-- Decorative Collage Elements (Desktop only, hidden or stack-adapted on mobile) -->
-  
-  <!-- Element 1: Polaroid Stack - Left Side (Picture2.png) -->
-  <div class="collage-element collage-polaroid hidden md:block" style="left: 8%; top: 15%; transform: rotate(-8deg); width: 190px;" data-depth="0.15">
-    <div class="collage-tape"></div>
-    <div class="w-full aspect-[4/3] bg-[#222] rounded overflow-hidden mb-3">
-      <img src="Picture2.png" alt="Project Shot" class="w-full h-full object-cover"/>
+  <!-- Draggable Item 1: Lanyard Badge (Left Side) -->
+  <div class="collage-item w-[260px] bg-neutral-900 text-white rounded-3xl p-5 shadow-xl flex flex-col items-center text-center select-none" id="item-lanyard" style="top: 15%; left: 10%; transform: rotate(-5deg);">
+    <!-- Lanyard Strap going off-screen to the top -->
+    <div style="position: absolute; bottom: 100%; left: 50%; width: 22px; height: 300px; background-color: #171717; transform: translateX(-50%); border-left: 2px dashed rgba(255,255,255,0.1); border-right: 2px dashed rgba(255,255,255,0.1); z-index: -1;"></div>
+    
+    <!-- ID badge clip slot -->
+    <div class="w-8 h-2.5 bg-neutral-800 rounded-full mb-4 border border-white/10 flex items-center justify-center">
+      <div class="w-4 h-1 bg-black rounded-full"></div>
     </div>
-    <p class="text-[10px] text-gray-400 font-mono tracking-wider uppercase text-center mt-2">Core System Architecture</p>
+    
+    <!-- Avatar picture (Using 1.png illustration of programmer at desk) -->
+    <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 mb-4 bg-neutral-800 flex items-center justify-center">
+      <img src="1.png" alt="Shakthi Sri Avatar" class="w-full h-full object-cover pointer-events-none"/>
+    </div>
+    
+    <h3 class="font-bold text-lg leading-tight" style="font-family: 'Outfit', sans-serif;">சக்தி ஸ்ரீ</h3>
+    <p class="text-xs text-purple-400 font-semibold tracking-wider uppercase mt-1">Software X Security</p>
+    <p class="text-[11px] text-gray-400 mt-3 leading-relaxed">Love exploring, prototyping, storytelling, and visual craft.</p>
   </div>
 
-  <!-- Element 2: Lanyard ID Badge - Left Side (me.png) -->
-  <div class="collage-element collage-badge hidden md:block" style="left: 12%; bottom: 12%; transform: rotate(5deg);" data-depth="0.25">
+  <!-- Draggable Item 2: Spinning Vinyl Record (Bottom Left) -->
+  <div class="collage-item bg-white border border-gray-100 rounded-3xl p-4 shadow-lg flex flex-col items-center select-none" id="item-vinyl" style="bottom: 12%; left: 15%; transform: rotate(8deg);">
+    <!-- Vinyl record disc spinning animation -->
+    <div class="relative w-44 h-44 rounded-full shadow-lg bg-neutral-950 flex items-center justify-center overflow-hidden" style="animation: spin 10s linear infinite;">
+      <!-- Vinyl grooves (SVG representation or concentric circles) -->
+      <div class="absolute inset-2 rounded-full border border-white/5"></div>
+      <div class="absolute inset-5 rounded-full border border-white/5"></div>
+      <div class="absolute inset-8 rounded-full border border-white/5"></div>
+      <div class="absolute inset-12 rounded-full border border-white/5"></div>
+      <!-- Center Sticker label -->
+      <div class="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center text-black font-black text-[9px] uppercase tracking-wider text-center border-2 border-neutral-950">
+        Shakthi<br/>Sri
+      </div>
+      <!-- Center Hole -->
+      <div class="w-3 h-3 rounded-full bg-neutral-900 absolute"></div>
+    </div>
+    <div class="flex flex-col items-center mt-3 text-black">
+      <span class="text-[10px] font-bold tracking-widest text-neutral-400 uppercase">Now Playing</span>
+      <span class="text-xs font-bold mt-0.5">Automating Security</span>
+    </div>
+  </div>
+
+  <!-- Draggable Item 3: Ticket Stub (Top Right) -->
+  <div class="collage-item bg-[#fffdf9] border border-amber-900/10 rounded-2xl shadow-md p-4 flex gap-4 items-center select-none w-[320px]" id="item-ticket" style="top: 15%; right: 12%; transform: rotate(3deg); border-left: 5px solid #a855f7;">
+    <div class="flex-grow flex flex-col">
+      <span class="text-[9px] font-black text-purple-600 uppercase tracking-widest">Design Tour</span>
+      <h4 class="font-bold text-sm text-neutral-800 leading-tight mt-1" style="font-family: 'Outfit', sans-serif;">DESIGN X TECHNOLOGY</h4>
+      <span class="text-[9px] text-gray-500 uppercase tracking-wider mt-2">Est. 2026 • Present</span>
+      <span class="text-[9px] text-gray-400 mt-1">Location: Seattle + Online / Open worldwide</span>
+    </div>
+    <div class="w-[1px] h-16 border-l border-dashed border-gray-300"></div>
+    <!-- Barcode style block -->
     <div class="flex flex-col items-center">
-      <!-- Lanyard punch hole -->
-      <div class="w-4 h-4 rounded-full bg-black/40 mb-4 border border-white/10 flex items-center justify-center">
-        <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+      <div class="flex gap-0.5 h-12 w-8 items-stretch">
+        <div class="w-[2px] bg-black"></div><div class="w-[1px] bg-black"></div><div class="w-[3px] bg-black"></div><div class="w-[1px] bg-black"></div><div class="w-[2px] bg-black"></div><div class="w-[4px] bg-black"></div><div class="w-[1px] bg-black"></div><div class="w-[2px] bg-black"></div>
       </div>
-      <!-- User Portrait inside Badge -->
-      <div class="w-24 h-24 rounded-full border-2 border-purple-500/30 overflow-hidden mb-4 shadow-lg bg-zinc-800">
-        <img src="me.png" alt="Shakthi Sri" class="w-full h-full object-cover"/>
+      <span class="text-[8px] font-mono text-gray-400 mt-1">BLD-001</span>
+    </div>
+  </div>
+
+  <!-- Draggable Item 4: Polaroid Collage Board (Bottom Right) -->
+  <div class="collage-item bg-[#efebe9] border border-gray-200 rounded-3xl p-5 shadow-lg w-[320px] flex flex-col select-none" id="item-polaroids" style="bottom: 10%; right: 8%; transform: rotate(-4deg);">
+    <h4 class="font-bold text-[10px] text-neutral-500 uppercase tracking-widest mb-3" style="font-family: 'Outfit', sans-serif;">Visual Capture</h4>
+    <div class="grid grid-cols-2 gap-3 relative">
+      <!-- Polaroid 1 (Using bg1.png) -->
+      <div class="bg-white p-2 pb-5 shadow-md rounded transform -rotate-6 relative">
+        <div class="tape-strip" style="top: 0; left: 50%;"></div>
+        <div class="w-full aspect-square overflow-hidden bg-neutral-100 rounded">
+          <img src="bg1.png" alt="Scenery" class="w-full h-full object-cover pointer-events-none"/>
+        </div>
       </div>
-      <h3 class="font-bold text-lg tracking-wider" style="font-family: 'Outfit', sans-serif;">Shakthi Sri</h3>
-      <p class="text-[10px] text-purple-400 font-mono tracking-widest uppercase mt-1">Security researcher</p>
-      <div class="w-full border-t border-white/10 my-4"></div>
-      <p class="text-[10px] text-gray-400 leading-relaxed font-sans text-center">
-        "Building intelligent, secure, and beautiful digital experiences."
-      </p>
+      <!-- Polaroid 2 (Using me.png) -->
+      <div class="bg-white p-2 pb-5 shadow-md rounded transform rotate-6 relative">
+        <div class="tape-strip" style="top: 0; left: 50%;"></div>
+        <div class="w-full aspect-square overflow-hidden bg-neutral-100 rounded">
+          <img src="me.png" alt="Shakthi Sri" class="w-full h-full object-cover pointer-events-none"/>
+        </div>
+      </div>
+      <!-- Polaroid 3 (Using hackathon.png) -->
+      <div class="bg-white p-2 pb-5 shadow-md rounded transform -rotate-3 relative col-span-2 mx-auto w-[65%]">
+        <div class="tape-strip" style="top: 0; left: 50%;"></div>
+        <div class="w-full aspect-[4/3] overflow-hidden bg-neutral-100 rounded">
+          <img src="hackathon.png" alt="Hackathon" class="w-full h-full object-cover pointer-events-none"/>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Element 3: Vinyl Record - Center Top -->
-  <div class="collage-element collage-vinyl hidden md:flex" style="left: 45%; top: 8%; transform: rotate(15deg); animation: spinRecord 25s linear infinite;" data-depth="0.08">
-    <!-- Center label of record -->
-    <div class="w-14 h-14 rounded-full bg-purple-600 border-2 border-[#111] flex items-center justify-center shadow-inner">
-      <div class="w-4 h-4 rounded-full bg-[#050505]"></div>
+  <!-- Draggable Item 5: MacOS Terminal Console (Bottom Center) -->
+  <div class="collage-item w-[360px] bg-neutral-900 border border-white/10 rounded-2xl shadow-xl overflow-hidden text-left font-mono select-none" id="item-terminal" style="bottom: 8%; left: 38%; transform: rotate(1deg);">
+    <!-- Title Bar -->
+    <div class="bg-neutral-800 px-4 py-2.5 flex items-center justify-between border-b border-black/30">
+      <div class="flex gap-2">
+        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+      </div>
+      <div class="text-[10px] text-gray-400 font-bold">shakthi-sri — zsh</div>
+      <div class="w-12"></div> <!-- Spacer to align title -->
+    </div>
+    <!-- Terminal Body -->
+    <div class="p-4 text-xs leading-relaxed text-gray-300">
+      <div><span class="text-emerald-400">~</span> $ whoami</div>
+      <div class="text-white font-bold">shakthisri</div>
+      <div class="mt-2"><span class="text-emerald-400">~</span> $ cat skills.txt</div>
+      <div class="text-purple-400">Software Engineer &amp; Cybersecurity Researcher</div>
+      <div class="mt-2"><span class="text-emerald-400">~</span> $ ./build-future.sh</div>
+      <div class="text-yellow-400 animate-pulse">Running compilation... [OK]</div>
     </div>
   </div>
 
-  <!-- Element 4: macOS Terminal Window - Right Side -->
-  <div class="collage-element collage-terminal hidden md:block" style="right: 10%; top: 12%; transform: rotate(6deg);" data-depth="0.2">
-    <div class="terminal-header">
-      <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
-      <div class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
-      <div class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
-      <span class="text-[9px] text-gray-500 font-mono ml-4 select-none">shakthisri -- zsh</span>
-    </div>
-    <div class="p-4 font-mono text-xs space-y-1.5">
-      <p class="text-gray-500">$ whoami</p>
-      <p class="text-white">shakthi-sri</p>
-      <p class="text-gray-500">$ status</p>
-      <p class="text-green-400">active_deploying...</p>
-      <p class="text-gray-500">$ npx build-portfolio</p>
-      <p class="text-purple-400">Success! 100% stable</p>
+  <!-- Draggable Item 6: LED Dot Matrix Display (Middle Center) -->
+  <div class="collage-item bg-[#121212] border border-neutral-800 rounded-3xl p-4 shadow-lg flex items-center justify-center select-none" id="item-led" style="top: 40%; right: 35%; transform: rotate(-8deg);">
+    <!-- Grid of dot indicators forming "S" -->
+    <div class="grid grid-cols-5 gap-1.5 p-1">
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
+      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
+      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
+      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
+
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+
+      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
+      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
+      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
+      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
     </div>
   </div>
 
-  <!-- Element 5: Polaroid Stack - Right Side (Picture3.png) -->
-  <div class="collage-element collage-polaroid hidden md:block" style="right: 8%; bottom: 10%; transform: rotate(-4deg); width: 210px;" data-depth="0.18">
-    <div class="collage-tape"></div>
-    <div class="w-full aspect-[4/3] bg-[#222] rounded overflow-hidden mb-3">
-      <img src="Picture3.png" alt="Portfolio Preview" class="w-full h-full object-cover"/>
+  <!-- Draggable Item 7: Monstera Plant Leaf (Top Left-Center) -->
+  <div class="collage-item flex flex-col items-center select-none" id="item-plant" style="top: 25%; left: 35%; transform: rotate(10deg); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.06));">
+    <!-- SVG illustration of a monstera plant in a pot -->
+    <div class="w-24 h-24 relative">
+      <svg viewBox="0 0 100 100" class="w-full h-full pointer-events-none">
+        <!-- Plant pot -->
+        <path d="M35,65 L65,65 L60,90 L40,90 Z" fill="#e0d4c3"/>
+        <ellipse cx="50" cy="65" rx="15" ry="3" fill="#c7bba9"/>
+        <!-- Leaves -->
+        <path d="M50,65 Q50,40 30,30 Q15,40 25,60 Z" fill="#2e7d32"/>
+        <path d="M50,65 Q55,30 75,25 Q85,40 70,60 Z" fill="#388e3c"/>
+        <path d="M50,65 Q45,20 52,10 Q65,15 60,40 Z" fill="#4caf50"/>
+      </svg>
     </div>
-    <p class="text-[10px] text-gray-400 font-mono tracking-wider uppercase text-center mt-2">Cybersecurity Node Analysis</p>
   </div>
-
-  <!-- Element 6: Design Barcode Ticket - Center Bottom -->
-  <div class="collage-element hidden md:block" style="left: 36%; bottom: 15%; transform: rotate(-5deg); background: #ffffff; border: 1px solid #e4e4e7; border-radius: 6px; padding: 12px 16px; width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); color: #111; z-index: 5;" data-depth="0.1">
-    <div class="flex justify-between items-center border-b border-gray-100 pb-2 mb-2">
-      <span class="text-[9px] font-mono text-gray-400">BOARDING PASS</span>
-      <span class="text-[9px] font-bold font-mono text-purple-600">CLASS 2026</span>
-    </div>
-    <div class="font-sans">
-      <h4 class="text-xs font-black tracking-wide">DESIGN X TECHNOLOGY</h4>
-      <p class="text-[8px] text-gray-400 font-mono mt-1">SEAT: BLD-001 &bull; GATE: AI</p>
-    </div>
-    <div class="mt-3 flex items-center justify-between">
-      <!-- Barcode simulation -->
-      <div class="h-6 w-24 bg-[repeating-linear-gradient(90deg,#111,#111_2px,transparent_2px,transparent_6px,#111_6px,#111_7px)] opacity-80"></div>
-      <span class="text-[8px] font-mono text-gray-400 font-bold">EST. 2024</span>
+  
+  <!-- Draggable Item 8: Aesthetic Arch Picture Frame (Middle Left) -->
+  <div class="collage-item bg-[#efebe9] border border-neutral-200/50 rounded-t-full p-2.5 shadow-md select-none w-28 text-center" id="item-arch" style="top: 48%; left: 8%; transform: rotate(-6deg);">
+    <div class="rounded-t-full overflow-hidden w-full aspect-[2/3] bg-neutral-100 flex items-center justify-center">
+      <svg viewBox="0 0 60 90" class="w-full h-full object-cover pointer-events-none">
+        <rect width="60" height="90" fill="#fcfaf2"/>
+        <path d="M10,80 L50,80 L30,45 Z" fill="#ece8d9"/>
+        <circle cx="30" cy="30" r="10" fill="#e0d0b0"/>
+      </svg>
     </div>
   </div>
 </section>
@@ -2778,6 +2832,7 @@
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 <script>
   // Smooth Scroll Initialization & GSAP integration
@@ -2963,187 +3018,30 @@
     console.error("Text mask hover failed:", e);
   }
 
-  // Theme Toggle Logic
+  // Force Light-Mode & Draggable Setup
   try {
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeThumb = document.querySelector('.theme-thumb');
-    const moonIcon = document.querySelector('.moon-icon');
+    document.body.classList.add('light-mode');
     
-    if (themeToggle && themeThumb && moonIcon) {
-      if (document.body.classList.contains('light-mode')) {
-        themeThumb.classList.add('translate-x-[32px]');
-        moonIcon.style.opacity = '0';
-      }
-
-      themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        
-        if (document.body.classList.contains('light-mode')) {
-          themeThumb.classList.remove('translate-x-0');
-          themeThumb.classList.add('translate-x-[32px]');
-          moonIcon.style.opacity = '0';
-        } else {
-          themeThumb.classList.add('translate-x-0');
-          themeThumb.classList.remove('translate-x-[32px]');
-          moonIcon.style.opacity = '1';
-        }
-        
-        // Refresh ScrollTriggers just in case height changes
-        if (typeof ScrollTrigger !== 'undefined') {
-          setTimeout(() => { ScrollTrigger.refresh(); }, 500);
+    // Initialize GSAP Draggable on all collage items
+    if (typeof gsap !== 'undefined' && typeof Draggable !== 'undefined') {
+      gsap.registerPlugin(Draggable);
+      
+      Draggable.create(".collage-item", {
+        bounds: "#home",
+        edgeResistance: 0.65,
+        inertia: false,
+        onDragStart: function() {
+          // Bring dragged element to top
+          gsap.set(this.target, { zIndex: 100 });
+        },
+        onDragEnd: function() {
+          // Keep it elevated but allow other items to overlap on top later when dragged
+          gsap.set(this.target, { zIndex: 50 });
         }
       });
     }
   } catch (e) {
-    console.error("Theme toggle setup failed:", e);
-  }
-
-  // Hero Background Image Spotlight Reveal (Awwwards Style)
-  try {
-    const homeSection = document.getElementById('home');
-    const canvas = document.getElementById('hero-canvas');
-    
-    if (homeSection && canvas) {
-      const ctx = canvas.getContext('2d');
-      const maxDist = 200; // spotlight radius
-      const bgImg = new Image();
-      bgImg.src = 'bg1.png';
-      
-      let imgLoaded = false;
-      bgImg.onload = () => {
-        imgLoaded = true;
-        draw();
-      };
-      
-      let mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000, active: false };
-      let animFrameId = null;
-      let hoverProgress = 0; // 0 (hidden) to 1 (visible)
-
-      function resize() {
-        const rect = homeSection.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
-        draw();
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        if (!imgLoaded || hoverProgress <= 0) return;
-
-        ctx.save();
-        
-        // 1. Draw background image relative (object-cover style)
-        const canvasAspect = canvas.width / canvas.height;
-        const imgAspect = bgImg.width / bgImg.height;
-        let drawWidth, drawHeight, drawX, drawY;
-        
-        if (canvasAspect > imgAspect) {
-          drawWidth = canvas.width;
-          drawHeight = canvas.width / imgAspect;
-          drawX = 0;
-          drawY = (canvas.height - drawHeight) / 2;
-        } else {
-          drawWidth = canvas.height * imgAspect;
-          drawHeight = canvas.height;
-          drawX = (canvas.width - drawWidth) / 2;
-          drawY = 0;
-        }
-        
-        ctx.drawImage(bgImg, drawX, drawY, drawWidth, drawHeight);
-        
-        // 2. Apply feathered spotlight mask
-        ctx.globalCompositeOperation = 'destination-in';
-        
-        const glowRadius = maxDist * hoverProgress;
-        const gradient = ctx.createRadialGradient(
-          mouse.x, mouse.y, glowRadius * 0.1,
-          mouse.x, mouse.y, glowRadius
-        );
-        gradient.addColorStop(0, 'rgba(0, 0, 0, 1.0)');
-        gradient.addColorStop(0.5, 'rgba(0, 0, 0, 0.7)');
-        gradient.addColorStop(1, 'rgba(0, 0, 0, 0.0)');
-
-        ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, glowRadius, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-        
-        ctx.restore();
-      }
-
-      function updateLoop() {
-        let needsUpdate = false;
-        
-        if (mouse.active) {
-          if (hoverProgress < 1) {
-            hoverProgress += 0.08;
-            if (hoverProgress > 1) hoverProgress = 1;
-            needsUpdate = true;
-          }
-        } else {
-          if (hoverProgress > 0) {
-            hoverProgress -= 0.08;
-            if (hoverProgress < 0) hoverProgress = 0;
-            needsUpdate = true;
-          }
-        }
-
-        // Smooth trailing coordinates
-        const easeFactor = 0.12;
-        const dx = mouse.targetX - mouse.x;
-        const dy = mouse.targetY - mouse.y;
-        
-        if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
-          mouse.x += dx * easeFactor;
-          mouse.y += dy * easeFactor;
-          needsUpdate = true;
-        }
-
-        draw();
-
-        if (needsUpdate || hoverProgress > 0) {
-          animFrameId = requestAnimationFrame(updateLoop);
-        } else {
-          animFrameId = null;
-        }
-      }
-
-      function triggerUpdate() {
-        if (!animFrameId) {
-          animFrameId = requestAnimationFrame(updateLoop);
-        }
-      }
-
-      homeSection.addEventListener('mousemove', (e) => {
-        const rect = homeSection.getBoundingClientRect();
-        mouse.targetX = e.clientX - rect.left;
-        mouse.targetY = e.clientY - rect.top;
-        
-        if (!mouse.active) {
-          mouse.x = mouse.targetX;
-          mouse.y = mouse.targetY;
-        }
-        
-        mouse.active = true;
-        triggerUpdate();
-      });
-
-      homeSection.addEventListener('mouseenter', () => {
-        mouse.active = true;
-        triggerUpdate();
-      });
-
-      homeSection.addEventListener('mouseleave', () => {
-        mouse.active = false;
-        triggerUpdate();
-      });
-
-      window.addEventListener('resize', resize);
-      resize();
-    }
-  } catch (err) {
-    console.error("Hero background spotlight failed:", err);
+    console.error("Collage Draggable setup failed:", e);
   }
 
   // Full Screen Menu Toggle
@@ -3858,31 +3756,12 @@
         let cursorX = mouseX;
         let cursorY = mouseY;
         
-        // Cache original collage element transforms for smooth parallax drift
-        document.querySelectorAll('.collage-element').forEach(el => {
-          el.setAttribute('data-orig-transform', el.style.transform || '');
-        });
-        
         window.addEventListener('mousemove', (e) => {
           mouseX = e.clientX;
           mouseY = e.clientY;
           // Update CSS vars for parallax mesh
           document.documentElement.style.setProperty('--mouse-x', `${(mouseX / window.innerWidth) * 100}%`);
           document.documentElement.style.setProperty('--mouse-y', `${(mouseY / window.innerHeight) * 100}%`);
-          
-          // Parallax drift calculations
-          const centerX = window.innerWidth / 2;
-          const centerY = window.innerHeight / 2;
-          const moveX = (mouseX - centerX);
-          const moveY = (mouseY - centerY);
-          
-          document.querySelectorAll('.collage-element').forEach(el => {
-            const depth = parseFloat(el.getAttribute('data-depth')) || 0.1;
-            const x = moveX * depth;
-            const y = moveY * depth;
-            const orig = el.getAttribute('data-orig-transform') || '';
-            el.style.transform = `translate3d(${x}px, ${y}px, 0) ${orig}`;
-          });
         });
         
         // Render loop for cursor lerp
