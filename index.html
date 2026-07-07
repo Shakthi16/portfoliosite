@@ -12,162 +12,310 @@
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;display=swap" rel="stylesheet"/>
 <style>
     /* Custom CSS for Awwwards style */
+    
+    /* Clean Preloader Styles */
+    .preloader-glow-text {
+      background: linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #d8b4fe 50%, #ffffff 65%, #ffffff 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: preloader-shine 4s linear infinite;
+    }
+    @keyframes preloader-shine {
+      to {
+        background-position: -200% center;
+      }
+    }
+    #preloader .char {
+      display: inline-block;
+      transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);
+      transform-style: preserve-3d;
+    }
 
-    /* Collage Desktop Styles */
-    .collage-grid-bg {
+    /* Collage Landing Page Styles */
+    #home {
       background-color: #faf9f6 !important;
       background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px) !important;
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px) !important;
       background-size: 40px 40px !important;
       color: #111111 !important;
-    }
-
-    .collage-item {
-      position: absolute;
-      cursor: grab;
-      user-select: none;
-      touch-action: none;
-      transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 120px;
+      overflow: hidden;
       z-index: 10;
     }
-    .collage-item:active {
-      cursor: grabbing;
-      z-index: 100 !important;
-      transform: scale(1.03) !important;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+    
+    /* Central Name Styling */
+    .collage-title-container {
+      text-align: center;
+      z-index: 15;
+      pointer-events: none;
+      position: relative;
     }
-    .collage-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    .collage-name {
+      font-family: 'Pinyon Script', 'Great Vibes', cursive;
+      font-size: clamp(4rem, 11vw, 9rem);
+      line-height: 1.1;
+      color: #111111;
+      margin: 0;
+      font-weight: 400;
+      text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
+    }
+    .collage-subtitle {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(0.75rem, 1.5vw, 1rem);
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      color: #666666;
+      text-transform: uppercase;
+      margin-top: 10px;
+      display: block;
     }
 
-    /* Tape effect styling for polaroids */
-    .tape-strip {
+    /* Floating elements */
+    .floating-sticker {
       position: absolute;
-      width: 75px;
-      height: 22px;
-      background-color: rgba(255, 255, 255, 0.35);
-      backdrop-filter: blur(1px);
-      transform: translate(-50%, -50%) rotate(-12deg);
-      border-left: 1px dashed rgba(0,0,0,0.08);
-      border-right: 1px dashed rgba(0,0,0,0.08);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-      z-index: 30;
-      pointer-events: none;
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      cursor: grab;
+      user-select: none;
+      z-index: 5;
     }
-    
-    /* Preloader Styles - Yan Liu inspired letter fly-in */
-    #preloader {
-      font-family: 'Inter', sans-serif;
-      position: fixed;
-      inset: 0;
-      background-color: #050505;
-      z-index: 9999;
+    .floating-sticker:active {
+      cursor: grabbing;
+      z-index: 50 !important;
+    }
+
+    /* ID Badge Left */
+    .badge-card {
+      width: 240px;
+      height: 340px;
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      color: #ffffff;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      opacity: 1;
-      pointer-events: auto;
-    }
-    #preloader .initials {
-      position: absolute;
-      font-size: clamp(6rem, 20vw, 14rem);
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: -8px;
-      animation: initialsAnim 2.8s ease-in-out forwards;
-      z-index: 2;
-    }
-    @keyframes initialsAnim {
-      0% { opacity: 1; transform: scale(1); }
-      25% { opacity: 1; transform: scale(1); }
-      45% { opacity: 0; transform: scale(0.7); filter: blur(4px); }
-      100% { opacity: 0; transform: scale(0.7); filter: blur(4px); }
-    }
-    #preloader .name-wrap {
+      justify-content: space-between;
       position: relative;
-      display: flex;
-      gap: clamp(1.2rem, 4vw, 3rem);
-      z-index: 1;
     }
-    #preloader .word {
-      display: flex;
-    }
-    #preloader .letter {
-      font-size: clamp(3.5rem, 12vw, 8rem);
-      font-weight: 900;
-      color: #ffffff;
-      display: inline-block;
-      opacity: 0;
-      transform: translate3d(0,0,0) rotate(0deg);
-      animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    /* Dot glow on i's */
-    #preloader .letter-i::after,
-    #preloader .letter-i2::after {
+    .badge-card::before {
       content: '';
       position: absolute;
-      top: 0.4em;
+      top: -12px;
       left: 50%;
-      transform: translateX(-50%) scale(0);
-      width: 0.15em;
-      height: 0.15em;
-      background: #ffffff;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 12px;
+      background: #27272a;
+      border-radius: 4px 4px 0 0;
+    }
+    .badge-strap {
+      position: absolute;
+      top: -300px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 300px;
+      background: #111111;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+      z-index: -1;
+    }
+
+    /* Spinning Vinyl Record */
+    .vinyl-record {
+      width: 170px;
+      height: 170px;
+      background: radial-gradient(circle, #050505 30%, #111 35%, #050505 40%, #151515 45%, #050505 50%, #222 55%, #050505 60%, #111 65%, #050505 70%);
       border-radius: 50%;
-      box-shadow: 0 0 20px 6px rgba(255,255,255,0.5);
-      animation: dotGlow 0.5s ease-out 3.8s forwards;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18), inset 0 0 10px rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: vinyl-spin 12s linear infinite;
     }
-    @keyframes dotGlow {
-      0% { transform: translateX(-50%) scale(0); opacity: 0; }
-      100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    .vinyl-label {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #10b981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #000;
     }
-    #preloader .letter-i,
-    #preloader .letter-i2 {
+    .vinyl-center-hole {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #faf9f6;
+    }
+    @keyframes vinyl-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* macOS Terminal Window */
+    .terminal-window {
+      width: clamp(280px, 35vw, 400px);
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+      overflow: hidden;
+      font-family: monospace;
+      text-align: left;
+    }
+    .terminal-header {
+      background: #f8fafc;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e2e8f0;
       position: relative;
     }
+    .terminal-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .terminal-title {
+      font-size: 0.7rem;
+      color: #64748b;
+      margin: 0 auto;
+      font-weight: 700;
+    }
+    .terminal-body {
+      padding: 16px;
+      font-size: 0.8rem;
+      color: #334155;
+      line-height: 1.5;
+    }
 
-    /* Individual letter fly-in animations */
-    #preloader .letter-s1  { animation: flyLeft 1s ease-out 2s forwards; }
-    #preloader .letter-h1  { animation: flyTop 1s ease-out 2.1s forwards; }
-    #preloader .letter-a1  { animation: flyBottomLeft 1s ease-out 2.2s forwards; }
-    #preloader .letter-k   { animation: flyTopRight 1s ease-out 2.3s forwards; }
-    #preloader .letter-t   { animation: flyBottom 1s ease-out 2.4s forwards; }
-    #preloader .letter-h2  { animation: flyLeft 1s ease-out 2.5s forwards; }
-    #preloader .letter-i   { animation: flyTop 1s ease-out 2.6s forwards; }
-    #preloader .letter-s2  { animation: flyRight 1s ease-out 2.7s forwards; }
-    #preloader .letter-r   { animation: flyBottomRight 1s ease-out 2.8s forwards; }
-    #preloader .letter-i2  { animation: flyTop 1s ease-out 2.9s forwards; }
+    /* Concert Ticket Stub */
+    .ticket-stub {
+      width: 260px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+    .ticket-stub::before, .ticket-stub::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      background: #faf9f6;
+      border: 1px solid #cbd5e1;
+      border-radius: 50%;
+    }
+    .ticket-stub::before { left: -9px; }
+    .ticket-stub::after { right: -9px; }
 
-    @keyframes flyLeft {
-      0% { opacity: 0; transform: translate3d(-300px,0,0) rotate(-45deg); }
-      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+    /* Polaroid Collage */
+    .polaroid-collage {
+      width: 290px;
+      background: #fcf8f2;
+      border: 1px solid #e8e2d5;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      padding: 16px;
+      border-radius: 4px;
     }
-    @keyframes flyTop {
-      0% { opacity: 0; transform: translate3d(0,-250px,0) rotate(30deg); }
-      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+    .polaroid-photo {
+      background: #ffffff;
+      padding: 10px 10px 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      border: 1px solid #efebd8;
+      transform: rotate(-3deg);
+      display: inline-block;
     }
-    @keyframes flyBottomLeft {
-      0% { opacity: 0; transform: translate3d(-200px,200px,0) rotate(-60deg); }
-      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+
+    /* Desktop Folder sticker */
+    .folder-sticker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+      text-align: center;
     }
-    @keyframes flyTopRight {
-      0% { opacity: 0; transform: translate3d(200px,-200px,0) rotate(45deg); }
-      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+    .folder-name {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #334155;
+      margin-top: 6px;
+      word-break: break-all;
     }
-    @keyframes flyBottom {
-      0% { opacity: 0; transform: translate3d(0,250px,0) rotate(-30deg); }
-      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+
+    /* Tape overlay style */
+    .tape-sticker {
+      position: absolute;
+      background: rgba(254, 253, 230, 0.45);
+      backdrop-filter: blur(1px);
+      box-shadow: inset 0 0 2px rgba(0,0,0,0.05);
+      border: 1px dashed rgba(0,0,0,0.05);
+      width: 70px;
+      height: 20px;
+      transform: rotate(-15deg);
+      z-index: 10;
     }
-    @keyframes flyRight {
-      0% { opacity: 0; transform: translate3d(300px,0,0) rotate(45deg); }
-      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+
+    /* AirDrop Modal UI */
+    .airdrop-modal {
+      width: 210px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
-    @keyframes flyBottomRight {
-      0% { opacity: 0; transform: translate3d(200px,200px,0) rotate(60deg); }
-      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+
+    /* Paint Palette UI */
+    .paint-palette {
+      width: 44px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 4px;
+      z-index: 5;
+    }
+    .paint-tool {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #475569;
+      font-size: 0.85rem;
+    }
+    .paint-tool:hover {
+      background: #e2e8f0;
+      color: #0f172a;
     }
 :root {
       --bg: #050505;
@@ -1624,13 +1772,13 @@
       
       <!-- Word 1: Shakthi -->
       <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="char initial" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">S</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">h</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">a</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">k</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">t</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">h</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">i</span>
+        <span class="char initial" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">S</span>
+        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">h</span>
+        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">a</span>
+        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">k</span>
+        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">t</span>
+        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">h</span>
+        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">i</span>
       </span>
 
       <!-- Separator spacing -->
@@ -1638,13 +1786,10 @@
 
       <!-- Word 2: Sri -->
       <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="char initial" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">S</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">r</span>
-        <span class="char last-i" style="display: inline-block; position: relative; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">i</span>
+        <span class="char initial" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">S</span>
+        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">r</span>
+        <span class="char last-i" style="display: inline-block; position: relative; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">i</span>
       </span>
-
-      <!-- Glowing dot trailing/sweeping across -->
-      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 35px; height: 35px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
     </div>
   </div>
 </div>
@@ -1655,23 +1800,19 @@
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     
-    // Scatter the characters programmatically on script evaluation
+    // Scatter the characters programmatically on script evaluation (No blur)
     const chars = document.querySelectorAll('#preloader .char');
     chars.forEach((char) => {
       if (char.classList.contains('initial')) {
-        // Initials start centered but hidden/faded
         char.style.opacity = '0';
-        char.style.filter = 'blur(10px)';
         char.style.transform = 'translate3d(0, 40px, 0) scale(0.8)';
       } else {
-        // Scatter characters to random coordinates, rotations, scales and blurs
         const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
         const randomY = (Math.random() - 0.5) * window.innerHeight * 0.7;
         const randomRotate = (Math.random() - 0.5) * 80; // -40deg to 40deg
-        const randomScale = 0.5 + Math.random() * 0.8;
+        const randomScale = 0.6 + Math.random() * 0.6;
         
         char.style.opacity = '0';
-        char.style.filter = 'blur(15px)';
         char.style.transform = 'translate3d(' + randomX + 'px, ' + randomY + 'px, 0) rotate(' + randomRotate + 'deg) scale(' + randomScale + ')';
       }
     });
@@ -1681,67 +1822,40 @@
       const initials = document.querySelectorAll('#preloader .char.initial');
       initials.forEach(char => {
         char.style.opacity = '1';
-        char.style.filter = 'blur(0px)';
         char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
       });
     }, 400);
 
-    // 3. Stagger all other letters to drift into position after 1100ms
+    // 3. Stagger all other letters to drift into position after 1000ms
     setTimeout(function() {
       const nonInitials = document.querySelectorAll('#preloader .char:not(.initial)');
       nonInitials.forEach((char, index) => {
         setTimeout(function() {
           char.style.opacity = '1';
-          char.style.filter = 'blur(0px)';
           char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
-        }, index * 80); // 80ms stagger
+        }, index * 70); // 70ms stagger
       });
-    }, 1100);
+    }, 1000);
 
-    // 4. Trigger the sweep dot once letters have aligned (around 3100ms)
+    // 4. Fade out the preloader overlay cleanly after 2800ms
     setTimeout(function() {
-      const sweep = document.querySelector('#preloader .sweep-glow');
-      const lastI = document.querySelector('#preloader .last-i');
-      const wrapper = document.querySelector('#preloader .logo-text-wrapper');
-      
-      if (sweep && lastI && wrapper) {
-        // Calculate the exact horizontal offset of the last "i" relative to the wrapper using client bounds
-        const rectWrapper = wrapper.getBoundingClientRect();
-        const rectI = lastI.getBoundingClientRect();
-        const xOffset = rectI.left - rectWrapper.left + (rectI.width / 2);
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.style.transition = 'opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
+        preloader.style.opacity = '0';
+        preloader.style.transform = 'scale(1.04)';
+        preloader.style.pointerEvents = 'none';
         
-        sweep.style.opacity = '1';
-        // Sweep across and land exactly on the dot position of the last cursive 'i'
-        sweep.style.transition = 'left 1.6s cubic-bezier(0.25, 1, 0.35, 1), top 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.5s ease';
-        sweep.style.left = xOffset + 'px';
-        sweep.style.top = '12%'; // Landing spot matching the cursive 'i' dot height
-        
-        // 5. Trigger the screen-filling white flash when the sweep dot arrives on the 'i'
         setTimeout(function() {
-          sweep.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.6s ease';
-          sweep.style.transform = 'translate(-50%, -50%) scale(180)';
-          sweep.style.backgroundColor = '#ffffff';
-          sweep.style.filter = 'blur(0px)';
-          
-          const preloader = document.getElementById('preloader');
-          if (preloader) {
-            preloader.style.transition = 'opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
-            preloader.style.opacity = '0';
-            preloader.style.transform = 'scale(1.03)';
-            preloader.style.pointerEvents = 'none';
-            
-            setTimeout(function() {
-              preloader.remove();
-              document.documentElement.style.overflow = '';
-              document.body.style.overflow = '';
-              if (typeof lenis !== 'undefined') {
-                lenis.start();
-              }
-            }, 800);
+          preloader.remove();
+          document.documentElement.style.overflow = '';
+          document.body.style.overflow = '';
+          if (typeof lenis !== 'undefined') {
+            lenis.start();
           }
-        }, 1600); // Wait for the 1.6s sweep transition to end
+        }, 800);
       }
-    }, 3100);
+    }, 2800);
   })();
 </script>
 
@@ -1783,185 +1897,179 @@
 </div>
 <main>
 <!-- HOME -->
-<section class="min-h-screen relative overflow-hidden pt-20 px-6 collage-grid-bg flex items-center justify-center" id="home">
-  <!-- Center Main Title and Subtitle -->
-  <div class="text-center z-20 pointer-events-none select-none">
-    <h1 class="font-normal text-black leading-none tracking-tight" style="font-family: 'Pinyon Script', 'Great Vibes', cursive; font-size: clamp(4.5rem, 13vw, 11rem); text-shadow: 0 2px 10px rgba(0,0,0,0.02);">Shakthi Sri</h1>
-    <p class="font-bold text-gray-500 uppercase tracking-[0.25em] text-xs md:text-sm mt-4" style="font-family: 'Outfit', sans-serif;">THINK, THEN I BUILD</p>
+<section id="home">
+  <div class="collage-title-container">
+    <h1 class="collage-name">Shakthi Sri</h1>
+    <span class="collage-subtitle">THINK, THEN I BUILD</span>
   </div>
 
-  <!-- Draggable Item 1: Lanyard Badge (Left Side) -->
-  <div class="collage-item w-[260px] bg-neutral-900 text-white rounded-3xl p-5 shadow-xl flex flex-col items-center text-center select-none" id="item-lanyard" style="top: 15%; left: 10%; transform: rotate(-5deg);">
-    <!-- Lanyard Strap going off-screen to the top -->
-    <div style="position: absolute; bottom: 100%; left: 50%; width: 22px; height: 300px; background-color: #171717; transform: translateX(-50%); border-left: 2px dashed rgba(255,255,255,0.1); border-right: 2px dashed rgba(255,255,255,0.1); z-index: -1;"></div>
-    
-    <!-- ID badge clip slot -->
-    <div class="w-8 h-2.5 bg-neutral-800 rounded-full mb-4 border border-white/10 flex items-center justify-center">
-      <div class="w-4 h-1 bg-black rounded-full"></div>
-    </div>
-    
-    <!-- Avatar picture (Using 1.png illustration of programmer at desk) -->
-    <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 mb-4 bg-neutral-800 flex items-center justify-center">
-      <img src="1.png" alt="Shakthi Sri Avatar" class="w-full h-full object-cover pointer-events-none"/>
-    </div>
-    
-    <h3 class="font-bold text-lg leading-tight" style="font-family: 'Outfit', sans-serif;">சக்தி ஸ்ரீ</h3>
-    <p class="text-xs text-purple-400 font-semibold tracking-wider uppercase mt-1">Software X Security</p>
-    <p class="text-[11px] text-gray-400 mt-3 leading-relaxed">Love exploring, prototyping, storytelling, and visual craft.</p>
-  </div>
+  <!-- FLOATING COLLAGE ELEMENTS -->
 
-  <!-- Draggable Item 2: Spinning Vinyl Record (Bottom Left) -->
-  <div class="collage-item bg-white border border-gray-100 rounded-3xl p-4 shadow-lg flex flex-col items-center select-none" id="item-vinyl" style="bottom: 12%; left: 15%; transform: rotate(8deg);">
-    <!-- Vinyl record disc spinning animation -->
-    <div class="relative w-44 h-44 rounded-full shadow-lg bg-neutral-950 flex items-center justify-center overflow-hidden" style="animation: spin 10s linear infinite;">
-      <!-- Vinyl grooves (SVG representation or concentric circles) -->
-      <div class="absolute inset-2 rounded-full border border-white/5"></div>
-      <div class="absolute inset-5 rounded-full border border-white/5"></div>
-      <div class="absolute inset-8 rounded-full border border-white/5"></div>
-      <div class="absolute inset-12 rounded-full border border-white/5"></div>
-      <!-- Center Sticker label -->
-      <div class="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center text-black font-black text-[9px] uppercase tracking-wider text-center border-2 border-neutral-950">
-        Shakthi<br/>Sri
+  <!-- 1. Left ID Badge Card -->
+  <div class="floating-sticker" style="top: 8%; left: 8%; transform: rotate(-5deg);" id="sticker-badge">
+    <div class="badge-card">
+      <div class="badge-strap"></div>
+      <div class="flex flex-col items-center gap-4 mt-4 w-full">
+        <!-- Circular Avatar Portrait -->
+        <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 shadow-md">
+          <img src="me.png" alt="Shakthi Sri" class="w-full h-full object-cover" />
+        </div>
+        <div class="text-xs font-bold text-gray-400 tracking-widest uppercase">சக்தி ஸ்ரீ</div>
+        <p class="text-[11px] text-gray-300 text-center leading-relaxed font-sans max-w-[180px]">
+          Love exploring, prototyping, storytelling, and visual craft.
+        </p>
       </div>
-      <!-- Center Hole -->
-      <div class="w-3 h-3 rounded-full bg-neutral-900 absolute"></div>
-    </div>
-    <div class="flex flex-col items-center mt-3 text-black">
-      <span class="text-[10px] font-bold tracking-widest text-neutral-400 uppercase">Now Playing</span>
-      <span class="text-xs font-bold mt-0.5">Automating Security</span>
-    </div>
-  </div>
-
-  <!-- Draggable Item 3: Ticket Stub (Top Right) -->
-  <div class="collage-item bg-[#fffdf9] border border-amber-900/10 rounded-2xl shadow-md p-4 flex gap-4 items-center select-none w-[320px]" id="item-ticket" style="top: 15%; right: 12%; transform: rotate(3deg); border-left: 5px solid #a855f7;">
-    <div class="flex-grow flex flex-col">
-      <span class="text-[9px] font-black text-purple-600 uppercase tracking-widest">Design Tour</span>
-      <h4 class="font-bold text-sm text-neutral-800 leading-tight mt-1" style="font-family: 'Outfit', sans-serif;">DESIGN X TECHNOLOGY</h4>
-      <span class="text-[9px] text-gray-500 uppercase tracking-wider mt-2">Est. 2026 • Present</span>
-      <span class="text-[9px] text-gray-400 mt-1">Location: Seattle + Online / Open worldwide</span>
-    </div>
-    <div class="w-[1px] h-16 border-l border-dashed border-gray-300"></div>
-    <!-- Barcode style block -->
-    <div class="flex flex-col items-center">
-      <div class="flex gap-0.5 h-12 w-8 items-stretch">
-        <div class="w-[2px] bg-black"></div><div class="w-[1px] bg-black"></div><div class="w-[3px] bg-black"></div><div class="w-[1px] bg-black"></div><div class="w-[2px] bg-black"></div><div class="w-[4px] bg-black"></div><div class="w-[1px] bg-black"></div><div class="w-[2px] bg-black"></div>
+      <div class="w-full border-t border-white/10 pt-4 flex flex-col items-center">
+        <div class="text-[10px] font-bold text-purple-400 uppercase tracking-wider">Software & Security</div>
+        <div class="text-[9px] text-gray-500 mt-1">EST. 2026 - PRESENT</div>
       </div>
-      <span class="text-[8px] font-mono text-gray-400 mt-1">BLD-001</span>
     </div>
   </div>
 
-  <!-- Draggable Item 4: Polaroid Collage Board (Bottom Right) -->
-  <div class="collage-item bg-[#efebe9] border border-gray-200 rounded-3xl p-5 shadow-lg w-[320px] flex flex-col select-none" id="item-polaroids" style="bottom: 10%; right: 8%; transform: rotate(-4deg);">
-    <h4 class="font-bold text-[10px] text-neutral-500 uppercase tracking-widest mb-3" style="font-family: 'Outfit', sans-serif;">Visual Capture</h4>
-    <div class="grid grid-cols-2 gap-3 relative">
-      <!-- Polaroid 1 (Using bg1.png) -->
-      <div class="bg-white p-2 pb-5 shadow-md rounded transform -rotate-6 relative">
-        <div class="tape-strip" style="top: 0; left: 50%;"></div>
-        <div class="w-full aspect-square overflow-hidden bg-neutral-100 rounded">
-          <img src="bg1.png" alt="Scenery" class="w-full h-full object-cover pointer-events-none"/>
+  <!-- 2. Spinning Vinyl Record player (Bottom Left) -->
+  <div class="floating-sticker" style="bottom: 12%; left: 6%; transform: rotate(10deg);" id="sticker-vinyl">
+    <div class="vinyl-record">
+      <div class="vinyl-label">
+        <div class="vinyl-center-hole"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. macOS Terminal Window (Bottom Center) -->
+  <div class="floating-sticker" style="bottom: 8%; left: 32%; transform: rotate(-2deg);" id="sticker-terminal">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="terminal-dot bg-red-400" style="background-color: #f87171;"></span>
+          <span class="terminal-dot bg-yellow-400" style="background-color: #fbbf24;"></span>
+          <span class="terminal-dot bg-green-400" style="background-color: #34d399;"></span>
+        </div>
+        <span class="terminal-title">shakthi-sri — zsh</span>
+      </div>
+      <div class="terminal-body">
+        <div style="color: #64748b; margin-bottom: 4px;">~ $ whoami</div>
+        <div style="color: #0f172a; font-weight: 700; margin-bottom: 12px;">shakthi-sri</div>
+        <div style="color: #64748b; margin-bottom: 4px;">~ $ cat focus.txt</div>
+        <div style="color: #0d9488; font-weight: 700; margin-bottom: 12px;">cybersecurity | full-stack dev | UI/UX</div>
+        <div style="color: #64748b; margin-bottom: 4px;">~ $ status</div>
+        <div style="color: #64748b;"><span class="animate-pulse" style="color: #10b981; font-weight: bold;">●</span> learning at scale, building at speed...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Concert Ticket Stub (Top Right) -->
+  <div class="floating-sticker" style="top: 12%; right: 18%; transform: rotate(4deg);" id="sticker-ticket">
+    <div class="tape-sticker" style="top: -12px; left: 30%; transform: rotate(5deg); width: 80px;"></div>
+    <div class="ticket-stub">
+      <div class="flex flex-col justify-between text-left gap-4 font-sans max-w-[170px]">
+        <div>
+          <h4 class="text-xs font-black tracking-widest text-gray-400 uppercase">Design tour</h4>
+          <h3 class="text-base font-bold text-gray-800 leading-tight mt-1">DESIGN X TECHNOLOGY</h3>
+        </div>
+        <div class="text-[9px] text-gray-500 font-medium">
+          <div>Time: Anytime</div>
+          <div>Price: Free</div>
+          <div class="mt-1 font-bold text-gray-700">Seattle + Online</div>
         </div>
       </div>
-      <!-- Polaroid 2 (Using me.png) -->
-      <div class="bg-white p-2 pb-5 shadow-md rounded transform rotate-6 relative">
-        <div class="tape-strip" style="top: 0; left: 50%;"></div>
-        <div class="w-full aspect-square overflow-hidden bg-neutral-100 rounded">
-          <img src="me.png" alt="Shakthi Sri" class="w-full h-full object-cover pointer-events-none"/>
+      <div class="border-l border-dashed border-gray-200 pl-4 flex flex-col justify-between items-center w-14">
+        <div class="flex gap-[2px] h-20 items-stretch opacity-70">
+          <span class="w-[1px] bg-black"></span>
+          <span class="w-[3px] bg-black"></span>
+          <span class="w-[1px] bg-black"></span>
+          <span class="w-[2px] bg-black"></span>
+          <span class="w-[1px] bg-black"></span>
+          <span class="w-[4px] bg-black"></span>
+          <span class="w-[1px] bg-black"></span>
+          <span class="w-[2px] bg-black"></span>
+          <span class="w-[1px] bg-black"></span>
         </div>
+        <span class="text-[8px] font-bold text-gray-400">001</span>
       </div>
-      <!-- Polaroid 3 (Using hackathon.png) -->
-      <div class="bg-white p-2 pb-5 shadow-md rounded transform -rotate-3 relative col-span-2 mx-auto w-[65%]">
-        <div class="tape-strip" style="top: 0; left: 50%;"></div>
-        <div class="w-full aspect-[4/3] overflow-hidden bg-neutral-100 rounded">
-          <img src="hackathon.png" alt="Hackathon" class="w-full h-full object-cover pointer-events-none"/>
+    </div>
+  </div>
+
+  <!-- 5. Polaroid Collage (Bottom Right) -->
+  <div class="floating-sticker" style="bottom: 6%; right: 6%; transform: rotate(-3deg);" id="sticker-polaroid">
+    <div class="polaroid-collage">
+      <div class="polaroid-photo">
+        <div class="tape-sticker" style="top: -16px; left: 35%; transform: rotate(-5deg); width: 60px;"></div>
+        <div class="w-60 aspect-[4/3] overflow-hidden bg-gray-100 border border-gray-150" style="width: 240px; height: 180px;">
+          <img src="Picture4.png" alt="Featured Project Preview" class="w-full h-full object-cover" />
         </div>
+        <div class="text-xs font-bold text-gray-600 mt-4 text-center" style="font-family: 'Pinyon Script', cursive; font-size: 1.5rem;">creative shots</div>
       </div>
     </div>
   </div>
 
-  <!-- Draggable Item 5: MacOS Terminal Console (Bottom Center) -->
-  <div class="collage-item w-[360px] bg-neutral-900 border border-white/10 rounded-2xl shadow-xl overflow-hidden text-left font-mono select-none" id="item-terminal" style="bottom: 8%; left: 38%; transform: rotate(1deg);">
-    <!-- Title Bar -->
-    <div class="bg-neutral-800 px-4 py-2.5 flex items-center justify-between border-b border-black/30">
-      <div class="flex gap-2">
-        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+  <!-- 6. AirDrop Share Request Modal -->
+  <div class="floating-sticker" style="bottom: 35%; right: 18%; transform: rotate(6deg);" id="sticker-airdrop">
+    <div class="airdrop-modal">
+      <div class="w-10 h-10 mx-auto rounded-full bg-blue-500 flex items-center justify-center text-white mb-2" style="background-color: #3b82f6;">
+        <i class="fas fa-wifi text-sm"></i>
       </div>
-      <div class="text-[10px] text-gray-400 font-bold">shakthi-sri — zsh</div>
-      <div class="w-12"></div> <!-- Spacer to align title -->
-    </div>
-    <!-- Terminal Body -->
-    <div class="p-4 text-xs leading-relaxed text-gray-300">
-      <div><span class="text-emerald-400">~</span> $ whoami</div>
-      <div class="text-white font-bold">shakthisri</div>
-      <div class="mt-2"><span class="text-emerald-400">~</span> $ cat skills.txt</div>
-      <div class="text-purple-400">Software Engineer &amp; Cybersecurity Researcher</div>
-      <div class="mt-2"><span class="text-emerald-400">~</span> $ ./build-future.sh</div>
-      <div class="text-yellow-400 animate-pulse">Running compilation... [OK]</div>
+      <div class="text-xs font-bold text-gray-800">AirDrop</div>
+      <p class="text-[10px] text-gray-500 mt-1 mb-3">Shakthi would like to share a photo.</p>
+      <div class="flex gap-2 justify-center border-t border-gray-150 pt-2 text-[10px] font-bold" style="border-top: 1px solid #e2e8f0;">
+        <button class="w-1/2 py-1 text-gray-500 hover:text-black transition-colors hoverable" style="background: none; border: none; cursor: pointer;">Decline</button>
+        <button class="w-1/2 py-1 text-blue-500 hover:text-blue-600 transition-colors hoverable" style="background: none; border: none; cursor: pointer; color: #3b82f6;">Accept</button>
+      </div>
     </div>
   </div>
 
-  <!-- Draggable Item 6: LED Dot Matrix Display (Middle Center) -->
-  <div class="collage-item bg-[#121212] border border-neutral-800 rounded-3xl p-4 shadow-lg flex items-center justify-center select-none" id="item-led" style="top: 40%; right: 35%; transform: rotate(-8deg);">
-    <!-- Grid of dot indicators forming "S" -->
-    <div class="grid grid-cols-5 gap-1.5 p-1">
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+  <!-- 7. Monstera Plant Leaf sticker (Top Center Left) -->
+  <div class="floating-sticker" style="top: 8%; left: 34%; transform: rotate(-10deg); pointer-events: none;" id="sticker-plant">
+    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" class="drop-shadow-lg opacity-85">
+      <path d="M50 90C50 90 40 70 40 50C40 30 50 10 50 10C50 10 60 30 60 50C60 70 50 90 50 90Z" fill="#15803d"/>
+      <path d="M48 20C40 22 30 28 25 35C20 42 22 50 30 48" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M52 20C60 22 70 28 75 35C80 42 78 50 70 48" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M46 40C35 44 24 50 20 60C16 70 20 76 32 70" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M54 40C65 44 76 50 80 60C84 70 80 76 68 70" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
 
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
-      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
-      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
-      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
+  <!-- 8. Coffee glass sticker (Top Center Right) -->
+  <div class="floating-sticker" style="top: 15%; left: 48%; transform: rotate(15deg);" id="sticker-coffee">
+    <svg width="70" height="90" viewBox="0 0 70 90" fill="none" class="drop-shadow-md">
+      <path d="M15 15L20 80H50L55 15H15Z" fill="#faf5eb" stroke="#cbd5e1" stroke-width="2"/>
+      <path d="M22 25L24 75H46L48 25H22Z" fill="#b45309" opacity="0.85"/>
+      <rect x="28" y="32" width="10" height="10" rx="2" fill="#faf5eb" transform="rotate(15 28 32)" opacity="0.9"/>
+      <rect x="38" y="45" width="10" height="10" rx="2" fill="#faf5eb" transform="rotate(-10 38 45)" opacity="0.9"/>
+    </svg>
+  </div>
 
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-
-      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
-      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
-      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
-      <div class="w-2 h-2 rounded-full bg-neutral-800"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
-      <div class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></div>
+  <!-- 9. MacPaint Floating Tool Palette (Far Right) -->
+  <div class="floating-sticker" style="top: 30%; right: 4%; transform: rotate(-5deg);" id="sticker-palette">
+    <div class="paint-palette">
+      <div class="paint-tool hoverable"><i class="fas fa-mouse-pointer"></i></div>
+      <div class="paint-tool hoverable"><i class="fas fa-pencil-alt"></i></div>
+      <div class="paint-tool hoverable"><i class="fas fa-eraser"></i></div>
+      <div class="paint-tool hoverable"><i class="fas fa-paint-brush"></i></div>
+      <div class="paint-tool hoverable"><i class="fas fa-fill-drip"></i></div>
+      <div class="paint-tool hoverable"><i class="fas fa-font"></i></div>
+      <div class="paint-tool hoverable"><i class="fas fa-crop-alt"></i></div>
     </div>
   </div>
 
-  <!-- Draggable Item 7: Monstera Plant Leaf (Top Left-Center) -->
-  <div class="collage-item flex flex-col items-center select-none" id="item-plant" style="top: 25%; left: 35%; transform: rotate(10deg); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.06));">
-    <!-- SVG illustration of a monstera plant in a pot -->
-    <div class="w-24 h-24 relative">
-      <svg viewBox="0 0 100 100" class="w-full h-full pointer-events-none">
-        <!-- Plant pot -->
-        <path d="M35,65 L65,65 L60,90 L40,90 Z" fill="#e0d4c3"/>
-        <ellipse cx="50" cy="65" rx="15" ry="3" fill="#c7bba9"/>
-        <!-- Leaves -->
-        <path d="M50,65 Q50,40 30,30 Q15,40 25,60 Z" fill="#2e7d32"/>
-        <path d="M50,65 Q55,30 75,25 Q85,40 70,60 Z" fill="#388e3c"/>
-        <path d="M50,65 Q45,20 52,10 Q65,15 60,40 Z" fill="#4caf50"/>
+  <!-- 10. Scattered Folder Icons -->
+  <div class="floating-sticker" style="top: 40%; left: 24%; transform: rotate(8deg);" id="sticker-folder-vault">
+    <a href="#projects" class="folder-sticker hoverable block">
+      <svg width="60" height="50" viewBox="0 0 60 50" fill="none" class="drop-shadow-sm">
+        <path d="M5 10C5 7.23858 7.23858 5 10 5H22L28 12H50C52.7614 12 55 14.2386 55 17V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V10Z" fill="#38bdf8"/>
+        <path d="M5 16H55V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V16Z" fill="#0ea5e9"/>
       </svg>
-    </div>
+      <span class="folder-name">secure_vault</span>
+    </a>
   </div>
-  
-  <!-- Draggable Item 8: Aesthetic Arch Picture Frame (Middle Left) -->
-  <div class="collage-item bg-[#efebe9] border border-neutral-200/50 rounded-t-full p-2.5 shadow-md select-none w-28 text-center" id="item-arch" style="top: 48%; left: 8%; transform: rotate(-6deg);">
-    <div class="rounded-t-full overflow-hidden w-full aspect-[2/3] bg-neutral-100 flex items-center justify-center">
-      <svg viewBox="0 0 60 90" class="w-full h-full object-cover pointer-events-none">
-        <rect width="60" height="90" fill="#fcfaf2"/>
-        <path d="M10,80 L50,80 L30,45 Z" fill="#ece8d9"/>
-        <circle cx="30" cy="30" r="10" fill="#e0d0b0"/>
+
+  <div class="floating-sticker" style="top: 45%; right: 32%; transform: rotate(-12deg);" id="sticker-folder-assets">
+    <a href="#about" class="folder-sticker hoverable block">
+      <svg width="60" height="50" viewBox="0 0 60 50" fill="none" class="drop-shadow-sm">
+        <path d="M5 10C5 7.23858 7.23858 5 10 5H22L28 12H50C52.7614 12 55 14.2386 55 17V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V10Z" fill="#38bdf8"/>
+        <path d="M5 16H55V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V16Z" fill="#0ea5e9"/>
       </svg>
-    </div>
+      <span class="folder-name">final_final</span>
+    </a>
   </div>
 </section>
 <!-- ABOUT: CINEMATIC EDITORIAL CANVAS -->
@@ -2832,7 +2940,6 @@
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 <script>
   // Smooth Scroll Initialization & GSAP integration
@@ -3018,30 +3125,187 @@
     console.error("Text mask hover failed:", e);
   }
 
-  // Force Light-Mode & Draggable Setup
+  // Theme Toggle Logic
   try {
-    document.body.classList.add('light-mode');
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeThumb = document.querySelector('.theme-thumb');
+    const moonIcon = document.querySelector('.moon-icon');
     
-    // Initialize GSAP Draggable on all collage items
-    if (typeof gsap !== 'undefined' && typeof Draggable !== 'undefined') {
-      gsap.registerPlugin(Draggable);
-      
-      Draggable.create(".collage-item", {
-        bounds: "#home",
-        edgeResistance: 0.65,
-        inertia: false,
-        onDragStart: function() {
-          // Bring dragged element to top
-          gsap.set(this.target, { zIndex: 100 });
-        },
-        onDragEnd: function() {
-          // Keep it elevated but allow other items to overlap on top later when dragged
-          gsap.set(this.target, { zIndex: 50 });
+    if (themeToggle && themeThumb && moonIcon) {
+      if (document.body.classList.contains('light-mode')) {
+        themeThumb.classList.add('translate-x-[32px]');
+        moonIcon.style.opacity = '0';
+      }
+
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+          themeThumb.classList.remove('translate-x-0');
+          themeThumb.classList.add('translate-x-[32px]');
+          moonIcon.style.opacity = '0';
+        } else {
+          themeThumb.classList.add('translate-x-0');
+          themeThumb.classList.remove('translate-x-[32px]');
+          moonIcon.style.opacity = '1';
+        }
+        
+        // Refresh ScrollTriggers just in case height changes
+        if (typeof ScrollTrigger !== 'undefined') {
+          setTimeout(() => { ScrollTrigger.refresh(); }, 500);
         }
       });
     }
   } catch (e) {
-    console.error("Collage Draggable setup failed:", e);
+    console.error("Theme toggle setup failed:", e);
+  }
+
+  // Hero Background Image Spotlight Reveal (Awwwards Style)
+  try {
+    const homeSection = document.getElementById('home');
+    const canvas = document.getElementById('hero-canvas');
+    
+    if (homeSection && canvas) {
+      const ctx = canvas.getContext('2d');
+      const maxDist = 200; // spotlight radius
+      const bgImg = new Image();
+      bgImg.src = 'bg1.png';
+      
+      let imgLoaded = false;
+      bgImg.onload = () => {
+        imgLoaded = true;
+        draw();
+      };
+      
+      let mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000, active: false };
+      let animFrameId = null;
+      let hoverProgress = 0; // 0 (hidden) to 1 (visible)
+
+      function resize() {
+        const rect = homeSection.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        draw();
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        if (!imgLoaded || hoverProgress <= 0) return;
+
+        ctx.save();
+        
+        // 1. Draw background image relative (object-cover style)
+        const canvasAspect = canvas.width / canvas.height;
+        const imgAspect = bgImg.width / bgImg.height;
+        let drawWidth, drawHeight, drawX, drawY;
+        
+        if (canvasAspect > imgAspect) {
+          drawWidth = canvas.width;
+          drawHeight = canvas.width / imgAspect;
+          drawX = 0;
+          drawY = (canvas.height - drawHeight) / 2;
+        } else {
+          drawWidth = canvas.height * imgAspect;
+          drawHeight = canvas.height;
+          drawX = (canvas.width - drawWidth) / 2;
+          drawY = 0;
+        }
+        
+        ctx.drawImage(bgImg, drawX, drawY, drawWidth, drawHeight);
+        
+        // 2. Apply feathered spotlight mask
+        ctx.globalCompositeOperation = 'destination-in';
+        
+        const glowRadius = maxDist * hoverProgress;
+        const gradient = ctx.createRadialGradient(
+          mouse.x, mouse.y, glowRadius * 0.1,
+          mouse.x, mouse.y, glowRadius
+        );
+        gradient.addColorStop(0, 'rgba(0, 0, 0, 1.0)');
+        gradient.addColorStop(0.5, 'rgba(0, 0, 0, 0.7)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0.0)');
+
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, glowRadius, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        
+        ctx.restore();
+      }
+
+      function updateLoop() {
+        let needsUpdate = false;
+        
+        if (mouse.active) {
+          if (hoverProgress < 1) {
+            hoverProgress += 0.08;
+            if (hoverProgress > 1) hoverProgress = 1;
+            needsUpdate = true;
+          }
+        } else {
+          if (hoverProgress > 0) {
+            hoverProgress -= 0.08;
+            if (hoverProgress < 0) hoverProgress = 0;
+            needsUpdate = true;
+          }
+        }
+
+        // Smooth trailing coordinates
+        const easeFactor = 0.12;
+        const dx = mouse.targetX - mouse.x;
+        const dy = mouse.targetY - mouse.y;
+        
+        if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+          mouse.x += dx * easeFactor;
+          mouse.y += dy * easeFactor;
+          needsUpdate = true;
+        }
+
+        draw();
+
+        if (needsUpdate || hoverProgress > 0) {
+          animFrameId = requestAnimationFrame(updateLoop);
+        } else {
+          animFrameId = null;
+        }
+      }
+
+      function triggerUpdate() {
+        if (!animFrameId) {
+          animFrameId = requestAnimationFrame(updateLoop);
+        }
+      }
+
+      homeSection.addEventListener('mousemove', (e) => {
+        const rect = homeSection.getBoundingClientRect();
+        mouse.targetX = e.clientX - rect.left;
+        mouse.targetY = e.clientY - rect.top;
+        
+        if (!mouse.active) {
+          mouse.x = mouse.targetX;
+          mouse.y = mouse.targetY;
+        }
+        
+        mouse.active = true;
+        triggerUpdate();
+      });
+
+      homeSection.addEventListener('mouseenter', () => {
+        mouse.active = true;
+        triggerUpdate();
+      });
+
+      homeSection.addEventListener('mouseleave', () => {
+        mouse.active = false;
+        triggerUpdate();
+      });
+
+      window.addEventListener('resize', resize);
+      resize();
+    }
+  } catch (err) {
+    console.error("Hero background spotlight failed:", err);
   }
 
   // Full Screen Menu Toggle
@@ -3894,6 +4158,63 @@
             start: "top 90%"
           }
         });
+      });
+      // 10. Drag and Drop for Collage Stickers
+      const stickers = document.querySelectorAll('.floating-sticker');
+      stickers.forEach(sticker => {
+        let isDragging = false;
+        let startX = 0, startY = 0, initialX = 0, initialY = 0;
+
+        sticker.querySelectorAll('img, svg').forEach(el => {
+          el.addEventListener('dragstart', e => e.preventDefault());
+        });
+
+        sticker.addEventListener('mousedown', dragStart);
+        sticker.addEventListener('touchstart', dragStart, { passive: true });
+
+        function dragStart(e) {
+          if (e.target.closest('button, a, .paint-tool')) return;
+          isDragging = true;
+          const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+          const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+          startX = clientX;
+          startY = clientY;
+
+          const rect = sticker.getBoundingClientRect();
+          const parentRect = sticker.parentElement.getBoundingClientRect();
+          initialX = rect.left - parentRect.left;
+          initialY = rect.top - parentRect.top;
+
+          sticker.style.transition = 'none';
+          sticker.style.cursor = 'grabbing';
+
+          document.addEventListener('mousemove', drag);
+          document.addEventListener('mouseup', dragEnd);
+          document.addEventListener('touchmove', drag, { passive: false });
+          document.addEventListener('touchend', dragEnd);
+        }
+
+        function drag(e) {
+          if (!isDragging) return;
+          if (e.type === 'touchmove') e.preventDefault();
+          const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+          const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+          const dx = clientX - startX;
+          const dy = clientY - startY;
+          sticker.style.left = (initialX + dx) + 'px';
+          sticker.style.top = (initialY + dy) + 'px';
+        }
+
+        function dragEnd() {
+          if (!isDragging) return;
+          isDragging = false;
+          sticker.style.cursor = 'grab';
+          sticker.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
+          document.removeEventListener('mousemove', drag);
+          document.removeEventListener('mouseup', dragEnd);
+          document.removeEventListener('touchmove', drag);
+          document.removeEventListener('touchend', dragEnd);
+        }
       });
       
     });
