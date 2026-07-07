@@ -11,6 +11,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <style>
     /* Custom CSS for Awwwards style */
+    
+    /* Preloader Styles */
+    .preloader-glow-text {
+      background: linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #d8b4fe 50%, #ffffff 65%, #ffffff 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: preloader-shine 4s linear infinite;
+    }
+    @keyframes preloader-shine {
+      to {
+        background-position: -200% center;
+      }
+    }
 :root {
       --bg: #050505;
       --text: #ffffff;
@@ -1459,6 +1473,82 @@
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 </head>
 <body class="antialiased">
+<!-- Premium Preloader Overlay -->
+<div id="preloader" style="position: fixed; inset: 0; background-color: #050505; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
+  <div class="preloader-content" style="position: relative;">
+    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: clamp(3rem, 9vw, 7.5rem); color: #ffffff; position: relative; display: flex; align-items: center; letter-spacing: -0.03em;">
+      <span class="word" style="display: flex; overflow: hidden; align-items: center;">
+        <span class="initial">S</span>
+        <span class="remainder" style="max-width: 0; opacity: 0; display: inline-block; overflow: hidden; white-space: nowrap; transition: max-width 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;">hakthi</span>
+      </span>
+      <span class="separator" style="width: clamp(0.4rem, 2vw, 1.2rem); display: inline-block;"></span>
+      <span class="word" style="display: flex; overflow: hidden; align-items: center;">
+        <span class="initial">S</span>
+        <span class="remainder" style="max-width: 0; opacity: 0; display: inline-block; overflow: hidden; white-space: nowrap; transition: max-width 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;">ri</span>
+      </span>
+      <!-- Glowing dot trailing/sweeping across -->
+      <div class="sweep-glow" style="position: absolute; top: 50%; left: -5%; transform: translate(-50%, -50%); width: 35px; height: 35px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #a855f7); opacity: 0; pointer-events: none;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // 1. Lock scrolling immediately to prevent user interaction during loading
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    
+    const startTime = performance.now();
+
+    // 2. Start expansion of initials to full name after 900ms
+    setTimeout(function() {
+      const remainders = document.querySelectorAll('#preloader .remainder');
+      remainders.forEach(el => {
+        el.style.opacity = '1';
+        el.style.maxWidth = '300px'; // value larger than word width to allow full reveal
+      });
+    }, 900);
+
+    // 3. Trigger light sweep glow dot animation after 1700ms
+    setTimeout(function() {
+      const sweep = document.querySelector('#preloader .sweep-glow');
+      if (sweep) {
+        sweep.style.opacity = '1';
+        sweep.style.transition = 'left 1.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease';
+        sweep.style.left = '105%';
+      }
+    }, 1700);
+
+    // 4. Fade out preloader and unlock scrolling when window is fully loaded
+    window.addEventListener('load', function() {
+      const minimumDisplayTime = 3200; // minimum duration (ms) to appreciate the animation
+      
+      function hidePreloader() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+          preloader.style.opacity = '0';
+          preloader.style.transform = 'scale(1.05) translateY(-30px)';
+          preloader.style.pointerEvents = 'none';
+          
+          setTimeout(function() {
+            preloader.remove();
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            // Resume Lenis smooth scroll if active
+            if (typeof lenis !== 'undefined') {
+              lenis.start();
+            }
+          }, 800);
+        }
+      }
+
+      const elapsed = performance.now() - startTime;
+      const remainingTime = Math.max(0, minimumDisplayTime - elapsed);
+      setTimeout(hidePreloader, remainingTime);
+    });
+  })();
+</script>
+
 <div class="noise-overlay" style="pointer-events: none;"></div>
 <div class="cursor"></div>
 <div class="fixed top-8 right-8 z-[100] flex items-center gap-8">
