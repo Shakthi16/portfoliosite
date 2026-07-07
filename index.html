@@ -59,12 +59,12 @@
       position: relative;
     }
     .collage-name {
-      font-family: 'Pinyon Script', 'Great Vibes', cursive;
+      font-family: 'Pinyon Script', 'Great Vibes', cursive !important;
       font-size: clamp(4rem, 11vw, 9rem);
       line-height: 1.1;
       color: #111111;
       margin: 0;
-      font-weight: 400;
+      font-weight: 400 !important;
       text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
     }
     .collage-subtitle {
@@ -134,29 +134,10 @@
     .vinyl-record {
       width: 170px;
       height: 170px;
-      background: radial-gradient(circle, #050505 30%, #111 35%, #050505 40%, #151515 45%, #050505 50%, #222 55%, #050505 60%, #111 65%, #050505 70%);
       border-radius: 50%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.18), inset 0 0 10px rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
       animation: vinyl-spin 12s linear infinite;
-    }
-    .vinyl-label {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: #10b981;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 3px solid #000;
-    }
-    .vinyl-center-hole {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #faf9f6;
+      overflow: hidden;
     }
     @keyframes vinyl-spin {
       to { transform: rotate(360deg); }
@@ -1800,9 +1781,13 @@
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     
-    // Scatter the characters programmatically on script evaluation (No blur)
+    // Get all chars
     const chars = document.querySelectorAll('#preloader .char');
+    
+    // Disable transition temporarily during scatter so they don't animate outwards
     chars.forEach((char) => {
+      char.style.transition = 'none';
+      
       if (char.classList.contains('initial')) {
         char.style.opacity = '0';
         char.style.transform = 'translate3d(0, 40px, 0) scale(0.8)';
@@ -1815,6 +1800,16 @@
         char.style.opacity = '0';
         char.style.transform = 'translate3d(' + randomX + 'px, ' + randomY + 'px, 0) rotate(' + randomRotate + 'deg) scale(' + randomScale + ')';
       }
+    });
+
+    // Force layout reflow so the browser applies the scattered styling instantly
+    if (chars.length > 0) {
+      chars[0].offsetHeight; 
+    }
+
+    // Re-enable smooth transition curves
+    chars.forEach((char) => {
+      char.style.transition = 'transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1)';
     });
 
     // 2. Animate the initials "S S" to lock into position first after 400ms
@@ -1906,7 +1901,7 @@
   <!-- FLOATING COLLAGE ELEMENTS -->
 
   <!-- 1. Left ID Badge Card -->
-  <div class="floating-sticker" style="top: 8%; left: 8%; transform: rotate(-5deg);" id="sticker-badge">
+  <div class="floating-sticker" style="top: 10%; left: 4%; transform: rotate(-4deg);" id="sticker-badge">
     <div class="badge-card">
       <div class="badge-strap"></div>
       <div class="flex flex-col items-center gap-4 mt-4 w-full">
@@ -1927,16 +1922,14 @@
   </div>
 
   <!-- 2. Spinning Vinyl Record player (Bottom Left) -->
-  <div class="floating-sticker" style="bottom: 12%; left: 6%; transform: rotate(10deg);" id="sticker-vinyl">
+  <div class="floating-sticker" style="bottom: 10%; left: 4%; transform: rotate(8deg);" id="sticker-vinyl">
     <div class="vinyl-record">
-      <div class="vinyl-label">
-        <div class="vinyl-center-hole"></div>
-      </div>
+      <img src="https://pngimg.com/uploads/vinyl/vinyl_PNG1.png" alt="Vinyl CD" class="w-full h-full object-cover" />
     </div>
   </div>
 
   <!-- 3. macOS Terminal Window (Bottom Center) -->
-  <div class="floating-sticker" style="bottom: 8%; left: 32%; transform: rotate(-2deg);" id="sticker-terminal">
+  <div class="floating-sticker" style="bottom: 8%; left: 24%; transform: rotate(-1deg);" id="sticker-terminal">
     <div class="terminal-window">
       <div class="terminal-header">
         <div class="terminal-dots">
@@ -1958,7 +1951,7 @@
   </div>
 
   <!-- 4. Concert Ticket Stub (Top Right) -->
-  <div class="floating-sticker" style="top: 12%; right: 18%; transform: rotate(4deg);" id="sticker-ticket">
+  <div class="floating-sticker" style="top: 8%; right: 26%; transform: rotate(3deg);" id="sticker-ticket">
     <div class="tape-sticker" style="top: -12px; left: 30%; transform: rotate(5deg); width: 80px;"></div>
     <div class="ticket-stub">
       <div class="flex flex-col justify-between text-left gap-4 font-sans max-w-[170px]">
@@ -1990,7 +1983,7 @@
   </div>
 
   <!-- 5. Polaroid Collage (Bottom Right) -->
-  <div class="floating-sticker" style="bottom: 6%; right: 6%; transform: rotate(-3deg);" id="sticker-polaroid">
+  <div class="floating-sticker" style="bottom: 8%; right: 4%; transform: rotate(-3deg);" id="sticker-polaroid">
     <div class="polaroid-collage">
       <div class="polaroid-photo">
         <div class="tape-sticker" style="top: -16px; left: 35%; transform: rotate(-5deg); width: 60px;"></div>
@@ -2003,7 +1996,7 @@
   </div>
 
   <!-- 6. AirDrop Share Request Modal -->
-  <div class="floating-sticker" style="bottom: 35%; right: 18%; transform: rotate(6deg);" id="sticker-airdrop">
+  <div class="floating-sticker" style="bottom: 38%; right: 18%; transform: rotate(5deg);" id="sticker-airdrop">
     <div class="airdrop-modal">
       <div class="w-10 h-10 mx-auto rounded-full bg-blue-500 flex items-center justify-center text-white mb-2" style="background-color: #3b82f6;">
         <i class="fas fa-wifi text-sm"></i>
@@ -2017,29 +2010,18 @@
     </div>
   </div>
 
-  <!-- 7. Monstera Plant Leaf sticker (Top Center Left) -->
-  <div class="floating-sticker" style="top: 8%; left: 34%; transform: rotate(-10deg); pointer-events: none;" id="sticker-plant">
-    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" class="drop-shadow-lg opacity-85">
-      <path d="M50 90C50 90 40 70 40 50C40 30 50 10 50 10C50 10 60 30 60 50C60 70 50 90 50 90Z" fill="#15803d"/>
-      <path d="M48 20C40 22 30 28 25 35C20 42 22 50 30 48" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
-      <path d="M52 20C60 22 70 28 75 35C80 42 78 50 70 48" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
-      <path d="M46 40C35 44 24 50 20 60C16 70 20 76 32 70" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
-      <path d="M54 40C65 44 76 50 80 60C84 70 80 76 68 70" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
-    </svg>
+  <!-- 7. Potted plant pot image from online -->
+  <div class="floating-sticker" style="top: 8%; left: 32%; transform: rotate(-8deg);" id="sticker-plant">
+    <img src="https://www.freeiconspng.com/uploads/potted-plant-png-27.png" alt="Monstera plant pot sticker" style="width: 100px; height: auto;" class="drop-shadow-lg opacity-90" />
   </div>
 
-  <!-- 8. Coffee glass sticker (Top Center Right) -->
-  <div class="floating-sticker" style="top: 15%; left: 48%; transform: rotate(15deg);" id="sticker-coffee">
-    <svg width="70" height="90" viewBox="0 0 70 90" fill="none" class="drop-shadow-md">
-      <path d="M15 15L20 80H50L55 15H15Z" fill="#faf5eb" stroke="#cbd5e1" stroke-width="2"/>
-      <path d="M22 25L24 75H46L48 25H22Z" fill="#b45309" opacity="0.85"/>
-      <rect x="28" y="32" width="10" height="10" rx="2" fill="#faf5eb" transform="rotate(15 28 32)" opacity="0.9"/>
-      <rect x="38" y="45" width="10" height="10" rx="2" fill="#faf5eb" transform="rotate(-10 38 45)" opacity="0.9"/>
-    </svg>
+  <!-- 8. Coffee glass image from online -->
+  <div class="floating-sticker" style="top: 14%; left: 46%; transform: rotate(12deg);" id="sticker-coffee">
+    <img src="https://www.freeiconspng.com/uploads/iced-coffee-png-6.png" alt="Iced coffee cup sticker" style="width: 70px; height: auto;" class="drop-shadow-md" />
   </div>
 
   <!-- 9. MacPaint Floating Tool Palette (Far Right) -->
-  <div class="floating-sticker" style="top: 30%; right: 4%; transform: rotate(-5deg);" id="sticker-palette">
+  <div class="floating-sticker" style="top: 25%; right: 4%; transform: rotate(-5deg);" id="sticker-palette">
     <div class="paint-palette">
       <div class="paint-tool hoverable"><i class="fas fa-mouse-pointer"></i></div>
       <div class="paint-tool hoverable"><i class="fas fa-pencil-alt"></i></div>
@@ -2051,8 +2033,8 @@
     </div>
   </div>
 
-  <!-- 10. Scattered Folder Icons -->
-  <div class="floating-sticker" style="top: 40%; left: 24%; transform: rotate(8deg);" id="sticker-folder-vault">
+  <!-- 10. Scattered Folder Icons (repositioned to avoid title overlaps) -->
+  <div class="floating-sticker" style="top: 35%; left: 16%; transform: rotate(8deg);" id="sticker-folder-vault">
     <a href="#projects" class="folder-sticker hoverable block">
       <svg width="60" height="50" viewBox="0 0 60 50" fill="none" class="drop-shadow-sm">
         <path d="M5 10C5 7.23858 7.23858 5 10 5H22L28 12H50C52.7614 12 55 14.2386 55 17V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V10Z" fill="#38bdf8"/>
@@ -2062,7 +2044,7 @@
     </a>
   </div>
 
-  <div class="floating-sticker" style="top: 45%; right: 32%; transform: rotate(-12deg);" id="sticker-folder-assets">
+  <div class="floating-sticker" style="top: 48%; right: 28%; transform: rotate(-12deg);" id="sticker-folder-assets">
     <a href="#about" class="folder-sticker hoverable block">
       <svg width="60" height="50" viewBox="0 0 60 50" fill="none" class="drop-shadow-sm">
         <path d="M5 10C5 7.23858 7.23858 5 10 5H22L28 12H50C52.7614 12 55 14.2386 55 17V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V10Z" fill="#38bdf8"/>
