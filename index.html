@@ -5,6 +5,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Shakthi Sri | Portfolio</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 <!-- Premium Fonts for Awwwards Style -->
@@ -1475,41 +1477,35 @@
 </head>
 <body class="antialiased">
 <!-- Premium Preloader Overlay -->
-<div id="preloader" style="position: fixed; inset: 0; background: radial-gradient(circle at center, #161233 0%, #050505 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
-  <!-- Noise Overlay for texture -->
-  <div class="noise-overlay" style="position: absolute; inset: 0; pointer-events: none; opacity: 0.04; background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
-  
-  <div class="preloader-content" style="position: relative; text-align: center; z-index: 10;">
-    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', cursive; font-weight: 400; font-size: clamp(3.5rem, 11vw, 9rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: -0.01em; padding: 0 40px; text-shadow: 0 0 15px rgba(255,255,255,0.1), 0 0 30px rgba(168,85,247,0.2);">
+<div id="preloader" style="position: fixed; inset: 0; background-color: #050505; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s ease; opacity: 1; pointer-events: auto;">
+  <div class="preloader-content" style="position: relative; text-align: center;">
+    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', cursive; font-weight: 400; font-size: clamp(4.5rem, 12vw, 10.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: 0.05em; padding: 0 40px;">
       
       <!-- Word 1: Shakthi -->
-      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="initial" style="display: inline-block;">S</span>
-        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">h</span>
-        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">a</span>
-        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">k</span>
-        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">t</span>
-        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">h</span>
-        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">i</span>
+      <span class="preloader-word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
+        <span class="letter initial-s1" style="display: inline-block; position: relative; z-index: 5;">S</span>
+        <span class="letter" style="display: inline-block;">h</span>
+        <span class="letter" style="display: inline-block;">a</span>
+        <span class="letter" style="display: inline-block;">k</span>
+        <span class="letter" style="display: inline-block;">t</span>
+        <span class="letter" style="display: inline-block;">h</span>
+        <span class="letter" style="display: inline-block;">i</span>
       </span>
       
-      <!-- Separator -->
-      <span class="separator" style="width: clamp(0.8rem, 3.5vw, 2.5rem); display: inline-block; vertical-align: middle;"></span>
+      <!-- Separator Spacer -->
+      <span class="preloader-separator" style="width: clamp(1rem, 4vw, 3rem); display: inline-block; vertical-align: middle;"></span>
       
       <!-- Word 2: Sri -->
-      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="initial" style="display: inline-block;">S</span>
-        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">r</span>
-        <span class="char last-i" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); position: relative;">i</span>
+      <span class="preloader-word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
+        <span class="letter initial-s2" style="display: inline-block; position: relative; z-index: 5;">S</span>
+        <span class="letter" style="display: inline-block;">r</span>
+        <span class="letter last-i" style="display: inline-block; position: relative;">i</span>
       </span>
       
       <!-- Glowing dot trailing/sweeping across -->
-      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 25px; height: 25px; background-color: #ffffff; border-radius: 50%; filter: blur(1px) drop-shadow(0 0 8px #ffffff) drop-shadow(0 0 16px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
+      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 35px; height: 35px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
     </div>
   </div>
-  
-  <!-- Subtle ambient light spotlight in the background -->
-  <div class="preloader-spotlight" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%); pointer-events: none; z-index: 1; transition: left 1.5s cubic-bezier(0.25, 1, 0.35, 1), top 1.5s cubic-bezier(0.25, 1, 0.35, 1);"></div>
 </div>
 
 <script>
@@ -1518,84 +1514,144 @@
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     
-    // 2. Stagger reveal all characters
-    setTimeout(function() {
-      const chars = document.querySelectorAll('#preloader .char');
-      chars.forEach((char, index) => {
-        setTimeout(function() {
-          char.style.opacity = '1';
-          char.style.filter = 'blur(0px)';
-          char.style.transform = 'translate(0, 0) scale(1)';
-        }, index * 80); // Stagger delay of 80ms per letter for handwriting flow
-      });
-    }, 800);
+    // Disable Lenis if it is initialized early
+    if (typeof lenis !== 'undefined') {
+      lenis.stop();
+    }
 
-    // 3. Trigger light sweep glow dot and spotlight background shadow
-    setTimeout(function() {
+    // Run when DOM elements are rendered
+    function initPreloader() {
+      const s1 = document.querySelector('#preloader .initial-s1');
+      const s2 = document.querySelector('#preloader .initial-s2');
+      const otherLetters = document.querySelectorAll('#preloader .letter:not(.initial-s1):not(.initial-s2):not(.last-i), #preloader .last-i');
+      const preloader = document.getElementById('preloader');
       const sweep = document.querySelector('#preloader .sweep-glow');
       const lastI = document.querySelector('#preloader .last-i');
       const wrapper = document.querySelector('#preloader .logo-text-wrapper');
-      const spotlight = document.querySelector('#preloader .preloader-spotlight');
-      
-      if (sweep && lastI && wrapper) {
-        // Calculate the exact horizontal offset of the last "i" relative to the text wrapper
-        const xOffset = lastI.offsetLeft + (lastI.offsetWidth / 2);
+
+      if (!s1 || !s2 || !preloader) return;
+
+      const preloaderRect = preloader.getBoundingClientRect();
+      const s1Rect = s1.getBoundingClientRect();
+      const s2Rect = s2.getBoundingClientRect();
+
+      // Center X and Y coordinates of the preloader screen
+      const centerX = preloaderRect.width / 2;
+      const centerY = preloaderRect.height / 2;
+
+      // Current visual positions of S1 and S2
+      const s1VisualX = s1Rect.left + s1Rect.width / 2;
+      const s2VisualX = s2Rect.left + s2Rect.width / 2;
+      const s1VisualY = s1Rect.top + s1Rect.height / 2;
+      const s2VisualY = s2Rect.top + s2Rect.height / 2;
+
+      // Calculate initial offsets to place S1 and S2 side-by-side in the center
+      const s1StartX = centerX - s1VisualX - 25; // 25px left of center
+      const s2StartX = centerX - s2VisualX + 25; // 25px right of center
+      const s1StartY = centerY - s1VisualY;
+      const s2StartY = centerY - s2VisualY;
+
+      // Set initials to starting center position
+      gsap.set(s1, { x: s1StartX, y: s1StartY, scale: 1.25 });
+      gsap.set(s2, { x: s2StartX, y: s2StartY, scale: 1.25 });
+
+      // Scatter all other letters in a circular burst pattern
+      otherLetters.forEach((el, index) => {
+        const angle = (index / otherLetters.length) * Math.PI * 2;
+        const distance = gsap.utils.random(160, 260);
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
         
-        sweep.style.opacity = '1';
-        
-        // 1.5s transition for sweep dot and background spotlight tracking
-        const transitionStyle = 'left 1.6s cubic-bezier(0.25, 1, 0.35, 1), top 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.5s ease';
-        sweep.style.transition = transitionStyle;
-        sweep.style.left = xOffset + 'px';
-        sweep.style.top = '12%'; // Exact dot position of Pinyon Script 'i'
-        
-        if (spotlight) {
-          spotlight.style.transition = transitionStyle;
-          // Move the background ambient spotlight to follow the sweep dot
+        gsap.set(el, {
+          opacity: 0,
+          x: x,
+          y: y,
+          rotation: gsap.utils.random(-60, 60),
+          filter: 'blur(8px)'
+        });
+      });
+
+      // GSAP Animation Timeline
+      const tl = gsap.timeline({ delay: 0.4 });
+
+      // Step A: Slide initials back to their layout positions & fly other letters in
+      tl.to([s1, s2], {
+        x: 0,
+        y: 0,
+        scale: 1,
+        duration: 1.6,
+        ease: 'power4.inOut'
+      }, 'expand');
+
+      tl.to(otherLetters, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        rotation: 0,
+        filter: 'blur(0px)',
+        duration: 1.6,
+        stagger: {
+          each: 0.04,
+          from: 'random'
+        },
+        ease: 'power4.out'
+      }, 'expand+=0.1');
+
+      // Step B: Sweep glowing light dot across and land on the dot of the final 'i'
+      tl.add(() => {
+        if (sweep && lastI && wrapper) {
+          const lastIRect = lastI.getBoundingClientRect();
           const wrapperRect = wrapper.getBoundingClientRect();
-          const preloaderRect = document.getElementById('preloader').getBoundingClientRect();
-          const targetX = (wrapperRect.left - preloaderRect.left) + xOffset;
-          const targetY = (wrapperRect.top - preloaderRect.top) + (wrapperRect.height * 0.12);
           
-          spotlight.style.left = targetX + 'px';
-          spotlight.style.top = targetY + 'px';
+          // Target position coordinates relative to logo-text-wrapper
+          const targetX = lastIRect.left - wrapperRect.left + (lastIRect.width / 2);
+          // Standard Pinyon Script 'i' dot resides at about 10% height from top of boundary
+          const targetY = lastIRect.top - wrapperRect.top + (lastIRect.height * 0.12);
+
+          gsap.set(sweep, { opacity: 1, left: '-50px', top: '50%' });
+
+          gsap.to(sweep, {
+            left: targetX,
+            top: targetY,
+            duration: 1.5,
+            ease: 'power3.inOut',
+            onComplete: () => {
+              // Step C: Trigger screen explosion flash
+              gsap.to(sweep, {
+                scale: 180,
+                backgroundColor: '#ffffff',
+                filter: 'blur(0px)',
+                duration: 0.6,
+                ease: 'power2.in'
+              });
+
+              gsap.to(preloader, {
+                opacity: 0,
+                scale: 1.05,
+                duration: 0.7,
+                delay: 0.1,
+                ease: 'power2.inOut',
+                onComplete: () => {
+                  preloader.remove();
+                  document.documentElement.style.overflow = '';
+                  document.body.style.overflow = '';
+                  if (typeof lenis !== 'undefined') {
+                    lenis.start();
+                  }
+                }
+              });
+            }
+          });
         }
-        
-        // 4. Trigger flash when the sweep dot arrives on the 'i' (transition is 1.6s)
-        setTimeout(function() {
-          // Trigger the explosion/flash
-          sweep.style.transition = 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease';
-          sweep.style.transform = 'translate(-50%, -50%) scale(180)';
-          sweep.style.backgroundColor = '#ffffff';
-          sweep.style.filter = 'blur(0px)';
-          
-          if (spotlight) {
-            spotlight.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-            spotlight.style.transform = 'translate(-50%, -50%) scale(5)';
-            spotlight.style.opacity = '0';
-          }
-          
-          // Fade out the preloader panel itself simultaneously
-          const preloader = document.getElementById('preloader');
-          if (preloader) {
-            preloader.style.transition = 'opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1), transform 0.7s cubic-bezier(0.19, 1, 0.22, 1)';
-            preloader.style.opacity = '0';
-            preloader.style.transform = 'scale(1.02)';
-            preloader.style.pointerEvents = 'none';
-            
-            setTimeout(function() {
-              preloader.remove();
-              document.documentElement.style.overflow = '';
-              document.body.style.overflow = '';
-              // Resume Lenis smooth scroll if active
-              if (typeof lenis !== 'undefined') {
-                lenis.start();
-              }
-            }, 700);
-          }
-        }, 1600);
-      }
-    }, 1900);
+      }, 'expand+=1.1');
+    }
+
+    // Check if gsap is loaded, otherwise wait for it
+    if (typeof gsap !== 'undefined') {
+      initPreloader();
+    } else {
+      window.addEventListener('DOMContentLoaded', initPreloader);
+    }
   })();
 </script>
 
@@ -2541,8 +2597,6 @@
 </div>
 </main>
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 <script>
   // Smooth Scroll Initialization & GSAP integration
