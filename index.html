@@ -6,12 +6,11 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Shakthi Sri | Portfolio</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 <!-- Premium Fonts for Awwwards Style -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <style>
     /* Custom CSS for Awwwards style */
     
@@ -1474,32 +1473,39 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body class="antialiased">
-<div id="preloader" style="position: fixed; inset: 0; background-color: #0c0c0e; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s ease;">
-  <div class="preloader-content" style="position: relative; text-align: center;">
-    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', cursive; font-weight: 400; font-size: clamp(3.5rem, 10vw, 8.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: -0.01em; padding: 0 40px;">
+<!-- Premium Preloader Overlay -->
+<div id="preloader" style="position: fixed; inset: 0; background-color: #0b0b0c; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s ease;">
+  <!-- Grain overlay to make it look textured and premium -->
+  <div class="preloader-grain" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.03; pointer-events: none; background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
+  
+  <div class="preloader-content" style="position: relative; text-align: center; width: 100%; max-width: 90vw;">
+    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', cursive; font-weight: 400; font-size: clamp(3.5rem, 11vw, 9.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: -0.01em; padding: 0 40px; overflow: visible;">
       
-      <!-- Individual characters to be animated by GSAP -->
-      <span class="char-word" style="display: inline-block; white-space: nowrap;">
-        <span class="char" style="display: inline-block;">S</span>
-        <span class="char" style="display: inline-block;">h</span>
-        <span class="char" style="display: inline-block;">a</span>
-        <span class="char" style="display: inline-block;">k</span>
-        <span class="char" style="display: inline-block;">t</span>
-        <span class="char" style="display: inline-block;">h</span>
-        <span class="char" style="display: inline-block;">i</span>
+      <!-- Word 1: Shakthi -->
+      <span class="word" style="display: inline-block; white-space: nowrap; overflow: visible; vertical-align: middle;">
+        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">S</span>
+        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">h</span>
+        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">a</span>
+        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">k</span>
+        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">t</span>
+        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">h</span>
+        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">i</span>
       </span>
-      <span class="char-space" style="display: inline-block; width: clamp(0.5rem, 2vw, 1.5rem);"></span>
-      <span class="char-word" style="display: inline-block; white-space: nowrap;">
-        <span class="char" style="display: inline-block;">S</span>
-        <span class="char" style="display: inline-block;">r</span>
-        <span class="char last-i" style="display: inline-block; position: relative;">i</span>
+      
+      <!-- Separator spacer -->
+      <span class="separator" style="width: clamp(1rem, 4vw, 3rem); display: inline-block; vertical-align: middle;"></span>
+      
+      <!-- Word 2: Sri -->
+      <span class="word" style="display: inline-block; white-space: nowrap; overflow: visible; vertical-align: middle;">
+        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">S</span>
+        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">r</span>
+        <span class="letter last-i" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">i</span>
       </span>
-
+      
       <!-- Glowing dot trailing/sweeping across -->
-      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 25px; height: 25px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
+      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 25px; height: 25px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 25px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
     </div>
   </div>
 </div>
@@ -1509,114 +1515,111 @@
     // 1. Lock scrolling immediately to prevent user interaction during loading
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
-
-    // Ensure GSAP is loaded before executing
-    function startLoader() {
-      if (typeof gsap === 'undefined') {
-        setTimeout(startLoader, 50);
-        return;
-      }
-
-      const chars = document.querySelectorAll('#preloader .char');
-      const sweep = document.querySelector('#preloader .sweep-glow');
-      const lastI = document.querySelector('#preloader .last-i');
-      const wrapper = document.querySelector('#preloader .logo-text-wrapper');
-
-      // Set initial random state for characters (Chaos Phase)
-      chars.forEach(char => {
-        gsap.set(char, {
-          x: gsap.utils.random(-150, 150),
-          y: gsap.utils.random(-150, 150),
-          rotation: gsap.utils.random(-60, 60),
-          scale: gsap.utils.random(0.5, 1.5),
-          opacity: 0
-        });
+    
+    // Select preloader elements
+    const letters = document.querySelectorAll('#preloader .letter');
+    const sweep = document.querySelector('#preloader .sweep-glow');
+    const preloader = document.getElementById('preloader');
+    
+    // Initialize scattered random layout positions
+    letters.forEach(letter => {
+      const randomX = gsap.utils.random(-window.innerWidth * 0.35, window.innerWidth * 0.35);
+      const randomY = gsap.utils.random(-window.innerHeight * 0.35, window.innerHeight * 0.35);
+      const randomRot = gsap.utils.random(-45, 45);
+      const randomScale = gsap.utils.random(0.7, 1.4);
+      
+      gsap.set(letter, {
+        x: randomX,
+        y: randomY,
+        rotation: randomRot,
+        scale: randomScale,
+        opacity: 0
       });
+    });
 
-      // Timeline for animations
+    // Run GSAP timeline for float in, drift, assemble, sweep, and flash
+    function startLoadingTimeline() {
       const tl = gsap.timeline();
 
-      // Phase 1 & 2: Drift and Reveal slightly in scattered state
-      tl.to(chars, {
-        opacity: 0.4,
-        x: '+=random(-30, 30)',
-        y: '+=random(-30, 30)',
-        rotation: '+=random(-15, 15)',
-        duration: 1.2,
-        ease: 'power1.out',
-        stagger: 0.05
+      // Step 1: Fade-in and gentle floating drift
+      tl.to(letters, {
+        opacity: 0.85,
+        duration: 1.4,
+        stagger: {
+          amount: 0.7,
+          from: "random"
+        },
+        ease: "power2.out"
       });
 
-      // Phase 3 & 4: Magnetic Pull & Assembly (Name Formation)
-      // Letters assemble sequentially from left to right with spring settle
-      tl.to(chars, {
+      // Step 2: Magnetic pull together to final positions with spring settle
+      tl.to(letters, {
         x: 0,
         y: 0,
         rotation: 0,
         scale: 1,
         opacity: 1,
-        duration: 1.5,
-        ease: 'elastic.out(1, 0.75)',
-        stagger: 0.08
-      }, '-=0.4');
+        duration: 1.8,
+        stagger: {
+          amount: 0.45,
+          from: "center"
+        },
+        ease: "elastic.out(1.1, 0.8)"
+      }, "-=0.6");
 
-      // Phase 5: Sweep glow targeted at the dot of the final 'i'
+      // Step 3: Trigger light sweep dot and landing dot flash
       tl.add(() => {
+        const lastI = document.querySelector('#preloader .last-i');
+        const wrapper = document.querySelector('#preloader .logo-text-wrapper');
+        
         if (sweep && lastI && wrapper) {
-          const wrapperRect = wrapper.getBoundingClientRect();
-          const lastIRect = lastI.getBoundingClientRect();
+          // Calculate the target X position relative to wrapper: center of last "i"
+          const xTarget = lastI.offsetLeft + (lastI.offsetWidth / 2);
           
-          // Land exactly on the dot of the last 'i' (about 10% from the top of the 'i' bounding box)
-          const targetX = lastIRect.left - wrapperRect.left + (lastIRect.width / 2);
-          const targetY = lastIRect.top - wrapperRect.top + (lastIRect.height * 0.1);
-
-          gsap.set(sweep, { opacity: 1, left: -50, top: '50%', scale: 1 });
+          gsap.set(sweep, { opacity: 1, left: "-30px", top: "50%" });
           
+          // Sweep across name and target the dot position of 'i'
           gsap.to(sweep, {
-            left: targetX,
-            top: targetY,
-            duration: 1.4,
-            ease: 'power3.inOut',
+            left: xTarget,
+            top: "8%", // Land exactly on the dot position of Pinyon Script 'i'
+            duration: 1.8,
+            ease: "power3.inOut",
             onComplete: () => {
-              // Phase 6: Screen Flash Explosion
+              // Trigger final explosion/flash
               gsap.to(sweep, {
-                scale: 180,
-                backgroundColor: '#ffffff',
-                filter: 'blur(0px)',
-                duration: 0.6,
-                ease: 'power4.in'
+                scale: 200,
+                backgroundColor: "#ffffff",
+                filter: "blur(0px)",
+                duration: 0.7,
+                ease: "power4.in"
               });
-
-              // Phase 7: Reveal website under the flash cover
-              const preloader = document.getElementById('preloader');
-              if (preloader) {
-                gsap.to(preloader, {
-                  opacity: 0,
-                  scale: 1.05,
-                  duration: 0.8,
-                  delay: 0.1,
-                  onComplete: () => {
-                    preloader.remove();
-                    document.documentElement.style.overflow = '';
-                    document.body.style.overflow = '';
-                    // Resume Lenis smooth scroll if active
-                    if (typeof lenis !== 'undefined') {
-                      lenis.start();
-                    }
+              
+              // Fade out the preloader to reveal home page
+              gsap.to(preloader, {
+                opacity: 0,
+                scale: 1.04,
+                duration: 0.8,
+                delay: 0.1,
+                onComplete: () => {
+                  preloader.remove();
+                  document.documentElement.style.overflow = '';
+                  document.body.style.overflow = '';
+                  if (typeof lenis !== 'undefined') {
+                    lenis.start();
                   }
-                });
-              }
+                }
+              });
             }
           });
         }
-      }, '+=0.2');
+      }, "+=0.2");
     }
 
-    // Initialize loader
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startLoader);
+    // Execute timeline when ready
+    if (document.readyState === 'complete') {
+      startLoadingTimeline();
     } else {
-      startLoader();
+      window.addEventListener('load', startLoadingTimeline);
     }
   })();
 </script>
@@ -2563,6 +2566,8 @@
 </div>
 </main>
 <!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 <script>
   // Smooth Scroll Initialization & GSAP integration
