@@ -13,18 +13,117 @@
 <style>
     /* Custom CSS for Awwwards style */
     
-    /* Preloader Styles */
-    .preloader-glow-text {
-      background: linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #d8b4fe 50%, #ffffff 65%, #ffffff 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: preloader-shine 4s linear infinite;
+    /* Preloader Styles - Yan Liu inspired letter fly-in */
+    #preloader {
+      font-family: 'Inter', sans-serif;
+      position: fixed;
+      inset: 0;
+      background-color: #050505;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      opacity: 1;
+      pointer-events: auto;
     }
-    @keyframes preloader-shine {
-      to {
-        background-position: -200% center;
-      }
+    #preloader .initials {
+      position: absolute;
+      font-size: clamp(6rem, 20vw, 14rem);
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -8px;
+      animation: initialsAnim 2.8s ease-in-out forwards;
+      z-index: 2;
+    }
+    @keyframes initialsAnim {
+      0% { opacity: 1; transform: scale(1); }
+      25% { opacity: 1; transform: scale(1); }
+      45% { opacity: 0; transform: scale(0.7); filter: blur(4px); }
+      100% { opacity: 0; transform: scale(0.7); filter: blur(4px); }
+    }
+    #preloader .name-wrap {
+      position: relative;
+      display: flex;
+      gap: clamp(1.2rem, 4vw, 3rem);
+      z-index: 1;
+    }
+    #preloader .word {
+      display: flex;
+    }
+    #preloader .letter {
+      font-size: clamp(3.5rem, 12vw, 8rem);
+      font-weight: 900;
+      color: #ffffff;
+      display: inline-block;
+      opacity: 0;
+      transform: translate3d(0,0,0) rotate(0deg);
+      animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    /* Dot glow on i's */
+    #preloader .letter-i::after,
+    #preloader .letter-i2::after {
+      content: '';
+      position: absolute;
+      top: 0.4em;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      width: 0.15em;
+      height: 0.15em;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 20px 6px rgba(255,255,255,0.5);
+      animation: dotGlow 0.5s ease-out 3.8s forwards;
+    }
+    @keyframes dotGlow {
+      0% { transform: translateX(-50%) scale(0); opacity: 0; }
+      100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    }
+    #preloader .letter-i,
+    #preloader .letter-i2 {
+      position: relative;
+    }
+
+    /* Individual letter fly-in animations */
+    #preloader .letter-s1  { animation: flyLeft 1s ease-out 2s forwards; }
+    #preloader .letter-h1  { animation: flyTop 1s ease-out 2.1s forwards; }
+    #preloader .letter-a1  { animation: flyBottomLeft 1s ease-out 2.2s forwards; }
+    #preloader .letter-k   { animation: flyTopRight 1s ease-out 2.3s forwards; }
+    #preloader .letter-t   { animation: flyBottom 1s ease-out 2.4s forwards; }
+    #preloader .letter-h2  { animation: flyLeft 1s ease-out 2.5s forwards; }
+    #preloader .letter-i   { animation: flyTop 1s ease-out 2.6s forwards; }
+    #preloader .letter-s2  { animation: flyRight 1s ease-out 2.7s forwards; }
+    #preloader .letter-r   { animation: flyBottomRight 1s ease-out 2.8s forwards; }
+    #preloader .letter-i2  { animation: flyTop 1s ease-out 2.9s forwards; }
+
+    @keyframes flyLeft {
+      0% { opacity: 0; transform: translate3d(-300px,0,0) rotate(-45deg); }
+      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+    }
+    @keyframes flyTop {
+      0% { opacity: 0; transform: translate3d(0,-250px,0) rotate(30deg); }
+      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+    }
+    @keyframes flyBottomLeft {
+      0% { opacity: 0; transform: translate3d(-200px,200px,0) rotate(-60deg); }
+      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+    }
+    @keyframes flyTopRight {
+      0% { opacity: 0; transform: translate3d(200px,-200px,0) rotate(45deg); }
+      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+    }
+    @keyframes flyBottom {
+      0% { opacity: 0; transform: translate3d(0,250px,0) rotate(-30deg); }
+      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+    }
+    @keyframes flyRight {
+      0% { opacity: 0; transform: translate3d(300px,0,0) rotate(45deg); }
+      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
+    }
+    @keyframes flyBottomRight {
+      0% { opacity: 0; transform: translate3d(200px,200px,0) rotate(60deg); }
+      100% { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); }
     }
 :root {
       --bg: #050505;
@@ -1465,6 +1564,158 @@
       transform: scaleX(1);
     }
 
+    /* Hero Page Collage Styles */
+    #home {
+      background-color: var(--bg);
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      z-index: 10;
+    }
+    body.light-mode #home {
+      background-color: #faf9f6;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    }
+
+    .hero-cursive-name {
+      font-family: 'Pinyon Script', 'Great Vibes', cursive;
+      font-size: clamp(3.5rem, 11vw, 9rem);
+      color: var(--text);
+      line-height: 1.0;
+    }
+
+    .hero-type-subtitle {
+      font-family: 'Outfit', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-size: clamp(0.7rem, 1.3vw, 0.95rem);
+      color: #999;
+    }
+    body.light-mode .hero-type-subtitle {
+      color: #555;
+    }
+
+    .collage-element {
+      position: absolute;
+      transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+
+    /* Polaroid Card */
+    .collage-polaroid {
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 12px 24px 12px;
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      z-index: 5;
+    }
+    body.light-mode .collage-polaroid {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.06);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+    .collage-polaroid:hover {
+      z-index: 20 !important;
+      transform: scale(1.05) rotate(0deg) !important;
+    }
+
+    /* Semi-transparent tape */
+    .collage-tape {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-4deg);
+      width: 90px;
+      height: 25px;
+      background-color: rgba(244, 244, 240, 0.35);
+      backdrop-filter: blur(1px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    body.light-mode .collage-tape {
+      background-color: rgba(220, 220, 210, 0.5);
+    }
+
+    /* ID Badge Card */
+    .collage-badge {
+      width: 250px;
+      background: linear-gradient(135deg, rgba(24, 24, 27, 0.95), rgba(12, 12, 14, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 20px;
+      color: white;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      z-index: 6;
+      cursor: pointer;
+    }
+    body.light-mode .collage-badge {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 240, 0.95));
+      border-color: rgba(0, 0, 0, 0.08);
+      color: #111111;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+    .collage-badge:hover {
+      z-index: 20 !important;
+      transform: scale(1.03) rotate(0deg) !important;
+    }
+
+    /* Vinyl Disc */
+    .collage-vinyl {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #222 20%, #111 25%, #050505 50%, #222 55%, #050505 70%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      cursor: pointer;
+    }
+
+    /* Terminal Mock */
+    .collage-terminal {
+      background: #18181b;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 270px;
+      color: #a855f7;
+      font-family: monospace;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      z-index: 7;
+      cursor: pointer;
+      text-align: left;
+    }
+    body.light-mode .collage-terminal {
+      background: #f4f4f5;
+      border-color: rgba(0, 0, 0, 0.08);
+      color: #7c3aed;
+    }
+
+    .terminal-header {
+      background: #202023;
+      padding: 6px 12px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    body.light-mode .terminal-header {
+      background: #e4e4e7;
+      border-color: rgba(0, 0, 0, 0.08);
+    }
 
     /* End of AWWWARDS DESIGN SYSTEM */
   </style>
@@ -1475,130 +1726,53 @@
 </head>
 <body class="antialiased">
 <!-- Premium Preloader Overlay -->
-<div id="preloader" style="position: fixed; inset: 0; background-color: #050505; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
-  <div class="preloader-content" style="position: relative; text-align: center; width: 100%; max-width: 1200px; padding: 0 20px;">
-    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 400; font-size: clamp(3.5rem, 11vw, 9.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: 0.02em; padding: 0 30px;">
-      
-      <!-- Word 1: Shakthi -->
-      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="char initial" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">S</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">h</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">a</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">k</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">t</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">h</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">i</span>
-      </span>
+<div id="preloader">
+  <!-- Phase 1: Initials "SS" centered, then fade -->
+  <div class="initials">SS</div>
 
-      <!-- Separator spacing -->
-      <span class="separator" style="width: clamp(1rem, 4vw, 3rem); display: inline-block; vertical-align: middle;"></span>
-
-      <!-- Word 2: Sri -->
-      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="char initial" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">S</span>
-        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">r</span>
-        <span class="char last-i" style="display: inline-block; position: relative; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">i</span>
-      </span>
-
-      <!-- Glowing dot trailing/sweeping across -->
-      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 35px; height: 35px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
+  <!-- Phase 2 & 3: Letters fly in from specific directions -->
+  <div class="name-wrap">
+    <div class="word">
+      <span class="letter letter-s1">S</span>
+      <span class="letter letter-h1">h</span>
+      <span class="letter letter-a1">a</span>
+      <span class="letter letter-k">k</span>
+      <span class="letter letter-t">t</span>
+      <span class="letter letter-h2">h</span>
+      <span class="letter letter-i">i</span>
+    </div>
+    <div class="word">
+      <span class="letter letter-s2">S</span>
+      <span class="letter letter-r">r</span>
+      <span class="letter letter-i2">i</span>
     </div>
   </div>
 </div>
 
 <script>
   (function() {
-    // 1. Lock scrolling immediately to prevent user interaction during loading
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     
-    // Scatter the characters programmatically on script evaluation
-    const chars = document.querySelectorAll('#preloader .char');
-    chars.forEach((char) => {
-      if (char.classList.contains('initial')) {
-        // Initials start centered but hidden/faded
-        char.style.opacity = '0';
-        char.style.filter = 'blur(10px)';
-        char.style.transform = 'translate3d(0, 40px, 0) scale(0.8)';
-      } else {
-        // Scatter characters to random coordinates, rotations, scales and blurs
-        const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
-        const randomY = (Math.random() - 0.5) * window.innerHeight * 0.7;
-        const randomRotate = (Math.random() - 0.5) * 80; // -40deg to 40deg
-        const randomScale = 0.5 + Math.random() * 0.8;
+    // Remove preloader after all animations complete (~4.5s)
+    setTimeout(function() {
+      var preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.style.transition = 'opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1), transform 0.6s cubic-bezier(0.19, 1, 0.22, 1)';
+        preloader.style.opacity = '0';
+        preloader.style.transform = 'scale(1.05)';
+        preloader.style.pointerEvents = 'none';
         
-        char.style.opacity = '0';
-        char.style.filter = 'blur(15px)';
-        char.style.transform = 'translate3d(' + randomX + 'px, ' + randomY + 'px, 0) rotate(' + randomRotate + 'deg) scale(' + randomScale + ')';
-      }
-    });
-
-    // 2. Animate the initials "S S" to lock into position first after 400ms
-    setTimeout(function() {
-      const initials = document.querySelectorAll('#preloader .char.initial');
-      initials.forEach(char => {
-        char.style.opacity = '1';
-        char.style.filter = 'blur(0px)';
-        char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
-      });
-    }, 400);
-
-    // 3. Stagger all other letters to drift into position after 1100ms
-    setTimeout(function() {
-      const nonInitials = document.querySelectorAll('#preloader .char:not(.initial)');
-      nonInitials.forEach((char, index) => {
         setTimeout(function() {
-          char.style.opacity = '1';
-          char.style.filter = 'blur(0px)';
-          char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
-        }, index * 80); // 80ms stagger
-      });
-    }, 1100);
-
-    // 4. Trigger the sweep dot once letters have aligned (around 3100ms)
-    setTimeout(function() {
-      const sweep = document.querySelector('#preloader .sweep-glow');
-      const lastI = document.querySelector('#preloader .last-i');
-      const wrapper = document.querySelector('#preloader .logo-text-wrapper');
-      
-      if (sweep && lastI && wrapper) {
-        // Calculate the exact horizontal offset of the last "i" relative to the wrapper using client bounds
-        const rectWrapper = wrapper.getBoundingClientRect();
-        const rectI = lastI.getBoundingClientRect();
-        const xOffset = rectI.left - rectWrapper.left + (rectI.width / 2);
-        
-        sweep.style.opacity = '1';
-        // Sweep across and land exactly on the dot position of the last cursive 'i'
-        sweep.style.transition = 'left 1.6s cubic-bezier(0.25, 1, 0.35, 1), top 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.5s ease';
-        sweep.style.left = xOffset + 'px';
-        sweep.style.top = '12%'; // Landing spot matching the cursive 'i' dot height
-        
-        // 5. Trigger the screen-filling white flash when the sweep dot arrives on the 'i'
-        setTimeout(function() {
-          sweep.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.6s ease';
-          sweep.style.transform = 'translate(-50%, -50%) scale(180)';
-          sweep.style.backgroundColor = '#ffffff';
-          sweep.style.filter = 'blur(0px)';
-          
-          const preloader = document.getElementById('preloader');
-          if (preloader) {
-            preloader.style.transition = 'opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
-            preloader.style.opacity = '0';
-            preloader.style.transform = 'scale(1.03)';
-            preloader.style.pointerEvents = 'none';
-            
-            setTimeout(function() {
-              preloader.remove();
-              document.documentElement.style.overflow = '';
-              document.body.style.overflow = '';
-              if (typeof lenis !== 'undefined') {
-                lenis.start();
-              }
-            }, 800);
+          preloader.remove();
+          document.documentElement.style.overflow = '';
+          document.body.style.overflow = '';
+          if (typeof lenis !== 'undefined') {
+            lenis.start();
           }
-        }, 1600); // Wait for the 1.6s sweep transition to end
+        }, 600);
       }
-    }, 3100);
+    }, 4200);
   })();
 </script>
 
@@ -1646,37 +1820,95 @@
 <main>
 <!-- HOME -->
 <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 px-6" id="home">
-<!-- Interactive Background Image Spotlight Canvas -->
-<canvas class="absolute inset-0 w-full h-full pointer-events-none" id="hero-canvas" style="z-index: 0;"></canvas>
-<div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-<div class="z-10">
-<h1 class="hero-title gs-reveal">I am<br/><span class="text-purple-400 typing-cursor" id="typed-name"></span></h1>
-<h2 class="hero-subtitle mt-6 gs-reveal">
-<span class="text-white font-bold">Software Engineer</span> <span class="text-purple-500 font-bold mx-1">|</span>
-<span class="text-white font-bold">Cybersecurity Researcher</span> <span class="text-purple-500 font-bold mx-1">|</span>
-<span class="text-white font-bold">UI/UX Designer</span>
-</h2>
-<p class="mt-6 text-lg md:text-xl text-gray-400 max-w-md gs-reveal">
-          I craft clean and user-friendly web experiences. Greatly inspired by modern design trends and usability.
-        </p>
-<div class="mt-10 gs-reveal">
-<a class="inline-block border border-white/30 rounded-full px-8 py-4 text-sm uppercase tracking-widest font-bold hover:bg-white hover:text-black transition-colors hoverable" href="https://drive.google.com/file/d/1Ab4sLy4vXukf_OqEZe7Lw0VF51WX6LJj/view?usp=sharing" target="_blank">
-            Download Resume
-          </a>
-</div>
-<div class="mt-12 flex space-x-8 gs-reveal text-sm tracking-widest font-medium uppercase text-gray-400">
-<a class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full" href="#">LinkedIn</a>
-<a class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full" href="mailto:srishakthi799@gmail.com">Email</a>
-<a class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full" href="https://github.com/Shakthi16">GitHub</a>
-<a class="hover:text-white hoverable transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all hover:after:w-full" href="#">LeetCode</a>
-</div>
-</div>
-<div class="relative flex justify-center items-center h-[500px] gs-reveal" id="hero-img-container" style="perspective: 1000px;">
-<div class="relative z-10 w-full max-w-sm h-full overflow-hidden" id="hero-avatar">
-<img alt="Portrait of Shakthi Sri" class="absolute inset-0 w-full h-full object-contain" src="1.png"/>
-</div>
-</div>
-</div>
+  <!-- Centered Branding Text Box -->
+  <div class="hero-center-box z-10 select-none">
+    <h1 class="hero-cursive-name">Shakthi Sri</h1>
+    <h2 class="hero-type-subtitle mt-4">Software &bull; Cybersecurity &bull; UI/UX Design</h2>
+    <p class="mt-4 text-xs md:text-sm text-gray-500 max-w-sm mx-auto uppercase tracking-widest font-mono">Think, then I build</p>
+  </div>
+
+  <!-- Decorative Collage Elements (Desktop only, hidden or stack-adapted on mobile) -->
+  
+  <!-- Element 1: Polaroid Stack - Left Side (Picture2.png) -->
+  <div class="collage-element collage-polaroid hidden md:block" style="left: 8%; top: 15%; transform: rotate(-8deg); width: 190px;" data-depth="0.15">
+    <div class="collage-tape"></div>
+    <div class="w-full aspect-[4/3] bg-[#222] rounded overflow-hidden mb-3">
+      <img src="Picture2.png" alt="Project Shot" class="w-full h-full object-cover"/>
+    </div>
+    <p class="text-[10px] text-gray-400 font-mono tracking-wider uppercase text-center mt-2">Core System Architecture</p>
+  </div>
+
+  <!-- Element 2: Lanyard ID Badge - Left Side (me.png) -->
+  <div class="collage-element collage-badge hidden md:block" style="left: 12%; bottom: 12%; transform: rotate(5deg);" data-depth="0.25">
+    <div class="flex flex-col items-center">
+      <!-- Lanyard punch hole -->
+      <div class="w-4 h-4 rounded-full bg-black/40 mb-4 border border-white/10 flex items-center justify-center">
+        <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+      </div>
+      <!-- User Portrait inside Badge -->
+      <div class="w-24 h-24 rounded-full border-2 border-purple-500/30 overflow-hidden mb-4 shadow-lg bg-zinc-800">
+        <img src="me.png" alt="Shakthi Sri" class="w-full h-full object-cover"/>
+      </div>
+      <h3 class="font-bold text-lg tracking-wider" style="font-family: 'Outfit', sans-serif;">Shakthi Sri</h3>
+      <p class="text-[10px] text-purple-400 font-mono tracking-widest uppercase mt-1">Security researcher</p>
+      <div class="w-full border-t border-white/10 my-4"></div>
+      <p class="text-[10px] text-gray-400 leading-relaxed font-sans text-center">
+        "Building intelligent, secure, and beautiful digital experiences."
+      </p>
+    </div>
+  </div>
+
+  <!-- Element 3: Vinyl Record - Center Top -->
+  <div class="collage-element collage-vinyl hidden md:flex" style="left: 45%; top: 8%; transform: rotate(15deg); animation: spinRecord 25s linear infinite;" data-depth="0.08">
+    <!-- Center label of record -->
+    <div class="w-14 h-14 rounded-full bg-purple-600 border-2 border-[#111] flex items-center justify-center shadow-inner">
+      <div class="w-4 h-4 rounded-full bg-[#050505]"></div>
+    </div>
+  </div>
+
+  <!-- Element 4: macOS Terminal Window - Right Side -->
+  <div class="collage-element collage-terminal hidden md:block" style="right: 10%; top: 12%; transform: rotate(6deg);" data-depth="0.2">
+    <div class="terminal-header">
+      <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
+      <div class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
+      <div class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
+      <span class="text-[9px] text-gray-500 font-mono ml-4 select-none">shakthisri -- zsh</span>
+    </div>
+    <div class="p-4 font-mono text-xs space-y-1.5">
+      <p class="text-gray-500">$ whoami</p>
+      <p class="text-white">shakthi-sri</p>
+      <p class="text-gray-500">$ status</p>
+      <p class="text-green-400">active_deploying...</p>
+      <p class="text-gray-500">$ npx build-portfolio</p>
+      <p class="text-purple-400">Success! 100% stable</p>
+    </div>
+  </div>
+
+  <!-- Element 5: Polaroid Stack - Right Side (Picture3.png) -->
+  <div class="collage-element collage-polaroid hidden md:block" style="right: 8%; bottom: 10%; transform: rotate(-4deg); width: 210px;" data-depth="0.18">
+    <div class="collage-tape"></div>
+    <div class="w-full aspect-[4/3] bg-[#222] rounded overflow-hidden mb-3">
+      <img src="Picture3.png" alt="Portfolio Preview" class="w-full h-full object-cover"/>
+    </div>
+    <p class="text-[10px] text-gray-400 font-mono tracking-wider uppercase text-center mt-2">Cybersecurity Node Analysis</p>
+  </div>
+
+  <!-- Element 6: Design Barcode Ticket - Center Bottom -->
+  <div class="collage-element hidden md:block" style="left: 36%; bottom: 15%; transform: rotate(-5deg); background: #ffffff; border: 1px solid #e4e4e7; border-radius: 6px; padding: 12px 16px; width: 220px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); color: #111; z-index: 5;" data-depth="0.1">
+    <div class="flex justify-between items-center border-b border-gray-100 pb-2 mb-2">
+      <span class="text-[9px] font-mono text-gray-400">BOARDING PASS</span>
+      <span class="text-[9px] font-bold font-mono text-purple-600">CLASS 2026</span>
+    </div>
+    <div class="font-sans">
+      <h4 class="text-xs font-black tracking-wide">DESIGN X TECHNOLOGY</h4>
+      <p class="text-[8px] text-gray-400 font-mono mt-1">SEAT: BLD-001 &bull; GATE: AI</p>
+    </div>
+    <div class="mt-3 flex items-center justify-between">
+      <!-- Barcode simulation -->
+      <div class="h-6 w-24 bg-[repeating-linear-gradient(90deg,#111,#111_2px,transparent_2px,transparent_6px,#111_6px,#111_7px)] opacity-80"></div>
+      <span class="text-[8px] font-mono text-gray-400 font-bold">EST. 2024</span>
+    </div>
+  </div>
 </section>
 <!-- ABOUT: CINEMATIC EDITORIAL CANVAS -->
 <section class="editorial-canvas font-sans relative z-20 overflow-hidden bg-[var(--charcoal-bg)]" id="about">
@@ -3626,12 +3858,31 @@
         let cursorX = mouseX;
         let cursorY = mouseY;
         
+        // Cache original collage element transforms for smooth parallax drift
+        document.querySelectorAll('.collage-element').forEach(el => {
+          el.setAttribute('data-orig-transform', el.style.transform || '');
+        });
+        
         window.addEventListener('mousemove', (e) => {
           mouseX = e.clientX;
           mouseY = e.clientY;
           // Update CSS vars for parallax mesh
           document.documentElement.style.setProperty('--mouse-x', `${(mouseX / window.innerWidth) * 100}%`);
           document.documentElement.style.setProperty('--mouse-y', `${(mouseY / window.innerHeight) * 100}%`);
+          
+          // Parallax drift calculations
+          const centerX = window.innerWidth / 2;
+          const centerY = window.innerHeight / 2;
+          const moveX = (mouseX - centerX);
+          const moveY = (mouseY - centerY);
+          
+          document.querySelectorAll('.collage-element').forEach(el => {
+            const depth = parseFloat(el.getAttribute('data-depth')) || 0.1;
+            const x = moveX * depth;
+            const y = moveY * depth;
+            const orig = el.getAttribute('data-orig-transform') || '';
+            el.style.transform = `translate3d(${x}px, ${y}px, 0) ${orig}`;
+          });
         });
         
         // Render loop for cursor lerp
