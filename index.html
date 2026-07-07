@@ -22,69 +22,81 @@
       animation: preloader-shine 4s linear infinite;
     }
     @keyframes preloader-shine {
-      to {
-        background-position: -200% center;
-      }
+      to { background-position: -200% center; }
     }
+    /* CRITICAL: all chars start fully invisible before JS scatters them */
     #preloader .char {
       display: inline-block;
-      transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);
-      transform-style: preserve-3d;
+      opacity: 0;
+      transform: translate3d(0, 0, 0);
+      /* transitions added by JS after scatter */
     }
 
-    /* Collage Landing Page Styles */
+    /* ========================
+       COLLAGE LANDING PAGE
+       ======================== */
     #home {
       background-color: #faf9f6 !important;
       background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px) !important;
-      background-size: 40px 40px !important;
+        linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px) !important;
+      background-size: 36px 36px !important;
       color: #111111 !important;
       position: relative;
       width: 100%;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 100px 20px 120px;
+      height: 100vh;
+      min-height: 600px;
       overflow: hidden;
       z-index: 10;
+      /* No flex — children use absolute positioning */
     }
-    
-    /* Central Name Styling */
+
+    /* Full-viewport canvas inside #home for positioning all elements */
+    #home-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Central Name — truly centered */
     .collage-title-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
       z-index: 15;
       pointer-events: none;
-      position: relative;
+      white-space: nowrap;
     }
     .collage-name {
       font-family: 'Pinyon Script', 'Great Vibes', cursive !important;
-      font-size: clamp(4rem, 11vw, 9rem);
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
       line-height: 1.1;
       color: #111111;
       margin: 0;
       font-weight: 400 !important;
-      text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
+      display: block;
     }
     .collage-subtitle {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(0.75rem, 1.5vw, 1rem);
+      font-size: clamp(0.65rem, 1.2vw, 0.9rem);
       font-weight: 700;
-      letter-spacing: 0.3em;
-      color: #666666;
+      letter-spacing: 0.35em;
+      color: #888888;
       text-transform: uppercase;
-      margin-top: 10px;
+      margin-top: 8px;
       display: block;
     }
 
-    /* Floating elements */
+    /* Floating stickers — absolutely positioned in #home */
     .floating-sticker {
       position: absolute;
-      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       cursor: grab;
       user-select: none;
-      z-index: 5;
+      z-index: 8;
+      /* no transition on transform to avoid shaking; use transition only on box-shadow */
     }
     .floating-sticker:active {
       cursor: grabbing;
@@ -1753,13 +1765,13 @@
       
       <!-- Word 1: Shakthi -->
       <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="char initial" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">S</span>
-        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">h</span>
-        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">a</span>
-        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">k</span>
-        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">t</span>
-        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">h</span>
-        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">i</span>
+        <span class="char initial" style="display:inline-block;opacity:0;transform:translate3d(0,40px,0) scale(0.8);">S</span>
+        <span class="char" style="display:inline-block;opacity:0;">h</span>
+        <span class="char" style="display:inline-block;opacity:0;">a</span>
+        <span class="char" style="display:inline-block;opacity:0;">k</span>
+        <span class="char" style="display:inline-block;opacity:0;">t</span>
+        <span class="char" style="display:inline-block;opacity:0;">h</span>
+        <span class="char" style="display:inline-block;opacity:0;">i</span>
       </span>
 
       <!-- Separator spacing -->
@@ -1767,9 +1779,9 @@
 
       <!-- Word 2: Sri -->
       <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="char initial" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">S</span>
-        <span class="char" style="display: inline-block; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">r</span>
-        <span class="char last-i" style="display: inline-block; position: relative; transition: transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1);">i</span>
+        <span class="char initial" style="display:inline-block;opacity:0;transform:translate3d(0,40px,0) scale(0.8);">S</span>
+        <span class="char" style="display:inline-block;opacity:0;">r</span>
+        <span class="char last-i" style="display:inline-block;position:relative;opacity:0;">i</span>
       </span>
     </div>
   </div>
@@ -1893,167 +1905,238 @@
 <main>
 <!-- HOME -->
 <section id="home">
+
+  <!-- Perfectly centered title — z-index above stickers -->
   <div class="collage-title-container">
     <h1 class="collage-name">Shakthi Sri</h1>
     <span class="collage-subtitle">THINK, THEN I BUILD</span>
   </div>
 
-  <!-- FLOATING COLLAGE ELEMENTS -->
+  <!-- =============================================
+       STICKERS: placed at exact percentage coords
+       Left column  : 3% – 22%
+       Center       : 28% – 68%
+       Right column : 70% – 96%
+       ============================================= -->
 
-  <!-- 1. Left ID Badge Card -->
-  <div class="floating-sticker" style="top: 10%; left: 4%; transform: rotate(-4deg);" id="sticker-badge">
+  <!-- 1. ID Badge — top-left, slightly tilted -->
+  <div class="floating-sticker" style="top:7%;left:3%;transform:rotate(-5deg);" id="sticker-badge">
     <div class="badge-card">
       <div class="badge-strap"></div>
-      <div class="flex flex-col items-center gap-4 mt-4 w-full">
-        <!-- Circular Avatar Portrait -->
-        <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 shadow-md">
-          <img src="me.png" alt="Shakthi Sri" class="w-full h-full object-cover" />
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:8px;width:100%;">
+        <div style="width:88px;height:88px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,0.15);box-shadow:0 4px 14px rgba(0,0,0,0.3);">
+          <img src="me.png" alt="Shakthi Sri" style="width:100%;height:100%;object-fit:cover;" />
         </div>
-        <div class="text-xs font-bold text-gray-400 tracking-widest uppercase">சக்தி ஸ்ரீ</div>
-        <p class="text-[11px] text-gray-300 text-center leading-relaxed font-sans max-w-[180px]">
+        <div style="font-size:10px;font-weight:700;color:#a1a1aa;letter-spacing:0.15em;text-transform:uppercase;font-family:'Outfit',sans-serif;">சக்தி ஸ்ரீ</div>
+        <p style="font-size:11px;color:#d4d4d8;text-align:center;line-height:1.6;font-family:'Outfit',sans-serif;max-width:170px;">
           Love exploring, prototyping, storytelling, and visual craft.
         </p>
       </div>
-      <div class="w-full border-t border-white/10 pt-4 flex flex-col items-center">
-        <div class="text-[10px] font-bold text-purple-400 uppercase tracking-wider">Software & Security</div>
-        <div class="text-[9px] text-gray-500 mt-1">EST. 2026 - PRESENT</div>
+      <div style="width:100%;border-top:1px solid rgba(255,255,255,0.08);padding-top:14px;display:flex;flex-direction:column;align-items:center;gap:4px;">
+        <div style="font-size:9px;font-weight:700;color:#a855f7;letter-spacing:0.18em;text-transform:uppercase;font-family:'Outfit',sans-serif;">Software &amp; Security</div>
+        <div style="font-size:8px;color:#52525b;font-family:'Outfit',sans-serif;">EST. 2026 · PRESENT</div>
       </div>
     </div>
   </div>
 
-  <!-- 2. Spinning Vinyl Record player (Bottom Left) -->
-  <div class="floating-sticker" style="bottom: 10%; left: 4%; transform: rotate(8deg);" id="sticker-vinyl">
+  <!-- 2. Vinyl Record — bottom-left, slightly tilted -->
+  <div class="floating-sticker" style="bottom:8%;left:3%;transform:rotate(6deg);" id="sticker-vinyl">
     <div class="vinyl-record">
-      <img src="https://pngimg.com/uploads/vinyl/vinyl_PNG1.png" alt="Vinyl CD" class="w-full h-full object-cover" />
+      <!-- Realistic vinyl record rendered as pure CSS — no broken external URLs -->
+      <svg width="170" height="170" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="rvg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#0a0a0a"/>
+            <stop offset="28%"  stop-color="#1a1a1a"/>
+            <stop offset="29%"  stop-color="#0d0d0d"/>
+            <stop offset="38%"  stop-color="#1c1c1c"/>
+            <stop offset="39%"  stop-color="#0a0a0a"/>
+            <stop offset="48%"  stop-color="#181818"/>
+            <stop offset="49%"  stop-color="#090909"/>
+            <stop offset="58%"  stop-color="#1e1e1e"/>
+            <stop offset="59%"  stop-color="#0c0c0c"/>
+            <stop offset="68%"  stop-color="#1b1b1b"/>
+            <stop offset="69%"  stop-color="#080808"/>
+            <stop offset="78%"  stop-color="#171717"/>
+            <stop offset="100%" stop-color="#050505"/>
+          </radialGradient>
+        </defs>
+        <circle cx="85" cy="85" r="85" fill="url(#rvg)"/>
+        <!-- Green label center -->
+        <circle cx="85" cy="85" r="26" fill="#15803d" stroke="#000" stroke-width="2"/>
+        <circle cx="85" cy="85" r="5"  fill="#faf9f6"/>
+        <!-- Subtle shine highlight -->
+        <ellipse cx="60" cy="50" rx="25" ry="14" fill="white" opacity="0.04" transform="rotate(-30 60 50)"/>
+      </svg>
     </div>
   </div>
 
-  <!-- 3. macOS Terminal Window (Bottom Center) -->
-  <div class="floating-sticker" style="bottom: 8%; left: 24%; transform: rotate(-1deg);" id="sticker-terminal">
+  <!-- 3. Terminal Window — bottom-center -->
+  <div class="floating-sticker" style="bottom:6%;left:22%;transform:rotate(-1deg);" id="sticker-terminal">
     <div class="terminal-window">
       <div class="terminal-header">
         <div class="terminal-dots">
-          <span class="terminal-dot bg-red-400" style="background-color: #f87171;"></span>
-          <span class="terminal-dot bg-yellow-400" style="background-color: #fbbf24;"></span>
-          <span class="terminal-dot bg-green-400" style="background-color: #34d399;"></span>
+          <span class="terminal-dot" style="background-color:#f87171;"></span>
+          <span class="terminal-dot" style="background-color:#fbbf24;"></span>
+          <span class="terminal-dot" style="background-color:#34d399;"></span>
         </div>
         <span class="terminal-title">shakthi-sri — zsh</span>
       </div>
       <div class="terminal-body">
-        <div style="color: #64748b; margin-bottom: 4px;">~ $ whoami</div>
-        <div style="color: #0f172a; font-weight: 700; margin-bottom: 12px;">shakthi-sri</div>
-        <div style="color: #64748b; margin-bottom: 4px;">~ $ cat focus.txt</div>
-        <div style="color: #0d9488; font-weight: 700; margin-bottom: 12px;">cybersecurity | full-stack dev | UI/UX</div>
-        <div style="color: #64748b; margin-bottom: 4px;">~ $ status</div>
-        <div style="color: #64748b;"><span class="animate-pulse" style="color: #10b981; font-weight: bold;">●</span> learning at scale, building at speed...</div>
+        <div style="color:#94a3b8;margin-bottom:3px;">~ $ whoami</div>
+        <div style="color:#0f172a;font-weight:700;margin-bottom:10px;">shakthi-sri</div>
+        <div style="color:#94a3b8;margin-bottom:3px;">~ $ cat focus.txt</div>
+        <div style="color:#0d9488;font-weight:700;margin-bottom:10px;">cybersecurity | full-stack | UI/UX</div>
+        <div style="color:#94a3b8;margin-bottom:3px;">~ $ status</div>
+        <div style="color:#64748b;"><span style="color:#10b981;font-weight:bold;">●</span> building at scale...</div>
       </div>
     </div>
   </div>
 
-  <!-- 4. Concert Ticket Stub (Top Right) -->
-  <div class="floating-sticker" style="top: 8%; right: 26%; transform: rotate(3deg);" id="sticker-ticket">
-    <div class="tape-sticker" style="top: -12px; left: 30%; transform: rotate(5deg); width: 80px;"></div>
-    <div class="ticket-stub">
-      <div class="flex flex-col justify-between text-left gap-4 font-sans max-w-[170px]">
-        <div>
-          <h4 class="text-xs font-black tracking-widest text-gray-400 uppercase">Design tour</h4>
-          <h3 class="text-base font-bold text-gray-800 leading-tight mt-1">DESIGN X TECHNOLOGY</h3>
+  <!-- 4. Monstera Plant — top-center, above title -->
+  <div class="floating-sticker" style="top:4%;left:30%;transform:rotate(-8deg);pointer-events:none;" id="sticker-plant">
+    <!-- High-quality SVG monstera leaf -->
+    <svg width="120" height="140" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(2px 6px 10px rgba(0,80,0,0.18));">
+      <path d="M60 135 C55 110 42 95 30 80 C18 65 12 52 20 40 C28 28 44 22 60 8 C76 22 92 28 100 40 C108 52 102 65 90 80 C78 95 65 110 60 135Z" fill="#22c55e"/>
+      <path d="M60 135 C57 115 50 100 42 88 C34 76 28 65 34 54 C40 43 52 35 60 8 C60 8 60 8 60 8 C60 8 60 135 60 135Z" fill="#16a34a"/>
+      <!-- Leaf veins -->
+      <path d="M60 30 C52 45 38 58 30 72" stroke="#15803d" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M60 30 C68 45 82 58 90 72" stroke="#15803d" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M60 55 C50 68 38 80 32 92" stroke="#15803d" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <path d="M60 55 C70 68 82 80 88 92" stroke="#15803d" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <!-- Leaf holes (fenestration) -->
+      <ellipse cx="44" cy="68" rx="6" ry="9" fill="#faf9f6" opacity="0.9" transform="rotate(-20 44 68)"/>
+      <ellipse cx="76" cy="68" rx="6" ry="9" fill="#faf9f6" opacity="0.9" transform="rotate(20 76 68)"/>
+      <!-- Pot -->
+      <rect x="47" y="130" width="26" height="3" rx="1" fill="#d1d5db"/>
+      <path d="M44 133 L50 148 L70 148 L76 133Z" fill="#d4b896"/>
+      <ellipse cx="60" cy="148" rx="11" ry="3" fill="#c4a882"/>
+    </svg>
+  </div>
+
+  <!-- 5. Iced Coffee Cup — top-center-right, above title -->
+  <div class="floating-sticker" style="top:6%;left:49%;transform:rotate(12deg);pointer-events:none;" id="sticker-coffee">
+    <!-- Realistic iced coffee SVG -->
+    <svg width="68" height="100" viewBox="0 0 68 100" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(2px 4px 8px rgba(0,0,0,0.12));">
+      <!-- Straw -->
+      <rect x="28" y="2" width="4" height="36" rx="2" fill="#f9a8d4" opacity="0.9"/>
+      <!-- Glass body -->
+      <path d="M14 28 L18 90 H50 L54 28 Z" fill="rgba(240,240,255,0.7)" stroke="#cbd5e1" stroke-width="1.5"/>
+      <!-- Coffee liquid -->
+      <path d="M17 42 L20 86 H48 L51 42 Z" fill="#92400e" opacity="0.75"/>
+      <!-- Ice cubes -->
+      <rect x="22" y="50" width="10" height="10" rx="2" fill="rgba(255,255,255,0.85)" transform="rotate(15 22 50)"/>
+      <rect x="34" y="44" width="10" height="10" rx="2" fill="rgba(255,255,255,0.85)" transform="rotate(-8 34 44)"/>
+      <rect x="22" y="62" width="9"  height="9"  rx="2" fill="rgba(255,255,255,0.80)" transform="rotate(5 22 62)"/>
+      <!-- Cream swirl on top -->
+      <ellipse cx="34" cy="36" rx="14" ry="6" fill="#f5f0e8" opacity="0.95"/>
+      <path d="M26 34 Q34 30 42 34" stroke="#e2d5c0" stroke-width="1.5" fill="none"/>
+      <!-- Glass shine -->
+      <line x1="20" y1="35" x2="17" y2="80" stroke="white" stroke-width="2" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <!-- 6. Concert Ticket Stub — top-right area -->
+  <div class="floating-sticker" style="top:6%;right:24%;transform:rotate(3deg);" id="sticker-ticket">
+    <div style="position:relative;">
+      <!-- Tape -->
+      <div style="position:absolute;top:-10px;left:40%;width:64px;height:16px;background:rgba(254,253,215,0.5);border:1px dashed rgba(0,0,0,0.08);transform:rotate(4deg);z-index:10;"></div>
+      <div class="ticket-stub">
+        <div style="display:flex;flex-direction:column;justify-content:space-between;text-align:left;gap:10px;max-width:155px;">
+          <div>
+            <div style="font-size:8px;font-weight:900;letter-spacing:0.2em;color:#9ca3af;text-transform:uppercase;font-family:'Outfit',sans-serif;">● Design tour</div>
+            <div style="font-size:13px;font-weight:900;color:#111827;line-height:1.25;margin-top:4px;font-family:'Outfit',sans-serif;">DESIGN X<br>TECHNOLOGY</div>
+          </div>
+          <div style="font-size:8px;color:#9ca3af;font-family:'Outfit',sans-serif;line-height:1.7;">
+            <div>Time: Anytime &nbsp; Price: Free</div>
+            <div style="font-weight:700;color:#374151;margin-top:2px;">EST. 2015 · PRESENT</div>
+            <div style="color:#6b7280;">Seattle + Online<br>Open worldwide</div>
+          </div>
         </div>
-        <div class="text-[9px] text-gray-500 font-medium">
-          <div>Time: Anytime</div>
-          <div>Price: Free</div>
-          <div class="mt-1 font-bold text-gray-700">Seattle + Online</div>
+        <div style="border-left:1px dashed #e5e7eb;padding-left:10px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;width:48px;min-height:100px;">
+          <div style="display:flex;flex-direction:column;gap:2px;height:70px;justify-content:center;">
+            <div style="display:flex;gap:1.5px;height:60px;align-items:stretch;">
+              <span style="width:1px;background:#111;display:block;"></span>
+              <span style="width:3px;background:#111;display:block;"></span>
+              <span style="width:1px;background:#111;display:block;"></span>
+              <span style="width:2px;background:#111;display:block;"></span>
+              <span style="width:1px;background:#111;display:block;"></span>
+              <span style="width:4px;background:#111;display:block;"></span>
+              <span style="width:1px;background:#111;display:block;"></span>
+              <span style="width:2px;background:#111;display:block;"></span>
+              <span style="width:1px;background:#111;display:block;"></span>
+            </div>
+          </div>
+          <span style="font-size:7px;font-weight:700;color:#9ca3af;font-family:monospace;">001</span>
         </div>
-      </div>
-      <div class="border-l border-dashed border-gray-200 pl-4 flex flex-col justify-between items-center w-14">
-        <div class="flex gap-[2px] h-20 items-stretch opacity-70">
-          <span class="w-[1px] bg-black"></span>
-          <span class="w-[3px] bg-black"></span>
-          <span class="w-[1px] bg-black"></span>
-          <span class="w-[2px] bg-black"></span>
-          <span class="w-[1px] bg-black"></span>
-          <span class="w-[4px] bg-black"></span>
-          <span class="w-[1px] bg-black"></span>
-          <span class="w-[2px] bg-black"></span>
-          <span class="w-[1px] bg-black"></span>
-        </div>
-        <span class="text-[8px] font-bold text-gray-400">001</span>
       </div>
     </div>
   </div>
 
-  <!-- 5. Polaroid Collage (Bottom Right) -->
-  <div class="floating-sticker" style="bottom: 8%; right: 4%; transform: rotate(-3deg);" id="sticker-polaroid">
-    <div class="polaroid-collage">
-      <div class="polaroid-photo">
-        <div class="tape-sticker" style="top: -16px; left: 35%; transform: rotate(-5deg); width: 60px;"></div>
-        <div class="w-60 aspect-[4/3] overflow-hidden bg-gray-100 border border-gray-150" style="width: 240px; height: 180px;">
-          <img src="Picture4.png" alt="Featured Project Preview" class="w-full h-full object-cover" />
-        </div>
-        <div class="text-xs font-bold text-gray-600 mt-4 text-center" style="font-family: 'Pinyon Script', cursive; font-size: 1.5rem;">creative shots</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 6. AirDrop Share Request Modal -->
-  <div class="floating-sticker" style="bottom: 38%; right: 18%; transform: rotate(5deg);" id="sticker-airdrop">
+  <!-- 7. AirDrop Modal — right side, middle height -->
+  <div class="floating-sticker" style="top:52%;right:18%;transform:rotate(4deg);" id="sticker-airdrop">
     <div class="airdrop-modal">
-      <div class="w-10 h-10 mx-auto rounded-full bg-blue-500 flex items-center justify-center text-white mb-2" style="background-color: #3b82f6;">
-        <i class="fas fa-wifi text-sm"></i>
+      <div style="width:38px;height:38px;margin:0 auto 8px;border-radius:50%;background:linear-gradient(135deg,#60a5fa,#3b82f6);display:flex;align-items:center;justify-content:center;color:white;">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12Zm11-5a1 1 0 0 1 .707 1.707L10.414 11H18a1 1 0 1 1 0 2h-7.586l2.293 2.293a1 1 0 0 1-1.414 1.414l-4-4a1 1 0 0 1 0-1.414l4-4A1 1 0 0 1 12 7Z"/></svg>
       </div>
-      <div class="text-xs font-bold text-gray-800">AirDrop</div>
-      <p class="text-[10px] text-gray-500 mt-1 mb-3">Shakthi would like to share a photo.</p>
-      <div class="flex gap-2 justify-center border-t border-gray-150 pt-2 text-[10px] font-bold" style="border-top: 1px solid #e2e8f0;">
-        <button class="w-1/2 py-1 text-gray-500 hover:text-black transition-colors hoverable" style="background: none; border: none; cursor: pointer;">Decline</button>
-        <button class="w-1/2 py-1 text-blue-500 hover:text-blue-600 transition-colors hoverable" style="background: none; border: none; cursor: pointer; color: #3b82f6;">Accept</button>
+      <div style="font-size:11px;font-weight:700;color:#111;font-family:'Outfit',sans-serif;">AirDrop</div>
+      <p style="font-size:9px;color:#6b7280;margin:4px 0 10px;font-family:'Outfit',sans-serif;">Shakthi would like to share a photo.</p>
+      <div style="border-top:1px solid #f1f5f9;padding-top:8px;display:flex;gap:6px;">
+        <button style="flex:1;font-size:9px;font-weight:700;color:#6b7280;background:none;border:none;cursor:pointer;padding:4px 0;font-family:'Outfit',sans-serif;">Decline</button>
+        <button style="flex:1;font-size:9px;font-weight:700;color:#3b82f6;background:none;border:none;cursor:pointer;padding:4px 0;font-family:'Outfit',sans-serif;">Accept</button>
       </div>
     </div>
   </div>
 
-  <!-- 7. Potted plant pot image from online -->
-  <div class="floating-sticker" style="top: 8%; left: 32%; transform: rotate(-8deg);" id="sticker-plant">
-    <img src="https://www.freeiconspng.com/uploads/potted-plant-png-27.png" alt="Monstera plant pot sticker" style="width: 100px; height: auto;" class="drop-shadow-lg opacity-90" />
+  <!-- 8. Polaroid Collage — bottom-right -->
+  <div class="floating-sticker" style="bottom:5%;right:4%;transform:rotate(-3deg);" id="sticker-polaroid">
+    <div class="polaroid-collage">
+      <div class="polaroid-photo" style="position:relative;">
+        <div style="position:absolute;top:-12px;left:38%;width:52px;height:14px;background:rgba(254,253,215,0.5);border:1px dashed rgba(0,0,0,0.06);transform:rotate(-4deg);"></div>
+        <div style="width:220px;height:165px;overflow:hidden;background:#e2e8f0;">
+          <img src="Picture4.png" alt="Creative shot" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div style="font-family:'Pinyon Script',cursive;font-size:1.4rem;color:#555;text-align:center;margin-top:10px;">creative shots</div>
+      </div>
+    </div>
   </div>
 
-  <!-- 8. Coffee glass image from online -->
-  <div class="floating-sticker" style="top: 14%; left: 46%; transform: rotate(12deg);" id="sticker-coffee">
-    <img src="https://www.freeiconspng.com/uploads/iced-coffee-png-6.png" alt="Iced coffee cup sticker" style="width: 70px; height: auto;" class="drop-shadow-md" />
-  </div>
-
-  <!-- 9. MacPaint Floating Tool Palette (Far Right) -->
-  <div class="floating-sticker" style="top: 25%; right: 4%; transform: rotate(-5deg);" id="sticker-palette">
+  <!-- 9. MacPaint Tool Palette — far right -->
+  <div class="floating-sticker" style="top:28%;right:3%;transform:rotate(-2deg);" id="sticker-palette">
     <div class="paint-palette">
-      <div class="paint-tool hoverable"><i class="fas fa-mouse-pointer"></i></div>
-      <div class="paint-tool hoverable"><i class="fas fa-pencil-alt"></i></div>
-      <div class="paint-tool hoverable"><i class="fas fa-eraser"></i></div>
-      <div class="paint-tool hoverable"><i class="fas fa-paint-brush"></i></div>
-      <div class="paint-tool hoverable"><i class="fas fa-fill-drip"></i></div>
-      <div class="paint-tool hoverable"><i class="fas fa-font"></i></div>
-      <div class="paint-tool hoverable"><i class="fas fa-crop-alt"></i></div>
+      <div class="paint-tool"><i class="fas fa-mouse-pointer"></i></div>
+      <div class="paint-tool"><i class="fas fa-pencil-alt"></i></div>
+      <div class="paint-tool"><i class="fas fa-eraser"></i></div>
+      <div class="paint-tool"><i class="fas fa-paint-brush"></i></div>
+      <div class="paint-tool"><i class="fas fa-fill-drip"></i></div>
+      <div class="paint-tool"><i class="fas fa-font"></i></div>
+      <div class="paint-tool"><i class="fas fa-crop-alt"></i></div>
     </div>
   </div>
 
-  <!-- 10. Scattered Folder Icons (repositioned to avoid title overlaps) -->
-  <div class="floating-sticker" style="top: 35%; left: 16%; transform: rotate(8deg);" id="sticker-folder-vault">
-    <a href="#projects" class="folder-sticker hoverable block">
-      <svg width="60" height="50" viewBox="0 0 60 50" fill="none" class="drop-shadow-sm">
-        <path d="M5 10C5 7.23858 7.23858 5 10 5H22L28 12H50C52.7614 12 55 14.2386 55 17V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V10Z" fill="#38bdf8"/>
-        <path d="M5 16H55V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V16Z" fill="#0ea5e9"/>
+  <!-- 10. Folder icons — lower-left area, not overlapping title -->
+  <div class="floating-sticker" style="top:62%;left:14%;transform:rotate(6deg);" id="sticker-folder-vault">
+    <a href="#projects" class="folder-sticker" style="display:flex;flex-direction:column;align-items:center;width:72px;text-decoration:none;">
+      <svg width="62" height="52" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.1));">
+        <path d="M4 9C4 6.79086 5.79086 5 8 5H22L27 12H54C56.2091 12 58 13.7909 58 16V43C58 45.2091 56.2091 47 54 47H8C5.79086 47 4 45.2091 4 43V9Z" fill="#60a5fa"/>
+        <path d="M4 16H58V43C58 45.2091 56.2091 47 54 47H8C5.79086 47 4 45.2091 4 43V16Z" fill="#3b82f6"/>
       </svg>
-      <span class="folder-name">secure_vault</span>
+      <span style="font-size:9px;font-weight:700;color:#374151;margin-top:5px;font-family:'Outfit',sans-serif;text-align:center;line-height:1.2;">secure_vault</span>
     </a>
   </div>
 
-  <div class="floating-sticker" style="top: 48%; right: 28%; transform: rotate(-12deg);" id="sticker-folder-assets">
-    <a href="#about" class="folder-sticker hoverable block">
-      <svg width="60" height="50" viewBox="0 0 60 50" fill="none" class="drop-shadow-sm">
-        <path d="M5 10C5 7.23858 7.23858 5 10 5H22L28 12H50C52.7614 12 55 14.2386 55 17V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V10Z" fill="#38bdf8"/>
-        <path d="M5 16H55V40C55 42.7614 52.7614 45 50 45H10C7.23858 45 5 42.7614 5 40V16Z" fill="#0ea5e9"/>
+  <div class="floating-sticker" style="top:60%;right:30%;transform:rotate(-10deg);" id="sticker-folder-assets">
+    <a href="#about" class="folder-sticker" style="display:flex;flex-direction:column;align-items:center;width:72px;text-decoration:none;">
+      <svg width="62" height="52" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.1));">
+        <path d="M4 9C4 6.79086 5.79086 5 8 5H22L27 12H54C56.2091 12 58 13.7909 58 16V43C58 45.2091 56.2091 47 54 47H8C5.79086 47 4 45.2091 4 43V9Z" fill="#60a5fa"/>
+        <path d="M4 16H58V43C58 45.2091 56.2091 47 54 47H8C5.79086 47 4 45.2091 4 43V16Z" fill="#3b82f6"/>
       </svg>
-      <span class="folder-name">final_final</span>
+      <span style="font-size:9px;font-weight:700;color:#374151;margin-top:5px;font-family:'Outfit',sans-serif;text-align:center;line-height:1.2;">final_Final</span>
     </a>
   </div>
+
 </section>
+
 <!-- ABOUT: CINEMATIC EDITORIAL CANVAS -->
 <section class="editorial-canvas font-sans relative z-20 overflow-hidden bg-[var(--charcoal-bg)]" id="about">
 <!-- STATIONARY WATERMARK -->
