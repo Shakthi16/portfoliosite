@@ -285,58 +285,89 @@
     }
 
     .paint-palette {
-      width: 44px;
-      background: rgba(241,245,249,0.95);
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      width: 76px;
+      background: #f1f1f1;
+      border: 2px solid #000000;
+      box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      padding: 5px;
-      z-index: 20;
-      backdrop-filter: blur(4px);
+      z-index: 200 !important;
+      font-family: monospace;
+      padding: 0;
+      overflow: hidden;
+    }
+    .paint-palette-header {
+      background: #000000;
+      height: 12px;
+      width: 100%;
+      cursor: move;
+      display: flex;
+      align-items: center;
+      padding: 0 2px;
+    }
+    .paint-palette-header-stripes {
+      width: 100%;
+      height: 4px;
+      background: repeating-linear-gradient(
+        0deg,
+        #ffffff,
+        #ffffff 1px,
+        #000000 1px,
+        #000000 2px
+      );
+      opacity: 0.7;
+    }
+    .paint-tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #000000;
+      border-bottom: 2px solid #000000;
     }
     .paint-tool {
-      width: 34px;
-      height: 34px;
+      width: 37px;
+      height: 32px;
+      background: #f1f1f1;
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 5px;
       cursor: pointer;
-      color: #475569;
-      font-size: 0.82rem;
-      transition: background 0.15s, color 0.15s;
-      border: none;
-      background: none;
+      color: #000000;
+      font-size: 0.9rem;
+      border-radius: 0 !important;
+      transition: background 0.1s;
     }
     .paint-tool:hover {
-      background: #e2e8f0;
-      color: #0f172a;
+      background: #ffffff;
     }
     .paint-tool.active-tool {
-      background: #0f172a;
+      background: #000000;
       color: #ffffff;
     }
-    .paint-tool-divider {
-      width: 28px;
-      height: 1px;
-      background: #e2e8f0;
-      margin: 2px auto;
+    .paint-colors-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      padding: 4px;
+      background: #f1f1f1;
     }
     .color-swatch {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      border: 2px solid white;
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+      width: 14px;
+      height: 14px;
+      border: 1px solid #000000;
       cursor: pointer;
-      display: inline-block;
-      transition: transform 0.15s;
+      border-radius: 0 !important;
+      display: block;
+      box-sizing: border-box;
     }
-    .color-swatch:hover { transform: scale(1.2); }
-    .color-swatch.active-color { box-shadow: 0 0 0 2px #0f172a; }
+    .color-swatch:hover {
+      transform: scale(1.1);
+    }
+    .color-swatch.active-color {
+      outline: 2px solid #000000;
+      outline-offset: -3px;
+    }
     /* Drawing canvas overlays home */
     #drawing-canvas {
       position: absolute;
@@ -2047,8 +2078,8 @@
     </div>
   </div>
 
-  <!-- ── B3: Folder 1 ── mid-bottom left, between badge and terminal -->
-  <div class="floating-sticker" style="bottom:27%;left:24%;transform:rotate(8deg);z-index:8;" id="sticker-folder-vault">
+  <!-- ── B3: Folder 1 ── placed in the empty gap between ID Badge and Vinyl ── top:50%; left:5% -->
+  <div class="floating-sticker" style="top:50%;left:5%;transform:rotate(8deg);z-index:8;" id="sticker-folder-vault">
     <a href="#projects" style="display:flex;flex-direction:column;align-items:center;width:72px;text-decoration:none;">
       <svg width="62" height="52" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.12));">
         <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#60a5fa"/>
@@ -2116,8 +2147,8 @@
     </div>
   </div>
 
-  <!-- ── D3: Folder 2 ── mid, left:60%, below ticket -->
-  <div class="floating-sticker" style="top:33%;left:60%;transform:rotate(-9deg);z-index:8;" id="sticker-folder-assets">
+  <!-- ── D3: Folder 2 ── placed in the empty gap on the right column ── top:36%; right:10% -->
+  <div class="floating-sticker" style="top:36%;right:10%;transform:rotate(-9deg);z-index:8;" id="sticker-folder-assets">
     <a href="#about" style="display:flex;flex-direction:column;align-items:center;width:72px;text-decoration:none;">
       <svg width="62" height="52" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.12));">
         <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#60a5fa"/>
@@ -2140,57 +2171,51 @@
     </div>
   </div>
 
-  <!-- ── FAR RIGHT: Functional Paint Palette ── fixed strip, right:6px top:30% -->
-  <div class="floating-sticker" style="top:28%;right:6px;transform:none;cursor:default;z-index:20;" id="sticker-palette">
-    <div class="paint-palette" style="width:46px;">
-
-      <!-- Cursor / select tool -->
-      <button class="paint-tool active-tool" data-tool="cursor" id="tool-cursor" title="Select">
-        <i class="fas fa-mouse-pointer"></i>
-      </button>
-
-      <div class="paint-tool-divider"></div>
-
-      <!-- Pencil (thin draw) -->
-      <button class="paint-tool" data-tool="pencil" id="tool-pencil" title="Pencil (thin)">
-        <i class="fas fa-pencil-alt"></i>
-      </button>
-
-      <!-- Brush (thick draw) -->
-      <button class="paint-tool" data-tool="brush" id="tool-brush" title="Brush (thick)">
-        <i class="fas fa-paint-brush"></i>
-      </button>
-
-      <!-- Marker (bold opaque) -->
-      <button class="paint-tool" data-tool="marker" id="tool-marker" title="Marker">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-      </button>
-
-      <div class="paint-tool-divider"></div>
-
-      <!-- Eraser -->
-      <button class="paint-tool" data-tool="eraser" id="tool-eraser" title="Eraser">
-        <i class="fas fa-eraser"></i>
-      </button>
-
-      <!-- Clear all -->
-      <button class="paint-tool" data-tool="clear" id="tool-clear" title="Clear all" style="color:#ef4444;">
-        <i class="fas fa-trash-alt"></i>
-      </button>
-
-      <div class="paint-tool-divider"></div>
-
-      <!-- Color swatches (displayed as small circles in the palette) -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:5px;padding:2px 0;">
+  <!-- ── FAR RIGHT: Functional Retro MacPaint Palette ── fixed strip, right:20px top:25% -->
+  <div class="floating-sticker" style="top:25%;right:20px;transform:none;cursor:default;z-index:200 !important;" id="sticker-palette">
+    <div class="paint-palette">
+      <!-- Drag handle / Title bar -->
+      <div class="paint-palette-header">
+        <div class="paint-palette-header-stripes"></div>
+      </div>
+      <!-- 2-column retro tools grid -->
+      <div class="paint-tools-grid">
+        <!-- Col 1, Row 1: Cursor / Select tool -->
+        <button class="paint-tool active-tool" data-tool="cursor" title="Select Tool">
+          <i class="fas fa-mouse-pointer"></i>
+        </button>
+        <!-- Col 2, Row 1: Pencil (thin drawing) -->
+        <button class="paint-tool" data-tool="pencil" title="Pencil (thin)">
+          <i class="fas fa-pencil-alt"></i>
+        </button>
+        <!-- Col 1, Row 2: Paintbrush (thick drawing) -->
+        <button class="paint-tool" data-tool="brush" title="Brush (thick)">
+          <i class="fas fa-paint-brush"></i>
+        </button>
+        <!-- Col 2, Row 2: Marker (opaque highlighter) -->
+        <button class="paint-tool" data-tool="marker" title="Marker (highlight)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:middle;"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+        </button>
+        <!-- Col 1, Row 3: Eraser -->
+        <button class="paint-tool" data-tool="eraser" title="Eraser">
+          <i class="fas fa-eraser"></i>
+        </button>
+        <!-- Col 2, Row 3: Clear / Trash -->
+        <button class="paint-tool" data-tool="clear" title="Clear Canvas" style="color:#e11d48;">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+      <!-- Square retro pixel color grid (4 columns) -->
+      <div class="paint-colors-grid">
         <span class="color-swatch active-color" data-color="#111111" style="background:#111111;" title="Black"></span>
         <span class="color-swatch" data-color="#ef4444" style="background:#ef4444;" title="Red"></span>
         <span class="color-swatch" data-color="#f59e0b" style="background:#f59e0b;" title="Amber"></span>
         <span class="color-swatch" data-color="#10b981" style="background:#10b981;" title="Green"></span>
         <span class="color-swatch" data-color="#3b82f6" style="background:#3b82f6;" title="Blue"></span>
         <span class="color-swatch" data-color="#a855f7" style="background:#a855f7;" title="Purple"></span>
-        <span class="color-swatch" data-color="#ffffff" style="background:#ffffff;border-color:#cbd5e1;" title="White"></span>
+        <span class="color-swatch" data-color="#ffffff" style="background:#ffffff;" title="White"></span>
+        <span class="color-swatch" data-color="#64748b" style="background:#64748b;" title="Gray"></span>
       </div>
-
     </div>
   </div>
 
