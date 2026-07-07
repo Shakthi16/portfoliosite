@@ -9,7 +9,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 <!-- Premium Fonts for Awwwards Style -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&amp;display=swap" rel="stylesheet"/>
 <style>
     /* Custom CSS for Awwwards style */
     
@@ -1477,13 +1477,13 @@
 <!-- Premium Preloader Overlay -->
 <div id="preloader" style="position: fixed; inset: 0; background-color: #050505; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
   <div class="preloader-content" style="position: relative; text-align: center;">
-    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', cursive; font-weight: 400; font-size: clamp(4rem, 11vw, 9.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: -0.01em; padding: 0 20px;">
+    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Mr De Haviland', cursive !important; font-weight: 400; font-size: clamp(4rem, 11vw, 9.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: 0.05em; padding: 0 40px;">
       <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="initial">S</span><span class="remainder" style="max-width: 0; opacity: 0; display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; transition: max-width 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;">hakthi</span>
+        <span class="initial">S</span><span class="remainder" style="max-width: 0; opacity: 0; display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: middle; transition: max-width 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;">hakthi</span>
       </span>
-      <span class="separator" style="width: clamp(0.8rem, 3.5vw, 2.5rem); display: inline-block; vertical-align: middle;"></span>
+      <span class="separator" style="width: clamp(0.6rem, 3vw, 2rem); display: inline-block; vertical-align: middle;"></span>
       <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="initial">S</span><span class="remainder" style="max-width: 0; opacity: 0; display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; transition: max-width 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;">r<span class="last-i" style="position: relative; display: inline-block;">i</span></span>
+        <span class="initial">S</span><span class="remainder" style="max-width: 0; opacity: 0; display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: middle; transition: max-width 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;">r<span class="last-i" style="display: inline;">i</span></span>
       </span>
       <!-- Glowing dot trailing/sweeping across -->
       <div class="sweep-glow" style="position: absolute; top: 50%; left: -5%; transform: translate(-50%, -50%); width: 35px; height: 35px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
@@ -1497,37 +1497,39 @@
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     
-    const startTime = performance.now();
-
-    // 2. Start expansion of initials to full name after 900ms
+    // 2. Start expansion of initials to full name after 800ms
     setTimeout(function() {
       const remainders = document.querySelectorAll('#preloader .remainder');
       remainders.forEach(el => {
         el.style.opacity = '1';
         el.style.maxWidth = '350px'; // value larger than word width to allow full reveal
       });
-    }, 900);
+    }, 800);
 
-    // 3. Trigger light sweep glow dot animation
+    // 3. After expansion completes, set overflow to visible to prevent clipping
+    setTimeout(function() {
+      const remainders = document.querySelectorAll('#preloader .remainder');
+      remainders.forEach(el => {
+        el.style.overflow = 'visible';
+      });
+    }, 2100);
+
+    // 4. Trigger light sweep glow dot animation
     setTimeout(function() {
       const sweep = document.querySelector('#preloader .sweep-glow');
-      const lastI = document.querySelector('#preloader .last-i');
       const wrapper = document.querySelector('#preloader .logo-text-wrapper');
       
-      if (sweep && lastI && wrapper) {
-        // Calculate the exact horizontal offset of the last "i" relative to the text wrapper
-        const xOffset = lastI.offsetLeft + (lastI.offsetWidth / 2);
-        
+      if (sweep && wrapper) {
         sweep.style.opacity = '1';
-        // Sweep across and land exactly on the dot of the last 'i' (slightly higher vertically)
-        sweep.style.transition = 'left 1.5s cubic-bezier(0.25, 1, 0.35, 1), top 1.5s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.5s ease';
-        sweep.style.left = xOffset + 'px';
-        sweep.style.top = '10%'; // Land exactly on the dot position of the Pinyon Script 'i'
+        // Sweep across and land exactly on the last letter 'i' (which is at ~94% width, and slightly higher vertically)
+        sweep.style.transition = 'left 1.5s cubic-bezier(0.25, 1, 0.35, 1), top 1.5s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.4s ease';
+        sweep.style.left = '94%';
+        sweep.style.top = '12%'; // Land exactly on the dot position above the cursive 'i'
         
-        // 4. Trigger flash when the sweep dot arrives on the 'i' (1.5s transition starts at 1700ms -> ends at 3200ms)
+        // 5. Trigger flash when the sweep dot arrives on the 'i'
         setTimeout(function() {
           // Trigger the explosion/flash
-          sweep.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.6s ease';
+          sweep.style.transition = 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease';
           sweep.style.transform = 'translate(-50%, -50%) scale(150)';
           sweep.style.backgroundColor = '#ffffff';
           sweep.style.filter = 'blur(0px)';
@@ -1535,7 +1537,7 @@
           // Fade out the preloader panel itself simultaneously
           const preloader = document.getElementById('preloader');
           if (preloader) {
-            preloader.style.transition = 'opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
+            preloader.style.transition = 'opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1), transform 0.7s cubic-bezier(0.19, 1, 0.22, 1)';
             preloader.style.opacity = '0';
             preloader.style.transform = 'scale(1.03)';
             preloader.style.pointerEvents = 'none';
@@ -1548,9 +1550,9 @@
               if (typeof lenis !== 'undefined') {
                 lenis.start();
               }
-            }, 800);
+            }, 700);
           }
-        }, 1500);
+        }, 1400);
       }
     }, 1700);
   })();
