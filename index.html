@@ -6,7 +6,6 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Shakthi Sri | Portfolio</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 <!-- Premium Fonts for Awwwards Style -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
@@ -1476,36 +1475,33 @@
 </head>
 <body class="antialiased">
 <!-- Premium Preloader Overlay -->
-<div id="preloader" style="position: fixed; inset: 0; background-color: #0b0b0c; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s ease;">
-  <!-- Grain overlay to make it look textured and premium -->
-  <div class="preloader-grain" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.03; pointer-events: none; background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
-  
-  <div class="preloader-content" style="position: relative; text-align: center; width: 100%; max-width: 90vw;">
-    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', cursive; font-weight: 400; font-size: clamp(3.5rem, 11vw, 9.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: -0.01em; padding: 0 40px; overflow: visible;">
+<div id="preloader" style="position: fixed; inset: 0; background-color: #050505; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
+  <div class="preloader-content" style="position: relative; text-align: center; width: 100%; max-width: 1200px; padding: 0 20px;">
+    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 400; font-size: clamp(3.5rem, 11vw, 9.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: 0.02em; padding: 0 30px;">
       
       <!-- Word 1: Shakthi -->
-      <span class="word" style="display: inline-block; white-space: nowrap; overflow: visible; vertical-align: middle;">
-        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">S</span>
-        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">h</span>
-        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">a</span>
-        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">k</span>
-        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">t</span>
-        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">h</span>
-        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">i</span>
+      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
+        <span class="char initial" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">S</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">h</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">a</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">k</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">t</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">h</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">i</span>
       </span>
-      
-      <!-- Separator spacer -->
+
+      <!-- Separator spacing -->
       <span class="separator" style="width: clamp(1rem, 4vw, 3rem); display: inline-block; vertical-align: middle;"></span>
-      
+
       <!-- Word 2: Sri -->
-      <span class="word" style="display: inline-block; white-space: nowrap; overflow: visible; vertical-align: middle;">
-        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">S</span>
-        <span class="letter" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">r</span>
-        <span class="letter last-i" style="display: inline-block; opacity: 0; transform: translate3d(0,0,0); overflow: visible; padding-right: 0.1em;">i</span>
+      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
+        <span class="char initial" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">S</span>
+        <span class="char" style="display: inline-block; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">r</span>
+        <span class="char last-i" style="display: inline-block; position: relative; transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.5s cubic-bezier(0.25, 1, 0.35, 1), filter 1.5s ease;">i</span>
       </span>
-      
+
       <!-- Glowing dot trailing/sweeping across -->
-      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 25px; height: 25px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 25px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
+      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 35px; height: 35px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
     </div>
   </div>
 </div>
@@ -1516,111 +1512,93 @@
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     
-    // Select preloader elements
-    const letters = document.querySelectorAll('#preloader .letter');
-    const sweep = document.querySelector('#preloader .sweep-glow');
-    const preloader = document.getElementById('preloader');
-    
-    // Initialize scattered random layout positions
-    letters.forEach(letter => {
-      const randomX = gsap.utils.random(-window.innerWidth * 0.35, window.innerWidth * 0.35);
-      const randomY = gsap.utils.random(-window.innerHeight * 0.35, window.innerHeight * 0.35);
-      const randomRot = gsap.utils.random(-45, 45);
-      const randomScale = gsap.utils.random(0.7, 1.4);
-      
-      gsap.set(letter, {
-        x: randomX,
-        y: randomY,
-        rotation: randomRot,
-        scale: randomScale,
-        opacity: 0
-      });
+    // Scatter the characters programmatically on script evaluation
+    const chars = document.querySelectorAll('#preloader .char');
+    chars.forEach((char) => {
+      if (char.classList.contains('initial')) {
+        // Initials start centered but hidden/faded
+        char.style.opacity = '0';
+        char.style.filter = 'blur(10px)';
+        char.style.transform = 'translate3d(0, 40px, 0) scale(0.8)';
+      } else {
+        // Scatter characters to random coordinates, rotations, scales and blurs
+        const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
+        const randomY = (Math.random() - 0.5) * window.innerHeight * 0.7;
+        const randomRotate = (Math.random() - 0.5) * 80; // -40deg to 40deg
+        const randomScale = 0.5 + Math.random() * 0.8;
+        
+        char.style.opacity = '0';
+        char.style.filter = 'blur(15px)';
+        char.style.transform = 'translate3d(' + randomX + 'px, ' + randomY + 'px, 0) rotate(' + randomRotate + 'deg) scale(' + randomScale + ')';
+      }
     });
 
-    // Run GSAP timeline for float in, drift, assemble, sweep, and flash
-    function startLoadingTimeline() {
-      const tl = gsap.timeline();
-
-      // Step 1: Fade-in and gentle floating drift
-      tl.to(letters, {
-        opacity: 0.85,
-        duration: 1.4,
-        stagger: {
-          amount: 0.7,
-          from: "random"
-        },
-        ease: "power2.out"
+    // 2. Animate the initials "S S" to lock into position first after 400ms
+    setTimeout(function() {
+      const initials = document.querySelectorAll('#preloader .char.initial');
+      initials.forEach(char => {
+        char.style.opacity = '1';
+        char.style.filter = 'blur(0px)';
+        char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
       });
+    }, 400);
 
-      // Step 2: Magnetic pull together to final positions with spring settle
-      tl.to(letters, {
-        x: 0,
-        y: 0,
-        rotation: 0,
-        scale: 1,
-        opacity: 1,
-        duration: 1.8,
-        stagger: {
-          amount: 0.45,
-          from: "center"
-        },
-        ease: "elastic.out(1.1, 0.8)"
-      }, "-=0.6");
+    // 3. Stagger all other letters to drift into position after 1100ms
+    setTimeout(function() {
+      const nonInitials = document.querySelectorAll('#preloader .char:not(.initial)');
+      nonInitials.forEach((char, index) => {
+        setTimeout(function() {
+          char.style.opacity = '1';
+          char.style.filter = 'blur(0px)';
+          char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
+        }, index * 80); // 80ms stagger
+      });
+    }, 1100);
 
-      // Step 3: Trigger light sweep dot and landing dot flash
-      tl.add(() => {
-        const lastI = document.querySelector('#preloader .last-i');
-        const wrapper = document.querySelector('#preloader .logo-text-wrapper');
+    // 4. Trigger the sweep dot once letters have aligned (around 3100ms)
+    setTimeout(function() {
+      const sweep = document.querySelector('#preloader .sweep-glow');
+      const lastI = document.querySelector('#preloader .last-i');
+      const wrapper = document.querySelector('#preloader .logo-text-wrapper');
+      
+      if (sweep && lastI && wrapper) {
+        // Calculate the exact horizontal offset of the last "i" relative to the wrapper using client bounds
+        const rectWrapper = wrapper.getBoundingClientRect();
+        const rectI = lastI.getBoundingClientRect();
+        const xOffset = rectI.left - rectWrapper.left + (rectI.width / 2);
         
-        if (sweep && lastI && wrapper) {
-          // Calculate the target X position relative to wrapper: center of last "i"
-          const xTarget = lastI.offsetLeft + (lastI.offsetWidth / 2);
+        sweep.style.opacity = '1';
+        // Sweep across and land exactly on the dot position of the last cursive 'i'
+        sweep.style.transition = 'left 1.6s cubic-bezier(0.25, 1, 0.35, 1), top 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.5s ease';
+        sweep.style.left = xOffset + 'px';
+        sweep.style.top = '12%'; // Landing spot matching the cursive 'i' dot height
+        
+        // 5. Trigger the screen-filling white flash when the sweep dot arrives on the 'i'
+        setTimeout(function() {
+          sweep.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.6s ease';
+          sweep.style.transform = 'translate(-50%, -50%) scale(180)';
+          sweep.style.backgroundColor = '#ffffff';
+          sweep.style.filter = 'blur(0px)';
           
-          gsap.set(sweep, { opacity: 1, left: "-30px", top: "50%" });
-          
-          // Sweep across name and target the dot position of 'i'
-          gsap.to(sweep, {
-            left: xTarget,
-            top: "8%", // Land exactly on the dot position of Pinyon Script 'i'
-            duration: 1.8,
-            ease: "power3.inOut",
-            onComplete: () => {
-              // Trigger final explosion/flash
-              gsap.to(sweep, {
-                scale: 200,
-                backgroundColor: "#ffffff",
-                filter: "blur(0px)",
-                duration: 0.7,
-                ease: "power4.in"
-              });
-              
-              // Fade out the preloader to reveal home page
-              gsap.to(preloader, {
-                opacity: 0,
-                scale: 1.04,
-                duration: 0.8,
-                delay: 0.1,
-                onComplete: () => {
-                  preloader.remove();
-                  document.documentElement.style.overflow = '';
-                  document.body.style.overflow = '';
-                  if (typeof lenis !== 'undefined') {
-                    lenis.start();
-                  }
-                }
-              });
-            }
-          });
-        }
-      }, "+=0.2");
-    }
-
-    // Execute timeline when ready
-    if (document.readyState === 'complete') {
-      startLoadingTimeline();
-    } else {
-      window.addEventListener('load', startLoadingTimeline);
-    }
+          const preloader = document.getElementById('preloader');
+          if (preloader) {
+            preloader.style.transition = 'opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
+            preloader.style.opacity = '0';
+            preloader.style.transform = 'scale(1.03)';
+            preloader.style.pointerEvents = 'none';
+            
+            setTimeout(function() {
+              preloader.remove();
+              document.documentElement.style.overflow = '';
+              document.body.style.overflow = '';
+              if (typeof lenis !== 'undefined') {
+                lenis.start();
+              }
+            }, 800);
+          }
+        }, 1600); // Wait for the 1.6s sweep transition to end
+      }
+    }, 3100);
   })();
 </script>
 
