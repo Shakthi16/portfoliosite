@@ -9,7 +9,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 <!-- Premium Fonts for Awwwards Style -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;display=swap" rel="stylesheet"/>
 <style>
     /* Custom CSS for Awwwards style */
     
@@ -1475,20 +1475,41 @@
 </head>
 <body class="antialiased">
 <!-- Premium Preloader Overlay -->
-<div id="preloader" style="position: fixed; inset: 0; background-color: #050505; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
-  <div class="preloader-content" style="position: relative; text-align: center;">
-    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Mr De Haviland', cursive !important; font-weight: 400; font-size: clamp(4rem, 11vw, 9.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: 0.05em; padding: 0 40px;">
+<div id="preloader" style="position: fixed; inset: 0; background: radial-gradient(circle at center, #161233 0%, #050505 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
+  <!-- Noise Overlay for texture -->
+  <div class="noise-overlay" style="position: absolute; inset: 0; pointer-events: none; opacity: 0.04; background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
+  
+  <div class="preloader-content" style="position: relative; text-align: center; z-index: 10;">
+    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', cursive; font-weight: 400; font-size: clamp(3.5rem, 11vw, 9rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: -0.01em; padding: 0 40px; text-shadow: 0 0 15px rgba(255,255,255,0.1), 0 0 30px rgba(168,85,247,0.2);">
+      
+      <!-- Word 1: Shakthi -->
       <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="initial">S</span><span class="remainder" style="max-width: 0; opacity: 0; display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: middle; transition: max-width 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;">hakthi</span>
+        <span class="initial" style="display: inline-block;">S</span>
+        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">h</span>
+        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">a</span>
+        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">k</span>
+        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">t</span>
+        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">h</span>
+        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">i</span>
       </span>
-      <span class="separator" style="width: clamp(0.6rem, 3vw, 2rem); display: inline-block; vertical-align: middle;"></span>
+      
+      <!-- Separator -->
+      <span class="separator" style="width: clamp(0.8rem, 3.5vw, 2.5rem); display: inline-block; vertical-align: middle;"></span>
+      
+      <!-- Word 2: Sri -->
       <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="initial">S</span><span class="remainder" style="max-width: 0; opacity: 0; display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: middle; transition: max-width 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;">r<span class="last-i" style="display: inline;">i</span></span>
+        <span class="initial" style="display: inline-block;">S</span>
+        <span class="char" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);">r</span>
+        <span class="char last-i" style="display: inline-block; opacity: 0; filter: blur(8px); transform: translate(-12px, 4px) scale(0.8); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); position: relative;">i</span>
       </span>
+      
       <!-- Glowing dot trailing/sweeping across -->
-      <div class="sweep-glow" style="position: absolute; top: 50%; left: -5%; transform: translate(-50%, -50%); width: 35px; height: 35px; background-color: #ffffff; border-radius: 50%; filter: blur(2px) drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
+      <div class="sweep-glow" style="position: absolute; top: 50%; left: -50px; transform: translate(-50%, -50%); width: 25px; height: 25px; background-color: #ffffff; border-radius: 50%; filter: blur(1px) drop-shadow(0 0 8px #ffffff) drop-shadow(0 0 16px #a855f7); opacity: 0; pointer-events: none; z-index: 10;"></div>
     </div>
   </div>
+  
+  <!-- Subtle ambient light spotlight in the background -->
+  <div class="preloader-spotlight" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%); pointer-events: none; z-index: 1; transition: left 1.5s cubic-bezier(0.25, 1, 0.35, 1), top 1.5s cubic-bezier(0.25, 1, 0.35, 1);"></div>
 </div>
 
 <script>
@@ -1497,49 +1518,69 @@
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     
-    // 2. Start expansion of initials to full name after 800ms
+    // 2. Stagger reveal all characters
     setTimeout(function() {
-      const remainders = document.querySelectorAll('#preloader .remainder');
-      remainders.forEach(el => {
-        el.style.opacity = '1';
-        el.style.maxWidth = '350px'; // value larger than word width to allow full reveal
+      const chars = document.querySelectorAll('#preloader .char');
+      chars.forEach((char, index) => {
+        setTimeout(function() {
+          char.style.opacity = '1';
+          char.style.filter = 'blur(0px)';
+          char.style.transform = 'translate(0, 0) scale(1)';
+        }, index * 80); // Stagger delay of 80ms per letter for handwriting flow
       });
     }, 800);
 
-    // 3. After expansion completes, set overflow to visible to prevent clipping
-    setTimeout(function() {
-      const remainders = document.querySelectorAll('#preloader .remainder');
-      remainders.forEach(el => {
-        el.style.overflow = 'visible';
-      });
-    }, 2100);
-
-    // 4. Trigger light sweep glow dot animation
+    // 3. Trigger light sweep glow dot and spotlight background shadow
     setTimeout(function() {
       const sweep = document.querySelector('#preloader .sweep-glow');
+      const lastI = document.querySelector('#preloader .last-i');
       const wrapper = document.querySelector('#preloader .logo-text-wrapper');
+      const spotlight = document.querySelector('#preloader .preloader-spotlight');
       
-      if (sweep && wrapper) {
-        sweep.style.opacity = '1';
-        // Sweep across and land exactly on the last letter 'i' (which is at ~94% width, and slightly higher vertically)
-        sweep.style.transition = 'left 1.5s cubic-bezier(0.25, 1, 0.35, 1), top 1.5s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.4s ease';
-        sweep.style.left = '94%';
-        sweep.style.top = '12%'; // Land exactly on the dot position above the cursive 'i'
+      if (sweep && lastI && wrapper) {
+        // Calculate the exact horizontal offset of the last "i" relative to the text wrapper
+        const xOffset = lastI.offsetLeft + (lastI.offsetWidth / 2);
         
-        // 5. Trigger flash when the sweep dot arrives on the 'i'
+        sweep.style.opacity = '1';
+        
+        // 1.5s transition for sweep dot and background spotlight tracking
+        const transitionStyle = 'left 1.6s cubic-bezier(0.25, 1, 0.35, 1), top 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.5s ease';
+        sweep.style.transition = transitionStyle;
+        sweep.style.left = xOffset + 'px';
+        sweep.style.top = '12%'; // Exact dot position of Pinyon Script 'i'
+        
+        if (spotlight) {
+          spotlight.style.transition = transitionStyle;
+          // Move the background ambient spotlight to follow the sweep dot
+          const wrapperRect = wrapper.getBoundingClientRect();
+          const preloaderRect = document.getElementById('preloader').getBoundingClientRect();
+          const targetX = (wrapperRect.left - preloaderRect.left) + xOffset;
+          const targetY = (wrapperRect.top - preloaderRect.top) + (wrapperRect.height * 0.12);
+          
+          spotlight.style.left = targetX + 'px';
+          spotlight.style.top = targetY + 'px';
+        }
+        
+        // 4. Trigger flash when the sweep dot arrives on the 'i' (transition is 1.6s)
         setTimeout(function() {
           // Trigger the explosion/flash
           sweep.style.transition = 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease';
-          sweep.style.transform = 'translate(-50%, -50%) scale(150)';
+          sweep.style.transform = 'translate(-50%, -50%) scale(180)';
           sweep.style.backgroundColor = '#ffffff';
           sweep.style.filter = 'blur(0px)';
+          
+          if (spotlight) {
+            spotlight.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+            spotlight.style.transform = 'translate(-50%, -50%) scale(5)';
+            spotlight.style.opacity = '0';
+          }
           
           // Fade out the preloader panel itself simultaneously
           const preloader = document.getElementById('preloader');
           if (preloader) {
             preloader.style.transition = 'opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1), transform 0.7s cubic-bezier(0.19, 1, 0.22, 1)';
             preloader.style.opacity = '0';
-            preloader.style.transform = 'scale(1.03)';
+            preloader.style.transform = 'scale(1.02)';
             preloader.style.pointerEvents = 'none';
             
             setTimeout(function() {
@@ -1552,9 +1593,9 @@
               }
             }, 700);
           }
-        }, 1400);
+        }, 1600);
       }
-    }, 1700);
+    }, 1900);
   })();
 </script>
 
