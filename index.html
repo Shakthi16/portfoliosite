@@ -30,7 +30,9 @@
       display: inline-block;
       opacity: 0;
       transform: translate3d(0, 0, 0);
-      /* transitions added by JS after scatter */
+      color: #ffffff;
+      -webkit-text-fill-color: #ffffff;
+      -webkit-text-stroke: 2px #ffffff;
     }
 
     /* ========================
@@ -1837,7 +1839,7 @@
 <!-- Premium Preloader Overlay -->
 <div id="preloader" style="position: fixed; inset: 0; background-color: #050505; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
   <div class="preloader-content" style="position: relative; text-align: center; width: 100%; max-width: 1200px; padding: 0 20px;">
-    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 400; font-size: clamp(3.5rem, 11vw, 9.5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: 0.02em; padding: 0 30px;">
+    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 700; font-size: clamp(2rem, 6vw, 5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: 0.04em; padding: 0 30px;">
       
       <!-- Word 1: Shakthi -->
       <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
@@ -1865,80 +1867,74 @@
 
 <script>
   (function() {
-    // 1. Lock scrolling immediately to prevent user interaction during loading
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     
-    // Get all chars
-    const chars = document.querySelectorAll('#preloader .char');
+    var chars = document.querySelectorAll('#preloader .char');
     
-    // Disable transition temporarily during scatter so they don't animate outwards
-    chars.forEach((char) => {
+    // Phase 1: Random spawn — scatter across viewport
+    chars.forEach(function(char) {
       char.style.transition = 'none';
+      char.style.opacity = '0';
       
-      if (char.classList.contains('initial')) {
-        char.style.opacity = '0';
-        char.style.transform = 'translate3d(0, 40px, 0) scale(0.8)';
-      } else {
-        const randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
-        const randomY = (Math.random() - 0.5) * window.innerHeight * 0.7;
-        const randomRotate = (Math.random() - 0.5) * 80; // -40deg to 40deg
-        const randomScale = 0.6 + Math.random() * 0.6;
-        
-        char.style.opacity = '0';
-        char.style.transform = 'translate3d(' + randomX + 'px, ' + randomY + 'px, 0) rotate(' + randomRotate + 'deg) scale(' + randomScale + ')';
-      }
+      var randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
+      var randomY = (Math.random() - 0.5) * window.innerHeight * 0.7;
+      var randomRotate = (Math.random() - 0.5) * 80;
+      var randomScale = 0.5 + Math.random() * 0.7;
+      char.style.transform = 'translate3d(' + randomX + 'px, ' + randomY + 'px, 0) rotate(' + randomRotate + 'deg) scale(' + randomScale + ')';
     });
-
-    // Force layout reflow so the browser applies the scattered styling instantly
-    if (chars.length > 0) {
-      chars[0].offsetHeight; 
-    }
-
-    // Re-enable smooth transition curves
-    chars.forEach((char) => {
-      char.style.transition = 'transform 1.6s cubic-bezier(0.25, 1, 0.35, 1), opacity 1.2s cubic-bezier(0.25, 1, 0.35, 1)';
+    
+    if (chars.length > 0) { chars[0].offsetHeight; }
+    
+    // Phase 2: Enable spring-overshoot transition
+    chars.forEach(function(char) {
+      char.style.transition = 'transform 1.8s cubic-bezier(0.22, 1.6, 0.36, 1), opacity 0.8s ease';
     });
-
-    // 2. Animate the initials "S S" to lock into position first after 400ms
-    setTimeout(function() {
-      const initials = document.querySelectorAll('#preloader .char.initial');
-      initials.forEach(char => {
+    
+    // Phase 3: Magnetic attraction — all letters pull to center staggered
+    chars.forEach(function(char, index) {
+      setTimeout(function() {
         char.style.opacity = '1';
         char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
-      });
-    }, 400);
-
-    // 3. Stagger all other letters to drift into position after 1000ms
+      }, 200 + index * 60);
+    });
+    
+    // Phase 4: Dot of last "i" circles up, covers page, reveals homepage
     setTimeout(function() {
-      const nonInitials = document.querySelectorAll('#preloader .char:not(.initial)');
-      nonInitials.forEach((char, index) => {
-        setTimeout(function() {
-          char.style.opacity = '1';
-          char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
-        }, index * 70); // 70ms stagger
-      });
-    }, 1000);
-
-    // 4. Fade out the preloader overlay cleanly after 2800ms
-    setTimeout(function() {
-      const preloader = document.getElementById('preloader');
-      if (preloader) {
-        preloader.style.transition = 'opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
-        preloader.style.opacity = '0';
-        preloader.style.transform = 'scale(1.04)';
-        preloader.style.pointerEvents = 'none';
+      var lastI = document.querySelector('#preloader .last-i');
+      if (lastI) {
+        var rect = lastI.getBoundingClientRect();
+        var dotX = rect.left + rect.width / 2;
+        var dotY = rect.top;
+        
+        var circle = document.createElement('div');
+        circle.style.cssText = 'position:fixed;width:16px;height:16px;border-radius:50%;background:#ffffff;pointer-events:none;z-index:99999;left:' + dotX + 'px;top:' + dotY + 'px;transform:translate(-50%,-50%) scale(1);opacity:1;box-shadow:0 0 60px 20px rgba(255,255,255,0.9);transition:transform 2s cubic-bezier(0.22, 1.6, 0.36, 1)';
+        document.body.appendChild(circle);
+        
+        // Force reflow then trigger expansion
+        circle.offsetHeight;
+        circle.style.transform = 'translate(-50%,-50%) scale(400)';
         
         setTimeout(function() {
-          preloader.remove();
-          document.documentElement.style.overflow = '';
-          document.body.style.overflow = '';
-          if (typeof lenis !== 'undefined') {
-            lenis.start();
+          var preloader = document.getElementById('preloader');
+          if (preloader) {
+            preloader.style.transition = 'opacity 0.3s ease';
+            preloader.style.opacity = '0';
+            preloader.style.pointerEvents = 'none';
+            
+            setTimeout(function() {
+              preloader.remove();
+              circle.remove();
+              document.documentElement.style.overflow = '';
+              document.body.style.overflow = '';
+              if (typeof lenis !== 'undefined') {
+                lenis.start();
+              }
+            }, 300);
           }
-        }, 800);
+        }, 1800);
       }
-    }, 2800);
+    }, 2500);
   })();
 </script>
 
@@ -1993,16 +1989,16 @@
 
   <!-- ═══════════════════════════════════════════════════════════
        STICKER PLACEMENT — non-overlapping grid:
-       Col A (left:2–21%)   : Badge top, Vinyl bottom
-       Col B (left:24–40%)  : Plant top, Terminal bottom, Folder mid
+       Col A (left:2–21%)   : Badge top, Bouquet mid, Vinyl bottom
+       Col B (left:24–40%)  : Plant top, Moon/Stars mid, Terminal bottom, Folder 1 bottom-mid
        Col C (center 42–58%): Coffee top — name/subtitle center
-       Col D (left:60–76%)  : Ticket top, AirDrop mid, Folder mid
+       Col D (left:60–76%)  : Ticket top, AirDrop mid, Folder 2 bottom-mid
        Col E (right:78–95%) : Polaroid bottom
        Far right (right:0)  : Paint palette (fixed strip)
        ═══════════════════════════════════════════════════════════ -->
 
-  <!-- ── A1: ID Badge ── top:5%, left:2% ── 240×320px → ends ~left:26%, top:58% -->
-  <div class="floating-sticker" style="top:5%;left:2%;transform:rotate(-4deg);z-index:8;" id="sticker-badge">
+  <!-- ── A1: ID Badge ── top:6%, left:3% ── 240×320px → ends ~left:26%, top:58% -->
+  <div class="floating-sticker" style="top:6%;left:3%;transform:rotate(-4deg);z-index:8;" id="sticker-badge">
     <div class="badge-card">
       <div class="badge-strap"></div>
       <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:6px;width:100%;">
@@ -2019,8 +2015,17 @@
     </div>
   </div>
 
-  <!-- ── A2: Vinyl Record ── bottom:5%, left:2% ── 150×150px → above fold -->
-  <div class="floating-sticker" style="bottom:5%;left:2%;transform:rotate(5deg);z-index:8;" id="sticker-vinyl">
+  <!-- ── A2: Pinterest-style dried flower bouquet sticker ── top:48%; left:1.5% -->
+  <div class="floating-sticker" style="top:48%;left:1.5%;transform:rotate(-6deg);pointer-events:none;z-index:9;" id="sticker-bouquet">
+    <img
+      src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=240&h=320&fit=crop&q=80&auto=format"
+      alt="Aesthetic dried flowers"
+      style="width:90px;height:125px;object-fit:cover;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.12);display:block;border:1px solid rgba(0,0,0,0.05);"
+    />
+  </div>
+
+  <!-- ── A3: Vinyl Record ── bottom:6%; left:3% ── 150×150px → above fold -->
+  <div class="floating-sticker" style="bottom:6%;left:3%;transform:rotate(5deg);z-index:8;" id="sticker-vinyl">
     <div class="vinyl-record" style="width:150px;height:150px;">
       <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -2046,8 +2051,8 @@
     </div>
   </div>
 
-  <!-- ── B1: Real Monstera Plant (Unsplash) ── top:4%, left:25% ── 120×150px -->
-  <div class="floating-sticker" style="top:4%;left:25%;transform:rotate(-7deg);pointer-events:none;z-index:9;" id="sticker-plant">
+  <!-- ── B1: Real Monstera Plant (Unsplash) ── top:6%, left:25% ── 120×150px -->
+  <div class="floating-sticker" style="top:6%;left:25%;transform:rotate(-7deg);pointer-events:none;z-index:9;" id="sticker-plant">
     <img
       src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=240&h=300&fit=crop&q=85&auto=format"
       alt="Monstera plant"
@@ -2056,8 +2061,20 @@
     />
   </div>
 
-  <!-- ── B2: Terminal ── bottom:5%, left:23% -->
-  <div class="floating-sticker" style="bottom:5%;left:23%;transform:rotate(-1.5deg);z-index:8;" id="sticker-terminal">
+  <!-- ── B2: Gold Crescent Moon & Sparkles vector sticker ── top:16%; left:36% -->
+  <div class="floating-sticker" style="top:16%;left:36%;transform:rotate(15deg);pointer-events:none;z-index:9;" id="sticker-moon">
+    <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
+      <!-- Crescent Moon -->
+      <path d="M40 20C40 36.5685 53.4315 50 70 50C73.2087 50 76.2891 49.4952 79.176 48.563C75.2974 58.1257 65.9221 65 55 65C41.1929 65 30 53.8071 30 40C30 29.0779 36.8743 19.7026 46.437 15.824C45.5048 18.7109 40 21.7913 40 25Z" fill="#fbbf24"/>
+      <!-- Sparkle Star 1 -->
+      <path d="M75 15L77 22L84 24L77 26L75 33L73 26L66 24L73 22L75 15Z" fill="#fef08a"/>
+      <!-- Sparkle Star 2 -->
+      <path d="M25 65L26 69L30 70L26 71L25 75L24 71L20 70L24 69L25 65Z" fill="#fef08a"/>
+    </svg>
+  </div>
+
+  <!-- ── B3: Terminal ── bottom:6%, left:22% -->
+  <div class="floating-sticker" style="bottom:6%;left:22%;transform:rotate(-1.5deg);z-index:8;" id="sticker-terminal">
     <div class="terminal-window" style="width:310px;">
       <div class="terminal-header">
         <div class="terminal-dots">
@@ -2078,8 +2095,8 @@
     </div>
   </div>
 
-  <!-- ── B3: Folder 1 ── placed in the empty gap between ID Badge and Vinyl ── top:50%; left:5% -->
-  <div class="floating-sticker" style="top:50%;left:5%;transform:rotate(8deg);z-index:8;" id="sticker-folder-vault">
+  <!-- ── B4: Folder 1 ── Aligned neatly in the bottom row gap between Vinyl and Terminal ── bottom:6%; left:14% -->
+  <div class="floating-sticker" style="bottom:6%;left:14%;transform:rotate(8deg);z-index:8;" id="sticker-folder-vault">
     <a href="#projects" style="display:flex;flex-direction:column;align-items:center;width:72px;text-decoration:none;">
       <svg width="62" height="52" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.12));">
         <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#60a5fa"/>
@@ -2089,8 +2106,8 @@
     </a>
   </div>
 
-  <!-- ── C1: Real Iced Coffee (Unsplash) ── top:4%, left:44% ── 75×110px -->
-  <div class="floating-sticker" style="top:4%;left:44%;transform:rotate(11deg);pointer-events:none;z-index:9;" id="sticker-coffee">
+  <!-- ── C1: Real Iced Coffee (Unsplash) ── top:6%, left:44% ── 75×110px -->
+  <div class="floating-sticker" style="top:6%;left:44%;transform:rotate(11deg);pointer-events:none;z-index:9;" id="sticker-coffee">
     <img
       src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=150&h=220&fit=crop&q=85&auto=format"
       alt="Iced coffee"
@@ -2099,8 +2116,8 @@
     />
   </div>
 
-  <!-- ── D1: Ticket Stub ── top:5%, left:60% -->
-  <div class="floating-sticker" style="top:5%;left:60%;transform:rotate(2.5deg);z-index:8;" id="sticker-ticket">
+  <!-- ── D1: Ticket Stub ── top:6%, left:62% -->
+  <div class="floating-sticker" style="top:6%;left:62%;transform:rotate(2.5deg);z-index:8;" id="sticker-ticket">
     <div style="position:relative;">
       <div style="position:absolute;top:-9px;left:38%;width:60px;height:14px;background:rgba(254,253,215,0.55);border:1px dashed rgba(0,0,0,0.07);transform:rotate(3deg);z-index:10;"></div>
       <div class="ticket-stub">
@@ -2132,8 +2149,8 @@
     </div>
   </div>
 
-  <!-- ── D2: AirDrop Modal ── mid, left:62% -->
-  <div class="floating-sticker" style="top:52%;left:62%;transform:rotate(3.5deg);z-index:8;" id="sticker-airdrop">
+  <!-- ── D2: AirDrop Modal ── bottom:12%; left:56% -->
+  <div class="floating-sticker" style="bottom:12%;left:56%;transform:rotate(3.5deg);z-index:8;" id="sticker-airdrop">
     <div class="airdrop-modal">
       <div style="width:36px;height:36px;margin:0 auto 8px;border-radius:50%;background:linear-gradient(135deg,#60a5fa,#3b82f6);display:flex;align-items:center;justify-content:center;color:white;font-size:14px;">
         <i class="fas fa-wifi"></i>
@@ -2147,8 +2164,8 @@
     </div>
   </div>
 
-  <!-- ── D3: Folder 2 ── placed in the empty gap on the right column ── top:36%; right:10% -->
-  <div class="floating-sticker" style="top:36%;right:10%;transform:rotate(-9deg);z-index:8;" id="sticker-folder-assets">
+  <!-- ── D3: Folder 2 ── Aligned neatly in the bottom-mid row gap on the right ── bottom:6%; right:22% -->
+  <div class="floating-sticker" style="bottom:6%;right:22%;transform:rotate(-9deg);z-index:8;" id="sticker-folder-assets">
     <a href="#about" style="display:flex;flex-direction:column;align-items:center;width:72px;text-decoration:none;">
       <svg width="62" height="52" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.12));">
         <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#60a5fa"/>
@@ -2158,8 +2175,8 @@
     </a>
   </div>
 
-  <!-- ── E1: Polaroid (real photo) ── bottom:4%, right:5% -->
-  <div class="floating-sticker" style="bottom:4%;right:5%;transform:rotate(-3deg);z-index:8;" id="sticker-polaroid">
+  <!-- ── E1: Polaroid (real photo) ── bottom:6%, right:4% -->
+  <div class="floating-sticker" style="bottom:6%;right:4%;transform:rotate(-3deg);z-index:8;" id="sticker-polaroid">
     <div class="polaroid-collage">
       <div class="polaroid-photo" style="position:relative;transform:rotate(0deg);">
         <div style="position:absolute;top:-12px;left:36%;width:52px;height:14px;background:rgba(254,253,215,0.5);border:1px dashed rgba(0,0,0,0.06);transform:rotate(-3deg);"></div>
@@ -2376,7 +2393,7 @@
 <div class="relative w-full max-w-[1400px] mx-auto px-6 lg:px-12 z-10 flex flex-col gap-[20vh] pt-[15vh] pb-[40vh] pointer-events-none" id="ed-scroll-tracks"><div class="w-full flex justify-start pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><div class="ed-parallax-item w-full aspect-[4/5] max-h-[400px] relative rounded-[2rem] overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.02]">
 <img alt="Editorial Side" class="w-full h-full object-cover" src="bg1.png"/>
 </div></div></div><div class="w-full flex justify-end pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><div class="ed-parallax-item w-full aspect-[4/5] max-h-[400px] relative rounded-[2rem] overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.02]">
-<img alt="Shakthi Sri" class="w-full h-full object-contain bg-white" src="me.png"/>
+<img alt="Shakthi Sri" class="w-full h-full object-cover" src="me.png"/>
 </div></div></div><div class="w-full flex justify-start pointer-events-auto"><div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://linkedin.com/in/shakthisri" target="_blank" class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
 <div class="flex justify-between items-start w-full">
 <div class="w-12 h-12 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-inner">
@@ -4285,43 +4302,11 @@
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Lenis Smooth Scroll (Handled globally in main script block)
 
-      // 2. Custom Cursor (only on non-touch)
-      if (window.matchMedia("(pointer: fine)").matches) {
-        const cursor = document.createElement('div');
-        cursor.id = 'custom-cursor';
-        document.body.appendChild(cursor);
-        
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let cursorX = mouseX;
-        let cursorY = mouseY;
-        
-        window.addEventListener('mousemove', (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-          // Update CSS vars for parallax mesh
-          document.documentElement.style.setProperty('--mouse-x', `${(mouseX / window.innerWidth) * 100}%`);
-          document.documentElement.style.setProperty('--mouse-y', `${(mouseY / window.innerHeight) * 100}%`);
-        });
-        
-        // Render loop for cursor lerp
-        const renderCursor = () => {
-          cursorX += (mouseX - cursorX) * 0.2;
-          cursorY += (mouseY - cursorY) * 0.2;
-          cursor.style.left = `${cursorX}px`;
-          cursor.style.top = `${cursorY}px`;
-          requestAnimationFrame(renderCursor);
-        };
-        requestAnimationFrame(renderCursor);
-
-        // Hover states
-        document.querySelectorAll('.cursor-hover, a, button').forEach(el => {
-          el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-          el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-        });
-        window.addEventListener('mousedown', () => cursor.classList.add('clicking'));
-        window.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
-      }
+      // 2. CSS Mouse Position Vars (for grid effects)
+      window.addEventListener('mousemove', (e) => {
+        document.documentElement.style.setProperty('--mouse-x', `${(e.clientX / window.innerWidth) * 100}%`);
+        document.documentElement.style.setProperty('--mouse-y', `${(e.clientY / window.innerHeight) * 100}%`);
+      });
 
       // 3. Editorial Scroll Canvas (Floema-style)
       if (document.querySelector('#ed-scroll-container')) {
@@ -4351,11 +4336,96 @@
           }
         );
 
+        // Dynamically update center text based on active card in viewport
+        const trackItems = document.querySelectorAll('#ed-scroll-tracks > div');
+        const pinnedHeader = document.querySelector('#ed-pinned-text h1');
+        const pinnedSub = document.querySelector('#ed-pinned-text p');
+
+        const sectionTexts = [
+          {
+            header: "I design intelligent systems.<br>I build premium interfaces.",
+            sub: "Class of 2026 Graduate learning scale.<br>Software engineer & cybersecurity researcher learning speed.<br>Published researcher at <span class='text-purple-400'>ICTACA'26.</span>"
+          },
+          {
+            header: "Bridging visual craft<br>& computer security.",
+            sub: "Love exploring, prototyping, storytelling, and designing interactive experiences."
+          },
+          {
+            header: "Connecting with industry<br>and engineering leaders.",
+            sub: "Let's collaborate on professional software, security systems, and robust deployment pipelines."
+          },
+          {
+            header: "Creative studio craft<br>& branding design.",
+            sub: "Founder of ShaviraWorks - building brand identities, pitch decks, and digital products."
+          },
+          {
+            header: "Advanced algorithmics<br>& problem solving.",
+            sub: "Active problem solver focusing on data structures, optimization, and clean logic."
+          },
+          {
+            header: "Open source code<br>& security research.",
+            sub: "Explore my public repositories, custom exploit scripts, and full-stack software templates."
+          },
+          {
+            header: "Academic publications<br>& security analysis.",
+            sub: "Published researcher focusing on cyber vulnerability defense mapping and threat modeling."
+          },
+          {
+            header: "Cyber security training<br>& penetration testing.",
+            sub: "Practicing active directory hacking, privilege escalation, and network penetration."
+          },
+          {
+            header: "Deployed full-stack<br>& AI applications.",
+            sub: "Building high-performance cloud architectures, custom databases, and client portals."
+          },
+          {
+            header: "Continuous learning<br>& validated skills.",
+            sub: "Earning verified industry certificates to build cloud and systems knowledge."
+          },
+          {
+            header: "Academic focus<br>& engineering scale.",
+            sub: "Maintained a strong 9.00 CGPA inside B.Tech Information Technology."
+          },
+          {
+            header: "Professional experience<br>& industry work.",
+            sub: "Completed 3 distinct internships covering remote and on-site software engineering."
+          }
+        ];
+
+        trackItems.forEach((item, idx) => {
+          if (idx < sectionTexts.length) {
+            ScrollTrigger.create({
+              trigger: item,
+              start: "top 65%",
+              end: "bottom 35%",
+              onToggle: (self) => {
+                if (self.isActive) {
+                  gsap.to("#ed-pinned-text", {
+                    opacity: 0,
+                    y: -15,
+                    duration: 0.25,
+                    onComplete: () => {
+                      if (pinnedHeader) pinnedHeader.innerHTML = sectionTexts[idx].header;
+                      if (pinnedSub) pinnedSub.innerHTML = sectionTexts[idx].sub;
+                      gsap.to("#ed-pinned-text", {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.35,
+                        ease: "power2.out"
+                      });
+                    }
+                  });
+                }
+              }
+            });
+          }
+        });
+
         // Parallax scroll effect for images and cards
         const parallaxItems = document.querySelectorAll('.ed-parallax-item, .bg-white.rounded-\\[2rem\\]');
         parallaxItems.forEach((item, i) => {
           gsap.to(item, {
-            yPercent: -15, // moves UP faster than scroll
+            yPercent: -15,
             ease: "none",
             scrollTrigger: {
               trigger: item,
@@ -4492,6 +4562,38 @@
           document.removeEventListener('touchend', dragEnd);
         }
       });
+
+      // 11. Projects Grid Cards Reveal
+      if (document.querySelector('#project-grid')) {
+        gsap.from(".proj-item", {
+          scrollTrigger: {
+            trigger: "#project-grid",
+            start: "top 85%",
+            toggleActions: "play none none none"
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out"
+        });
+      }
+
+      // 12. Contact Section Cards Reveal
+      if (document.querySelector('#contact')) {
+        gsap.from("#contact .grid > div", {
+          scrollTrigger: {
+            trigger: "#contact",
+            start: "top 85%",
+            toggleActions: "play none none none"
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out"
+        });
+      }
       
     });
   </script>
