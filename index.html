@@ -2487,19 +2487,19 @@
   <audio id="bg-audio" src="Dreaming  A Peaceful Escape Into Calm  Lenzspot.mp3" loop></audio>
 
   <!-- ═══ DRAWING CANVAS ═══ -->
-  <canvas id="drawing-canvas" style="position: absolute; inset: 0; z-index: 200; pointer-events: auto;"></canvas>
+  <canvas id="drawing-canvas" style="position: absolute; inset: 0; z-index: 200; pointer-events: none;"></canvas>
 
   <!-- ═══ TITLE (Center) ═══ -->
-  <div class="collage-title-container" style="top: 48vh; z-index: 5;">
-    <!-- Title is 1000-1100px wide effectively by bounding font size -->
-    <h1 class="collage-name" style="font-size: clamp(5rem, 10vw, 8rem); color: #2d1023; font-family: var(--font-signature); line-height: 1;">Shakthi Sri</h1>
-    <span class="collage-subtitle" style="font-size: 18px; letter-spacing: 0.45em; color: #421835; font-weight: 500; margin-top: 15px; font-family: var(--font-tagline);">DESIGN • SECURE • EMPOWER</span>
+  <div class="collage-title-container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 5; text-align: center; width: 100%; max-width: 1000px; pointer-events: none;">
+    <h1 class="collage-name" style="font-size: clamp(4.5rem, 8vw, 7.5rem); color: #2d1023; font-family: var(--font-signature, 'Alex Brush', cursive); line-height: 1; margin: 0; padding: 0;">Shakthi Sri</h1>
+    <div class="collage-subtitle" style="font-size: 16px; letter-spacing: 0.45em; color: #421835; font-weight: 500; margin-top: 15px; font-family: var(--font-tagline, 'Inter', sans-serif);">DESIGN • SECURE • EMPOWER</div>
   </div>
 
   <!-- ════════ STICKERS ════════ -->
 
   <!-- 1. ID Badge (Top Left) -->
-  <div class="floating-sticker" style="top: 8vh; left: 4vw; transform: rotate(-3deg); z-index: 10;" id="sticker-badge">
+  <div class="floating-sticker" style="top: 2vh; left: 2vw; z-index: 10;" data-rotation="-3">
+    <!-- Hanging lanyard tie strap clip SVG -->
     <div style="position: absolute; top: -45px; left: 50%; transform: translateX(-50%); width: 44px; height: 55px; z-index: 12; pointer-events: none;">
       <svg viewBox="0 0 44 48" style="width: 44px; height: 48px;" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="18" y="0" width="8" height="24" fill="#18181b" rx="1" />
@@ -2509,35 +2509,35 @@
         <circle cx="22" cy="43" r="1.5" fill="#be123c" />
       </svg>
     </div>
-    <div class="badge-card" style="width: 200px; padding: 18px; background: #421835; border-radius: 8px;">
-      <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 600; color: #ffffff; text-align: center; margin-top: 10px; letter-spacing: 0.04em;">Shakthi Sri</div>
-      <div style="font-size: 11px; color: #d1b8c8; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--font-mono); text-align: center; margin-top: 4px; line-height: 1.4;">UI/UX Designer<br>Cybersecurity</div>
+    <div class="badge-card" style="width: 190px; padding: 18px; background: #421835; border-radius: 8px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab;">
+      <div style="font-family: var(--font-heading, 'Manrope', sans-serif); font-size: 18px; font-weight: 600; color: #ffffff; text-align: center; margin-top: 10px; letter-spacing: 0.04em;">Shakthi Sri</div>
+      <div style="font-size: 11px; color: #d1b8c8; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--font-mono, 'IBM Plex Mono', monospace); text-align: center; margin-top: 4px; line-height: 1.4;">UI/UX Designer<br>Cybersecurity</div>
       
       <div style="width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(255,255,255,0.15); margin: 15px auto;">
-        <img src="me.png" alt="Shakthi Sri" style="width: 100%; height: 100%; object-fit: cover;" />
+        <img src="me.png" alt="Shakthi Sri" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
       </div>
 
       <div style="width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; text-align: center;">
-        <div style="font-size: 9px; color: #8e6c82; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.5;">Designing with purpose.<br>Securing with impact.</div>
+        <div style="font-size: 9px; color: #8e6c82; font-family: var(--font-mono, 'IBM Plex Mono', monospace); text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.5;">Designing with purpose.<br>Securing with impact.</div>
       </div>
     </div>
   </div>
 
-  <!-- 2. Workspace Image (Mid Left, Portrait) -->
-  <div class="floating-sticker" style="top: 25vh; left: 22vw; transform: rotate(2deg); z-index: 7;">
-    <div style="position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 30px; height: 12px; background: rgba(255,255,255,0.5); backdrop-filter: blur(2px); z-index: 10; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);"></div>
-    <div class="polaroid-collage" style="width: 260px; padding: 12px 12px 20px; background: #fff;">
-      <div class="polaroid-photo" style="width: 236px; height: 290px; background: #ddd;">
-        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&q=80" alt="Workspace" style="width: 100%; height: 100%; object-fit: cover;" />
+  <!-- 2. Workspace Image (Mid Left) -->
+  <div class="floating-sticker" style="top: 35vh; left: 16vw; z-index: 7;" data-rotation="2">
+    <div style="position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 30px; height: 12px; background: rgba(255,255,255,0.5); backdrop-filter: blur(2px); z-index: 10; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); pointer-events: none;"></div>
+    <div class="polaroid-collage" style="width: 220px; padding: 10px 10px 18px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
+      <div class="polaroid-photo" style="width: 200px; height: 250px; background: #ddd;">
+        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&q=80" alt="Workspace" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
       </div>
     </div>
   </div>
 
-  <!-- 3. Today's Focus Note (Mid Left, overlapping workspace slightly) -->
-  <div class="floating-sticker" style="top: 45vh; left: 16vw; transform: rotate(4deg); z-index: 9;">
-    <div class="torn-paper" style="width: 160px; padding: 16px; background: #fdfafb; font-family: var(--font-body);">
+  <!-- 3. Today's Focus Note (Mid Left) -->
+  <div class="floating-sticker" style="top: 25vh; left: 2vw; z-index: 9;" data-rotation="4">
+    <div class="torn-paper" style="width: 160px; padding: 16px; background: #fdfafb; font-family: var(--font-body, 'Manrope', sans-serif); box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
       <div class="torn-paper-edge-top"></div>
-      <div style="font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: #421835; margin-bottom: 12px; border-bottom: 1px dashed #d1b8c8; padding-bottom: 5px;">Today's Focus</div>
+      <div style="font-family: var(--font-mono, 'IBM Plex Mono', monospace); font-size: 13px; font-weight: 600; color: #421835; margin-bottom: 12px; border-bottom: 1px dashed #d1b8c8; padding-bottom: 5px;">Today's Focus</div>
       <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: #421835; line-height: 1.8;">
         <li><span style="color: #7a3a5e; margin-right: 6px;">[x]</span> design flow</li>
         <li><span style="color: #7a3a5e; margin-right: 6px;">[ ]</span> threat hunting</li>
@@ -2549,18 +2549,18 @@
   </div>
 
   <!-- 4. Design Journey Ticket (Top Right) -->
-  <div class="floating-sticker" style="top: 10vh; left: 45vw; transform: rotate(0deg); z-index: 8;">
-    <div class="ticket-pass" style="width: 280px; padding: 0; background: #fcf6f7; display: flex;">
-      <div style="background: #9e5684; color: #fff; width: 35px; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 11px; font-family: var(--font-mono); letter-spacing: 0.2em; padding: 15px 0;">
+  <div class="floating-sticker" style="top: 4vh; right: 28vw; z-index: 8;" data-rotation="0">
+    <div class="ticket-pass" style="width: 280px; padding: 0; background: #fcf6f7; display: flex; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab;">
+      <div style="background: #9e5684; color: #fff; width: 35px; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 11px; font-family: var(--font-mono, 'IBM Plex Mono', monospace); letter-spacing: 0.2em; padding: 15px 0;">
         ADMIT ONE
       </div>
       <div style="padding: 16px; flex: 1;">
-        <div style="font-size: 16px; font-weight: 600; color: #421835; font-family: var(--font-heading); letter-spacing: 0.04em;">DESIGN JOURNEY</div>
-        <div style="font-size: 10px; font-weight: 500; color: #2d1023; margin-top: 4px; font-family: var(--font-mono);">UI/UX · PRODUCT · SECURITY</div>
-        <div style="font-size: 13px; color: #582a4b; margin-top: 10px; font-family: var(--font-body); line-height: 1.6;">Turning complexity<br>into clarity.</div>
-        <div style="margin-top: 12px; font-size: 10px; font-family: var(--font-mono); color: #582a4b; background: #ebd5e0; display: inline-block; padding: 4px 8px; border-radius: 4px;">EST 2022</div>
+        <div style="font-size: 16px; font-weight: 600; color: #421835; font-family: var(--font-heading, 'Manrope', sans-serif); letter-spacing: 0.04em;">DESIGN JOURNEY</div>
+        <div style="font-size: 10px; font-weight: 500; color: #2d1023; margin-top: 4px; font-family: var(--font-mono, 'IBM Plex Mono', monospace);">UI/UX · PRODUCT · SECURITY</div>
+        <div style="font-size: 13px; color: #582a4b; margin-top: 10px; font-family: var(--font-body, 'Manrope', sans-serif); line-height: 1.6;">Turning complexity<br>into clarity.</div>
+        <div style="margin-top: 12px; font-size: 10px; font-family: var(--font-mono, 'IBM Plex Mono', monospace); color: #582a4b; background: #ebd5e0; display: inline-block; padding: 4px 8px; border-radius: 4px;">EST 2022</div>
       </div>
-      <div style="border-left: 2px dashed #ebd5e0; width: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div style="border-left: 2px dashed #ebd5e0; width: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none;">
         <svg width="24" height="40" viewBox="0 0 28 60">
           <rect x="2" y="5" width="2" height="50" fill="#2d1023" />
           <rect x="6" y="5" width="4" height="50" fill="#2d1023" />
@@ -2568,18 +2568,18 @@
           <rect x="16" y="5" width="6" height="50" fill="#2d1023" />
           <rect x="24" y="5" width="2" height="50" fill="#2d1023" />
         </svg>
-        <span style="font-size: 10px; color: #7a3a5e; font-family: var(--font-mono); margin-top: 6px;">001</span>
+        <span style="font-size: 10px; color: #7a3a5e; font-family: var(--font-mono, 'IBM Plex Mono', monospace); margin-top: 6px;">001</span>
       </div>
     </div>
   </div>
 
-  <!-- 5. What Drives Me Note (Top Right, slightly lower to align with Workspace) -->
-  <div class="floating-sticker" style="top: 18vh; right: 20vw; transform: rotate(-1deg); z-index: 8;">
-    <div style="position: absolute; top: -5px; right: 20px; width: 14px; height: 14px; border-radius: 50%; background: #c295a7; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.2); z-index: 10;"></div>
-    <div class="torn-paper" style="width: 220px; padding: 22px; background: #fdf5ec;">
+  <!-- 5. What Drives Me Note (Top Right) -->
+  <div class="floating-sticker" style="top: 8vh; right: 5vw; z-index: 8;" data-rotation="-1">
+    <div style="position: absolute; top: -5px; right: 20px; width: 14px; height: 14px; border-radius: 50%; background: #c295a7; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.2); z-index: 10; pointer-events: none;"></div>
+    <div class="torn-paper" style="width: 220px; padding: 22px; background: #fdf5ec; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
       <div class="torn-paper-edge-top"></div>
-      <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 600; color: #421835; margin-bottom: 12px; letter-spacing: 0.04em;">what drives me</div>
-      <div style="font-size: 16px; color: #421835; font-family: var(--font-body); line-height: 1.7;">
+      <div style="font-family: var(--font-heading, 'Manrope', sans-serif); font-size: 18px; font-weight: 600; color: #421835; margin-bottom: 12px; letter-spacing: 0.04em;">what drives me</div>
+      <div style="font-size: 16px; color: #421835; font-family: var(--font-body, 'Manrope', sans-serif); line-height: 1.7;">
         I blend creativity with strategy, aesthetics with logic, and empathy with security — to build digital experiences that matter.
       </div>
       <div class="torn-paper-edge-bottom"></div>
@@ -2587,37 +2587,37 @@
   </div>
 
   <!-- 6. Polaroids (Mid Right) -->
-  <div class="floating-sticker" style="top: 30vh; right: 12vw; width: 300px; height: 350px; z-index: 7;">
+  <div class="floating-sticker" style="top: 35vh; right: 2vw; width: 300px; height: 350px; z-index: 7;" data-rotation="0">
     <!-- Coding (bottom-most) -->
-    <div class="polaroid-collage" style="position: absolute; top: 120px; left: 80px; transform: rotate(-3deg); width: 150px; padding: 10px 10px 24px; background: #fff;">
-      <div class="polaroid-photo" style="width: 130px; height: 130px; background: #ddd;">
+    <div class="polaroid-collage" style="position: absolute; top: 120px; left: 80px; transform: rotate(-3deg); width: 150px; padding: 10px 10px 24px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
+      <div class="polaroid-photo" style="width: 130px; height: 130px; background: #ddd; pointer-events: none;">
         <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80" alt="Coding" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
     <!-- Beach / Inspiration (middle) -->
-    <div class="polaroid-collage" style="position: absolute; top: 60px; left: -20px; transform: rotate(5deg); width: 140px; padding: 10px 10px 22px; background: #fff; z-index: 2;">
-      <div class="polaroid-photo" style="width: 120px; height: 120px; background: #ddd;">
+    <div class="polaroid-collage" style="position: absolute; top: 60px; left: -20px; transform: rotate(5deg); width: 140px; padding: 10px 10px 22px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); z-index: 2; cursor: grab;">
+      <div class="polaroid-photo" style="width: 120px; height: 120px; background: #ddd; pointer-events: none;">
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80" alt="Beach" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
     <!-- Sky (top) -->
-    <div class="polaroid-collage" style="position: absolute; top: 0px; left: 40px; transform: rotate(-8deg); width: 160px; padding: 12px 12px 28px; background: #fff; z-index: 3;">
-      <div style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 35px; height: 12px; background: rgba(255,255,255,0.7); backdrop-filter: blur(2px); box-shadow: 0 1px 3px rgba(0,0,0,0.1);"></div>
-      <div class="polaroid-photo" style="width: 136px; height: 136px; background: #ddd;">
+    <div class="polaroid-collage" style="position: absolute; top: 0px; left: 40px; transform: rotate(-8deg); width: 160px; padding: 12px 12px 28px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); z-index: 3; cursor: grab;">
+      <div style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 35px; height: 12px; background: rgba(255,255,255,0.7); backdrop-filter: blur(2px); box-shadow: 0 1px 3px rgba(0,0,0,0.1); pointer-events: none;"></div>
+      <div class="polaroid-photo" style="width: 136px; height: 136px; background: #ddd; pointer-events: none;">
         <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&q=80" alt="Sky" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
   </div>
 
-  <!-- 7. AGNI (Bottom Center - Hero Card) -->
-  <div class="floating-sticker" style="top: 65vh; left: 50vw; transform: translateX(-50%) rotate(-2deg); z-index: 12;">
-    <!-- Increased size by 15% -->
-    <div class="agni-card" style="width: 320px; padding: 26px; background: #1a0f1c; border-radius: 12px;">
-      <div style="font-size: 16px; font-weight: 600; color: #ebdcd5; font-family: var(--font-mono); letter-spacing: 0.05em;">AGNI C2</div>
-      <div style="font-size: 11px; color: #a18a96; text-transform: uppercase; font-family: var(--font-mono); letter-spacing: 0.1em; margin-bottom: 20px;">Command & Control Framework</div>
+  <!-- 7. AGNI (Bottom Center) -->
+  <div class="floating-sticker" style="top: 75vh; left: 50vw; z-index: 12;" data-rotation="-2">
+    <!-- Increased size and properly centered with JS translation instead of translateX to not fight with draggable -->
+    <div class="agni-card" style="width: 320px; padding: 26px; background: #1a0f1c; border-radius: 12px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab; transform: translateX(-50%);">
+      <div style="font-size: 16px; font-weight: 600; color: #ebdcd5; font-family: var(--font-mono, 'IBM Plex Mono', monospace); letter-spacing: 0.05em;">AGNI C2</div>
+      <div style="font-size: 11px; color: #a18a96; text-transform: uppercase; font-family: var(--font-mono, 'IBM Plex Mono', monospace); letter-spacing: 0.1em; margin-bottom: 20px;">Command & Control Framework</div>
       
-      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-        <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px; color: #dcd3c4; line-height: 2; font-family: var(--font-mono);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; pointer-events: none;">
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px; color: #dcd3c4; line-height: 2; font-family: var(--font-mono, 'IBM Plex Mono', monospace);">
           <li style="padding-left: 12px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Threat Simulation</li>
           <li style="padding-left: 12px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Real-time Monitoring</li>
           <li style="padding-left: 12px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Secure Comm</li>
@@ -2627,23 +2627,23 @@
           <svg width="55" height="55" viewBox="0 0 24 24" fill="#fb7185" style="opacity: 0.85; filter: drop-shadow(0 0 8px rgba(251,113,133,0.6));">
             <path d="M12 23c-5.52 0-10-4.48-10-10 0-4.75 3.31-8.72 7.75-9.75-.41 1.25-.62 2.62-.62 4 0 4.14 3.36 7.5 7.5 7.5.38 0 .75-.03 1.12-.09C16.92 19.34 14.67 23 12 23zm-.5-21c0 3.31 2.69 6 6 6 .68 0 1.33-.11 1.94-.31C18.66 4.09 15.61 2 12.19 2c-.23 0-.46.01-.69.03V2z" />
           </svg>
-          <span style="font-family: var(--font-mono); font-size: 14px; font-weight: 600; color: #fb7185; letter-spacing: 0.1em; margin-top: 8px;">AGNI</span>
+          <span style="font-family: var(--font-mono, 'IBM Plex Mono', monospace); font-size: 14px; font-weight: 600; color: #fb7185; letter-spacing: 0.1em; margin-top: 8px;">AGNI</span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- 8. Terminal (Bottom Left) -->
-  <div class="floating-sticker" style="top: 75vh; left: 6vw; transform: rotate(1deg); z-index: 10;" id="sticker-mac-terminal">
-    <div class="terminal-window" style="width: 320px; border-radius: 8px;">
-      <div class="terminal-header" style="padding: 10px 14px; background: #f4f4f5; border-bottom: 1px solid #e4e4e7; border-radius: 8px 8px 0 0;">
+  <div class="floating-sticker" style="top: 80vh; left: 3vw; z-index: 10;" data-rotation="1">
+    <div class="terminal-window" style="width: 320px; border-radius: 8px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab;">
+      <div class="terminal-header" style="padding: 10px 14px; background: #f4f4f5; border-bottom: 1px solid #e4e4e7; border-radius: 8px 8px 0 0; pointer-events: none;">
         <div style="display: flex; gap: 6px;">
           <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56; display: block;"></span>
           <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e; display: block;"></span>
           <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f; display: block;"></span>
         </div>
       </div>
-      <div class="terminal-body" style="background: #ffffff; border-radius: 0 0 8px 8px; font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: #3f3f46; padding: 18px;">
+      <div class="terminal-body" style="background: #ffffff; border-radius: 0 0 8px 8px; font-family: var(--font-mono, 'IBM Plex Mono', monospace); font-size: 12px; line-height: 1.6; color: #3f3f46; padding: 18px; pointer-events: none;">
         <div style="color: #a1a1aa;">~$ whoami</div>
         <div style="font-weight: 500; color: #421835; margin-bottom: 8px;">designer. builder. problem-solver.</div>
         <div style="color: #a1a1aa;">~$ status</div>
@@ -2652,40 +2652,91 @@
     </div>
   </div>
 
-  <!-- 9. Three Folders (Bottom Left, near Terminal) -->
-  <div class="floating-sticker" style="top: 85vh; left: 28vw; display: flex; gap: 20px; transform: rotate(-8deg); z-index: 9;">
-    <a href="#projects" class="hoverable" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transform: rotate(2deg);">
-      <svg width="60" height="50" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
-      </svg>
-      <span style="font-size: 10px; color: #421835; font-family: var(--font-mono); margin-top: 4px; font-weight: 500;">projects/</span>
-    </a>
-    <a href="#about" class="hoverable" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transform: rotate(-3deg); margin-top: 15px;">
-      <svg width="60" height="50" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a05d8f"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#914d80"/>
-      </svg>
-      <span style="font-size: 10px; color: #421835; font-family: var(--font-mono); margin-top: 4px; font-weight: 500;">research/</span>
-    </a>
-    <a href="#projects" class="hoverable" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transform: rotate(4deg);">
-      <svg width="60" height="50" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#693b5c"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#582a4b"/>
-      </svg>
-      <span style="font-size: 10px; color: #421835; font-family: var(--font-mono); margin-top: 4px; font-weight: 500;">labs/</span>
-    </a>
+  <!-- 9. 3D INTERACTIVE MASTER FOLDER (fanning out 4 blue subfolders on hover & touch) (Bottom Left, near Terminal) -->
+  <div class="floating-sticker" style="top: 72vh; left: 28vw; z-index: 99 !important; overflow: visible !important;" id="sticker-folders-master" data-rotation="-8">
+    <div class="master-folder-container" id="interactive-folders-wrapper">
+      
+      <!-- Sub-folder 1: final-year-project -->
+      <a href="#projects" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
+          <path d="M4 16L58 16" stroke="#421835" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label" style="color: #421835;">projects</span>
+      </a>
+
+      <!-- Sub-folder 2: cyber-labs -->
+      <a href="#about" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
+          <path d="M4 16L58 16" stroke="#421835" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label" style="color: #421835;">cyber-labs</span>
+      </a>
+
+      <!-- Sub-folder 3: inspiration -->
+      <a href="#projects" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
+          <path d="M4 16L58 16" stroke="#421835" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label" style="color: #421835;">inspiration</span>
+      </a>
+
+      <!-- Sub-folder 4: brain-dumps -->
+      <a href="#about" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
+          <path d="M4 16L58 16" stroke="#421835" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label" style="color: #421835;">brain-dumps</span>
+      </a>
+
+      <!-- 3D Folder Icon Front Cover & Back Cover -->
+      <div class="master-folder-3d-icon" style="width: 70px; height: 60px;">
+        <svg width="70" height="60" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="folder-front-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#9e5684" />
+              <stop offset="100%" stop-color="#7a3a5e" />
+            </linearGradient>
+            <linearGradient id="folder-back-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7a3a5e" />
+              <stop offset="100%" stop-color="#421835" />
+            </linearGradient>
+            <linearGradient id="folder-paper-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#ebd5e0" />
+            </linearGradient>
+            <filter id="folder-shadow-filter" x="-10%" y="-10%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#421835" flood-opacity="0.3" />
+            </filter>
+          </defs>
+          <path d="M10 20 C10 17 13 15 16 15H42L49 22H104 C107 22 110 25 110 28V78 C110 81 107 83 104 83H16 C13 83 10 81 10 78V20Z" fill="url(#folder-back-grad)" />
+          <g class="folder-papers-group">
+            <rect x="22" y="10" width="76" height="56" rx="3" fill="url(#folder-paper-grad)" transform="rotate(-1 22 10)" />
+            <rect x="28" y="7" width="68" height="56" rx="3" fill="#ffffff" opacity="0.95" transform="rotate(2 28 7)" />
+          </g>
+          <path d="M10 32 L10 80 C10 83 13 85 16 85H104 C107 85 110 83 110 80 L110 36 C110 33 107 31 104 31H54 L46 25 H16 C13 25 10 28 10 32Z" fill="url(#folder-front-grad)" filter="url(#folder-shadow-filter)" />
+          <rect x="26" y="46" width="35" height="14" rx="2" fill="#ffffff" opacity="0.3" />
+        </svg>
+      </div>
+    </div>
   </div>
 
-  <!-- 10. Handwritten Note (Replacing Purple Quote) (Mid Bottom Left) -->
-  <div class="floating-sticker" style="top: 58vh; left: 32vw; transform: rotate(-6deg); z-index: 9;">
-    <div style="position: absolute; top: 0px; left: 50%; transform: translateX(-50%) rotate(-4deg); width: 45px; height: 16px; background: rgba(255,255,255,0.7); backdrop-filter: blur(2px); box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 10;"></div>
-    <div class="torn-paper" style="width: 200px; padding: 25px; background: #fffdf9;">
+  <!-- 10. Handwritten Note (Mid Left) -->
+  <div class="floating-sticker" style="top: 55vh; left: 18vw; z-index: 9;" data-rotation="-6">
+    <div style="position: absolute; top: 0px; left: 50%; transform: translateX(-50%) rotate(-4deg); width: 45px; height: 16px; background: rgba(255,255,255,0.7); backdrop-filter: blur(2px); box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 10; pointer-events: none;"></div>
+    <div class="torn-paper" style="width: 200px; padding: 25px; background: #fffdf9; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
       <div class="torn-paper-edge-top"></div>
-      <div style="font-family: var(--font-quote); font-size: 22px; line-height: 1.4; color: #2d1023;">
+      <div style="font-family: var(--font-quote, 'Cormorant Garamond', serif); font-size: 22px; line-height: 1.4; color: #2d1023; pointer-events: none;">
         "I design with empathy, build with logic, and protect with purpose."
       </div>
-      <div style="font-family: var(--font-signature); font-size: 24px; color: #7a3a5e; margin-top: 15px; text-align: right;">
+      <div style="font-family: var(--font-signature, 'Alex Brush', cursive); font-size: 24px; color: #7a3a5e; margin-top: 15px; text-align: right; pointer-events: none;">
         Shakthi Sri
       </div>
       <div class="torn-paper-edge-bottom"></div>
@@ -2693,10 +2744,10 @@
   </div>
 
   <!-- 11. Tech Stack (Bottom Right) -->
-  <div class="floating-sticker" style="top: 72vh; right: 28vw; transform: rotate(1deg); z-index: 8;">
-    <div class="tech-stack-card" style="width: 190px; padding: 18px; background: #ffffff; border-radius: 12px; box-shadow: var(--shadow-major);">
-      <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: #421835; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; margin-bottom: 16px;">TECH STACK</div>
-      <div class="collage-tech-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; place-items: center;">
+  <div class="floating-sticker" style="top: 72vh; right: 22vw; z-index: 8;" data-rotation="1">
+    <div class="tech-stack-card" style="width: 190px; padding: 18px; background: #ffffff; border-radius: 12px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab;">
+      <div style="font-family: var(--font-mono, 'IBM Plex Mono', monospace); font-size: 11px; font-weight: 600; color: #421835; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; margin-bottom: 16px; pointer-events: none;">TECH STACK</div>
+      <div class="collage-tech-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; place-items: center; pointer-events: none;">
         <img class="tech-icon" src="https://cdn.simpleicons.org/figma/F24E1E" style="width: 22px; height: 22px;" />
         <img class="tech-icon" src="https://cdn.simpleicons.org/react/61DAFB" style="width: 22px; height: 22px;" />
         <img class="tech-icon" src="https://cdn.simpleicons.org/nodedotjs/339933" style="width: 22px; height: 22px;" />
@@ -2710,10 +2761,9 @@
   </div>
 
   <!-- 12. Vinyl & Music Player (Bottom Right Corner) -->
-  <!-- Vinyl moved left and down -->
-  <div class="floating-sticker" style="bottom: -20px; right: 6vw; z-index: 8;" id="sticker-vinyl">
-    <div class="vinyl-record" id="interactive-vinyl" style="width: 180px; height: 180px; border-radius: 50%; box-shadow: var(--shadow-major); position: relative; overflow: hidden;">
-      <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=450&q=80" alt="Vinyl" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block;" />
+  <div class="floating-sticker" style="top: 70vh; right: 2vw; z-index: 8;" id="sticker-vinyl" data-rotation="0">
+    <div class="vinyl-record" id="interactive-vinyl" style="width: 180px; height: 180px; border-radius: 50%; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); position: relative; overflow: hidden; cursor: pointer;">
+      <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=450&q=80" alt="Vinyl" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; pointer-events: none;" />
       <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; background: #9e5684; border: 3px solid #2d1023; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; pointer-events: none;">
         <div style="width: 10px; height: 10px; background: #fcf8f8; border-radius: 50%;"></div>
       </div>
@@ -2723,15 +2773,14 @@
     </div>
   </div>
 
-  <!-- Music widget overlapping vinyl by 18% -->
-  <div class="floating-sticker" style="bottom: 80px; right: 14vw; transform: rotate(-2deg); z-index: 10;" id="sticker-music-widget">
-    <div class="music-glass-card" style="width: 180px; padding: 16px; background: #ebd5e0; border-radius: 12px; box-shadow: var(--shadow-major); border: 1px solid rgba(255,255,255,0.6);" id="music-widget-container">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-        <span style="font-size: 10px; font-weight: 600; color: #421835; font-family: var(--font-mono); text-transform: uppercase;">Focus Mode</span>
+  <div class="floating-sticker" style="top: 82vh; right: 10vw; z-index: 10;" id="sticker-music-widget" data-rotation="-2">
+    <div class="music-glass-card" style="width: 180px; padding: 16px; background: #ebd5e0; border-radius: 12px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); border: 1px solid rgba(255,255,255,0.6); cursor: grab;" id="music-widget-container">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; pointer-events: none;">
+        <span style="font-size: 10px; font-weight: 600; color: #421835; font-family: var(--font-mono, 'IBM Plex Mono', monospace); text-transform: uppercase;">Focus Mode</span>
         <div style="font-size: 10px; color: #421835;">♡</div>
       </div>
-      <div style="font-size: 14px; font-weight: 600; font-family: var(--font-heading); color: #2d1023; margin-bottom: 2px;">lofi beats</div>
-      <div style="font-size: 11px; color: #7a3a5e; font-family: var(--font-body); margin-bottom: 12px;">study chill channel</div>
+      <div style="font-size: 14px; font-weight: 600; font-family: var(--font-heading, 'Manrope', sans-serif); color: #2d1023; margin-bottom: 2px; pointer-events: none;">lofi beats</div>
+      <div style="font-size: 11px; color: #7a3a5e; font-family: var(--font-body, 'Manrope', sans-serif); margin-bottom: 12px; pointer-events: none;">study chill channel</div>
       
       <div style="display: flex; align-items: center; justify-content: center; gap: 20px; color: #421835; margin-top: 15px;">
         <i class="fas fa-backward" style="font-size: 12px; cursor: pointer;"></i>
@@ -2742,8 +2791,8 @@
   </div>
 
   <!-- FAR RIGHT: Functional Retro MacPaint Palette (z-index highest) -->
-  <div class="floating-sticker" style="top: 25%; right: 20px; transform: none; cursor: default; z-index: 200 !important;" id="sticker-palette">
-    <div class="paint-palette">
+  <div class="floating-sticker" style="top: 25vh; right: 2vw; z-index: 200 !important;" id="sticker-palette" data-rotation="0">
+    <div class="paint-palette" style="cursor: grab;">
       <div class="paint-palette-header">
         <div class="paint-palette-header-stripes"></div>
       </div>
@@ -2782,6 +2831,86 @@
 
   <script>
   (function() {
+    // 1. Initial Rotations setup for draggable support
+    const stickers = document.querySelectorAll('.floating-sticker');
+    stickers.forEach(sticker => {
+      const rot = sticker.getAttribute('data-rotation') || '0';
+      sticker.style.transform = `rotate(${rot}deg)`;
+      sticker.dataset.currentX = 0;
+      sticker.dataset.currentY = 0;
+      sticker.dataset.rot = rot;
+    });
+
+    // 2. Drag & Drop Logic
+    let highestZ = 150;
+    stickers.forEach(sticker => {
+      let isDragging = false;
+      let startX, startY;
+
+      const handleStart = (e) => {
+        // Prevent dragging if clicking interactable elements
+        if (e.target.closest('a, button, input, .sub-folder-item, .fas, .paint-tool, .color-swatch')) return;
+        
+        isDragging = true;
+        highestZ += 1;
+        sticker.style.zIndex = highestZ;
+
+        if (e.type === 'touchstart') {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        } else {
+          startX = e.clientX;
+          startY = e.clientY;
+          // Only prevent default on mouse to allow touch scrolling if needed, though we have fixed 100vh
+          e.preventDefault();
+        }
+      };
+
+      const handleMove = (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+
+        let clientX, clientY;
+        if (e.type === 'touchmove') {
+          clientX = e.touches[0].clientX;
+          clientY = e.touches[0].clientY;
+        } else {
+          clientX = e.clientX;
+          clientY = e.clientY;
+        }
+
+        const dx = clientX - startX;
+        const dy = clientY - startY;
+
+        let curX = parseFloat(sticker.dataset.currentX || 0) + dx;
+        let curY = parseFloat(sticker.dataset.currentY || 0) + dy;
+
+        sticker.style.transform = `translate(${curX}px, ${curY}px) rotate(${sticker.dataset.rot}deg)`;
+        
+        // Update for next tick
+        sticker.dataset.tempX = curX;
+        sticker.dataset.tempY = curY;
+        startX = clientX;
+        startY = clientY;
+      };
+
+      const handleEnd = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        sticker.dataset.currentX = sticker.dataset.tempX || sticker.dataset.currentX;
+        sticker.dataset.currentY = sticker.dataset.tempY || sticker.dataset.currentY;
+      };
+
+      sticker.addEventListener('mousedown', handleStart);
+      window.addEventListener('mousemove', handleMove, { passive: false });
+      window.addEventListener('mouseup', handleEnd);
+
+      sticker.addEventListener('touchstart', handleStart, { passive: false });
+      window.addEventListener('touchmove', handleMove, { passive: false });
+      window.addEventListener('touchend', handleEnd);
+    });
+
+    // 3. Canvas Logic
     const canvas = document.getElementById('drawing-canvas');
     const ctx    = canvas.getContext('2d');
 
@@ -2805,11 +2934,14 @@
       });
 
       if (tool === 'cursor') {
-        canvas.className = '';
-      } else if (tool === 'eraser') {
-        canvas.className = 'erase-mode';
+        canvas.style.pointerEvents = 'none';
       } else {
-        canvas.className = 'draw-mode';
+        canvas.style.pointerEvents = 'auto';
+        if (tool === 'eraser') {
+          canvas.className = 'erase-mode';
+        } else {
+          canvas.className = 'draw-mode';
+        }
       }
     }
 
@@ -2897,6 +3029,7 @@
     canvas.addEventListener('touchmove',  draw,      { passive: false });
     canvas.addEventListener('touchend',   endDraw);
 
+    // 4. Music Player Logic
     const audio = document.getElementById('bg-audio');
     const vinyl = document.getElementById('interactive-vinyl');
     const playIndicator = document.getElementById('vinyl-play-indicator');
@@ -2930,6 +3063,23 @@
       });
     }
 
+    // 5. 3D Folder Hover/Touch Expand Logic
+    const folderWrapper = document.getElementById('interactive-folders-wrapper');
+    if (folderWrapper) {
+      folderWrapper.addEventListener('click', function(e) {
+        if (e.target.closest('.sub-folder-item')) {
+          return;
+        }
+        e.stopPropagation();
+        folderWrapper.classList.toggle('active-expand');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('#sticker-folders-master')) {
+          folderWrapper.classList.remove('active-expand');
+        }
+      });
+    }
   })();
   </script>
 
