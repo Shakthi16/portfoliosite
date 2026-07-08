@@ -2782,15 +2782,42 @@
 
 
 <section id="home" style="position: relative; overflow: hidden; height: 100vh; min-height: 700px; width: 100vw; background-color: #fdfaf8; background-image: linear-gradient(#f0e9e4 1px, transparent 1px), linear-gradient(90deg, #f0e9e4 1px, transparent 1px); background-size: 50px 50px;">
+  <style>
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+    .spin-cd {
+      animation: spin 10s linear infinite;
+    }
+  </style>
+
+  <!-- Cute Star Cluster SVG Template -->
+  <svg style="display:none;">
+    <defs>
+      <g id="icon-star-cluster">
+        <!-- Main Star -->
+        <path d="M12 2L14.4 9.6H22.4L16 14.4L18.4 22L12 17.2L5.6 22L8 14.4L1.6 9.6H9.6L12 2Z" fill="url(#star-grad)" />
+        <!-- Top Small Star -->
+        <path d="M6 1L6.6 3.2H9L7 4.6L7.8 7L6 5.6L4.2 7L5 4.6L3 3.2H5.4L6 1Z" fill="url(#star-grad)" transform="translate(6, -6) scale(0.6)" />
+        <!-- Bottom Small Star -->
+        <path d="M6 1L6.6 3.2H9L7 4.6L7.8 7L6 5.6L4.2 7L5 4.6L3 3.2H5.4L6 1Z" fill="url(#star-grad)" transform="translate(-10, 6) scale(0.8)" />
+      </g>
+      <linearGradient id="star-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fcd34d" />
+        <stop offset="100%" stop-color="#f59e0b" />
+      </linearGradient>
+    </defs>
+  </svg>
+
 
   <!-- Decorative Hand-drawn Elements (Static) -->
-  <div style="position: absolute; top: 12%; left: 38%; font-size: 24px; color: #a4768f; transform: rotate(15deg); font-family: 'Great Vibes', cursive !important;">✨</div>
-  <div style="position: absolute; bottom: 25%; right: 28%; font-size: 20px; color: #a4768f; transform: rotate(-10deg); font-family: 'Great Vibes', cursive !important;">✨</div>
-  <div style="position: absolute; top: 30%; right: 30%; font-size: 28px; color: #a4768f; transform: rotate(5deg); font-family: 'Great Vibes', cursive !important;">✨</div>
-  <div style="position: absolute; bottom: 15%; left: 45%; font-size: 22px; color: #a4768f; transform: rotate(45deg); font-family: 'Great Vibes', cursive !important;">✨</div>
+  <div style="position: absolute; top: 12%; left: 38%; font-size: 24px; color: #a4768f; transform: rotate(15deg); font-family: 'Great Vibes', cursive !important;"><svg style="width:32px; height:32px; filter: drop-shadow(0 2px 4px rgba(245,158,11,0.4));"><use href="#icon-star-cluster"/></svg></div>
+  <div style="position: absolute; bottom: 25%; right: 28%; font-size: 20px; color: #a4768f; transform: rotate(-10deg); font-family: 'Great Vibes', cursive !important;"><svg style="width:32px; height:32px; filter: drop-shadow(0 2px 4px rgba(245,158,11,0.4));"><use href="#icon-star-cluster"/></svg></div>
+  <div style="position: absolute; top: 30%; right: 30%; font-size: 28px; color: #a4768f; transform: rotate(5deg); font-family: 'Great Vibes', cursive !important;"><svg style="width:32px; height:32px; filter: drop-shadow(0 2px 4px rgba(245,158,11,0.4));"><use href="#icon-star-cluster"/></svg></div>
+  <div style="position: absolute; bottom: 15%; left: 45%; font-size: 22px; color: #a4768f; transform: rotate(45deg); font-family: 'Great Vibes', cursive !important;"><svg style="width:32px; height:32px; filter: drop-shadow(0 2px 4px rgba(245,158,11,0.4));"><use href="#icon-star-cluster"/></svg></div>
   <div style="position: absolute; bottom: 35%; left: 28%; font-size: 20px; color: #a4768f; font-family: 'Cormorant Garamond', serif !important;">☾</div>
   <div style="position: absolute; top: 55%; right: 35%; font-size: 20px; color: #a4768f; font-family: 'Cormorant Garamond', serif !important;">♡</div>
-  <div style="position: absolute; bottom: 25%; right: 18%; font-size: 28px; color: #a4768f; font-family: 'Great Vibes', cursive !important;">✨</div>
+  <div style="position: absolute; bottom: 25%; right: 18%; font-size: 28px; color: #a4768f; font-family: 'Great Vibes', cursive !important;"><svg style="width:32px; height:32px; filter: drop-shadow(0 2px 4px rgba(245,158,11,0.4));"><use href="#icon-star-cluster"/></svg></div>
 
   <!-- CENTER TITLE (Static, purely in background) -->
   <div style="position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 1; width: 100%; pointer-events: none;">
@@ -3118,7 +3145,7 @@
   <!-- 17. Vinyl Record (Pushed fully up so it is completely visible in the bottom right corner) -->
   <div class="floating-sticker" style="bottom: -2%; right: -2%; z-index: 5; transform: rotate(15deg); scale: 0.85;">
     <div style="width: 250px; height: 250px; border-radius: 50%; box-shadow: 0 15px 40px rgba(0,0,0,0.15); overflow: hidden; position: relative;">
-      <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=450" alt="Vinyl" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(1.2);" />
+      <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=450" alt="Vinyl" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(1.2);" class="spin-cd" />
       <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: #8a3359; border: 4px solid #4f2940; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
         <div style="width: 12px; height: 12px; background: #fff; border-radius: 50%;"></div>
       </div>
