@@ -3659,15 +3659,8 @@
             <div style="font-family: 'IBM Plex Mono', monospace !important; font-size: 9px; color: #a4768f;">
               shakthi@journey:~</div>
           </div>
-          <div
-            style="padding: 15px; font-family: 'IBM Plex Mono', monospace !important; font-size: 9px; line-height: 1.8; color: #421835;">
-            <div style="color: #a4768f; margin-bottom: 2px;">~$ whoami</div>
-            <div style="font-weight: 600; margin-bottom: 12px;">designer. builder. problem-solver.</div>
-            <div style="color: #a4768f; margin-bottom: 2px;">~$ focus</div>
-            <div style="font-weight: 600; margin-bottom: 12px;">secure systems. seamless experiences.</div>
-            <div style="color: #a4768f; margin-bottom: 2px;">~$ status</div>
-            <div style="font-weight: 600;"><span style="color: #421835; font-size: 10px;">●</span> building | learning |
-              growing</div>
+          <div id="terminal-body"
+            style="padding: 15px; font-family: 'IBM Plex Mono', monospace !important; font-size: 9px; line-height: 1.8; color: #421835; min-height: 140px;">
           </div>
         </div>
       </div>
@@ -3845,29 +3838,29 @@
       <div class="floating-sticker" style="top: 55%; left: 22%; z-index: 12; transform: rotate(-3deg); scale: 1.1;">
         <div class="master-folder-container hoverable" id="interactive-folders-wrapper">
           <a href="#projects" class="sub-folder-item" style="text-decoration: none;">
-            <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(3px 5px 6px rgba(37,99,235,0.5)) drop-shadow(-1px -1px 3px rgba(255,255,255,0.7));">
               <path
                 d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z"
-                fill="#884d77" />
-              <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63" />
+                fill="#60a5fa" />
+              <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#3b82f6" />
             </svg>
             <span class="sub-folder-label" style="color: #421835;">cyber labs 🔒</span>
           </a>
           <a href="#about" class="sub-folder-item" style="text-decoration: none;">
-            <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(3px 5px 6px rgba(37,99,235,0.5)) drop-shadow(-1px -1px 3px rgba(255,255,255,0.7));">
               <path
                 d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z"
-                fill="#9e5684" />
-              <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#a4768f" />
+                fill="#93c5fd" />
+              <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#60a5fa" />
             </svg>
             <span class="sub-folder-label" style="color: #421835;">brain dumps ✩</span>
           </a>
           <a href="#skills" class="sub-folder-item" style="text-decoration: none;">
-            <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(3px 5px 6px rgba(37,99,235,0.5)) drop-shadow(-1px -1px 3px rgba(255,255,255,0.7));">
               <path
                 d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z"
-                fill="#602548" />
-              <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#4f2940" />
+                fill="#3b82f6" />
+              <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#2563eb" />
             </svg>
             <span class="sub-folder-label" style="color: #421835;">inspiration ♡</span>
           </a>
@@ -6572,6 +6565,63 @@
       }
     });
   </script>
+
+  <style>
+    @keyframes blinkCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .cursor-blink { animation: blinkCursor 1s step-end infinite; color: #a4768f; }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const term = document.getElementById("terminal-body");
+      if(term) {
+        const lines = [
+          { t: "~$ whoami", c: "cmd" },
+          { t: "designer. builder. problem-solver.", c: "out" },
+          { t: "~$ focus", c: "cmd" },
+          { t: "secure systems. seamless experiences.", c: "out" },
+          { t: "~$ status", c: "cmd" },
+          { t: "● building | learning | growing", c: "out" }
+        ];
+        let lineIdx = 0;
+        function typeLine() {
+          if (lineIdx >= lines.length) {
+            const cur = document.createElement("span");
+            cur.className = "cursor-blink";
+            cur.innerHTML = "█";
+            term.appendChild(cur);
+            return;
+          }
+          const l = lines[lineIdx];
+          const div = document.createElement("div");
+          if (l.c === "cmd") {
+            div.style.color = "#a4768f"; div.style.marginBottom = "2px";
+          } else {
+            div.style.fontWeight = "600"; div.style.marginBottom = "12px";
+          }
+          term.appendChild(div);
+          
+          let charIdx = 0;
+          function typeChar() {
+            if(charIdx < l.t.length) {
+              if (l.t.charAt(charIdx) === '●') {
+                div.innerHTML += '<span style="color: #421835; font-size: 10px;">●</span>';
+              } else {
+                div.innerHTML += l.t.charAt(charIdx);
+              }
+              charIdx++;
+              setTimeout(typeChar, 30 + Math.random() * 40);
+            } else {
+              lineIdx++;
+              setTimeout(typeLine, 400);
+            }
+          }
+          typeChar();
+        }
+        setTimeout(typeLine, 800);
+      }
+    });
+  </script>
+
 </body>
 
 </html>
