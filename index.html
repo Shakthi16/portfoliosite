@@ -2479,150 +2479,105 @@
   </style>
 
 
-<!-- ════════ PARALLAX INTRO SEQUENCE ════════ -->
-<section id="parallax-world" style="height: 600vh; position: relative; z-index: 1000; background: #000;">
-  <div id="parallax-sticky-stage" style="position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; background: #000;">
-    
-    <!-- 1. Background -->
-    <img id="plx-bg" src="background.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" />
-    
-    <!-- 2. Tree branch -->
-    <img id="plx-tree" src="tree.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; opacity: 1; transform: translateY(-50px);" />
-    
-    <!-- 3. Girl working -->
-    <img id="plx-girl" src="girl.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 3;" />
 
-    <!-- 4. Curtains -->
-    <!-- Opacity 1 so they hide the girl even when window is open -->
-    <img id="plx-curtain-l" src="left_curtain.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4; opacity: 1;" />
-    <img id="plx-curtain-r" src="right_curtain.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4; opacity: 1;" />
-    
-    <!-- 5. Windows Open -->
-    <!-- Opacity 1 so the open frame is always there behind the closed window -->
-    <img id="plx-winopen" src="windowsopen.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5; opacity: 1;" />
 
-    <!-- 6. Window Close -->
-    <!-- Opacity 1 at start so it completely hides everything inside -->
-    <img id="plx-winclose" src="windowclose.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 6; opacity: 1;" />
 
-    <!-- Fade overlay to transition into Home -->
-    <div id="plx-fadeout" style="position: absolute; inset: 0; background: #fdfaf8; z-index: 10; opacity: 0; pointer-events: none;"></div>
-    
-    <!-- Scroll Hint -->
-    <div id="plx-scroll-hint" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 12; color: #fff; font-family: 'Manrope', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-align: center; opacity: 0.8; transition: opacity 0.5s;">
-      SCROLL TO ENTER<br>
-      <i class="fas fa-chevron-down" style="margin-top: 8px;"></i>
-    </div>
 
+
+<!-- ════════ GSAP PARALLAX INTRO SEQUENCE ════════ -->
+<section id="parallax-world" style="width: 100%; height: 100vh; overflow: hidden; background: #000; position: relative; z-index: 1000;">
+  
+  <!-- 1. Background -->
+  <img class="gsap-layer" id="gsap-bg" src="background.png" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 1;" />
+  
+  <!-- 2. Tree branch -->
+  <img class="gsap-layer" id="gsap-tree" src="tree.png" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 2;" />
+  
+  <!-- 3. Girl working (inside the window bounds) -->
+  <img class="gsap-layer" id="gsap-girl" src="girl.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.92) translateY(30px); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 3; opacity: 0;" />
+
+  <!-- 4. Windows Open -->
+  <img class="gsap-layer" id="gsap-winopen" src="windowsopen.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4; opacity: 0;" />
+
+  <!-- 5. Curtains -->
+  <img class="gsap-layer" id="gsap-curtain-l" src="left_curtain.png" style="position: absolute; top: 50%; left: 0%; transform: translate(-100%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5;" />
+  <img class="gsap-layer" id="gsap-curtain-r" src="right_curtain.png" style="position: absolute; top: 50%; left: 100%; transform: translate(0%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5;" />
+  
+  <!-- 6. Window Close -->
+  <img class="gsap-layer" id="gsap-winclose" src="windowclose.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 6;" />
+
+  <!-- Fade overlay to transition into Home -->
+  <div id="gsap-fadeout" style="position: absolute; inset: 0; background: #fdfaf8; z-index: 10; opacity: 0; pointer-events: none;"></div>
+  
+  <!-- Scroll Hint -->
+  <div id="gsap-scroll-hint" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 12; color: #fff; font-family: 'Manrope', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-align: center; opacity: 0.8;">
+    SCROLL TO ENTER<br>
+    <i class="fas fa-chevron-down" style="margin-top: 8px;"></i>
   </div>
+
 </section>
 
 <script>
-(function() {
-  const plxWorld = document.getElementById('parallax-world');
-  if(!plxWorld) return;
+document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollTrigger);
 
-  const bg = document.getElementById('plx-bg');
-  const tree = document.getElementById('plx-tree');
-  const girl = document.getElementById('plx-girl');
-  const winOpen = document.getElementById('plx-winopen');
-  const winClose = document.getElementById('plx-winclose');
-  const curtainL = document.getElementById('plx-curtain-l');
-  const curtainR = document.getElementById('plx-curtain-r');
-  const fadeout = document.getElementById('plx-fadeout');
-  const scrollHint = document.getElementById('plx-scroll-hint');
-
-  let targetProgress = 0;
-  let currentProgress = 0;
-
-  function updateParallax() {
-    const rect = plxWorld.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const totalScroll = rect.height - windowHeight;
-    
-    if (totalScroll > 0) {
-      let scrolled = -rect.top;
-      let rawProgress = scrolled / totalScroll;
-      targetProgress = Math.max(0, Math.min(1, rawProgress));
+  gsap.set("#gsap-winopen", { opacity: 0, rotationY: -90, transformPerspective: 800 });
+  gsap.set("#gsap-girl", { opacity: 0, scale: 0.92, y: 30 });
+  
+  const masterTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#parallax-world",
+      start: "top top",
+      end: "+=500%", 
+      pin: true,
+      scrub: 1, 
+      onUpdate: (self) => {
+        if(self.progress > 0.05) {
+          gsap.to("#gsap-scroll-hint", {opacity: 0, duration: 0.3, overwrite: "auto"});
+        } else {
+          gsap.to("#gsap-scroll-hint", {opacity: 0.8, duration: 0.3, overwrite: "auto"});
+        }
+      }
     }
+  });
 
-    if (targetProgress > 0.02) {
-      scrollHint.style.opacity = "0";
-    } else {
-      scrollHint.style.opacity = "0.8";
-    }
+  // Stage 1 (0-20% Wait)
+  masterTl.add("stage1", 0);
+  masterTl.to({}, {duration: 2}, "stage1");
+  
+  // Stage 2 (20-35%): Window Opens
+  masterTl.add("stage2", 2);
+  masterTl.to("#gsap-winclose", { opacity: 0, duration: 1.5, ease: "power2.inOut" }, "stage2");
+  masterTl.to("#gsap-winopen", { opacity: 1, rotationY: 0, duration: 1.5, ease: "power2.inOut" }, "stage2");
 
-    currentProgress += (targetProgress - currentProgress) * 0.08;
+  // Stage 3 (35-55%): Zoom through the window
+  masterTl.add("stage3", 3.5);
+  masterTl.to(["#gsap-bg", "#gsap-tree", "#gsap-winopen"], {
+    scale: 4, 
+    transformOrigin: "50% 50%", 
+    duration: 2, 
+    ease: "power2.inOut"
+  }, "stage3");
+  masterTl.to(["#gsap-bg", "#gsap-tree"], { opacity: 0, duration: 2, ease: "power2.in" }, "stage3");
 
-    // 1. 0-15%: Tree branch fades in and drops down
-    let pTree = Math.min(1, Math.max(0, currentProgress / 0.15));
-    tree.style.opacity = pTree;
-    tree.style.transform = `translateY(${-50 + (50 * pTree)}px)`;
+  // Stage 4 (55-70%): Curtains slide in
+  masterTl.add("stage4", 5.5);
+  masterTl.to("#gsap-curtain-l", { x: "-50%", left: "50%", duration: 1.5, ease: "power2.out" }, "stage4");
+  masterTl.to("#gsap-curtain-r", { x: "-50%", left: "50%", duration: 1.5, ease: "power2.out" }, "stage4");
 
-    // 2. 15-30%: Closed window scales up from 0.5 to 1.0
-    // But it should be visible from 0? The user said: "then the windoesclose.png when scroll... like a 3d". 
-    // Let's make it scale from 0.8 to 1.0
-    let pWinScale = Math.min(1, Math.max(0, currentProgress / 0.3));
-    const initialScale = 0.8 + (0.2 * pWinScale);
-    winClose.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
-    winOpen.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
-    curtainL.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
-    curtainR.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
-    girl.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
+  // Stage 5 (70-85%): Curtains open
+  masterTl.add("stage5", 7.0);
+  masterTl.to("#gsap-curtain-l", { x: "-120%", scale: 1.1, rotation: -5, duration: 1.5, ease: "power2.inOut" }, "stage5");
+  masterTl.to("#gsap-curtain-r", { x: "20%", scale: 1.1, rotation: 5, duration: 1.5, ease: "power2.inOut" }, "stage5");
 
-    // 3. 30-50%: Crossfade from closed window to open window
-    let pWinFade = 0;
-    if (currentProgress > 0.3) {
-      pWinFade = Math.min(1, (currentProgress - 0.3) / 0.2);
-    }
-    winClose.style.opacity = 1 - pWinFade;
+  // Stage 6 (85-100%): Reveal girl and fade to home
+  masterTl.add("stage6", 8.5);
+  masterTl.to("#gsap-girl", { opacity: 1, scale: 1, y: 0, duration: 1.5, ease: "power2.out" }, "stage6");
 
-    // 4. 50-70%: Curtains slide apart
-    let pCurtainSlide = 0;
-    if (currentProgress > 0.5) {
-      pCurtainSlide = Math.min(1, (currentProgress - 0.5) / 0.2);
-    }
-    // We maintain the initialScale from step 2 for the base transform
-    curtainL.style.transform = `translate(${-50 - (60 * pCurtainSlide)}%, -50%) scale(${initialScale})`;
-    curtainR.style.transform = `translate(${-50 + (60 * pCurtainSlide)}%, -50%) scale(${initialScale})`;
-
-    // 5. 70-95%: Zoom into the girl (scale everything up except girl)
-    let pZoom = 0;
-    if (currentProgress > 0.7) {
-      pZoom = Math.min(1, (currentProgress - 0.7) / 0.25);
-    }
-    
-    const zoomScale = initialScale + (pZoom * 4); // Scale up a lot
-    const bgScale = 1 + (pZoom * 0.5);
-    
-    bg.style.transform = `scale(${bgScale})`;
-    tree.style.transform = `translateY(0) scale(${1 + (pZoom * 4)})`;
-    winOpen.style.transform = `translate(-50%, -50%) scale(${zoomScale})`;
-    curtainL.style.transform = `translate(${-50 - (60 * pCurtainSlide)}%, -50%) scale(${zoomScale})`;
-    curtainR.style.transform = `translate(${-50 + (60 * pCurtainSlide)}%, -50%) scale(${zoomScale})`;
-    
-    // Fade out everything in front of the girl as we zoom
-    const fadeOutZoom = 1 - pZoom;
-    bg.style.opacity = fadeOutZoom;
-    tree.style.opacity = fadeOutZoom;
-    winOpen.style.opacity = fadeOutZoom;
-    curtainL.style.opacity = fadeOutZoom;
-    curtainR.style.opacity = fadeOutZoom;
-    
-    // 6. 95-100%: Fade entire stage to white to transition into the home section
-    let pWhiteFade = 0;
-    if (currentProgress > 0.95) {
-      pWhiteFade = Math.min(1, (currentProgress - 0.95) / 0.05);
-    }
-    fadeout.style.opacity = pWhiteFade;
-
-    requestAnimationFrame(updateParallax);
-  }
-
-  requestAnimationFrame(updateParallax);
-})();
+  // 95-100%: Fade entire stage to white
+  masterTl.to("#gsap-fadeout", { opacity: 1, duration: 0.5, ease: "power1.inOut" }, 9.5);
+});
 </script>
-
 
 
 <section id="home" style="background-color: #fdfaf8; position: relative; overflow: hidden; height: 100vh;">
