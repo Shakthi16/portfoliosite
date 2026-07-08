@@ -606,6 +606,96 @@
       100% { height: 14px; }
     }
 
+    /* ═══ 3D MASTER FOLDER & SUBFOLDERS FANNING ═══ */
+    .master-folder-container {
+      position: relative;
+      width: 85px;
+      height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible !important;
+    }
+    
+    .master-folder-3d-icon {
+      position: relative;
+      z-index: 50;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .master-folder-container:hover .master-folder-3d-icon,
+    .master-folder-container.active-expand .master-folder-3d-icon {
+      transform: scale(1.12) translateY(-5px);
+    }
+
+    /* Papers slide up out of folder */
+    .folder-papers-group {
+      transition: transform 0.4s ease;
+      transform-origin: bottom center;
+    }
+    .master-folder-container:hover .folder-papers-group,
+    .master-folder-container.active-expand .folder-papers-group {
+      transform: translateY(-9px) scaleY(1.05) rotate(1deg);
+    }
+
+    /* Sub-folders fanning out stylesheet (arc fanning upwards) */
+    .sub-folder-item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      margin-top: -30px;
+      margin-left: -30px;
+      z-index: 10;
+      opacity: 0;
+      transform: scale(0) translate(0, 0);
+      transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Fans subfolders upward in a wider arc so it doesn't overlap text below */
+    .master-folder-container:hover .sub-folder-item:nth-child(1),
+    .master-folder-container.active-expand .sub-folder-item:nth-child(1) {
+      opacity: 1;
+      transform: scale(1) translate(-75px, -70px);
+      pointer-events: auto;
+    }
+    .master-folder-container:hover .sub-folder-item:nth-child(2),
+    .master-folder-container.active-expand .sub-folder-item:nth-child(2) {
+      opacity: 1;
+      transform: scale(1) translate(-25px, -95px);
+      pointer-events: auto;
+    }
+    .master-folder-container:hover .sub-folder-item:nth-child(3),
+    .master-folder-container.active-expand .sub-folder-item:nth-child(3) {
+      opacity: 1;
+      transform: scale(1) translate(25px, -95px);
+      pointer-events: auto;
+    }
+    .master-folder-container:hover .sub-folder-item:nth-child(4),
+    .master-folder-container.active-expand .sub-folder-item:nth-child(4) {
+      opacity: 1;
+      transform: scale(1) translate(75px, -70px);
+      pointer-events: auto;
+    }
+
+    .sub-folder-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 7.5px;
+      font-weight: 700;
+      color: #0288d1;
+      margin-top: 3px;
+      white-space: nowrap;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
+      letter-spacing: 0.02em;
+    }
+
     /* Drawing canvas overlays home */
     #drawing-canvas {
       position: absolute;
@@ -2135,13 +2225,20 @@
   
   <!-- Column 1 (far left, left: 2.5vw) -->
   
-  <!-- 1. ID Badge Card — top-left -->
+  <!-- 1. ID Badge Card — top-left with lanyard tie clip hanging -->
   <div class="floating-sticker" style="top: 6vh; left: 2.5vw; transform: rotate(-3deg); z-index: 10;" id="sticker-badge">
-    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 40px; height: 30px; z-index: 12;">
-      <!-- Clip SVG -->
-      <svg viewBox="0 0 44 32" class="badge-strap-clip">
-        <path d="M4 16 L12 4 L32 4 L40 16 L32 28 L12 28 Z" fill="#8b707c" />
-        <rect x="18" y="10" width="8" height="12" rx="1" fill="#444" />
+    <!-- Hanging lanyard tie strap clip SVG -->
+    <div style="position: absolute; top: -38px; left: 50%; transform: translateX(-50%); width: 44px; height: 48px; z-index: 12; pointer-events: none;">
+      <svg viewBox="0 0 44 48" style="width: 44px; height: 48px;" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Black lanyard tie extending upwards off-screen -->
+        <rect x="18" y="0" width="8" height="24" fill="#18181b" rx="1" />
+        <!-- Silver lobster clip ring -->
+        <circle cx="22" cy="24" r="6" fill="none" stroke="#a1a1aa" stroke-width="2.5" />
+        <!-- Metallic clip lock -->
+        <path d="M16 28 L28 28 L26 40 L18 40 Z" fill="#d4d4d8" stroke="#71717a" stroke-width="1" />
+        <!-- Lanyard snap loop hanging down -->
+        <rect x="20" y="38" width="4" height="10" fill="#e4e4e7" opacity="0.85" rx="0.5" stroke="#a1a1aa" stroke-width="0.5" />
+        <circle cx="22" cy="43" r="1.5" fill="#be123c" />
       </svg>
     </div>
     <div class="badge-card" style="width: 195px; height: 275px; padding: 14px;">
@@ -2218,7 +2315,7 @@
   <div class="floating-sticker" style="top: 43vh; left: 16.5vw; transform: rotate(-3deg); z-index: 8;" id="sticker-lessons-note">
     <div class="washi-tape-accent" style="top: -8px; left: 25%; width: 40px; height: 10px; background: rgba(220,205,215,0.5); transform: rotate(-5deg);"></div>
     <div class="sticky-note-purple" style="width: 140px; padding: 10px;">
-      <div style="font-family: sans-serif; font-size: 0.58rem; font-weight: 700; color: #6e4e5e; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">lessons i'm still learning</div>
+      <div style="font-family: sans-serif; font-size: 0.58rem; font-weight: 700; color: #6e4e5e; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px;">lessons i'm still learning</div>
       <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.55rem; color: #4e3843; line-height: 1.5;">
         <li style="margin-bottom: 3px; padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> not everything needs a solution</li>
         <li style="margin-bottom: 3px; padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> it's okay to take breaks</li>
@@ -2228,39 +2325,93 @@
     </div>
   </div>
 
-  <!-- 6. Potted Plant — next to terminal -->
-  <div class="floating-sticker" style="top: 70vh; left: 18.5vw; transform: rotate(0deg); z-index: 9; pointer-events: none;" id="sticker-plant-pot">
+  <!-- 6. Potted Plant — next to master folder -->
+  <div class="floating-sticker" style="top: 70vh; left: 26vw; transform: rotate(0deg); z-index: 9; pointer-events: none;" id="sticker-plant-pot">
     <div style="display: flex; flex-direction: column; align-items: center; width: 80px;">
       <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=200&h=200&fit=crop&q=80" alt="Plant pot" style="width: 70px; height: 80px; object-fit: cover; border-radius: 50% 50% 4px 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.06); display: block;" />
       <div style="width: 38px; height: 26px; background: #eadecc; border: 1.5px solid #dcd3c4; border-radius: 0 0 8px 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); margin-top: -6px;"></div>
     </div>
   </div>
 
-  <!-- 7. macOS Blue Folders (left side, size 55px, bright macOS blue colors) -->
-  <div class="floating-sticker" style="top: 83vh; left: 16.5vw; transform: rotate(-2deg); z-index: 8; display: flex; gap: 15px;" id="sticker-folders-left">
-    <!-- Folder 1: final-year-project -->
-    <a href="#projects" class="mac-folder-sticker hoverable" style="text-decoration: none; width: 62px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="45" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Back flap: macOS light sky blue -->
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
-        <!-- Front body: rich royal blue flap -->
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
-        <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
-        <circle cx="31" cy="31" r="4" fill="#ffffff" opacity="0.4"/>
-      </svg>
-      <span style="font-size: 7.5px; font-weight: 700; color: #1e88e5; margin-top: 3px; font-family: sans-serif; white-space: nowrap;">final-year-project</span>
-    </a>
-    
-    <!-- Folder 2: cyber-labs -->
-    <a href="#about" class="mac-folder-sticker hoverable" style="text-decoration: none; width: 62px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="45" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
-        <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
-        <circle cx="31" cy="31" r="4" fill="#ffffff" opacity="0.4"/>
-      </svg>
-      <span style="font-size: 7.5px; font-weight: 700; color: #1e88e5; margin-top: 3px; font-family: sans-serif; white-space: nowrap;">cyber-labs</span>
-    </a>
+  <!-- 7. 3D INTERACTIVE MASTER FOLDER (fanning out 4 blue subfolders on hover & touch) -->
+  <div class="floating-sticker" style="top: 76vh; left: 18vw; z-index: 99 !important; overflow: visible !important;" id="sticker-folders-master">
+    <div class="master-folder-container" id="interactive-folders-wrapper">
+      
+      <!-- Sub-folder 1: final-year-project -->
+      <a href="#projects" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
+          <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label">projects</span>
+      </a>
+
+      <!-- Sub-folder 2: cyber-labs -->
+      <a href="#about" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
+          <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label">cyber-labs</span>
+      </a>
+
+      <!-- Sub-folder 3: inspiration -->
+      <a href="#projects" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
+          <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label">inspiration</span>
+      </a>
+
+      <!-- Sub-folder 4: brain-dumps -->
+      <a href="#about" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
+          <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label">brain-dumps</span>
+      </a>
+
+      <!-- 3D Folder Icon Front Cover & Back Cover -->
+      <div class="master-folder-3d-icon" style="width: 70px; height: 60px;">
+        <svg width="70" height="60" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="folder-front-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4fc3f7" />
+              <stop offset="100%" stop-color="#0288d1" />
+            </linearGradient>
+            <linearGradient id="folder-back-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0288d1" />
+              <stop offset="100%" stop-color="#01579b" />
+            </linearGradient>
+            <linearGradient id="folder-paper-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#cfd8dc" />
+            </linearGradient>
+            <filter id="folder-shadow-filter" x="-10%" y="-10%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#006097" flood-opacity="0.3" />
+            </filter>
+          </defs>
+          <!-- 3D Slanted Back flap -->
+          <path d="M10 20 C10 17 13 15 16 15H42L49 22H104 C107 22 110 25 110 28V78 C110 81 107 83 104 83H16 C13 83 10 81 10 78V20Z" fill="url(#folder-back-grad)" />
+          <!-- Layered Documents peaking out -->
+          <g class="folder-papers-group">
+            <rect x="22" y="10" width="76" height="56" rx="3" fill="url(#folder-paper-grad)" transform="rotate(-1 22 10)" />
+            <rect x="28" y="7" width="68" height="56" rx="3" fill="#ffffff" opacity="0.95" transform="rotate(2 28 7)" />
+          </g>
+          <!-- 3D Slanted Front flap -->
+          <path d="M10 32 L10 80 C10 83 13 85 16 85H104 C107 85 110 83 110 80 L110 36 C110 33 107 31 104 31H54 L46 25 H16 C13 25 10 28 10 32Z" fill="url(#folder-front-grad)" filter="url(#folder-shadow-filter)" />
+          <!-- Small Label plate on cover -->
+          <rect x="26" y="46" width="35" height="14" rx="2" fill="#ffffff" opacity="0.3" />
+        </svg>
+      </div>
+
+    </div>
   </div>
 
 
@@ -2373,30 +2524,6 @@
     </div>
   </div>
 
-  <!-- 12. macOS Blue Folders (right side, size 55px, bright macOS blue colors) -->
-  <div class="floating-sticker" style="top: 83vh; right: 16.5vw; transform: rotate(3deg); z-index: 8; display: flex; gap: 15px;" id="sticker-folders-right">
-    <!-- Folder 3: inspiration -->
-    <a href="#projects" class="mac-folder-sticker hoverable" style="text-decoration: none; width: 62px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="45" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
-        <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
-        <circle cx="31" cy="31" r="4" fill="#ffffff" opacity="0.4"/>
-      </svg>
-      <span style="font-size: 7.5px; font-weight: 700; color: #1e88e5; margin-top: 3px; font-family: sans-serif; white-space: nowrap;">inspiration</span>
-    </a>
-    
-    <!-- Folder 4: brain-dumps -->
-    <a href="#about" class="mac-folder-sticker hoverable" style="text-decoration: none; width: 62px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="45" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
-        <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
-        <circle cx="31" cy="31" r="4" fill="#ffffff" opacity="0.4"/>
-      </svg>
-      <span style="font-size: 7.5px; font-weight: 700; color: #1e88e5; margin-top: 3px; font-family: sans-serif; white-space: nowrap;">brain-dumps</span>
-    </a>
-  </div>
 
   <!-- Column 2 (far right, right: 2.5vw) -->
 
@@ -2479,7 +2606,7 @@
 
   <!-- CENTER BOTTOM CARDS -->
 
-  <!-- 17. Tech Stack Card — bottom center-left (using colored official CDN slugs) -->
+  <!-- 17. Tech Stack Card — bottom center-left -->
   <div class="floating-sticker" style="bottom: 4vh; left: 38vw; transform: rotate(1deg); z-index: 8;" id="sticker-tech-stack">
     <div class="tech-stack-card" style="width: 180px; padding: 10px 12px; background: #faf8f5; border: 1px solid #ebdcd5; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
       <div style="font-family: sans-serif; font-size: 0.6rem; font-weight: 700; color: #8b707c; text-transform: uppercase; letter-spacing: 0.12em; text-align: center; margin-bottom: 8px; border-bottom: 1px solid rgba(139,112,124,0.1); padding-bottom: 3px;">TECH STACK</div>
@@ -2796,10 +2923,34 @@
       }
     });
 
+    // Toggle expand/collapse folders on touch/click
+    const folderWrapper = document.getElementById('interactive-folders-wrapper');
+    folderWrapper.addEventListener('click', function(e) {
+      // If we clicked a sub-folder link, follow it naturally
+      if (e.target.closest('.sub-folder-item')) {
+        return;
+      }
+      e.stopPropagation();
+      folderWrapper.classList.toggle('active-expand');
+    });
+
+    // Also collapse if we click anywhere outside the folder
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('#sticker-folders-master')) {
+        folderWrapper.classList.remove('active-expand');
+      }
+    });
+
+    // Mobile touch events: stop drag propagation when dragging/touching folders
+    folderWrapper.addEventListener('touchstart', function(e) {
+      e.stopPropagation();
+    }, { passive: true });
+
   })();
   </script>
 
 </section>
+
 
 
 
