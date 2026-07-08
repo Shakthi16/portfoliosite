@@ -2870,13 +2870,13 @@
   <div class="floating-sticker" style="top: 2%; right: 12%; z-index: 8; transform: rotate(-2deg); scale: 0.85;">
     <!-- Tape -->
     <div style="position: absolute; top: -5px; right: 40%; transform: rotate(15deg); width: 45px; height: 16px; background: rgba(220, 200, 210, 0.9); box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-top: 1px solid rgba(255,255,255,0.5); z-index: 5;"></div>
-    <!-- notes.png is the DAISY GRID paper. The grid is on the right. -->
-    <div style="width: 280px; height: 280px; background: url('notes.png') center/contain no-repeat; padding: 50px 30px 30px 100px; box-sizing: border-box; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05)); display: flex; flex-direction: column;">
-      <div style="font-family: 'Brittany Signature', cursive !important; font-size: 24px; color: #421835; margin-bottom: 8px; text-align: left;">what drives me</div>
-      <div style="font-size: 9px; color: #582a4b; font-family: 'Manrope', sans-serif !important; line-height: 1.8; text-align: left;">
+    <!-- FIXED ALIGNMENT: 110px left padding strictly forces text onto the grid squares! -->
+    <div style="width: 290px; height: 290px; background: url('notes.png') center/contain no-repeat; padding: 60px 40px 30px 110px; box-sizing: border-box; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05)); display: flex; flex-direction: column;">
+      <div style="font-family: 'Brittany Signature', cursive !important; font-size: 26px; color: #421835; margin-bottom: 8px; text-align: left; text-shadow: 0 1px 2px rgba(255,255,255,0.5);">what drives me</div>
+      <div style="font-size: 10px; color: #582a4b; font-family: 'Manrope', sans-serif !important; line-height: 2.2; text-align: left; padding-right: 10px;">
         I blend creativity with strategy, aesthetics with logic, and empathy with security — to build digital experiences that matter.
       </div>
-      <div style="text-align: right; margin-top: 10px; font-size: 14px; color: #a4768f;">♡</div>
+      <div style="text-align: right; margin-top: 5px; font-size: 14px; color: #a4768f; padding-right: 15px;">♡</div>
     </div>
   </div>
 
@@ -2899,13 +2899,13 @@
 
   <!-- 8. "LESSONS I'M STILL LEARNING" Note using notes1.png (crumpled paper) -->
   <div class="floating-sticker" style="top: 45%; left: 18%; z-index: 7; transform: rotate(2deg); scale: 0.85;">
-    <!-- We will use notes1.png as background, adjusting padding so it stays on the paper part -->
-    <div style="width: 250px; height: 260px; background: url('notes1.png') center/contain no-repeat; padding: 40px 30px 40px 40px; box-sizing: border-box; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05)); display: flex; flex-direction: column;">
-      <div style="font-family: 'IBM Plex Mono', monospace !important; font-size: 8px; font-weight: 600; color: #7a3a5e; letter-spacing: 0.1em; line-height: 1.4; margin-bottom: 12px; text-align: left;">LESSONS I'M STILL<br>LEARNING</div>
-      <ul style="list-style: none; padding: 0; margin: 0; font-size: 9px; color: #582a4b; font-family: 'Manrope', sans-serif !important; line-height: 1.8; text-align: left;">
-        <li style="position: relative; padding-left: 8px; margin-bottom: 6px;"><span style="position: absolute; left: 0; top: 0; color: #421835;">•</span> not everything needs<br>&nbsp;&nbsp;a solution</li>
-        <li style="position: relative; padding-left: 8px; margin-bottom: 6px;"><span style="position: absolute; left: 0; top: 0; color: #421835;">•</span> it's okay to take<br>&nbsp;&nbsp;breaks</li>
-        <li style="position: relative; padding-left: 8px;"><span style="position: absolute; left: 0; top: 0; color: #421835;">•</span> balance is a<br>&nbsp;&nbsp;continuous choice</li>
+    <!-- FIXED ALIGNMENT: Shifted text to correctly align inside the crumpled paper borders -->
+    <div style="width: 270px; height: 270px; background: url('notes1.png') center/contain no-repeat; padding: 50px 30px 40px 80px; box-sizing: border-box; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05)); display: flex; flex-direction: column;">
+      <div style="font-family: 'IBM Plex Mono', monospace !important; font-size: 9px; font-weight: 600; color: #7a3a5e; letter-spacing: 0.1em; line-height: 1.4; margin-bottom: 15px; text-align: left; max-width: 150px;">LESSONS I'M STILL<br>LEARNING</div>
+      <ul style="list-style: none; padding: 0; margin: 0; font-size: 10px; color: #582a4b; font-family: 'Manrope', sans-serif !important; line-height: 1.8; text-align: left; max-width: 150px;">
+        <li style="position: relative; padding-left: 10px; margin-bottom: 8px;"><span style="position: absolute; left: 0; top: 0; color: #421835;">•</span> not everything needs a solution</li>
+        <li style="position: relative; padding-left: 10px; margin-bottom: 8px;"><span style="position: absolute; left: 0; top: 0; color: #421835;">•</span> it's okay to take breaks</li>
+        <li style="position: relative; padding-left: 10px;"><span style="position: absolute; left: 0; top: 0; color: #421835;">•</span> balance is a continuous choice</li>
       </ul>
     </div>
   </div>
@@ -3007,21 +3007,25 @@
   <!-- 13. Tech Stack Grid (Bottom Right Center) -->
   <div class="floating-sticker" style="bottom: 8%; right: 28%; z-index: 10; transform: rotate(2deg); transform-origin: bottom right; scale: 0.85;">
     <div style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border-radius: 50%; background: #5B2C4A; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.3); z-index: 10;"></div>
-    <div style="width: 150px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 12px 25px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.02);">
-      <div style="font-family: 'Manrope', sans-serif !important; font-size: 10px; font-weight: 700; color: #7a3a5e; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; margin-bottom: 15px;">TECH STACK</div>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; place-items: center;">
-        <img src="https://cdn.simpleicons.org/figma/F24E1E" style="width: 16px; height: 16px;" />
-        <div style="width: 16px; height: 16px; background: #001e36; color: #26a5e4; font-family: 'Manrope', sans-serif !important; font-weight: 800; font-size: 10px; display: flex; align-items: center; justify-content: center; border-radius: 2px;">Ps</div>
-        <div style="width: 16px; height: 16px; background: #330000; color: #ff9a00; font-family: 'Manrope', sans-serif !important; font-weight: 800; font-size: 10px; display: flex; align-items: center; justify-content: center; border-radius: 2px;">Ai</div>
-        <img src="https://cdn.simpleicons.org/html5/E34F26" style="width: 16px; height: 16px;" />
-        <img src="https://cdn.simpleicons.org/css3/1572B6" style="width: 16px; height: 16px;" />
-        <div style="width: 16px; height: 16px; background: #f7df1e; color: #000; font-family: 'Manrope', sans-serif !important; font-weight: 800; font-size: 9px; display: flex; align-items: center; justify-content: center; border-radius: 2px;">JS</div>
-        <img src="https://cdn.simpleicons.org/react/61DAFB" style="width: 16px; height: 16px;" />
-        <img src="https://cdn.simpleicons.org/nodedotjs/339933" style="width: 16px; height: 16px;" />
-        <img src="https://cdn.simpleicons.org/python/3776AB" style="width: 16px; height: 16px;" />
-        <img src="https://cdn.simpleicons.org/github/181717" style="width: 16px; height: 16px;" />
-        <div style="width: 16px; height: 16px; background: #3178c6; color: #fff; font-family: 'Manrope', sans-serif !important; font-weight: 800; font-size: 9px; display: flex; align-items: center; justify-content: center; border-radius: 2px;">TS</div>
-        <div style="width: 25px; height: 16px; color: #000; font-family: 'Manrope', sans-serif !important; font-weight: 800; font-size: 8px; display: flex; align-items: center; justify-content: center;">NEXT.</div>
+    <div style="width: 170px; padding: 25px 20px; background: #fff; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.02);">
+      <div style="font-family: 'Manrope', sans-serif !important; font-size: 11px; font-weight: 800; color: #5B2C4A; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; margin-bottom: 22px;">TECH STACK</div>
+      <!-- PERFECTLY ALIGNED GRID WITH 3D SHADOWS ON ICONS -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px 15px; place-items: center;">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15));" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15)); border-radius: 4px;" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15)); border-radius: 4px;" />
+        
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15));" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15));" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15)); border-radius: 4px;" />
+        
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15));" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15));" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15));" />
+        
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15));" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15)); border-radius: 4px;" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" style="width: 22px; height: 22px; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.15)); background: white; border-radius: 50%;" />
       </div>
     </div>
   </div>
@@ -3133,6 +3137,7 @@
   <canvas id="drawing-canvas" style="position: absolute; inset: 0; z-index: 100; pointer-events: none;"></canvas>
 
 </section>
+
 
 
 
