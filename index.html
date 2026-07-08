@@ -554,16 +554,15 @@
       margin-top: 5px;
     }
     
-    /* Unified sepia/mauve style for tech icons */
+    /* Authentic brand colors for tech icons (no sepia filter) */
     .tech-icon {
       width: 22px !important;
       height: 22px !important;
-      filter: invert(41%) sepia(12%) saturate(795%) hue-rotate(279deg) brightness(96%) contrast(87%) !important;
-      opacity: 0.85;
+      opacity: 0.95;
       transition: transform 0.2s, opacity 0.2s;
     }
     .tech-icon:hover {
-      transform: scale(1.15);
+      transform: scale(1.18);
       opacity: 1;
     }
 
@@ -577,9 +576,10 @@
       cursor: pointer;
       transition: transform 0.5s ease;
       transform-origin: center center;
+      animation: vinyl-spin 20s linear infinite; /* Always rotating when placed on desktop */
     }
     .vinyl-record.spinning {
-      animation: vinyl-spin 12s linear infinite;
+      animation: vinyl-spin 4s linear infinite; /* Spin faster when playing music */
     }
     @keyframes vinyl-spin {
       from { transform: rotate(0deg); }
@@ -2218,7 +2218,7 @@
   <div class="floating-sticker" style="top: 43vh; left: 16.5vw; transform: rotate(-3deg); z-index: 8;" id="sticker-lessons-note">
     <div class="washi-tape-accent" style="top: -8px; left: 25%; width: 40px; height: 10px; background: rgba(220,205,215,0.5); transform: rotate(-5deg);"></div>
     <div class="sticky-note-purple" style="width: 140px; padding: 10px;">
-      <div style="font-family: sans-serif; font-size: 0.58rem; font-weight: 700; color: #6e4e5e; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px;">lessons i'm still learning</div>
+      <div style="font-family: sans-serif; font-size: 0.58rem; font-weight: 700; color: #6e4e5e; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">lessons i'm still learning</div>
       <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.55rem; color: #4e3843; line-height: 1.5;">
         <li style="margin-bottom: 3px; padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> not everything needs a solution</li>
         <li style="margin-bottom: 3px; padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> it's okay to take breaks</li>
@@ -2236,26 +2236,30 @@
     </div>
   </div>
 
-  <!-- 7. Folders (bottom left-center) -->
-  <div class="floating-sticker" style="top: 85vh; left: 25vw; transform: rotate(5deg); z-index: 8; display: flex; gap: 8px;" id="sticker-folders-left">
+  <!-- 7. macOS Blue Folders (left side, size 55px, bright macOS blue colors) -->
+  <div class="floating-sticker" style="top: 83vh; left: 16.5vw; transform: rotate(-2deg); z-index: 8; display: flex; gap: 15px;" id="sticker-folders-left">
     <!-- Folder 1: final-year-project -->
-    <a href="#projects" class="mac-folder-sticker" style="text-decoration: none; width: 60px;">
-      <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
-        <circle cx="31" cy="31" r="5" fill="#fff" opacity="0.3" />
+    <a href="#projects" class="mac-folder-sticker hoverable" style="text-decoration: none; width: 62px; display: flex; flex-direction: column; align-items: center;">
+      <svg width="45" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Back flap: macOS light sky blue -->
+        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
+        <!-- Front body: rich royal blue flap -->
+        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
+        <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
+        <circle cx="31" cy="31" r="4" fill="#ffffff" opacity="0.4"/>
       </svg>
-      <span style="font-size: 6px; font-weight: 700; color: #705864; margin-top: 1px; font-family: sans-serif;">final-year-project</span>
+      <span style="font-size: 7.5px; font-weight: 700; color: #1e88e5; margin-top: 3px; font-family: sans-serif; white-space: nowrap;">final-year-project</span>
     </a>
     
     <!-- Folder 2: cyber-labs -->
-    <a href="#about" class="mac-folder-sticker" style="text-decoration: none; width: 60px;">
-      <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
-        <rect x="27" y="27" width="8" height="6" rx="1" fill="#fff" opacity="0.3" />
+    <a href="#about" class="mac-folder-sticker hoverable" style="text-decoration: none; width: 62px; display: flex; flex-direction: column; align-items: center;">
+      <svg width="45" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
+        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
+        <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
+        <circle cx="31" cy="31" r="4" fill="#ffffff" opacity="0.4"/>
       </svg>
-      <span style="font-size: 6px; font-weight: 700; color: #705864; margin-top: 1px; font-family: sans-serif;">cyber-labs</span>
+      <span style="font-size: 7.5px; font-weight: 700; color: #1e88e5; margin-top: 3px; font-family: sans-serif; white-space: nowrap;">cyber-labs</span>
     </a>
   </div>
 
@@ -2369,26 +2373,28 @@
     </div>
   </div>
 
-  <!-- 12. Folders (bottom right-center) -->
-  <div class="floating-sticker" style="top: 85vh; right: 25vw; transform: rotate(-4deg); z-index: 8; display: flex; gap: 8px;" id="sticker-folders-right">
+  <!-- 12. macOS Blue Folders (right side, size 55px, bright macOS blue colors) -->
+  <div class="floating-sticker" style="top: 83vh; right: 16.5vw; transform: rotate(3deg); z-index: 8; display: flex; gap: 15px;" id="sticker-folders-right">
     <!-- Folder 3: inspiration -->
-    <a href="#projects" class="mac-folder-sticker" style="text-decoration: none; width: 60px;">
-      <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
-        <circle cx="31" cy="31" r="5" fill="#fff" opacity="0.3" />
+    <a href="#projects" class="mac-folder-sticker hoverable" style="text-decoration: none; width: 62px; display: flex; flex-direction: column; align-items: center;">
+      <svg width="45" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
+        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
+        <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
+        <circle cx="31" cy="31" r="4" fill="#ffffff" opacity="0.4"/>
       </svg>
-      <span style="font-size: 6px; font-weight: 700; color: #705864; margin-top: 1px; font-family: sans-serif;">inspiration</span>
+      <span style="font-size: 7.5px; font-weight: 700; color: #1e88e5; margin-top: 3px; font-family: sans-serif; white-space: nowrap;">inspiration</span>
     </a>
     
     <!-- Folder 4: brain-dumps -->
-    <a href="#about" class="mac-folder-sticker" style="text-decoration: none; width: 60px;">
-      <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
-        <line x1="26" y1="31" x2="36" y2="31" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity="0.3" />
+    <a href="#about" class="mac-folder-sticker hoverable" style="text-decoration: none; width: 62px; display: flex; flex-direction: column; align-items: center;">
+      <svg width="45" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#90caf9"/>
+        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#1e88e5"/>
+        <path d="M4 16L58 16" stroke="#1565c0" stroke-width="1.5"/>
+        <circle cx="31" cy="31" r="4" fill="#ffffff" opacity="0.4"/>
       </svg>
-      <span style="font-size: 6px; font-weight: 700; color: #705864; margin-top: 1px; font-family: sans-serif;">brain-dumps</span>
+      <span style="font-size: 7.5px; font-weight: 700; color: #1e88e5; margin-top: 3px; font-family: sans-serif; white-space: nowrap;">brain-dumps</span>
     </a>
   </div>
 
@@ -2411,32 +2417,21 @@
     </div>
   </div>
 
-  <!-- 14. Vinyl Record — middle far-right -->
+  <!-- 14. Real Photo Spinning Vinyl Record — middle far-right -->
   <div class="floating-sticker" style="top: 35vh; right: 2.5vw; z-index: 8;" id="sticker-vinyl">
-    <div class="vinyl-record" id="interactive-vinyl" style="width: 130px; height: 130px; border-radius: 50%; border: 1.5px solid #000; box-shadow: 0 8px 20px rgba(0,0,0,0.25);">
-      <svg width="130" height="130" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="rg2" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stop-color="#090909"/>
-            <stop offset="26%"  stop-color="#1c1c1c"/>
-            <stop offset="27%"  stop-color="#0b0b0b"/>
-            <stop offset="38%"  stop-color="#1a1a1a"/>
-            <stop offset="39%"  stop-color="#080808"/>
-            <stop offset="50%"  stop-color="#161616"/>
-            <stop offset="51%"  stop-color="#070707"/>
-            <stop offset="62%"  stop-color="#161616"/>
-            <stop offset="63%"  stop-color="#060606"/>
-            <stop offset="74%"  stop-color="#141414"/>
-            <stop offset="100%" stop-color="#030303"/>
-          </radialGradient>
-        </defs>
-        <circle cx="75" cy="75" r="75" fill="url(#rg2)"/>
-        <circle cx="75" cy="75" r="22" fill="#a17887" stroke="#1c181b" stroke-width="2.5"/>
-        <circle cx="75" cy="75" r="4" fill="#faf8f5"/>
-      </svg>
-      <!-- Mini absolute play icon over record center for visual cue -->
-      <div id="vinyl-play-indicator" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
-        <i class="fas fa-play" style="color: rgba(255,255,255,0.7); font-size: 16px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);"></i>
+    <div class="vinyl-record" id="interactive-vinyl" style="width: 140px; height: 140px; border-radius: 50%; border: 1px solid #111; box-shadow: 0 10px 25px rgba(0,0,0,0.3); position: relative; overflow: hidden;">
+      <!-- High quality real vinyl photograph -->
+      <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=450&q=80" alt="Vinyl" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block;" />
+      
+      <!-- Custom center paper sticker sticker for color cohesion -->
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: #a17887; border: 2.5px solid #1c181b; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; pointer-events: none;">
+        <!-- Spindle center hole -->
+        <div style="width: 8px; height: 8px; background: #faf8f5; border-radius: 50%;"></div>
+      </div>
+
+      <!-- Play triangle sign indicator -->
+      <div id="vinyl-play-indicator" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 3;">
+        <i class="fas fa-play" style="color: rgba(255,255,255,0.85); font-size: 18px; text-shadow: 0 2px 5px rgba(0,0,0,0.6);"></i>
       </div>
     </div>
   </div>
@@ -2484,19 +2479,19 @@
 
   <!-- CENTER BOTTOM CARDS -->
 
-  <!-- 17. Tech Stack Card — bottom center-left -->
+  <!-- 17. Tech Stack Card — bottom center-left (using colored official CDN slugs) -->
   <div class="floating-sticker" style="bottom: 4vh; left: 38vw; transform: rotate(1deg); z-index: 8;" id="sticker-tech-stack">
     <div class="tech-stack-card" style="width: 180px; padding: 10px 12px; background: #faf8f5; border: 1px solid #ebdcd5; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
       <div style="font-family: sans-serif; font-size: 0.6rem; font-weight: 700; color: #8b707c; text-transform: uppercase; letter-spacing: 0.12em; text-align: center; margin-bottom: 8px; border-bottom: 1px solid rgba(139,112,124,0.1); padding-bottom: 3px;">TECH STACK</div>
       <div class="collage-tech-grid">
-        <img class="tech-icon" src="https://simpleicons.org/icons/react.svg" alt="React" title="React" />
-        <img class="tech-icon" src="https://simpleicons.org/icons/nodedotjs.svg" alt="Node" title="Node.js" />
-        <img class="tech-icon" src="https://simpleicons.org/icons/python.svg" alt="Python" title="Python" />
-        <img class="tech-icon" src="https://simpleicons.org/icons/tailwindcss.svg" alt="Tailwind" title="Tailwind CSS" />
-        <img class="tech-icon" src="https://simpleicons.org/icons/github.svg" alt="GitHub" title="GitHub" />
-        <img class="tech-icon" src="https://simpleicons.org/icons/typescript.svg" alt="TypeScript" title="TypeScript" />
-        <img class="tech-icon" src="https://simpleicons.org/icons/mongodb.svg" alt="MongoDB" title="MongoDB" />
-        <img class="tech-icon" src="https://simpleicons.org/icons/nextdotjs.svg" alt="Next.js" title="Next.js" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/react/61DAFB" alt="React" title="React" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node" title="Node.js" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind" title="Tailwind CSS" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/github/181717" alt="GitHub" title="GitHub" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/typescript/3178C6" alt="TypeScript" title="TypeScript" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB" title="MongoDB" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/nextdotjs/000000" alt="Next.js" title="Next.js" />
       </div>
     </div>
   </div>
@@ -2805,6 +2800,7 @@
   </script>
 
 </section>
+
 
 
 <!-- ABOUT: CINEMATIC EDITORIAL CANVAS -->
