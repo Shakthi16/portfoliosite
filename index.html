@@ -14,26 +14,6 @@
 <style>
     /* Custom CSS for Awwwards style */
     
-    /* Clean Preloader Styles */
-    .preloader-glow-text {
-      background: linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #d8b4fe 50%, #ffffff 65%, #ffffff 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: preloader-shine 4s linear infinite;
-    }
-    @keyframes preloader-shine {
-      to { background-position: -200% center; }
-    }
-    /* CRITICAL: all chars start fully invisible before JS scatters them */
-    #preloader .char {
-      display: inline-block;
-      opacity: 0;
-      transform: translate3d(0, 0, 0);
-      color: #ffffff;
-      -webkit-text-fill-color: #ffffff;
-      -webkit-text-stroke: 2px #ffffff;
-    }
 
     /* ========================
        COLLAGE LANDING PAGE
@@ -1836,107 +1816,6 @@
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 </head>
 <body class="antialiased light-mode">
-<!-- Premium Preloader Overlay -->
-<div id="preloader" style="position: fixed; inset: 0; background-color: #050505; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); transform: scale(1); opacity: 1; pointer-events: auto;">
-  <div class="preloader-content" style="position: relative; text-align: center; width: 100%; max-width: 1200px; padding: 0 20px;">
-    <div class="logo-text-wrapper preloader-glow-text" style="font-family: 'Pinyon Script', 'Great Vibes', cursive; font-weight: 700; font-size: clamp(2rem, 6vw, 5rem); color: #ffffff; position: relative; display: inline-block; white-space: nowrap; letter-spacing: 0.04em; padding: 0 30px;">
-      
-      <!-- Word 1: Shakthi -->
-      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="char initial" style="display:inline-block;opacity:0;transform:translate3d(0,40px,0) scale(0.8);">S</span>
-        <span class="char" style="display:inline-block;opacity:0;">h</span>
-        <span class="char" style="display:inline-block;opacity:0;">a</span>
-        <span class="char" style="display:inline-block;opacity:0;">k</span>
-        <span class="char" style="display:inline-block;opacity:0;">t</span>
-        <span class="char" style="display:inline-block;opacity:0;">h</span>
-        <span class="char" style="display:inline-block;opacity:0;">i</span>
-      </span>
-
-      <!-- Separator spacing -->
-      <span class="separator" style="width: clamp(1rem, 4vw, 3rem); display: inline-block; vertical-align: middle;"></span>
-
-      <!-- Word 2: Sri -->
-      <span class="word" style="display: inline-block; white-space: nowrap; vertical-align: middle;">
-        <span class="char initial" style="display:inline-block;opacity:0;transform:translate3d(0,40px,0) scale(0.8);">S</span>
-        <span class="char" style="display:inline-block;opacity:0;">r</span>
-        <span class="char last-i" style="display:inline-block;position:relative;opacity:0;">i</span>
-      </span>
-    </div>
-  </div>
-</div>
-
-<script>
-  (function() {
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-    
-    var chars = document.querySelectorAll('#preloader .char');
-    
-    // Phase 1: Random spawn — scatter across viewport
-    chars.forEach(function(char) {
-      char.style.transition = 'none';
-      char.style.opacity = '0';
-      
-      var randomX = (Math.random() - 0.5) * window.innerWidth * 0.7;
-      var randomY = (Math.random() - 0.5) * window.innerHeight * 0.7;
-      var randomRotate = (Math.random() - 0.5) * 80;
-      var randomScale = 0.5 + Math.random() * 0.7;
-      char.style.transform = 'translate3d(' + randomX + 'px, ' + randomY + 'px, 0) rotate(' + randomRotate + 'deg) scale(' + randomScale + ')';
-    });
-    
-    if (chars.length > 0) { chars[0].offsetHeight; }
-    
-    // Phase 2: Enable spring-overshoot transition
-    chars.forEach(function(char) {
-      char.style.transition = 'transform 1.8s cubic-bezier(0.22, 1.6, 0.36, 1), opacity 0.8s ease';
-    });
-    
-    // Phase 3: Magnetic attraction — all letters pull to center staggered
-    chars.forEach(function(char, index) {
-      setTimeout(function() {
-        char.style.opacity = '1';
-        char.style.transform = 'translate3d(0, 0, 0) scale(1) rotate(0deg)';
-      }, 200 + index * 60);
-    });
-    
-    // Phase 4: Dot of last "i" circles up, covers page, reveals homepage
-    setTimeout(function() {
-      var lastI = document.querySelector('#preloader .last-i');
-      if (lastI) {
-        var rect = lastI.getBoundingClientRect();
-        var dotX = rect.left + rect.width / 2;
-        var dotY = rect.top;
-        
-        var circle = document.createElement('div');
-        circle.style.cssText = 'position:fixed;width:16px;height:16px;border-radius:50%;background:#ffffff;pointer-events:none;z-index:99999;left:' + dotX + 'px;top:' + dotY + 'px;transform:translate(-50%,-50%) scale(1);opacity:1;box-shadow:0 0 60px 20px rgba(255,255,255,0.9);transition:transform 2s cubic-bezier(0.22, 1.6, 0.36, 1)';
-        document.body.appendChild(circle);
-        
-        // Force reflow then trigger expansion
-        circle.offsetHeight;
-        circle.style.transform = 'translate(-50%,-50%) scale(400)';
-        
-        setTimeout(function() {
-          var preloader = document.getElementById('preloader');
-          if (preloader) {
-            preloader.style.transition = 'opacity 0.3s ease';
-            preloader.style.opacity = '0';
-            preloader.style.pointerEvents = 'none';
-            
-            setTimeout(function() {
-              preloader.remove();
-              circle.remove();
-              document.documentElement.style.overflow = '';
-              document.body.style.overflow = '';
-              if (typeof lenis !== 'undefined') {
-                lenis.start();
-              }
-            }, 300);
-          }
-        }, 1800);
-      }
-    }, 2500);
-  })();
-</script>
 
 <div class="noise-overlay" style="pointer-events: none;"></div>
 <div class="cursor"></div>
