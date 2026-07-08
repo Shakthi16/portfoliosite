@@ -2440,31 +2440,34 @@
   <!-- ════════ STICKERS ════════ -->
 
   <!-- 1. ID Badge -->
-  <div class="floating-sticker" style="top: 12vh; left: 5vw; transform: rotate(-4deg); z-index: 10;" id="sticker-badge">
-    <div style="position: absolute; top: -50px; left: 50%; transform: translateX(-50%); width: 44px; height: 60px; z-index: 12; pointer-events: none;">
-      <svg viewBox="0 0 44 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="18" y="0" width="8" height="35" fill="#421835" />
-        <circle cx="22" cy="35" r="5" fill="none" stroke="#d4d4d8" stroke-width="2" />
-        <path d="M16 40 L28 40 L26 55 L18 55 Z" fill="#e4e4e7" stroke="#a1a1aa" stroke-width="1" />
+  <div class="floating-sticker" style="top: 5vh; left: 3vw; transform: rotate(-4deg); z-index: 10;" id="sticker-badge">
+    <!-- Hanging lanyard tie strap clip SVG -->
+    <div style="position: absolute; top: -45px; left: 50%; transform: translateX(-50%); width: 44px; height: 55px; z-index: 12; pointer-events: none;">
+      <svg viewBox="0 0 44 48" style="width: 44px; height: 48px;" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="0" width="8" height="24" fill="#18181b" rx="1" />
+        <circle cx="22" cy="24" r="6" fill="none" stroke="#a1a1aa" stroke-width="2.5" />
+        <path d="M16 28 L28 28 L26 40 L18 40 Z" fill="#d4d4d8" stroke="#71717a" stroke-width="1" />
+        <rect x="20" y="38" width="4" height="10" fill="#e4e4e7" opacity="0.85" rx="0.5" stroke="#a1a1aa" stroke-width="0.5" />
+        <circle cx="22" cy="43" r="1.5" fill="#be123c" />
       </svg>
     </div>
-    <div class="badge-card" style="width: 200px; height: 280px; padding: 16px; background: #421835; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-      <div style="font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; color: #ffffff; text-align: center; margin-top: 10px;">Shakthi Sri</div>
-      <div style="font-size: 0.55rem; color: #d1b8c8; letter-spacing: 0.05em; text-transform: uppercase; font-family: 'Outfit', sans-serif; text-align: center; margin-top: 4px; line-height: 1.4;">UI/UX Designer<br>Cybersecurity Enthusiast</div>
+    <div class="badge-card" style="width: 195px; height: 275px; padding: 14px; background: #421835; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+      <div style="font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 700; color: #ffffff; text-align: center; margin-top: 8px;">Shakthi Sri</div>
+      <div style="font-size: 0.6rem; color: #d1b8c8; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Outfit', sans-serif; text-align: center; margin-top: 2px; line-height: 1.3;">UI/UX Designer<br>Cybersecurity Enthusiast</div>
       
-      <div style="width: 85px; height: 85px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 4px 10px rgba(0,0,0,0.3); margin: 15px auto;">
+      <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(255,255,255,0.12); box-shadow: 0 4px 10px rgba(0,0,0,0.3); margin: 8px 0; margin-left: auto; margin-right: auto;">
         <img src="me.png" alt="Shakthi Sri" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
 
-      <div style="width: 100%; text-align: center; margin-top: 25px;">
-        <div style="font-size: 0.45rem; color: #8e6c82; font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.5;">Designing with purpose.<br>Securing with impact.</div>
-        <div style="color: #d1b8c8; font-size: 8px; margin-top: 5px;">✦</div>
+      <div style="width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+        <div style="font-size: 0.45rem; color: #8e6c82; font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.5; text-align: center;">Designing with purpose.<br>Securing with impact.</div>
+        <div style="color: #d1b8c8; font-size: 8px; margin-top: 2px;">✦</div>
       </div>
     </div>
   </div>
 
   <!-- 2. Currently Building Note -->
-  <div class="floating-sticker" style="top: 55vh; left: 4vw; transform: rotate(2deg); z-index: 8;" id="sticker-building-note">
+  <div class="floating-sticker" style="top: 48vh; left: 2vw; transform: rotate(2deg); z-index: 8;" id="sticker-building-note">
     <div class="torn-paper" style="width: 170px; padding: 15px; font-family: 'Outfit', sans-serif; background: #ebd5e0; line-height: 1.4; text-align: center; box-shadow: 2px 4px 10px rgba(0,0,0,0.05);">
       <div class="torn-paper-edge-top"></div>
       <svg viewBox="0 0 24 38" class="paper-clip-svg" style="width: 18px; height: 28px; top: -10px; right: 20px;">
@@ -2481,7 +2484,7 @@
   </div>
 
   <!-- 3. Terminal -->
-  <div class="floating-sticker" style="top: 75vh; left: 3vw; transform: rotate(-1deg); z-index: 8;" id="sticker-mac-terminal">
+  <div class="floating-sticker" style="top: 72vh; left: 2vw; transform: rotate(-1deg); z-index: 8;" id="sticker-mac-terminal">
     <div class="terminal-window" style="width: 250px; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.08);">
       <div class="terminal-header" style="padding: 6px 10px; background: #f4f4f5; border-bottom: 1px solid #e4e4e7;">
         <div style="display: flex; gap: 5px;">
@@ -2502,20 +2505,74 @@
     </div>
   </div>
 
-  <!-- 4. Projects Folder -->
-  <div class="floating-sticker" style="top: 86vh; left: 21vw; transform: rotate(-2deg); z-index: 9;">
-    <a href="#projects" class="hoverable" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
-      <svg width="45" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#693b5c"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#582a4b"/>
-        <path d="M4 16L58 16" stroke="#421835" stroke-width="1"/>
-      </svg>
-      <span style="font-size: 7px; color: #fcf8f8; font-family: sans-serif; position: absolute; bottom: 8px;">projects ♡</span>
-    </a>
+  <!-- 4. Top Polaroid Workspace -->
+  <div class="floating-sticker" style="top: 6vh; left: 19vw; transform: rotate(1deg); z-index: 7;">
+    <div style="position: absolute; top: 5px; left: 5px; width: 12px; height: 12px; border-radius: 50%; background: #7a3a5e; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.3); z-index: 10;"></div>
+    <div class="polaroid-collage" style="width: 170px; padding: 8px 8px 18px; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+      <div class="polaroid-photo" style="width: 154px; height: 154px; background: #ddd;">
+        <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=300&q=80" alt="Workspace" style="width: 100%; height: 100%; object-fit: cover;" />
+      </div>
+    </div>
   </div>
 
-  <!-- 5. Quote Note (Dark Plum) -->
-  <div class="floating-sticker" style="top: 76vh; left: 27vw; transform: rotate(-4deg); z-index: 9;" id="sticker-quote">
+  <!-- 5. Today's Focus Note -->
+  <div class="floating-sticker" style="top: 15vh; left: 33vw; transform: rotate(-3deg); z-index: 9;">
+    <div class="torn-paper" style="width: 120px; padding: 12px; background: #fdfafb; font-family: 'Outfit', sans-serif; box-shadow: 2px 4px 10px rgba(0,0,0,0.06);">
+      <div class="torn-paper-edge-top"></div>
+      <div style="font-family: 'Great Vibes', cursive; font-size: 1.1rem; color: #421835; margin-bottom: 8px; text-align: center;">today's focus</div>
+      <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.55rem; color: #421835; line-height: 1.6;">
+        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> design flow</li>
+        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> threat hunting</li>
+        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> final year project</li>
+        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> user research</li>
+        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> gym + reset</li>
+      </ul>
+      <div style="text-align: right; margin-top: 5px; font-size: 10px; color: #7a3a5e;">♡</div>
+      <div class="torn-paper-edge-bottom"></div>
+    </div>
+  </div>
+
+  <!-- 6. Design Journey Ticket -->
+  <div class="floating-sticker" style="top: 5vh; left: 45vw; transform: rotate(1deg); z-index: 8;">
+    <div style="position: absolute; top: -5px; right: 10px; width: 12px; height: 12px; border-radius: 50%; background: #7a3a5e; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.3); z-index: 10;"></div>
+    <div class="ticket-pass" style="width: 260px; padding: 0; background: #fcf6f7; display: flex; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+      <div style="background: #9e5684; color: #fff; width: 30px; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.5rem; font-family: monospace; letter-spacing: 0.2em; padding: 10px 0;">
+        all in progress
+      </div>
+      <div style="padding: 12px; flex: 1; font-family: 'Outfit', sans-serif;">
+        <div style="font-size: 0.55rem; font-weight: 700; color: #421835; letter-spacing: 0.1em; text-transform: uppercase;">DESIGN JOURNEY</div>
+        <div style="font-size: 0.55rem; font-weight: 800; color: #2d1023; margin-top: 2px;">UI/UX · PRODUCT · SECURITY</div>
+        <div style="font-size: 0.5rem; color: #582a4b; margin-top: 8px;">Turning complexity<br>into clarity.</div>
+        <div style="margin-top: 8px; font-size: 0.45rem; font-weight: 600; color: #582a4b; background: #ebd5e0; display: inline-block; padding: 2px 6px; border-radius: 2px;">EST. 2022 — PRESENT ✦</div>
+      </div>
+      <div style="border-left: 2px dashed #ebd5e0; width: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <svg width="24" height="40" viewBox="0 0 28 60">
+          <rect x="2" y="5" width="2" height="50" fill="#2d1023" />
+          <rect x="6" y="5" width="4" height="50" fill="#2d1023" />
+          <rect x="12" y="5" width="2" height="50" fill="#2d1023" />
+          <rect x="16" y="5" width="6" height="50" fill="#2d1023" />
+          <rect x="24" y="5" width="2" height="50" fill="#2d1023" />
+        </svg>
+        <span style="font-size: 6px; color: #7a3a5e; font-weight: bold; margin-top: 4px;">001</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. What Drives Me Note -->
+  <div class="floating-sticker" style="top: 5vh; right: 23vw; transform: rotate(3deg); z-index: 8;">
+    <div class="torn-paper" style="width: 170px; padding: 16px; background: #fdf5ec; font-family: 'Outfit', sans-serif; box-shadow: 2px 5px 15px rgba(0,0,0,0.06);">
+      <div class="torn-paper-edge-top"></div>
+      <div style="font-family: 'Great Vibes', cursive; font-size: 1.3rem; color: #421835; margin-bottom: 10px;">what drives me</div>
+      <div style="font-size: 0.65rem; color: #421835; line-height: 1.6; font-weight: 400;">
+        I blend creativity with strategy, aesthetics with logic, and empathy with security — to build digital experiences that matter.
+      </div>
+      <div style="text-align: right; margin-top: 10px; font-size: 12px; color: #7a3a5e;">♡</div>
+      <div class="torn-paper-edge-bottom"></div>
+    </div>
+  </div>
+
+  <!-- 8. Quote Note (Dark Plum) -->
+  <div class="floating-sticker" style="top: 73vh; left: 24vw; transform: rotate(-4deg); z-index: 9;" id="sticker-quote">
     <div class="washi-tape-accent" style="top: -8px; left: 50%; transform: translateX(-50%) rotate(2deg); width: 40px; height: 12px; background: #c6aab7;"></div>
     <div class="torn-paper" style="width: 140px; padding: 15px; background: #582a4b; color: #fdf2f8; text-align: center; box-shadow: 2px 4px 10px rgba(0,0,0,0.1);">
       <div class="torn-paper-edge-top"></div>
@@ -2528,8 +2585,8 @@
     </div>
   </div>
 
-  <!-- 6. Agni Card -->
-  <div class="floating-sticker" style="top: 70vh; left: 39vw; transform: rotate(1deg); z-index: 8;">
+  <!-- 9. Agni Card -->
+  <div class="floating-sticker" style="top: 68vh; left: 38vw; transform: rotate(1deg); z-index: 8;">
     <div class="agni-card" style="width: 220px; padding: 18px; background: #1a0f1c; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative;">
       <div style="font-size: 0.75rem; font-weight: 700; color: #ebdcd5; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em;">AGNI C2</div>
       <div style="font-size: 0.45rem; color: #a18a96; text-transform: uppercase; font-family: monospace; letter-spacing: 0.1em; margin-bottom: 12px;">Command & Control Framework</div>
@@ -2557,123 +2614,103 @@
     </div>
   </div>
 
-  <!-- 7. Tech Stack -->
+  <!-- 10. Tech Stack -->
   <div class="floating-sticker" style="top: 70vh; left: 56vw; transform: rotate(-2deg); z-index: 8;">
     <div class="tech-stack-card" style="width: 150px; padding: 12px; background: #ffffff; border-radius: 8px; box-shadow: 0 6px 15px rgba(0,0,0,0.05);">
       <div style="font-family: 'Outfit', sans-serif; font-size: 0.55rem; font-weight: 700; color: #421835; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; margin-bottom: 12px;">TECH STACK</div>
       <div class="collage-tech-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; place-items: center;">
-        <img class="tech-icon" src="https://cdn.simpleicons.org/figma/F24E1E" style="width: 18px; height: 18px;" />
-        <img class="tech-icon" src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" style="width: 18px; height: 18px;" />
-        <img class="tech-icon" src="https://cdn.simpleicons.org/adobeillustrator/FF9A00" style="width: 18px; height: 18px;" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/react/61DAFB" style="width: 18px; height: 18px;" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/nodedotjs/339933" style="width: 18px; height: 18px;" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/python/3776AB" style="width: 18px; height: 18px;" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/tailwindcss/06B6D4" style="width: 18px; height: 18px;" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/github/181717" style="width: 18px; height: 18px;" />
+        <img class="tech-icon" src="https://cdn.simpleicons.org/typescript/3178C6" style="width: 18px; height: 18px;" />
         <img class="tech-icon" src="https://cdn.simpleicons.org/html5/E34F26" style="width: 18px; height: 18px;" />
         <img class="tech-icon" src="https://cdn.simpleicons.org/css3/1572B6" style="width: 18px; height: 18px;" />
         <img class="tech-icon" src="https://cdn.simpleicons.org/javascript/F7DF1E" style="width: 18px; height: 18px;" />
-        <img class="tech-icon" src="https://cdn.simpleicons.org/react/61DAFB" style="width: 18px; height: 18px;" />
-        <img class="tech-icon" src="https://cdn.simpleicons.org/tailwindcss/06B6D4" style="width: 18px; height: 18px;" />
-        <img class="tech-icon" src="https://cdn.simpleicons.org/python/3776AB" style="width: 18px; height: 18px;" />
-        <img class="tech-icon" src="https://cdn.simpleicons.org/github/181717" style="width: 18px; height: 18px;" />
-        <img class="tech-icon" src="https://cdn.simpleicons.org/typescript/3178C6" style="width: 18px; height: 18px;" />
-        <img class="tech-icon" src="https://cdn.simpleicons.org/nextdotjs/000000" style="width: 18px; height: 18px;" />
       </div>
     </div>
   </div>
 
-  <!-- 8. Three Folders Right -->
-  <div class="floating-sticker" style="top: 83vh; left: 68vw; display: flex; gap: 10px; z-index: 8;">
-    <a href="#about" class="hoverable" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transform: rotate(1deg);">
-      <svg width="48" height="42" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
-        <path d="M4 16L58 16" stroke="#421835" stroke-width="1"/>
-      </svg>
-      <span style="font-size: 7px; color: #fcf8f8; font-family: sans-serif; position: absolute; bottom: 8px;">cyber labs 🔒</span>
-    </a>
-    <a href="#about" class="hoverable" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transform: rotate(-2deg); margin-top: 5px;">
-      <svg width="48" height="42" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#b06b99"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#9e5684"/>
-        <path d="M4 16L58 16" stroke="#582a4b" stroke-width="1"/>
-      </svg>
-      <span style="font-size: 7px; color: #fcf8f8; font-family: sans-serif; position: absolute; bottom: 8px;">brain dumps ☆</span>
-    </a>
-    <a href="#projects" class="hoverable" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transform: rotate(3deg);">
-      <svg width="48" height="42" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#693b5c"/>
-        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#582a4b"/>
-        <path d="M4 16L58 16" stroke="#421835" stroke-width="1"/>
-      </svg>
-      <span style="font-size: 7px; color: #fcf8f8; font-family: sans-serif; position: absolute; bottom: 8px;">inspiration ♡</span>
-    </a>
-  </div>
-
-  <!-- 9. Top Polaroid Workspace -->
-  <div class="floating-sticker" style="top: 8vh; left: 18vw; transform: rotate(1deg); z-index: 7;">
-    <div style="position: absolute; top: 5px; left: 5px; width: 12px; height: 12px; border-radius: 50%; background: #7a3a5e; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.3); z-index: 10;"></div>
-    <div class="polaroid-collage" style="width: 170px; padding: 8px 8px 18px; background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
-      <div class="polaroid-photo" style="width: 154px; height: 154px; background: #ddd;">
-        <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=300&q=80" alt="Workspace" style="width: 100%; height: 100%; object-fit: cover;" />
-      </div>
-    </div>
-  </div>
-
-  <!-- 10. Today's Focus Note -->
-  <div class="floating-sticker" style="top: 18vh; left: 30vw; transform: rotate(-3deg); z-index: 9;">
-    <div class="torn-paper" style="width: 120px; padding: 12px; background: #fdfafb; font-family: 'Outfit', sans-serif; box-shadow: 2px 4px 10px rgba(0,0,0,0.06);">
-      <div class="torn-paper-edge-top"></div>
-      <div style="font-family: 'Great Vibes', cursive; font-size: 1.1rem; color: #421835; margin-bottom: 8px; text-align: center;">today's focus</div>
-      <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.55rem; color: #421835; line-height: 1.6;">
-        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> design flow</li>
-        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> threat hunting</li>
-        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> final year project</li>
-        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> user research</li>
-        <li><span style="color: #7a3a5e; margin-right: 4px;">♡</span> gym + reset</li>
-      </ul>
-      <div style="text-align: right; margin-top: 5px; font-size: 10px; color: #7a3a5e;">♡</div>
-      <div class="torn-paper-edge-bottom"></div>
-    </div>
-  </div>
-
-  <!-- 11. Design Journey Ticket -->
-  <div class="floating-sticker" style="top: 8vh; left: 45vw; transform: rotate(1deg); z-index: 8;">
-    <div style="position: absolute; top: -5px; right: 10px; width: 12px; height: 12px; border-radius: 50%; background: #7a3a5e; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.3); z-index: 10;"></div>
-    <div class="ticket-pass" style="width: 260px; padding: 0; background: #fcf6f7; display: flex; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-      <div style="background: #9e5684; color: #fff; width: 30px; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.5rem; font-family: monospace; letter-spacing: 0.2em; padding: 10px 0;">
-        all in progress
-      </div>
-      <div style="padding: 12px; flex: 1; font-family: 'Outfit', sans-serif;">
-        <div style="font-size: 0.55rem; font-weight: 700; color: #421835; letter-spacing: 0.1em; text-transform: uppercase;">DESIGN JOURNEY</div>
-        <div style="font-size: 0.55rem; font-weight: 800; color: #2d1023; margin-top: 2px;">UI/UX · PRODUCT · SECURITY</div>
-        <div style="font-size: 0.5rem; color: #582a4b; margin-top: 8px;">Turning complexity<br>into clarity.</div>
-        <div style="margin-top: 8px; font-size: 0.45rem; font-weight: 600; color: #582a4b; background: #ebd5e0; display: inline-block; padding: 2px 6px; border-radius: 2px;">EST. 2022 — PRESENT ✦</div>
-      </div>
-      <div style="border-left: 2px dashed #ebd5e0; width: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <svg width="24" height="40" viewBox="0 0 28 60">
-          <rect x="2" y="5" width="2" height="50" fill="#2d1023" />
-          <rect x="6" y="5" width="4" height="50" fill="#2d1023" />
-          <rect x="12" y="5" width="2" height="50" fill="#2d1023" />
-          <rect x="16" y="5" width="6" height="50" fill="#2d1023" />
-          <rect x="24" y="5" width="2" height="50" fill="#2d1023" />
+  <!-- 11. 3D INTERACTIVE MASTER FOLDER (fanning out 4 blue subfolders on hover & touch) -->
+  <div class="floating-sticker" style="top: 76vh; left: 70vw; z-index: 99 !important; overflow: visible !important;" id="sticker-folders-master">
+    <div class="master-folder-container" id="interactive-folders-wrapper">
+      
+      <!-- Sub-folder 1: final-year-project -->
+      <a href="#projects" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
+          <path d="M4 16L58 16" stroke="#421835" stroke-width="1.5"/>
         </svg>
-        <span style="font-size: 6px; color: #7a3a5e; font-weight: bold; margin-top: 4px;">001</span>
+        <span class="sub-folder-label" style="color: #421835;">projects</span>
+      </a>
+
+      <!-- Sub-folder 2: cyber-labs -->
+      <a href="#about" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
+          <path d="M4 16L58 16" stroke="#421835" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label" style="color: #421835;">cyber-labs</span>
+      </a>
+
+      <!-- Sub-folder 3: inspiration -->
+      <a href="#projects" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
+          <path d="M4 16L58 16" stroke="#421835" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label" style="color: #421835;">inspiration</span>
+      </a>
+
+      <!-- Sub-folder 4: brain-dumps -->
+      <a href="#about" class="sub-folder-item hoverable" style="text-decoration: none;">
+        <svg width="34" height="28" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#884d77"/>
+          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#753c63"/>
+          <path d="M4 16L58 16" stroke="#421835" stroke-width="1.5"/>
+        </svg>
+        <span class="sub-folder-label" style="color: #421835;">brain-dumps</span>
+      </a>
+
+      <!-- 3D Folder Icon Front Cover & Back Cover -->
+      <div class="master-folder-3d-icon" style="width: 70px; height: 60px;">
+        <svg width="70" height="60" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="folder-front-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#9e5684" />
+              <stop offset="100%" stop-color="#7a3a5e" />
+            </linearGradient>
+            <linearGradient id="folder-back-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7a3a5e" />
+              <stop offset="100%" stop-color="#421835" />
+            </linearGradient>
+            <linearGradient id="folder-paper-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#ebd5e0" />
+            </linearGradient>
+            <filter id="folder-shadow-filter" x="-10%" y="-10%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#421835" flood-opacity="0.3" />
+            </filter>
+          </defs>
+          <path d="M10 20 C10 17 13 15 16 15H42L49 22H104 C107 22 110 25 110 28V78 C110 81 107 83 104 83H16 C13 83 10 81 10 78V20Z" fill="url(#folder-back-grad)" />
+          <g class="folder-papers-group">
+            <rect x="22" y="10" width="76" height="56" rx="3" fill="url(#folder-paper-grad)" transform="rotate(-1 22 10)" />
+            <rect x="28" y="7" width="68" height="56" rx="3" fill="#ffffff" opacity="0.95" transform="rotate(2 28 7)" />
+          </g>
+          <path d="M10 32 L10 80 C10 83 13 85 16 85H104 C107 85 110 83 110 80 L110 36 C110 33 107 31 104 31H54 L46 25 H16 C13 25 10 28 10 32Z" fill="url(#folder-front-grad)" filter="url(#folder-shadow-filter)" />
+          <rect x="26" y="46" width="35" height="14" rx="2" fill="#ffffff" opacity="0.3" />
+        </svg>
       </div>
+
     </div>
   </div>
 
-  <!-- 12. What Drives Me Note -->
-  <div class="floating-sticker" style="top: 7vh; right: 23vw; transform: rotate(3deg); z-index: 8;">
-    <div class="torn-paper" style="width: 170px; padding: 16px; background: #fdf5ec; font-family: 'Outfit', sans-serif; box-shadow: 2px 5px 15px rgba(0,0,0,0.06);">
-      <div class="torn-paper-edge-top"></div>
-      <div style="font-family: 'Great Vibes', cursive; font-size: 1.3rem; color: #421835; margin-bottom: 10px;">what drives me</div>
-      <div style="font-size: 0.65rem; color: #421835; line-height: 1.6; font-weight: 400;">
-        I blend creativity with strategy, aesthetics with logic, and empathy with security — to build digital experiences that matter.
-      </div>
-      <div style="text-align: right; margin-top: 10px; font-size: 12px; color: #7a3a5e;">♡</div>
-      <div class="torn-paper-edge-bottom"></div>
-    </div>
-  </div>
-
-  <!-- 13. Polaroids Stack Right -->
-  <div class="floating-sticker" style="top: 35vh; right: 26vw; width: 200px; height: 250px; z-index: 7;">
+  <!-- 12. Polaroids Stack Right -->
+  <div class="floating-sticker" style="top: 32vh; right: 26vw; width: 200px; height: 250px; z-index: 7;">
     <!-- Sky -->
     <div class="polaroid-collage" style="position: absolute; top: 0; left: 0; transform: rotate(-6deg); width: 110px; padding: 6px 6px 16px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
       <div class="polaroid-photo" style="width: 98px; height: 98px; background: #ddd;">
@@ -2701,8 +2738,7 @@
     </div>
   </div>
 
-  <!-- 14. Vinyl & Music Player -->
-  <!-- Vinyl -->
+  <!-- 13. Vinyl & Music Player -->
   <div class="floating-sticker" style="top: 38vh; right: 2vw; z-index: 8;" id="sticker-vinyl">
     <div class="vinyl-record" id="interactive-vinyl" style="width: 140px; height: 140px; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.3); position: relative; overflow: hidden; right: -40px;">
       <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=450&q=80" alt="Vinyl" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block;" />
@@ -2715,7 +2751,6 @@
     </div>
   </div>
 
-  <!-- Music Widget -->
   <div class="floating-sticker" style="top: 56vh; right: 5vw; transform: rotate(-3deg); z-index: 9;" id="sticker-music-widget">
     <div class="music-glass-card" style="width: 140px; padding: 12px; background: #ebd5e0; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.4);" id="music-widget-container">
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
@@ -2733,11 +2768,10 @@
     </div>
   </div>
 
-  <!-- 15. Doodles & Floral -->
+  <!-- Doodles & Floral -->
   <img src="https://images.unsplash.com/photo-1508759073822-83b6329c3234?w=400&q=80" alt="Floral Right" style="position: absolute; top: -10px; right: -20px; width: 180px; height: auto; mix-blend-mode: multiply; transform: rotate(15deg); pointer-events: none; opacity: 0.85;" />
   <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=400&q=80" alt="Floral Left" style="position: absolute; bottom: 0; left: -20px; width: 150px; height: auto; mix-blend-mode: multiply; transform: rotate(-30deg); pointer-events: none; opacity: 0.7;" />
 
-  <!-- Doodles -->
   <div style="position: absolute; top: 20vh; left: 40vw; font-size: 1.2rem; color: #9e5684; opacity: 0.6; font-family: 'Great Vibes', cursive;">✧</div>
   <div style="position: absolute; top: 35vh; right: 30vw; font-size: 1.5rem; color: #9e5684; opacity: 0.6; font-family: 'Great Vibes', cursive;">♡</div>
   <div style="position: absolute; bottom: 35vh; left: 35vw; font-size: 1.2rem; color: #9e5684; opacity: 0.6; font-family: 'Great Vibes', cursive;">☾</div>
@@ -2929,6 +2963,26 @@
       e.stopPropagation();
       togglePlayback();
     });
+
+    // Toggle expand/collapse folders on touch/click
+    const folderWrapper = document.getElementById('interactive-folders-wrapper');
+    folderWrapper.addEventListener('click', function(e) {
+      if (e.target.closest('.sub-folder-item')) {
+        return;
+      }
+      e.stopPropagation();
+      folderWrapper.classList.toggle('active-expand');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('#sticker-folders-master')) {
+        folderWrapper.classList.remove('active-expand');
+      }
+    });
+
+    folderWrapper.addEventListener('touchstart', function(e) {
+      e.stopPropagation();
+    }, { passive: true });
 
   })();
   </script>
