@@ -111,7 +111,7 @@
     /* Floating stickers */
     .floating-sticker {
       position: absolute;
-      cursor: grab;
+      
       user-select: none;
       z-index: 8;
     }
@@ -2498,7 +2498,7 @@
   <!-- ════════ STICKERS ════════ -->
 
   <!-- 1. ID Badge (Top Left) -->
-  <div class="floating-sticker" style="top: 2vh; left: 2vw; z-index: 10;" data-rotation="-3">
+  <div class="floating-sticker" style="top: 2vh; left: 2vw; z-index: 10 transform: rotate(-3deg);">
     <!-- Hanging lanyard tie strap clip SVG -->
     <div style="position: absolute; top: -45px; left: 50%; transform: translateX(-50%); width: 44px; height: 55px; z-index: 12; pointer-events: none;">
       <svg viewBox="0 0 44 48" style="width: 44px; height: 48px;" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2509,7 +2509,7 @@
         <circle cx="22" cy="43" r="1.5" fill="#be123c" />
       </svg>
     </div>
-    <div class="badge-card" style="width: 190px; padding: 18px; background: #421835; border-radius: 8px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab;">
+    <div class="badge-card" style="width: 190px; padding: 18px; background: #421835; border-radius: 8px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); ">
       <div style="font-family: var(--font-heading, 'Manrope', sans-serif); font-size: 18px; font-weight: 600; color: #ffffff; text-align: center; margin-top: 10px; letter-spacing: 0.04em;">Shakthi Sri</div>
       <div style="font-size: 11px; color: #d1b8c8; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--font-mono, 'IBM Plex Mono', monospace); text-align: center; margin-top: 4px; line-height: 1.4;">UI/UX Designer<br>Cybersecurity</div>
       
@@ -2524,9 +2524,9 @@
   </div>
 
   <!-- 2. Workspace Image (Mid Left) -->
-  <div class="floating-sticker" style="top: 35vh; left: 16vw; z-index: 7;" data-rotation="2">
+  <div class="floating-sticker" style="top: 35vh; left: 16vw; z-index: 7 transform: rotate(2deg);">
     <div style="position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 30px; height: 12px; background: rgba(255,255,255,0.5); backdrop-filter: blur(2px); z-index: 10; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); pointer-events: none;"></div>
-    <div class="polaroid-collage" style="width: 220px; padding: 10px 10px 18px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
+    <div class="polaroid-collage" style="width: 220px; padding: 10px 10px 18px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); ">
       <div class="polaroid-photo" style="width: 200px; height: 250px; background: #ddd;">
         <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&q=80" alt="Workspace" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" />
       </div>
@@ -2534,8 +2534,8 @@
   </div>
 
   <!-- 3. Today's Focus Note (Mid Left) -->
-  <div class="floating-sticker" style="top: 25vh; left: 2vw; z-index: 9;" data-rotation="4">
-    <div class="torn-paper" style="width: 160px; padding: 16px; background: #fdfafb; font-family: var(--font-body, 'Manrope', sans-serif); box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
+  <div class="floating-sticker" style="top: 25vh; left: 2vw; z-index: 9 transform: rotate(4deg);">
+    <div class="torn-paper" style="width: 160px; padding: 16px; background: #fdfafb; font-family: var(--font-body, 'Manrope', sans-serif); box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); ">
       <div class="torn-paper-edge-top"></div>
       <div style="font-family: var(--font-mono, 'IBM Plex Mono', monospace); font-size: 13px; font-weight: 600; color: #421835; margin-bottom: 12px; border-bottom: 1px dashed #d1b8c8; padding-bottom: 5px;">Today's Focus</div>
       <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: #421835; line-height: 1.8;">
@@ -2549,8 +2549,8 @@
   </div>
 
   <!-- 4. Design Journey Ticket (Top Right) -->
-  <div class="floating-sticker" style="top: 4vh; right: 28vw; z-index: 8;" data-rotation="0">
-    <div class="ticket-pass" style="width: 280px; padding: 0; background: #fcf6f7; display: flex; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab;">
+  <div class="floating-sticker" style="top: 4vh; right: 28vw; z-index: 8 transform: rotate(0deg);">
+    <div class="ticket-pass" style="width: 280px; padding: 0; background: #fcf6f7; display: flex; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); ">
       <div style="background: #9e5684; color: #fff; width: 35px; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 11px; font-family: var(--font-mono, 'IBM Plex Mono', monospace); letter-spacing: 0.2em; padding: 15px 0;">
         ADMIT ONE
       </div>
@@ -2574,9 +2574,9 @@
   </div>
 
   <!-- 5. What Drives Me Note (Top Right) -->
-  <div class="floating-sticker" style="top: 8vh; right: 5vw; z-index: 8;" data-rotation="-1">
+  <div class="floating-sticker" style="top: 8vh; right: 5vw; z-index: 8 transform: rotate(-1deg);">
     <div style="position: absolute; top: -5px; right: 20px; width: 14px; height: 14px; border-radius: 50%; background: #c295a7; box-shadow: inset -2px -2px 4px rgba(0,0,0,0.2); z-index: 10; pointer-events: none;"></div>
-    <div class="torn-paper" style="width: 220px; padding: 22px; background: #fdf5ec; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
+    <div class="torn-paper" style="width: 220px; padding: 22px; background: #fdf5ec; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); ">
       <div class="torn-paper-edge-top"></div>
       <div style="font-family: var(--font-heading, 'Manrope', sans-serif); font-size: 18px; font-weight: 600; color: #421835; margin-bottom: 12px; letter-spacing: 0.04em;">what drives me</div>
       <div style="font-size: 16px; color: #421835; font-family: var(--font-body, 'Manrope', sans-serif); line-height: 1.7;">
@@ -2587,21 +2587,21 @@
   </div>
 
   <!-- 6. Polaroids (Mid Right) -->
-  <div class="floating-sticker" style="top: 35vh; right: 2vw; width: 300px; height: 350px; z-index: 7;" data-rotation="0">
+  <div class="floating-sticker" style="top: 35vh; right: 2vw; width: 300px; height: 350px; z-index: 7 transform: rotate(0deg);">
     <!-- Coding (bottom-most) -->
-    <div class="polaroid-collage" style="position: absolute; top: 120px; left: 80px; transform: rotate(-3deg); width: 150px; padding: 10px 10px 24px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
+    <div class="polaroid-collage" style="position: absolute; top: 120px; left: 80px; transform: rotate(-3deg); width: 150px; padding: 10px 10px 24px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); ">
       <div class="polaroid-photo" style="width: 130px; height: 130px; background: #ddd; pointer-events: none;">
         <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80" alt="Coding" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
     <!-- Beach / Inspiration (middle) -->
-    <div class="polaroid-collage" style="position: absolute; top: 60px; left: -20px; transform: rotate(5deg); width: 140px; padding: 10px 10px 22px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); z-index: 2; cursor: grab;">
+    <div class="polaroid-collage" style="position: absolute; top: 60px; left: -20px; transform: rotate(5deg); width: 140px; padding: 10px 10px 22px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); z-index: 2; ">
       <div class="polaroid-photo" style="width: 120px; height: 120px; background: #ddd; pointer-events: none;">
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80" alt="Beach" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
     <!-- Sky (top) -->
-    <div class="polaroid-collage" style="position: absolute; top: 0px; left: 40px; transform: rotate(-8deg); width: 160px; padding: 12px 12px 28px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); z-index: 3; cursor: grab;">
+    <div class="polaroid-collage" style="position: absolute; top: 0px; left: 40px; transform: rotate(-8deg); width: 160px; padding: 12px 12px 28px; background: #fff; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); z-index: 3; ">
       <div style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 35px; height: 12px; background: rgba(255,255,255,0.7); backdrop-filter: blur(2px); box-shadow: 0 1px 3px rgba(0,0,0,0.1); pointer-events: none;"></div>
       <div class="polaroid-photo" style="width: 136px; height: 136px; background: #ddd; pointer-events: none;">
         <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&q=80" alt="Sky" style="width: 100%; height: 100%; object-fit: cover;" />
@@ -2610,9 +2610,9 @@
   </div>
 
   <!-- 7. AGNI (Bottom Center) -->
-  <div class="floating-sticker" style="top: 75vh; left: 50vw; z-index: 12;" data-rotation="-2">
+  <div class="floating-sticker" style="top: 75vh; left: 50vw; z-index: 12 transform: rotate(-2deg);">
     <!-- Increased size and properly centered with JS translation instead of translateX to not fight with draggable -->
-    <div class="agni-card" style="width: 320px; padding: 26px; background: #1a0f1c; border-radius: 12px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab; transform: translateX(-50%);">
+    <div class="agni-card" style="width: 320px; padding: 26px; background: #1a0f1c; border-radius: 12px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08));  transform: translateX(-50%);">
       <div style="font-size: 16px; font-weight: 600; color: #ebdcd5; font-family: var(--font-mono, 'IBM Plex Mono', monospace); letter-spacing: 0.05em;">AGNI C2</div>
       <div style="font-size: 11px; color: #a18a96; text-transform: uppercase; font-family: var(--font-mono, 'IBM Plex Mono', monospace); letter-spacing: 0.1em; margin-bottom: 20px;">Command & Control Framework</div>
       
@@ -2634,8 +2634,8 @@
   </div>
 
   <!-- 8. Terminal (Bottom Left) -->
-  <div class="floating-sticker" style="top: 80vh; left: 3vw; z-index: 10;" data-rotation="1">
-    <div class="terminal-window" style="width: 320px; border-radius: 8px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab;">
+  <div class="floating-sticker" style="top: 80vh; left: 3vw; z-index: 10 transform: rotate(1deg);">
+    <div class="terminal-window" style="width: 320px; border-radius: 8px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); ">
       <div class="terminal-header" style="padding: 10px 14px; background: #f4f4f5; border-bottom: 1px solid #e4e4e7; border-radius: 8px 8px 0 0; pointer-events: none;">
         <div style="display: flex; gap: 6px;">
           <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56; display: block;"></span>
@@ -2653,7 +2653,7 @@
   </div>
 
   <!-- 9. 3D INTERACTIVE MASTER FOLDER (fanning out 4 blue subfolders on hover & touch) (Bottom Left, near Terminal) -->
-  <div class="floating-sticker" style="top: 72vh; left: 28vw; z-index: 99 !important; overflow: visible !important;" id="sticker-folders-master" data-rotation="-8">
+  <div class="floating-sticker" style="top: 72vh; left: 28vw; z-index: 99 !important; overflow: visible !important transform: rotate(-8deg);">
     <div class="master-folder-container" id="interactive-folders-wrapper">
       
       <!-- Sub-folder 1: final-year-project -->
@@ -2729,9 +2729,9 @@
   </div>
 
   <!-- 10. Handwritten Note (Mid Left) -->
-  <div class="floating-sticker" style="top: 55vh; left: 18vw; z-index: 9;" data-rotation="-6">
+  <div class="floating-sticker" style="top: 55vh; left: 18vw; z-index: 9 transform: rotate(-6deg);">
     <div style="position: absolute; top: 0px; left: 50%; transform: translateX(-50%) rotate(-4deg); width: 45px; height: 16px; background: rgba(255,255,255,0.7); backdrop-filter: blur(2px); box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 10; pointer-events: none;"></div>
-    <div class="torn-paper" style="width: 200px; padding: 25px; background: #fffdf9; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); cursor: grab;">
+    <div class="torn-paper" style="width: 200px; padding: 25px; background: #fffdf9; box-shadow: var(--shadow-note, 0 8px 20px rgba(0,0,0,0.05)); ">
       <div class="torn-paper-edge-top"></div>
       <div style="font-family: var(--font-quote, 'Cormorant Garamond', serif); font-size: 22px; line-height: 1.4; color: #2d1023; pointer-events: none;">
         "I design with empathy, build with logic, and protect with purpose."
@@ -2744,8 +2744,8 @@
   </div>
 
   <!-- 11. Tech Stack (Bottom Right) -->
-  <div class="floating-sticker" style="top: 72vh; right: 22vw; z-index: 8;" data-rotation="1">
-    <div class="tech-stack-card" style="width: 190px; padding: 18px; background: #ffffff; border-radius: 12px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); cursor: grab;">
+  <div class="floating-sticker" style="top: 72vh; right: 22vw; z-index: 8 transform: rotate(1deg);">
+    <div class="tech-stack-card" style="width: 190px; padding: 18px; background: #ffffff; border-radius: 12px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); ">
       <div style="font-family: var(--font-mono, 'IBM Plex Mono', monospace); font-size: 11px; font-weight: 600; color: #421835; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; margin-bottom: 16px; pointer-events: none;">TECH STACK</div>
       <div class="collage-tech-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; place-items: center; pointer-events: none;">
         <img class="tech-icon" src="https://cdn.simpleicons.org/figma/F24E1E" style="width: 22px; height: 22px;" />
@@ -2761,7 +2761,7 @@
   </div>
 
   <!-- 12. Vinyl & Music Player (Bottom Right Corner) -->
-  <div class="floating-sticker" style="top: 70vh; right: 2vw; z-index: 8;" id="sticker-vinyl" data-rotation="0">
+  <div class="floating-sticker" style="top: 70vh; right: 2vw; z-index: 8 transform: rotate(0deg);">
     <div class="vinyl-record" id="interactive-vinyl" style="width: 180px; height: 180px; border-radius: 50%; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); position: relative; overflow: hidden; cursor: pointer;">
       <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=450&q=80" alt="Vinyl" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; pointer-events: none;" />
       <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; background: #9e5684; border: 3px solid #2d1023; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; pointer-events: none;">
@@ -2773,8 +2773,8 @@
     </div>
   </div>
 
-  <div class="floating-sticker" style="top: 82vh; right: 10vw; z-index: 10;" id="sticker-music-widget" data-rotation="-2">
-    <div class="music-glass-card" style="width: 180px; padding: 16px; background: #ebd5e0; border-radius: 12px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); border: 1px solid rgba(255,255,255,0.6); cursor: grab;" id="music-widget-container">
+  <div class="floating-sticker" style="top: 82vh; right: 10vw; z-index: 10 transform: rotate(-2deg);">
+    <div class="music-glass-card" style="width: 180px; padding: 16px; background: #ebd5e0; border-radius: 12px; box-shadow: var(--shadow-major, 0 18px 45px rgba(0,0,0,0.08)); border: 1px solid rgba(255,255,255,0.6); " id="music-widget-container">
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; pointer-events: none;">
         <span style="font-size: 10px; font-weight: 600; color: #421835; font-family: var(--font-mono, 'IBM Plex Mono', monospace); text-transform: uppercase;">Focus Mode</span>
         <div style="font-size: 10px; color: #421835;">♡</div>
@@ -2791,8 +2791,8 @@
   </div>
 
   <!-- FAR RIGHT: Functional Retro MacPaint Palette (z-index highest) -->
-  <div class="floating-sticker" style="top: 25vh; right: 2vw; z-index: 200 !important;" id="sticker-palette" data-rotation="0">
-    <div class="paint-palette" style="cursor: grab;">
+  <div class="floating-sticker" style="top: 25vh; right: 2vw; z-index: 200 !important transform: rotate(0deg);">
+    <div class="paint-palette" style="">
       <div class="paint-palette-header">
         <div class="paint-palette-header-stripes"></div>
       </div>
@@ -2831,85 +2831,6 @@
 
   <script>
   (function() {
-    // 1. Initial Rotations setup for draggable support
-    const stickers = document.querySelectorAll('.floating-sticker');
-    stickers.forEach(sticker => {
-      const rot = sticker.getAttribute('data-rotation') || '0';
-      sticker.style.transform = `rotate(${rot}deg)`;
-      sticker.dataset.currentX = 0;
-      sticker.dataset.currentY = 0;
-      sticker.dataset.rot = rot;
-    });
-
-    // 2. Drag & Drop Logic
-    let highestZ = 150;
-    stickers.forEach(sticker => {
-      let isDragging = false;
-      let startX, startY;
-
-      const handleStart = (e) => {
-        // Prevent dragging if clicking interactable elements
-        if (e.target.closest('a, button, input, .sub-folder-item, .fas, .paint-tool, .color-swatch')) return;
-        
-        isDragging = true;
-        highestZ += 1;
-        sticker.style.zIndex = highestZ;
-
-        if (e.type === 'touchstart') {
-          startX = e.touches[0].clientX;
-          startY = e.touches[0].clientY;
-        } else {
-          startX = e.clientX;
-          startY = e.clientY;
-          // Only prevent default on mouse to allow touch scrolling if needed, though we have fixed 100vh
-          e.preventDefault();
-        }
-      };
-
-      const handleMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-
-        let clientX, clientY;
-        if (e.type === 'touchmove') {
-          clientX = e.touches[0].clientX;
-          clientY = e.touches[0].clientY;
-        } else {
-          clientX = e.clientX;
-          clientY = e.clientY;
-        }
-
-        const dx = clientX - startX;
-        const dy = clientY - startY;
-
-        let curX = parseFloat(sticker.dataset.currentX || 0) + dx;
-        let curY = parseFloat(sticker.dataset.currentY || 0) + dy;
-
-        sticker.style.transform = `translate(${curX}px, ${curY}px) rotate(${sticker.dataset.rot}deg)`;
-        
-        // Update for next tick
-        sticker.dataset.tempX = curX;
-        sticker.dataset.tempY = curY;
-        startX = clientX;
-        startY = clientY;
-      };
-
-      const handleEnd = () => {
-        if (!isDragging) return;
-        isDragging = false;
-        sticker.dataset.currentX = sticker.dataset.tempX || sticker.dataset.currentX;
-        sticker.dataset.currentY = sticker.dataset.tempY || sticker.dataset.currentY;
-      };
-
-      sticker.addEventListener('mousedown', handleStart);
-      window.addEventListener('mousemove', handleMove, { passive: false });
-      window.addEventListener('mouseup', handleEnd);
-
-      sticker.addEventListener('touchstart', handleStart, { passive: false });
-      window.addEventListener('touchmove', handleMove, { passive: false });
-      window.addEventListener('touchend', handleEnd);
-    });
-
     // 3. Canvas Logic
     const canvas = document.getElementById('drawing-canvas');
     const ctx    = canvas.getContext('2d');
