@@ -2477,6 +2477,168 @@
       filter: contrast(1.5) sepia(1);
     }
   </style>
+
+<!-- ════════ PARALLAX INTRO SEQUENCE ════════ -->
+<section id="parallax-world" style="height: 600vh; position: relative; z-index: 1000; background: #000;">
+  <div id="parallax-sticky-stage" style="position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; background: #000;">
+    
+    <!-- 1. Background -->
+    <img id="plx-bg" src="background.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" />
+    
+    <!-- 2. Tree branch -->
+    <img id="plx-tree" src="tree.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; opacity: 0; transform: translateY(-50px);" />
+    
+    <!-- 3. Girl working -->
+    <!-- The girl is positioned centrally just like the window to create the illusion she is behind it -->
+    <img id="plx-girl" src="girl.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 3;" />
+
+    <!-- 4. Windows Open -->
+    <img id="plx-winopen" src="windowsopen.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4; opacity: 0;" />
+
+    <!-- 5. Curtains -->
+    <!-- Curtains sit exactly over the window bounds -->
+    <img id="plx-curtain-l" src="left_curtain.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5; opacity: 0;" />
+    <img id="plx-curtain-r" src="right_curtain.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5; opacity: 0;" />
+    
+    <!-- 6. Window Close -->
+    <img id="plx-winclose" src="windowclose.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 6; opacity: 0;" />
+
+    <!-- Fade overlay to transition into Home -->
+    <div id="plx-fadeout" style="position: absolute; inset: 0; background: #fdfaf8; z-index: 10; opacity: 0; pointer-events: none;"></div>
+    
+    <!-- Scroll Hint -->
+    <div id="plx-scroll-hint" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 12; color: #fff; font-family: 'Manrope', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-align: center; opacity: 0.8; transition: opacity 0.5s;">
+      SCROLL TO ENTER<br>
+      <i class="fas fa-chevron-down" style="margin-top: 8px;"></i>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  const plxWorld = document.getElementById('parallax-world');
+  if(!plxWorld) return;
+
+  const bg = document.getElementById('plx-bg');
+  const tree = document.getElementById('plx-tree');
+  const girl = document.getElementById('plx-girl');
+  const winOpen = document.getElementById('plx-winopen');
+  const winClose = document.getElementById('plx-winclose');
+  const curtainL = document.getElementById('plx-curtain-l');
+  const curtainR = document.getElementById('plx-curtain-r');
+  const fadeout = document.getElementById('plx-fadeout');
+  const scrollHint = document.getElementById('plx-scroll-hint');
+
+  // Animation targets
+  let targetProgress = 0;
+  let currentProgress = 0;
+
+  function updateParallax() {
+    // Calculate scroll progress specifically for the parallax-world container
+    const rect = plxWorld.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // total scrollable distance inside the 600vh container
+    const totalScroll = rect.height - windowHeight;
+    
+    if (totalScroll > 0) {
+      // How much has scrolled from the top of parallax-world
+      let scrolled = -rect.top;
+      
+      // Normalize progress from 0 to 1
+      let rawProgress = scrolled / totalScroll;
+      
+      // Clamp between 0 and 1
+      targetProgress = Math.max(0, Math.min(1, rawProgress));
+    }
+
+    // Hide scroll hint once user starts scrolling
+    if (targetProgress > 0.02) {
+      scrollHint.style.opacity = "0";
+    } else {
+      scrollHint.style.opacity = "0.8";
+    }
+
+    // Lerp (smooth interpolation)
+    currentProgress += (targetProgress - currentProgress) * 0.08;
+
+    // Apply specific animations based on currentProgress
+    
+    // 1. 0-15%: Tree branch fades in and translates down
+    let pTree = Math.min(1, Math.max(0, currentProgress / 0.15));
+    tree.style.opacity = pTree;
+    tree.style.transform = `translateY(${-50 + (50 * pTree)}px)`;
+
+    // 2. 15-30%: Closed window appears and scales into center
+    let pWinClose = 0;
+    if (currentProgress > 0.15) {
+      pWinClose = Math.min(1, (currentProgress - 0.15) / 0.15);
+    }
+    // We also want it to start fading out at 30-50%
+    let pWinCloseFade = 1;
+    if (currentProgress > 0.3) {
+      pWinCloseFade = 1 - Math.min(1, (currentProgress - 0.3) / 0.2);
+    }
+    winClose.style.opacity = pWinClose * pWinCloseFade;
+    winClose.style.transform = `translate(-50%, -50%) scale(${0.8 + (0.2 * pWinClose)})`;
+
+    // 3. 30-50%: Curtains & Open Window fade in as Closed Window fades out
+    let pWinOpen = 0;
+    if (currentProgress > 0.3) {
+      pWinOpen = Math.min(1, (currentProgress - 0.3) / 0.2);
+    }
+    winOpen.style.opacity = pWinOpen;
+    curtainL.style.opacity = pWinOpen;
+    curtainR.style.opacity = pWinOpen;
+
+    // 4. 50-70%: Curtains slide apart
+    let pCurtainSlide = 0;
+    if (currentProgress > 0.5) {
+      pCurtainSlide = Math.min(1, (currentProgress - 0.5) / 0.2);
+    }
+    curtainL.style.transform = `translate(${-50 - (60 * pCurtainSlide)}%, -50%)`;
+    curtainR.style.transform = `translate(${-50 + (60 * pCurtainSlide)}%, -50%)`;
+
+    // 5. 70-95%: Zoom into the girl (everything else scales up and fades out)
+    let pZoom = 0;
+    if (currentProgress > 0.7) {
+      pZoom = Math.min(1, (currentProgress - 0.7) / 0.25);
+    }
+    
+    // Scale everything except girl up
+    const zoomScale = 1 + (pZoom * 4); // Scale up to 5x
+    const bgScale = 1 + (pZoom * 0.5);
+    
+    bg.style.transform = `scale(${bgScale})`;
+    tree.style.transform = `translateY(0) scale(${zoomScale})`;
+    winOpen.style.transform = `translate(-50%, -50%) scale(${zoomScale})`;
+    
+    // Fade them out as we zoom in
+    const fadeOutZoom = 1 - pZoom;
+    bg.style.opacity = fadeOutZoom;
+    tree.style.opacity = fadeOutZoom;
+    winOpen.style.opacity = pWinOpen * fadeOutZoom;
+    curtainL.style.opacity = pWinOpen * fadeOutZoom;
+    curtainR.style.opacity = pWinOpen * fadeOutZoom;
+    
+    // 6. 95-100%: Fade entire stage to white to transition into the home section smoothly
+    let pWhiteFade = 0;
+    if (currentProgress > 0.95) {
+      pWhiteFade = Math.min(1, (currentProgress - 0.95) / 0.05);
+    }
+    fadeout.style.opacity = pWhiteFade;
+
+    requestAnimationFrame(updateParallax);
+  }
+
+  // Start loop
+  requestAnimationFrame(updateParallax);
+
+})();
+</script>
+
+
 <section id="home" style="background-color: #fdfaf8; position: relative; overflow: hidden; height: 100vh;">
 
   <!-- Texture Layers -->
