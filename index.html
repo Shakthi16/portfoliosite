@@ -2484,6 +2484,7 @@
 
 
 
+
 <!-- ════════ GSAP PARALLAX INTRO SEQUENCE ════════ -->
 <section id="parallax-world" style="width: 100%; height: 100vh; overflow: hidden; background: #000; position: relative; z-index: 1000;">
   
@@ -2493,18 +2494,19 @@
   <!-- 2. Tree branch -->
   <img class="gsap-layer" id="gsap-tree" src="tree.png" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 2;" />
   
-  <!-- 3. Girl working (inside the window bounds) -->
+  <!-- 3. Girl working (inside the room, behind curtains) -->
   <img class="gsap-layer" id="gsap-girl" src="girl.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.92) translateY(30px); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 3; opacity: 0;" />
 
-  <!-- 4. Windows Open -->
-  <img class="gsap-layer" id="gsap-winopen" src="windowsopen.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4; opacity: 0;" />
+  <!-- 4. Curtains (inside the window frame, behind the window) -->
+  <!-- Start off-screen left and right -->
+  <img class="gsap-layer" id="gsap-curtain-l" src="left_curtain.png" style="position: absolute; top: 50%; left: -50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4;" />
+  <img class="gsap-layer" id="gsap-curtain-r" src="right_curtain.png" style="position: absolute; top: 50%; left: 150%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4;" />
 
-  <!-- 5. Curtains -->
-  <img class="gsap-layer" id="gsap-curtain-l" src="left_curtain.png" style="position: absolute; top: 50%; left: 0%; transform: translate(-100%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5;" />
-  <img class="gsap-layer" id="gsap-curtain-r" src="right_curtain.png" style="position: absolute; top: 50%; left: 100%; transform: translate(0%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5;" />
-  
-  <!-- 6. Window Close -->
-  <img class="gsap-layer" id="gsap-winclose" src="windowclose.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 6;" />
+  <!-- 5. Windows (Front-most layer) -->
+  <!-- Closed window -->
+  <img class="gsap-layer" id="gsap-winclose" src="windowclose.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5;" />
+  <!-- Open window -->
+  <img class="gsap-layer" id="gsap-winopen" src="windowsopen.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5; opacity: 0;" />
 
   <!-- Fade overlay to transition into Home -->
   <div id="gsap-fadeout" style="position: absolute; inset: 0; background: #fdfaf8; z-index: 10; opacity: 0; pointer-events: none;"></div>
@@ -2521,8 +2523,9 @@
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.set("#gsap-winopen", { opacity: 0, rotationY: -90, transformPerspective: 800 });
-  gsap.set("#gsap-girl", { opacity: 0, scale: 0.92, y: 30 });
+  // Set initial states
+  gsap.set("#gsap-winopen", { opacity: 0 }); // Open window hidden
+  gsap.set("#gsap-girl", { opacity: 0, scale: 0.92, y: 30 }); // Girl hidden
   
   const masterTl = gsap.timeline({
     scrollTrigger: {
@@ -2545,39 +2548,62 @@ document.addEventListener("DOMContentLoaded", (event) => {
   masterTl.add("stage1", 0);
   masterTl.to({}, {duration: 2}, "stage1");
   
-  // Stage 2 (20-35%): Window Opens
+  // Stage 2 (20-35%): Window Opens (Simple crossfade)
   masterTl.add("stage2", 2);
   masterTl.to("#gsap-winclose", { opacity: 0, duration: 1.5, ease: "power2.inOut" }, "stage2");
-  masterTl.to("#gsap-winopen", { opacity: 1, rotationY: 0, duration: 1.5, ease: "power2.inOut" }, "stage2");
+  masterTl.to("#gsap-winopen", { opacity: 1, duration: 1.5, ease: "power2.inOut" }, "stage2");
 
   // Stage 3 (35-55%): Zoom through the window
   masterTl.add("stage3", 3.5);
-  masterTl.to(["#gsap-bg", "#gsap-tree", "#gsap-winopen"], {
+  // Scale the entire scene EXCEPT the girl
+  masterTl.to(["#gsap-bg", "#gsap-tree", "#gsap-winopen", "#gsap-curtain-l", "#gsap-curtain-r"], {
     scale: 4, 
     transformOrigin: "50% 50%", 
     duration: 2, 
     ease: "power2.inOut"
   }, "stage3");
-  masterTl.to(["#gsap-bg", "#gsap-tree"], { opacity: 0, duration: 2, ease: "power2.in" }, "stage3");
+  // DO NOT fade out the background so it doesn't turn black!
 
   // Stage 4 (55-70%): Curtains slide in
   masterTl.add("stage4", 5.5);
-  masterTl.to("#gsap-curtain-l", { x: "-50%", left: "50%", duration: 1.5, ease: "power2.out" }, "stage4");
-  masterTl.to("#gsap-curtain-r", { x: "-50%", left: "50%", duration: 1.5, ease: "power2.out" }, "stage4");
+  // Curtains start off-screen (-50% left, 150% right) and slide to 50%
+  masterTl.to("#gsap-curtain-l", { left: "50%", duration: 1.5, ease: "power2.out" }, "stage4");
+  masterTl.to("#gsap-curtain-r", { left: "50%", duration: 1.5, ease: "power2.out" }, "stage4");
 
   // Stage 5 (70-85%): Curtains open
   masterTl.add("stage5", 7.0);
-  masterTl.to("#gsap-curtain-l", { x: "-120%", scale: 1.1, rotation: -5, duration: 1.5, ease: "power2.inOut" }, "stage5");
-  masterTl.to("#gsap-curtain-r", { x: "20%", scale: 1.1, rotation: 5, duration: 1.5, ease: "power2.inOut" }, "stage5");
+  masterTl.to("#gsap-curtain-l", { 
+    x: "-120%", 
+    scale: 4.4, // Since they were scaled to 4x in stage 3, we scale to 4.4x
+    rotation: -5,
+    duration: 1.5, 
+    ease: "power2.inOut" 
+  }, "stage5");
+  masterTl.to("#gsap-curtain-r", { 
+    x: "20%", 
+    scale: 4.4, 
+    rotation: 5,
+    duration: 1.5, 
+    ease: "power2.inOut" 
+  }, "stage5");
 
   // Stage 6 (85-100%): Reveal girl and fade to home
   masterTl.add("stage6", 8.5);
-  masterTl.to("#gsap-girl", { opacity: 1, scale: 1, y: 0, duration: 1.5, ease: "power2.out" }, "stage6");
+  masterTl.to("#gsap-girl", { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0, 
+    duration: 1.5, 
+    ease: "power2.out" 
+  }, "stage6");
 
   // 95-100%: Fade entire stage to white
   masterTl.to("#gsap-fadeout", { opacity: 1, duration: 0.5, ease: "power1.inOut" }, 9.5);
 });
 </script>
+
+
+
 
 
 <section id="home" style="background-color: #fdfaf8; position: relative; overflow: hidden; height: 100vh;">
