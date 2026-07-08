@@ -2478,6 +2478,7 @@
     }
   </style>
 
+
 <!-- ════════ PARALLAX INTRO SEQUENCE ════════ -->
 <section id="parallax-world" style="height: 600vh; position: relative; z-index: 1000; background: #000;">
   <div id="parallax-sticky-stage" style="position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; background: #000;">
@@ -2486,22 +2487,23 @@
     <img id="plx-bg" src="background.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" />
     
     <!-- 2. Tree branch -->
-    <img id="plx-tree" src="tree.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; opacity: 0; transform: translateY(-50px);" />
+    <img id="plx-tree" src="tree.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; opacity: 1; transform: translateY(-50px);" />
     
     <!-- 3. Girl working -->
-    <!-- The girl is positioned centrally just like the window to create the illusion she is behind it -->
     <img id="plx-girl" src="girl.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 3;" />
 
-    <!-- 4. Windows Open -->
-    <img id="plx-winopen" src="windowsopen.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4; opacity: 0;" />
-
-    <!-- 5. Curtains -->
-    <!-- Curtains sit exactly over the window bounds -->
-    <img id="plx-curtain-l" src="left_curtain.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5; opacity: 0;" />
-    <img id="plx-curtain-r" src="right_curtain.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5; opacity: 0;" />
+    <!-- 4. Curtains -->
+    <!-- Opacity 1 so they hide the girl even when window is open -->
+    <img id="plx-curtain-l" src="left_curtain.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4; opacity: 1;" />
+    <img id="plx-curtain-r" src="right_curtain.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 4; opacity: 1;" />
     
+    <!-- 5. Windows Open -->
+    <!-- Opacity 1 so the open frame is always there behind the closed window -->
+    <img id="plx-winopen" src="windowsopen.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 5; opacity: 1;" />
+
     <!-- 6. Window Close -->
-    <img id="plx-winclose" src="windowclose.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 6; opacity: 0;" />
+    <!-- Opacity 1 at start so it completely hides everything inside -->
+    <img id="plx-winclose" src="windowclose.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 80vh; max-width: 90vw; object-fit: contain; z-index: 6; opacity: 1;" />
 
     <!-- Fade overlay to transition into Home -->
     <div id="plx-fadeout" style="position: absolute; inset: 0; background: #fdfaf8; z-index: 10; opacity: 0; pointer-events: none;"></div>
@@ -2530,99 +2532,84 @@
   const fadeout = document.getElementById('plx-fadeout');
   const scrollHint = document.getElementById('plx-scroll-hint');
 
-  // Animation targets
   let targetProgress = 0;
   let currentProgress = 0;
 
   function updateParallax() {
-    // Calculate scroll progress specifically for the parallax-world container
     const rect = plxWorld.getBoundingClientRect();
     const windowHeight = window.innerHeight;
-    
-    // total scrollable distance inside the 600vh container
     const totalScroll = rect.height - windowHeight;
     
     if (totalScroll > 0) {
-      // How much has scrolled from the top of parallax-world
       let scrolled = -rect.top;
-      
-      // Normalize progress from 0 to 1
       let rawProgress = scrolled / totalScroll;
-      
-      // Clamp between 0 and 1
       targetProgress = Math.max(0, Math.min(1, rawProgress));
     }
 
-    // Hide scroll hint once user starts scrolling
     if (targetProgress > 0.02) {
       scrollHint.style.opacity = "0";
     } else {
       scrollHint.style.opacity = "0.8";
     }
 
-    // Lerp (smooth interpolation)
     currentProgress += (targetProgress - currentProgress) * 0.08;
 
-    // Apply specific animations based on currentProgress
-    
-    // 1. 0-15%: Tree branch fades in and translates down
+    // 1. 0-15%: Tree branch fades in and drops down
     let pTree = Math.min(1, Math.max(0, currentProgress / 0.15));
     tree.style.opacity = pTree;
     tree.style.transform = `translateY(${-50 + (50 * pTree)}px)`;
 
-    // 2. 15-30%: Closed window appears and scales into center
-    let pWinClose = 0;
-    if (currentProgress > 0.15) {
-      pWinClose = Math.min(1, (currentProgress - 0.15) / 0.15);
-    }
-    // We also want it to start fading out at 30-50%
-    let pWinCloseFade = 1;
-    if (currentProgress > 0.3) {
-      pWinCloseFade = 1 - Math.min(1, (currentProgress - 0.3) / 0.2);
-    }
-    winClose.style.opacity = pWinClose * pWinCloseFade;
-    winClose.style.transform = `translate(-50%, -50%) scale(${0.8 + (0.2 * pWinClose)})`;
+    // 2. 15-30%: Closed window scales up from 0.5 to 1.0
+    // But it should be visible from 0? The user said: "then the windoesclose.png when scroll... like a 3d". 
+    // Let's make it scale from 0.8 to 1.0
+    let pWinScale = Math.min(1, Math.max(0, currentProgress / 0.3));
+    const initialScale = 0.8 + (0.2 * pWinScale);
+    winClose.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
+    winOpen.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
+    curtainL.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
+    curtainR.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
+    girl.style.transform = `translate(-50%, -50%) scale(${initialScale})`;
 
-    // 3. 30-50%: Curtains & Open Window fade in as Closed Window fades out
-    let pWinOpen = 0;
+    // 3. 30-50%: Crossfade from closed window to open window
+    let pWinFade = 0;
     if (currentProgress > 0.3) {
-      pWinOpen = Math.min(1, (currentProgress - 0.3) / 0.2);
+      pWinFade = Math.min(1, (currentProgress - 0.3) / 0.2);
     }
-    winOpen.style.opacity = pWinOpen;
-    curtainL.style.opacity = pWinOpen;
-    curtainR.style.opacity = pWinOpen;
+    winClose.style.opacity = 1 - pWinFade;
 
     // 4. 50-70%: Curtains slide apart
     let pCurtainSlide = 0;
     if (currentProgress > 0.5) {
       pCurtainSlide = Math.min(1, (currentProgress - 0.5) / 0.2);
     }
-    curtainL.style.transform = `translate(${-50 - (60 * pCurtainSlide)}%, -50%)`;
-    curtainR.style.transform = `translate(${-50 + (60 * pCurtainSlide)}%, -50%)`;
+    // We maintain the initialScale from step 2 for the base transform
+    curtainL.style.transform = `translate(${-50 - (60 * pCurtainSlide)}%, -50%) scale(${initialScale})`;
+    curtainR.style.transform = `translate(${-50 + (60 * pCurtainSlide)}%, -50%) scale(${initialScale})`;
 
-    // 5. 70-95%: Zoom into the girl (everything else scales up and fades out)
+    // 5. 70-95%: Zoom into the girl (scale everything up except girl)
     let pZoom = 0;
     if (currentProgress > 0.7) {
       pZoom = Math.min(1, (currentProgress - 0.7) / 0.25);
     }
     
-    // Scale everything except girl up
-    const zoomScale = 1 + (pZoom * 4); // Scale up to 5x
+    const zoomScale = initialScale + (pZoom * 4); // Scale up a lot
     const bgScale = 1 + (pZoom * 0.5);
     
     bg.style.transform = `scale(${bgScale})`;
-    tree.style.transform = `translateY(0) scale(${zoomScale})`;
+    tree.style.transform = `translateY(0) scale(${1 + (pZoom * 4)})`;
     winOpen.style.transform = `translate(-50%, -50%) scale(${zoomScale})`;
+    curtainL.style.transform = `translate(${-50 - (60 * pCurtainSlide)}%, -50%) scale(${zoomScale})`;
+    curtainR.style.transform = `translate(${-50 + (60 * pCurtainSlide)}%, -50%) scale(${zoomScale})`;
     
-    // Fade them out as we zoom in
+    // Fade out everything in front of the girl as we zoom
     const fadeOutZoom = 1 - pZoom;
     bg.style.opacity = fadeOutZoom;
     tree.style.opacity = fadeOutZoom;
-    winOpen.style.opacity = pWinOpen * fadeOutZoom;
-    curtainL.style.opacity = pWinOpen * fadeOutZoom;
-    curtainR.style.opacity = pWinOpen * fadeOutZoom;
+    winOpen.style.opacity = fadeOutZoom;
+    curtainL.style.opacity = fadeOutZoom;
+    curtainR.style.opacity = fadeOutZoom;
     
-    // 6. 95-100%: Fade entire stage to white to transition into the home section smoothly
+    // 6. 95-100%: Fade entire stage to white to transition into the home section
     let pWhiteFade = 0;
     if (currentProgress > 0.95) {
       pWhiteFade = Math.min(1, (currentProgress - 0.95) / 0.05);
@@ -2632,11 +2619,10 @@
     requestAnimationFrame(updateParallax);
   }
 
-  // Start loop
   requestAnimationFrame(updateParallax);
-
 })();
 </script>
+
 
 
 <section id="home" style="background-color: #fdfaf8; position: relative; overflow: hidden; height: 100vh;">
