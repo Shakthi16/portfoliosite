@@ -498,6 +498,54 @@
       outline: 2px solid #000000;
       outline-offset: -3px;
     }
+
+    /* Responsive Mobile Collage Overrides to prevent clumsy overlaps */
+    @media (max-width: 1024px) {
+      .floating-sticker {
+        transform: scale(0.85) !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Hide secondary decorations to keep mobile clean and prevent overlaps */
+      #sticker-workspace-polaroid,
+      #sticker-focus-note,
+      #sticker-building-note,
+      #sticker-lessons-note,
+      #sticker-plant-pot,
+      #sticker-folders-left,
+      #sticker-folders-right,
+      #sticker-ticket-stub,
+      #sticker-why-note,
+      #sticker-vinyl,
+      #sticker-music-widget,
+      #sticker-polaroids-stack,
+      #sticker-notebook,
+      #sticker-quote-note,
+      #sticker-agni-card {
+        display: none !important;
+      }
+      /* Position core elements cleanly on mobile */
+      #sticker-badge {
+        top: 2% !important;
+        left: 50% !important;
+        transform: translateX(-50%) rotate(0deg) scale(0.8) !important;
+      }
+      #sticker-mac-terminal {
+        bottom: 15% !important;
+        left: 50% !important;
+        transform: translateX(-50%) scale(0.8) !important;
+      }
+      #sticker-tech-stack {
+        bottom: 2% !important;
+        left: 50% !important;
+        transform: translateX(-50%) scale(0.8) !important;
+      }
+      .collage-title-container {
+        top: 50% !important;
+      }
+    }
+
     /* Drawing canvas overlays home */
     #drawing-canvas {
       position: absolute;
@@ -2009,40 +2057,40 @@
   <!-- ═══ DRAWING CANVAS (z:100, invisible until tool selected) ═══ -->
   <canvas id="drawing-canvas"></canvas>
 
-  <!-- ═══ TITLE: Absolutely centered ═══ -->
+  <!-- ═══ TITLE: Absolutely centered with massive breathing room ═══ -->
   <div class="collage-title-container">
-    <h1 class="collage-name">Shakthi Sri</h1>
-    <span class="collage-subtitle">DESIGN · SECURE · EMPOWER</span>
-    <span class="collage-subdesc">Crafting intuitive experiences.<br/>Securing what matters.</span>
+    <h1 class="collage-name" style="font-size: clamp(3.8rem, 7.5vw, 6.8rem); color: #4e1e35; font-family: 'Great Vibes', cursive;">Shakthi Sri</h1>
+    <span class="collage-subtitle" style="font-size: clamp(0.58rem, 1vw, 0.8rem); letter-spacing: 0.4em; color: #705864; font-weight: 700; margin-top: 10px;">DESIGN · SECURE · EMPOWER</span>
+    <span class="collage-subdesc" style="font-size: clamp(0.52rem, 0.85vw, 0.72rem); letter-spacing: 0.15em; color: #8a737f; margin-top: 16px; border-top: 1px solid rgba(112, 88, 100, 0.12); padding-top: 10px; max-width: 250px;">Crafting intuitive experiences.<br/>Securing what matters.</span>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════
-       STICKERS: PLACEMENT ACCORDING TO ART DIRECTION DOCUMENT
+       STICKERS: PUSHED TO THE LEFT AND RIGHT TO CLEAR THE CENTER
        ========================================================= -->
 
-  <!-- LEFT SIDE -->
+  <!-- LEFT MARGIN STICKERS (left: 3% to 28%) -->
   
   <!-- 1. ID Badge Card — top-left -->
-  <div class="floating-sticker" style="top: 30px; left: 40px; transform: rotate(-3deg); z-index: 10;" id="sticker-badge">
-    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 44px; height: 32px; z-index: 12;">
+  <div class="floating-sticker" style="top: 6%; left: 4%; transform: rotate(-3deg); z-index: 10;" id="sticker-badge">
+    <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 40px; height: 30px; z-index: 12;">
       <!-- Clip SVG -->
       <svg viewBox="0 0 44 32" class="badge-strap-clip">
         <path d="M4 16 L12 4 L32 4 L40 16 L32 28 L12 28 Z" />
         <rect x="18" y="10" width="8" height="12" rx="1" fill="#444" />
       </svg>
     </div>
-    <div class="badge-card">
-      <div style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: #ffffff; text-align: center; margin-top: 8px;">Shakthi Sri</div>
-      <div style="font-size: 0.65rem; color: #d8b4fe; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Outfit', sans-serif; text-align: center; margin-top: 2px;">UI/UX Designer<br>Cybersecurity Enthusiast</div>
+    <div class="badge-card" style="width: 195px; height: 285px; padding: 14px;">
+      <div style="font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 700; color: #ffffff; text-align: center; margin-top: 8px;">Shakthi Sri</div>
+      <div style="font-size: 0.6rem; color: #d8b4fe; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Outfit', sans-serif; text-align: center; margin-top: 2px; line-height: 1.3;">UI/UX Designer<br>Cybersecurity Enthusiast</div>
       
-      <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 2.5px solid rgba(255,255,255,0.12); box-shadow: 0 4px 12px rgba(0,0,0,0.3); margin: 12px 0;">
+      <div style="width: 85px; height: 85px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(255,255,255,0.12); box-shadow: 0 4px 10px rgba(0,0,0,0.3); margin: 10px 0;">
         <img src="me.png" alt="Shakthi Sri" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
 
-      <div style="width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
-        <div style="font-size: 0.55rem; color: #a1a1aa; font-family: monospace; letter-spacing: 0.2em;">EST. 2026 // PRESENT</div>
+      <div style="width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px; display: flex; flex-direction: column; align-items: center; gap: 2px;">
+        <div style="font-size: 0.52rem; color: #a1a1aa; font-family: monospace; letter-spacing: 0.2em;">EST. 2026 // PRESENT</div>
         <!-- Little gold star symbol -->
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="#fbbf24" style="margin-top: 4px;">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="#fbbf24" style="margin-top: 2px;">
           <path d="M12,0 L14.5,9 L24,12 L14.5,15 L12,24 L9.5,15 L0,12 L9.5,9 Z" />
         </svg>
       </div>
@@ -2050,181 +2098,170 @@
   </div>
 
   <!-- 2. Workspace Polaroid — top left-center -->
-  <div class="floating-sticker" style="top: 70px; left: 270px; transform: rotate(-2deg); z-index: 9;" id="sticker-workspace-polaroid">
-    <div class="washi-tape-accent" style="top: -8px; left: 35%; width: 55px; height: 14px; transform: rotate(-4deg);"></div>
-    <div style="position: absolute; top: -5px; left: 10px; width: 22px; height: 22px; border-radius: 50%; background: #705864; border: 1.5px solid #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.15); z-index: 12; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #fff; font-family: sans-serif; font-weight: bold;">S</div>
-    <div class="polaroid-collage" style="width: 175px;">
-      <div class="polaroid-photo" style="width: 153px; height: 160px;">
+  <div class="floating-sticker" style="top: 8%; left: 19%; transform: rotate(-2deg); z-index: 9;" id="sticker-workspace-polaroid">
+    <div class="washi-tape-accent" style="top: -8px; left: 35%; width: 50px; height: 12px; transform: rotate(-4deg);"></div>
+    <div style="position: absolute; top: -5px; left: 10px; width: 20px; height: 20px; border-radius: 50%; background: #705864; border: 1.5px solid #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.15); z-index: 12; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #fff; font-family: sans-serif; font-weight: bold;">S</div>
+    <div class="polaroid-collage" style="width: 155px; padding: 8px 8px 18px;">
+      <div class="polaroid-photo" style="width: 137px; height: 140px;">
         <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&q=80" alt="Workspace" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
-      <div style="font-family: 'Great Vibes', cursive; font-size: 1.1rem; color: #705864; text-align: center; margin-top: 8px; line-height: 1;">focus create repeat</div>
+      <div style="font-family: 'Great Vibes', cursive; font-size: 1.05rem; color: #705864; text-align: center; margin-top: 6px; line-height: 1;">focus create repeat</div>
     </div>
   </div>
 
-  <!-- 3. Focus Note — lined paper next to workspace polaroid -->
-  <div class="floating-sticker" style="top: 150px; left: 450px; transform: rotate(4deg); z-index: 8;" id="sticker-focus-note">
-    <div class="washi-tape-accent" style="top: -8px; left: 30%; width: 60px; height: 12px; transform: rotate(3deg);"></div>
-    <div class="lined-postit">
-      <div class="lined-postit-title">today's focus</div>
-      <ul class="lined-postit-list">
+  <!-- 3. Focus Note — lined paper next to ticket stub (repositioned to right) -->
+  <div class="floating-sticker" style="top: 24%; right: 21%; transform: rotate(4deg); z-index: 8;" id="sticker-focus-note">
+    <div class="washi-tape-accent" style="top: -8px; left: 30%; width: 50px; height: 10px; transform: rotate(3deg);"></div>
+    <div class="lined-postit" style="width: 130px; padding: 10px 12px;">
+      <div class="lined-postit-title" style="font-size: 0.6rem; padding-bottom: 2px; margin-bottom: 6px;">today's focus</div>
+      <ul class="lined-postit-list" style="font-size: 0.58rem; line-height: 1.6;">
         <li><input type="checkbox" checked /> design flow</li>
         <li><input type="checkbox" checked /> threat hunting</li>
         <li><input type="checkbox" checked /> final year project</li>
         <li><input type="checkbox" /> user research</li>
-        <li><input type="checkbox" /> gym + reset</li>
       </ul>
-      <!-- Tiny heart icon -->
-      <div style="text-align: right; margin-top: 4px; font-size: 8px; color: #8b707c;">♥</div>
+      <div style="text-align: right; margin-top: 2px; font-size: 7px; color: #8b707c;">♥</div>
     </div>
   </div>
 
-  <!-- 4. Currently Building Note — bottom left, under badge -->
-  <div class="floating-sticker" style="top: 480px; left: 40px; transform: rotate(2deg); z-index: 8;" id="sticker-building-note">
-    <div class="torn-paper" style="width: 230px; font-family: 'Great Vibes', cursive; font-size: 1.45rem; color: #37212e; line-height: 1.25; text-align: center;">
+  <!-- 4. Currently Building Note — middle-left -->
+  <div class="floating-sticker" style="top: 46%; left: 3%; transform: rotate(2deg); z-index: 8;" id="sticker-building-note">
+    <div class="torn-paper" style="width: 200px; padding: 16px; font-family: 'Great Vibes', cursive; font-size: 1.35rem; color: #37212e; line-height: 1.25; text-align: center;">
       <div class="torn-paper-edge-top"></div>
       <!-- Paper clip SVG overlay -->
-      <svg viewBox="0 0 24 38" class="paper-clip-svg">
+      <svg viewBox="0 0 24 38" class="paper-clip-svg" style="width: 20px; height: 32px; top: -10px; right: 10px;">
         <path d="M8,4 A6,6 0 0,1 20,4 L20,28 A8,8 0 0,1 4,28 L4,10 A4,4 0 0,1 12,10 L12,26 A2,2 0 0,1 8,26 L8,12" fill="none" stroke="#777" stroke-width="1.8" />
       </svg>
-      <div style="font-family: sans-serif; font-size: 0.65rem; font-weight: 700; color: #8a737f; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px;">currently building</div>
+      <div style="font-family: sans-serif; font-size: 0.62rem; font-weight: 700; color: #8a737f; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px;">currently building</div>
       my future<br/>
       one prototype,<br/>
       one packet,<br/>
       one step at a time.
-      <div style="font-family: sans-serif; font-size: 9px; color: #a18a96; margin-top: 6px;">♥</div>
+      <div style="font-family: sans-serif; font-size: 8px; color: #a18a96; margin-top: 4px;">♥</div>
       <div class="torn-paper-edge-bottom"></div>
     </div>
   </div>
 
-  <!-- 5. Lessons I'm Still Learning Note — mid left-center -->
-  <div class="floating-sticker" style="top: 480px; left: 270px; transform: rotate(-3deg); z-index: 8;" id="sticker-lessons-note">
-    <div class="washi-tape-accent" style="top: -8px; left: 25%; width: 50px; height: 12px; background: rgba(220,205,215,0.5); transform: rotate(-5deg);"></div>
-    <div class="sticky-note-purple" style="width: 170px;">
-      <div style="font-family: sans-serif; font-size: 0.65rem; font-weight: 700; color: #6e4e5e; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">lessons i'm still learning</div>
-      <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.62rem; color: #4e3843; line-height: 1.7;">
-        <li style="margin-bottom: 6px; padding-left: 10px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> not everything needs a solution</li>
-        <li style="margin-bottom: 6px; padding-left: 10px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> it's okay to take breaks</li>
-        <li style="margin-bottom: 6px; padding-left: 10px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> balance is a continuous choice</li>
+  <!-- 5. Lessons Note — middle left-center -->
+  <div class="floating-sticker" style="top: 44%; left: 19%; transform: rotate(-3deg); z-index: 8;" id="sticker-lessons-note">
+    <div class="washi-tape-accent" style="top: -8px; left: 25%; width: 45px; height: 10px; background: rgba(220,205,215,0.5); transform: rotate(-5deg);"></div>
+    <div class="sticky-note-purple" style="width: 140px; padding: 12px;">
+      <div style="font-family: sans-serif; font-size: 0.6rem; font-weight: 700; color: #6e4e5e; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">lessons i'm still learning</div>
+      <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.58rem; color: #4e3843; line-height: 1.6;">
+        <li style="margin-bottom: 4px; padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> not everything needs a solution</li>
+        <li style="margin-bottom: 4px; padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> it's okay to take breaks</li>
+        <li style="margin-bottom: 4px; padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #8a737f;">•</span> balance is a continuous choice</li>
       </ul>
-      <div style="text-align: right; font-size: 9px; color: #8a737f; margin-top: 4px;">☾</div>
+      <div style="text-align: right; font-size: 8px; color: #8a737f; margin-top: 2px;">☾</div>
     </div>
   </div>
 
   <!-- 6. Bottom Left Terminal -->
-  <div class="floating-sticker" style="bottom: 40px; left: 40px; transform: rotate(-1deg); z-index: 8;" id="sticker-mac-terminal">
-    <div class="terminal-window" style="width: 320px;">
-      <div class="terminal-header">
-        <div style="display: flex; gap: 5px;">
-          <span style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f56; display: block;"></span>
-          <span style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e; display: block;"></span>
-          <span style="width: 8px; height: 8px; border-radius: 50%; background: #27c93f; display: block;"></span>
+  <div class="floating-sticker" style="bottom: 6%; left: 3%; transform: rotate(-1deg); z-index: 8;" id="sticker-mac-terminal">
+    <div class="terminal-window" style="width: 270px;">
+      <div class="terminal-header" style="padding: 6px 10px;">
+        <div style="display: flex; gap: 4px;">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #ff5f56; display: block;"></span>
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #ffbd2e; display: block;"></span>
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #27c93f; display: block;"></span>
         </div>
-        <span style="font-size: 0.65rem; color: #71717a; font-weight: 700; margin: 0 auto; font-family: monospace;">shakthi@journey:~</span>
+        <span style="font-size: 0.6rem; color: #71717a; font-weight: 700; margin: 0 auto; font-family: monospace;">shakthi@journey:~</span>
       </div>
-      <div class="terminal-body" style="background: #fafaf9; font-size: 0.68rem; line-height: 1.6; color: #27272a; padding: 14px;">
-        <div style="color: #71717a; margin-bottom: 2px;">~$ whoami</div>
-        <div style="font-weight: 700; color: #4e1e35; margin-bottom: 8px;">dreamer. builder. problem-solver. lifelong learner</div>
-        <div style="color: #71717a; margin-bottom: 2px;">~$ focus</div>
-        <div style="color: #705864; font-weight: 700; margin-bottom: 8px;">secure systems. seamless experiences. real impact.</div>
-        <div style="color: #71717a; margin-bottom: 2px;">~$ status</div>
+      <div class="terminal-body" style="background: #fafaf9; font-size: 0.65rem; line-height: 1.5; color: #27272a; padding: 10px 12px;">
+        <div style="color: #71717a; margin-bottom: 1px;">~$ whoami</div>
+        <div style="font-weight: 700; color: #4e1e35; margin-bottom: 6px;">dreamer. builder. problem-solver.</div>
+        <div style="color: #71717a; margin-bottom: 1px;">~$ focus</div>
+        <div style="color: #705864; font-weight: 700; margin-bottom: 6px;">secure systems. seamless experiences.</div>
+        <div style="color: #71717a; margin-bottom: 1px;">~$ status</div>
         <div style="color: #18181b;"><span style="color: #10b981; font-weight: 700;">●</span> building | learning | growing</div>
       </div>
     </div>
   </div>
 
   <!-- 7. Potted Plant — next to terminal -->
-  <div class="floating-sticker" style="bottom: 40px; left: 375px; transform: rotate(0deg); z-index: 9; pointer-events: none;" id="sticker-plant-pot">
-    <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
-      <!-- Leaf branches Unsplash PNG / Vector style potted plant -->
-      <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=200&h=200&fit=crop&q=80" alt="Plant pot" style="width: 90px; height: 100px; object-fit: cover; border-radius: 50% 50% 4px 4px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); display: block;" />
-      <div style="width: 50px; height: 35px; background: #eadecc; border: 1.5px solid #dcd3c4; border-radius: 0 0 10px 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.06); margin-top: -8px;"></div>
+  <div class="floating-sticker" style="bottom: 6%; left: 23%; transform: rotate(0deg); z-index: 9; pointer-events: none;" id="sticker-plant-pot">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 85px;">
+      <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=200&h=200&fit=crop&q=80" alt="Plant pot" style="width: 75px; height: 85px; object-fit: cover; border-radius: 50% 50% 4px 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: block;" />
+      <div style="width: 40px; height: 28px; background: #eadecc; border: 1.5px solid #dcd3c4; border-radius: 0 0 8px 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); margin-top: -6px;"></div>
     </div>
   </div>
 
   <!-- 8. Folders (bottom left) -->
-  <div class="floating-sticker" style="bottom: 40px; left: 470px; transform: rotate(5deg); z-index: 8; display: flex; gap: 14px;" id="sticker-folders-left">
+  <div class="floating-sticker" style="bottom: 6%; left: 31%; transform: rotate(5deg); z-index: 8; display: flex; gap: 10px;" id="sticker-folders-left">
     <!-- Folder 1: final-year-project -->
-    <a href="#projects" class="mac-folder-sticker" style="text-decoration: none;">
-      <div style="position: relative;">
-        <!-- Beautiful mini SVG folder representation in dusty purple color -->
-        <svg width="44" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
-          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
-          <!-- Star doodle on folder -->
-          <path d="M31 23 L32.5 28 L37 28.5 L33.5 31.5 L34.5 36 L31 33.5 L27.5 36 L28.5 31.5 L25 28.5 L29.5 28 Z" fill="#ffffff" opacity="0.4" />
-        </svg>
-      </div>
-      <span style="font-size: 8px; font-weight: 700; color: #705864; margin-top: 4px; font-family: sans-serif;">final-year-project</span>
+    <a href="#projects" class="mac-folder-sticker" style="text-decoration: none; width: 64px;">
+      <svg width="36" height="30" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
+        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
+        <path d="M31 23 L32.5 28 L37 28.5 L33.5 31.5 L34.5 36 L31 33.5 L27.5 36 L28.5 31.5 L25 28.5 L29.5 28 Z" fill="#ffffff" opacity="0.4" />
+      </svg>
+      <span style="font-size: 7px; font-weight: 700; color: #705864; margin-top: 2px; font-family: sans-serif;">final-year-project</span>
     </a>
     
     <!-- Folder 2: cyber-labs -->
-    <a href="#about" class="mac-folder-sticker" style="text-decoration: none;">
-      <div style="position: relative;">
-        <svg width="44" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
-          <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
-          <!-- Small lock icon SVG overlay on folder -->
-          <rect x="27" y="27" width="8" height="6" rx="1" fill="#fff" opacity="0.4" />
-          <path d="M29 27 V25 A2 2 0 0 1 33 25 V27" stroke="#fff" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.4" />
-        </svg>
-      </div>
-      <span style="font-size: 8px; font-weight: 700; color: #705864; margin-top: 4px; font-family: sans-serif;">cyber-labs</span>
+    <a href="#about" class="mac-folder-sticker" style="text-decoration: none; width: 64px;">
+      <svg width="36" height="30" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
+        <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
+        <rect x="27" y="27" width="8" height="6" rx="1" fill="#fff" opacity="0.4" />
+        <path d="M29 27 V25 A2 2 0 0 1 33 25 V27" stroke="#fff" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.4" />
+      </svg>
+      <span style="font-size: 7px; font-weight: 700; color: #705864; margin-top: 2px; font-family: sans-serif;">cyber-labs</span>
     </a>
   </div>
 
 
-  <!-- CENTER / MIDDLE BOTTOM CARDS -->
+  <!-- CENTER / MIDDLE BOTTOM CARDS (Out of the way of center name) -->
 
-  <!-- 9. Tech Stack Card — left center bottom -->
-  <div class="floating-sticker" style="bottom: 40px; left: 42vw; transform: rotate(1deg); z-index: 8;" id="sticker-tech-stack">
-    <div class="tech-stack-card">
-      <div style="font-family: sans-serif; font-size: 0.65rem; font-weight: 700; color: #8b707c; text-transform: uppercase; letter-spacing: 0.12em; text-align: center; margin-bottom: 12px; border-bottom: 1px solid rgba(139,112,124,0.1); padding-bottom: 4px;">TECH STACK</div>
-      <div class="tech-grid">
+  <!-- 9. Tech Stack Card — bottom center-left -->
+  <div class="floating-sticker" style="bottom: 5%; left: 40%; transform: rotate(1deg); z-index: 8;" id="sticker-tech-stack">
+    <div class="tech-stack-card" style="width: 155px; padding: 10px 12px;">
+      <div style="font-family: sans-serif; font-size: 0.6rem; font-weight: 700; color: #8b707c; text-transform: uppercase; letter-spacing: 0.12em; text-align: center; margin-bottom: 10px; border-bottom: 1px solid rgba(139,112,124,0.1); padding-bottom: 3px;">TECH STACK</div>
+      <div class="tech-grid" style="gap: 10px;">
         <!-- React -->
-        <img class="tech-icon" src="https://simpleicons.org/icons/react.svg" alt="React" title="React" />
+        <img class="tech-icon" style="width: 20px; height: 20px;" src="https://simpleicons.org/icons/react.svg" alt="React" title="React" />
         <!-- Node.js -->
-        <img class="tech-icon" src="https://simpleicons.org/icons/nodedotjs.svg" alt="Node" title="Node.js" />
+        <img class="tech-icon" style="width: 20px; height: 20px;" src="https://simpleicons.org/icons/nodedotjs.svg" alt="Node" title="Node.js" />
         <!-- Python -->
-        <img class="tech-icon" src="https://simpleicons.org/icons/python.svg" alt="Python" title="Python" />
+        <img class="tech-icon" style="width: 20px; height: 20px;" src="https://simpleicons.org/icons/python.svg" alt="Python" title="Python" />
         <!-- Tailwind CSS -->
-        <img class="tech-icon" src="https://simpleicons.org/icons/tailwindcss.svg" alt="Tailwind" title="Tailwind CSS" />
+        <img class="tech-icon" style="width: 20px; height: 20px;" src="https://simpleicons.org/icons/tailwindcss.svg" alt="Tailwind" title="Tailwind CSS" />
         <!-- GitHub -->
-        <img class="tech-icon" src="https://simpleicons.org/icons/github.svg" alt="GitHub" title="GitHub" />
+        <img class="tech-icon" style="width: 20px; height: 20px;" src="https://simpleicons.org/icons/github.svg" alt="GitHub" title="GitHub" />
         <!-- TypeScript -->
-        <img class="tech-icon" src="https://simpleicons.org/icons/typescript.svg" alt="TypeScript" title="TypeScript" />
+        <img class="tech-icon" style="width: 20px; height: 20px;" src="https://simpleicons.org/icons/typescript.svg" alt="TypeScript" title="TypeScript" />
         <!-- MongoDB -->
-        <img class="tech-icon" src="https://simpleicons.org/icons/mongodb.svg" alt="MongoDB" title="MongoDB" />
+        <img class="tech-icon" style="width: 20px; height: 20px;" src="https://simpleicons.org/icons/mongodb.svg" alt="MongoDB" title="MongoDB" />
         <!-- Next.js -->
-        <img class="tech-icon" src="https://simpleicons.org/icons/nextdotjs.svg" alt="Next.js" title="Next.js" />
+        <img class="tech-icon" style="width: 20px; height: 20px;" src="https://simpleicons.org/icons/nextdotjs.svg" alt="Next.js" title="Next.js" />
       </div>
       <!-- WiFi Signal Icon -->
-      <div style="display: flex; justify-content: center; margin-top: 10px; opacity: 0.35;">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="#8b707c">
+      <div style="display: flex; justify-content: center; margin-top: 8px; opacity: 0.35;">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="#8b707c">
           <path d="M12,21 C11.4,21 11,20.6 11,20 C11,19.4 11.4,19 12,19 C12.6,19 13,19.4 13,20 C13,20.6 12.6,21 12,21 Z M12,16 C9.8,16 8,17.8 8,20 C8,20.6 7.6,21 7,21 C6.4,21 6,20.6 6,20 C6,16.7 8.7,14 12,14 C15.3,14 18,16.7 18,20 C18,20.6 17.6,21 17,21 C16.4,21 16,20.6 16,20 C16,17.8 14.2,16 12,16 Z M12,11 C7,11 3,15 3,20 C3,20.6 2.6,21 2,21 C1.4,21 1,20.6 1,20 C1,13.9 5.9,9 12,9 C18.1,9 23,13.9 23,20 C23,20.6 22.6,21 22,21 C21.4,21 21,20.6 21,20 C21,15 17,11 12,11 Z" />
         </svg>
       </div>
     </div>
   </div>
 
-  <!-- 10. AGNI C2 Card — center bottom -->
-  <div class="floating-sticker" style="bottom: 40px; left: 54vw; transform: rotate(0deg); z-index: 8;" id="sticker-agni-card">
-    <div class="agni-card">
-      <div style="font-size: 0.72rem; font-weight: 700; color: #ebdcd5; font-family: sans-serif; letter-spacing: 0.05em;">AGNI C2</div>
-      <div style="font-size: 0.5rem; color: #a18a96; text-transform: uppercase; font-family: monospace; letter-spacing: 0.15em; margin-bottom: 8px;">Command & Control Framework</div>
+  <!-- 10. AGNI C2 Card — bottom center-right -->
+  <div class="floating-sticker" style="bottom: 5%; left: 53%; transform: rotate(0deg); z-index: 8;" id="sticker-agni-card">
+    <div class="agni-card" style="width: 180px; padding: 12px 14px;">
+      <div style="font-size: 0.68rem; font-weight: 700; color: #ebdcd5; font-family: sans-serif; letter-spacing: 0.05em;">AGNI C2</div>
+      <div style="font-size: 0.48rem; color: #a18a96; text-transform: uppercase; font-family: monospace; letter-spacing: 0.12em; margin-bottom: 6px;">Command & Control Framework</div>
       
-      <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.58rem; color: #dcd3c4; line-height: 1.7; font-family: monospace;">
-        <li style="padding-left: 10px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Threat Simulation</li>
-        <li style="padding-left: 10px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Real-time Monitoring</li>
-        <li style="padding-left: 10px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Secure Communication</li>
-        <li style="padding-left: 10px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Modular Architecture</li>
-        <li style="padding-left: 10px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Stealth &amp; Persistence</li>
+      <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.55rem; color: #dcd3c4; line-height: 1.6; font-family: monospace;">
+        <li style="padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Threat Simulation</li>
+        <li style="padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Real-time Monitoring</li>
+        <li style="padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Secure Communication</li>
+        <li style="padding-left: 8px; position: relative;"><span style="position: absolute; left: 0; color: #fb7185;">•</span> Modular Architecture</li>
       </ul>
 
-      <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 10px; padding-top: 8px;">
-        <div style="font-size: 0.5rem; color: #8a737f; font-family: sans-serif; line-height: 1.2;">Final Year Project<br/>Built with purpose.</div>
-        <div style="display: flex; align-items: center; gap: 4px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 8px; padding-top: 6px;">
+        <div style="font-size: 0.48rem; color: #8a737f; font-family: sans-serif; line-height: 1.2;">Final Year Project.</div>
+        <div style="display: flex; align-items: center; gap: 3px;">
           <!-- SVG Flame/AGNI icon in orange/gold -->
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#f97316">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#f97316">
             <path d="M12 23c-5.52 0-10-4.48-10-10 0-4.75 3.31-8.72 7.75-9.75-.41 1.25-.62 2.62-.62 4 0 4.14 3.36 7.5 7.5 7.5.38 0 .75-.03 1.12-.09C16.92 19.34 14.67 23 12 23zm-.5-21c0 3.31 2.69 6 6 6 .68 0 1.33-.11 1.94-.31C18.66 4.09 15.61 2 12.19 2c-.23 0-.46.01-.69.03V2z" />
           </svg>
           <span style="font-family: 'Outfit', sans-serif; font-size: 8px; font-weight: 700; color: #fb7185; letter-spacing: 0.1em;">AGNI</span>
@@ -2234,28 +2271,28 @@
   </div>
 
 
-  <!-- TOP CENTER -->
+  <!-- RIGHT MARGIN STICKERS (right: 3% to 28%) -->
 
-  <!-- 11. Minimal Boarding Pass / Ticket Stub -->
-  <div class="floating-sticker" style="top: 40px; left: 720px; transform: rotate(0deg); z-index: 8;" id="sticker-ticket-stub">
-    <div style="position: relative; width: 285px;">
-      <div class="washi-tape-accent" style="top: -8px; left: 40%; width: 50px; height: 12px; transform: rotate(-2deg);"></div>
-      <div class="ticket-pass">
-        <div class="ticket-left-stripe">
-          <span>all in progress</span>
+  <!-- 11. Minimal Boarding Pass / Ticket Stub — top right-center -->
+  <div class="floating-sticker" style="top: 6%; right: 19%; transform: rotate(0deg); z-index: 8;" id="sticker-ticket-stub">
+    <div style="position: relative; width: 230px;">
+      <div class="washi-tape-accent" style="top: -8px; left: 40%; width: 45px; height: 10px; transform: rotate(-2deg);"></div>
+      <div class="ticket-pass" style="padding: 12px;">
+        <div class="ticket-left-stripe" style="width: 14px;">
+          <span style="font-size: 0.45rem;">all in progress</span>
         </div>
-        <div style="display: flex; justify-content: space-between; width: 100%; padding-left: 14px; gap: 8px;">
+        <div style="display: flex; justify-content: space-between; width: 100%; padding-left: 10px; gap: 6px;">
           <div style="display: flex; flex-direction: column; justify-content: space-between; font-family: 'Outfit', sans-serif;">
             <div>
-              <div style="font-size: 8px; font-weight: 900; letter-spacing: 0.18em; color: #8b707c; text-transform: uppercase;">● Design tour</div>
-              <div style="font-size: 11px; font-weight: 900; color: #33212a; line-height: 1.25; margin-top: 4px;">UI/UX · PRODUCT · SECURITY</div>
+              <div style="font-size: 7px; font-weight: 900; letter-spacing: 0.18em; color: #8b707c; text-transform: uppercase;">● Design tour</div>
+              <div style="font-size: 9px; font-weight: 900; color: #33212a; line-height: 1.25; margin-top: 2px;">UI/UX · PRODUCT</div>
             </div>
-            <p style="font-size: 0.65rem; color: #705864; line-height: 1.4; margin-top: 4px; font-weight: 500;">Turning complexity<br/>into clarity.</p>
-            <div style="font-size: 7px; font-weight: 700; border: 1px solid rgba(139,112,124,0.3); border-radius: 4px; padding: 2px 6px; width: fit-content; margin-top: 6px; color: #705864; letter-spacing: 0.05em;">EST. 2022 - PRESENT</div>
+            <p style="font-size: 0.58rem; color: #705864; line-height: 1.3; margin-top: 2px; font-weight: 500;">Complexity to clarity.</p>
+            <div style="font-size: 6px; font-weight: 700; border: 1px solid rgba(139,112,124,0.3); border-radius: 3px; padding: 1px 4px; width: fit-content; margin-top: 4px; color: #705864;">EST. 2022</div>
           </div>
           
-          <div style="border-left: 1.5px dashed #ebdcd5; padding-left: 10px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 50px; flex-shrink: 0;">
-            <svg width="28" height="60" viewBox="0 0 28 60" style="margin-top: 4px;">
+          <div style="border-left: 1.5px dashed #ebdcd5; padding-left: 8px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 40px; flex-shrink: 0;">
+            <svg width="22" height="48" viewBox="0 0 28 60" style="margin-top: 2px;">
               <!-- barcode mock in SVG lines -->
               <rect x="1" y="2" width="1.5" height="56" fill="#111" />
               <rect x="4" y="2" width="2.5" height="56" fill="#111" />
@@ -2265,21 +2302,17 @@
               <rect x="15" y="2" width="3.5" height="56" fill="#111" />
               <rect x="20" y="2" width="1" height="56" fill="#111" />
               <rect x="22" y="2" width="2.5" height="56" fill="#111" />
-              <rect x="26" y="2" width="1" height="56" fill="#111" />
             </svg>
-            <span style="font-size: 6px; font-weight: 700; color: #a18a96; font-family: monospace;">001</span>
+            <span style="font-size: 5px; font-weight: 700; color: #a18a96; font-family: monospace;">001</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-
-  <!-- RIGHT SIDE -->
-
   <!-- 12. Why Note — top-right -->
-  <div class="floating-sticker" style="top: 30px; right: 270px; transform: rotate(2deg); z-index: 8;" id="sticker-why-note">
-    <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); width: 20px; height: 24px; z-index: 10;">
+  <div class="floating-sticker" style="top: 6%; right: 4%; transform: rotate(2deg); z-index: 8;" id="sticker-why-note">
+    <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); width: 18px; height: 22px; z-index: 10;">
       <!-- Push pin red/rose gold SVG -->
       <svg viewBox="0 0 20 24" width="100%" height="100%">
         <ellipse cx="10" cy="5" rx="5" ry="3" fill="#e11d48" />
@@ -2287,48 +2320,18 @@
         <line x1="10" y1="14" x2="10" y2="24" stroke="#71717a" stroke-width="1.5" />
       </svg>
     </div>
-    <div class="torn-paper" style="width: 215px; font-family: 'Outfit', sans-serif; font-size: 0.68rem; color: #4e3843; line-height: 1.7; background: #faf8f5;">
+    <div class="torn-paper" style="width: 180px; font-family: 'Outfit', sans-serif; font-size: 0.65rem; color: #4e3843; line-height: 1.6; background: #faf8f5; padding: 16px;">
       <div class="torn-paper-edge-top"></div>
-      <div style="font-family: 'Great Vibes', cursive; font-size: 1.4rem; color: #705864; margin-bottom: 8px; line-height: 1.1;">why shavirita?</div>
-      I blend creativity with conscious intent - designing not just beautiful interfaces, but meaningful, secure, human experiences.
-      <!-- Dainty handdrawn floral SVG doodle -->
-      <div style="display: flex; justify-content: flex-end; margin-top: 6px; opacity: 0.4;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#705864" stroke-width="1.2">
-          <circle cx="12" cy="12" r="2" fill="#705864" />
-          <path d="M12,10 C12,6 16,6 12,10 Z M12,14 C12,18 8,18 12,14 Z M10,12 C6,12 6,8 10,12 Z M14,12 C18,12 18,16 14,12 Z" />
-        </svg>
-      </div>
+      <div style="font-family: 'Great Vibes', cursive; font-size: 1.3rem; color: #705864; margin-bottom: 8px; line-height: 1.1;">why shavirita?</div>
+      I blend creativity with conscious intent - designing not just beautiful interfaces, but meaningful, secure experiences.
       <div class="torn-paper-edge-bottom"></div>
     </div>
   </div>
 
-  <!-- 13. Baby's Breath Flower Branch sticker — far top-right -->
-  <div class="floating-sticker" style="top: 30px; right: 40px; transform: rotate(8deg); z-index: 9; pointer-events: none;" id="sticker-babys-breath">
-    <div style="position: relative; width: 140px; height: 180px;">
-      <!-- Elegant high-fidelity branch SVG -->
-      <svg viewBox="0 0 100 120" width="100%" height="100%">
-        <!-- Stems -->
-        <path d="M50,110 C50,80 55,60 48,30" fill="none" stroke="#8c7a6b" stroke-width="1" />
-        <path d="M48,55 C42,42 32,38 35,22" fill="none" stroke="#8c7a6b" stroke-width="0.8" />
-        <path d="M49,42 C58,35 68,30 62,18" fill="none" stroke="#8c7a6b" stroke-width="0.8" />
-        <!-- Small Buds/White baby's breath flowers -->
-        <circle cx="35" cy="22" r="2.5" fill="#fafaf9" stroke="#bda895" stroke-width="0.5" />
-        <circle cx="32" cy="26" r="2" fill="#fafaf9" stroke="#bda895" stroke-width="0.5" />
-        <circle cx="38" cy="18" r="2" fill="#fafaf9" stroke="#bda895" stroke-width="0.5" />
-        <circle cx="62" cy="18" r="2.5" fill="#fafaf9" stroke="#bda895" stroke-width="0.5" />
-        <circle cx="65" cy="22" r="2" fill="#fafaf9" stroke="#bda895" stroke-width="0.5" />
-        <circle cx="58" cy="15" r="2" fill="#fafaf9" stroke="#bda895" stroke-width="0.5" />
-        <circle cx="48" cy="30" r="2.5" fill="#fafaf9" stroke="#bda895" stroke-width="0.5" />
-      </svg>
-      <!-- Tape holding it -->
-      <div class="washi-tape-accent" style="top: 70px; left: 20px; width: 50px; height: 12px; background: rgba(235, 222, 215, 0.5); transform: rotate(15deg);"></div>
-    </div>
-  </div>
-
-  <!-- 14. Vinyl Record — center-right -->
-  <div class="floating-sticker" style="top: 320px; right: 40px; transform: rotate(0deg); z-index: 8;" id="sticker-vinyl">
-    <div class="vinyl-record" style="width: 150px; height: 150px;">
-      <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- 13. Vinyl Record — middle right-center -->
+  <div class="floating-sticker" style="top: 38%; right: 4%; transform: rotate(0deg); z-index: 8;" id="sticker-vinyl">
+    <div class="vinyl-record" style="width: 130px; height: 130px;">
+      <svg width="130" height="130" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="rg2" cx="50%" cy="50%" r="50%">
             <stop offset="0%"   stop-color="#090909"/>
@@ -2352,86 +2355,76 @@
     </div>
   </div>
 
-  <!-- 15. Music Widget — bottom center-right -->
-  <div class="floating-sticker" style="bottom: 270px; right: 40px; transform: rotate(-2deg); z-index: 9;" id="sticker-music-widget">
-    <div class="music-glass-card">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-        <span style="font-size: 8px; font-weight: 700; color: #a17887; text-transform: uppercase; letter-spacing: 0.1em;">Focus Mode</span>
+  <!-- 14. Music Widget — middle-right -->
+  <div class="floating-sticker" style="top: 55%; right: 4%; transform: rotate(-2deg); z-index: 9;" id="sticker-music-widget">
+    <div class="music-glass-card" style="width: 135px; padding: 10px 12px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+        <span style="font-size: 7px; font-weight: 700; color: #a17887; text-transform: uppercase;">Focus Mode</span>
         <!-- Animated audio bars -->
-        <div class="music-widget-bar">
-          <span class="music-bar-item" style="animation-delay: 0.1s;"></span>
-          <span class="music-bar-item" style="animation-delay: 0.4s;"></span>
-          <span class="music-bar-item" style="animation-delay: 0.2s;"></span>
+        <div class="music-widget-bar" style="height: 14px;">
+          <span class="music-bar-item" style="width: 1.5px; animation-delay: 0.1s;"></span>
+          <span class="music-bar-item" style="width: 1.5px; animation-delay: 0.4s;"></span>
+          <span class="music-bar-item" style="width: 1.5px; animation-delay: 0.2s;"></span>
         </div>
       </div>
-      <div style="font-size: 0.72rem; font-weight: 700; color: #4e3843; margin-bottom: 2px;">lofi beats</div>
-      <div style="font-size: 0.55rem; color: #a18a96; margin-bottom: 8px;">chillhop study channel</div>
+      <div style="font-size: 0.68rem; font-weight: 700; color: #4e3843; margin-bottom: 1px;">lofi beats</div>
+      <div style="font-size: 0.5rem; color: #a18a96; margin-bottom: 6px;">study chill channel</div>
       
       <!-- Mock Playback slider bar -->
-      <div style="width: 100%; height: 3px; background: rgba(0,0,0,0.06); border-radius: 2px; margin-bottom: 12px; position: relative;">
-        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 62%; background: #a17887; border-radius: 2px;"></div>
-        <div style="position: absolute; left: 62%; top: 50%; transform: translate(-50%, -50%); width: 7px; height: 7px; border-radius: 50%; background: #a17887; border: 1px solid #ffffff;"></div>
+      <div style="width: 100%; height: 2px; background: rgba(0,0,0,0.06); border-radius: 1px; margin-bottom: 8px; position: relative;">
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 62%; background: #a17887; border-radius: 1px;"></div>
       </div>
 
       <!-- Playback controls -->
-      <div style="display: flex; align-items: center; justify-content: center; gap: 14px; color: #705864;">
-        <i class="fas fa-step-backward" style="font-size: 10px; cursor: pointer;"></i>
-        <i class="fas fa-pause" style="font-size: 11px; cursor: pointer;"></i>
-        <i class="fas fa-step-forward" style="font-size: 10px; cursor: pointer;"></i>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; color: #705864;">
+        <i class="fas fa-step-backward" style="font-size: 8px; cursor: pointer;"></i>
+        <i class="fas fa-pause" style="font-size: 9px; cursor: pointer;"></i>
+        <i class="fas fa-step-forward" style="font-size: 8px; cursor: pointer;"></i>
       </div>
     </div>
   </div>
 
-  <!-- 16. Polaroids Stack — center-right desk -->
-  <div class="floating-sticker" style="top: 320px; right: 270px; transform: rotate(0deg); z-index: 8; width: 250px; height: 260px;" id="sticker-polaroids-stack">
+  <!-- 15. Polaroids Stack — middle right-center -->
+  <div class="floating-sticker" style="top: 36%; right: 18%; transform: rotate(0deg); z-index: 8; width: 170px; height: 180px;" id="sticker-polaroids-stack">
     <!-- Polaroid 1: Sunset sky (bottom layer, rotated -8deg) -->
-    <div class="polaroid-collage" style="position: absolute; top: 10px; left: 5px; transform: rotate(-8deg); width: 100px; padding: 6px 6px 14px;">
-      <div class="polaroid-photo" style="width: 88px; height: 90px;">
+    <div class="polaroid-collage" style="position: absolute; top: 10px; left: 5px; transform: rotate(-8deg); width: 85px; padding: 4px 4px 10px;">
+      <div class="polaroid-photo" style="width: 75px; height: 75px;">
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&q=80" alt="Sunset" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
 
     <!-- Polaroid 2: Coding night (middle-bottom layer, rotated 3deg) -->
-    <div class="polaroid-collage" style="position: absolute; top: 20px; left: 90px; transform: rotate(3deg); width: 105px; padding: 6px 6px 14px;">
-      <div class="polaroid-photo" style="width: 93px; height: 95px;">
+    <div class="polaroid-collage" style="position: absolute; top: 15px; left: 70px; transform: rotate(3deg); width: 85px; padding: 4px 4px 10px;">
+      <div class="polaroid-photo" style="width: 75px; height: 75px;">
         <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300&q=80" alt="Coding" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
 
-    <!-- Polaroid 3: Coffee journal (middle-top layer, rotated 6deg) -->
-    <div class="polaroid-collage" style="position: absolute; top: 110px; left: 10px; transform: rotate(6deg); width: 100px; padding: 6px 6px 14px;">
-      <div class="polaroid-photo" style="width: 88px; height: 90px;">
-        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=300&q=80" alt="Coffee journal" style="width: 100%; height: 100%; object-fit: cover;" />
-      </div>
-    </div>
-
-    <!-- Polaroid 4: Lavender field (top layer, rotated -4deg) -->
-    <div class="polaroid-collage" style="position: absolute; top: 100px; left: 95px; transform: rotate(-4deg); width: 105px; padding: 6px 6px 14px; z-index: 10; border-color: #ebdcd5;">
-      <div class="polaroid-photo" style="width: 93px; height: 95px;">
+    <!-- Polaroid 3: Lavender field (top layer, rotated -4deg) -->
+    <div class="polaroid-collage" style="position: absolute; top: 80px; left: 35px; transform: rotate(-4deg); width: 90px; padding: 4px 4px 10px; z-index: 10; border-color: #ebdcd5;">
+      <div class="polaroid-photo" style="width: 80px; height: 80px;">
         <img src="https://images.unsplash.com/photo-1528826722818-8858db479c78?w=300&q=80" alt="Lavender" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
       <!-- moments tape overlay at bottom of stack -->
-      <div style="position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%) rotate(2deg); background: rgba(220,205,215,0.85); border: 1px solid rgba(0,0,0,0.06); font-family: 'Great Vibes', cursive; font-size: 0.85rem; color: #4e3843; padding: 1px 12px; white-space: nowrap; border-radius: 1px;">moments that recharge me</div>
+      <div style="position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%) rotate(2deg); background: rgba(220,205,215,0.9); border: 1px solid rgba(0,0,0,0.06); font-family: 'Great Vibes', cursive; font-size: 0.65rem; color: #4e3843; padding: 1px 6px; white-space: nowrap; border-radius: 1px;">moments</div>
     </div>
   </div>
 
-  <!-- 17. Spiral Notebook — bottom center-right -->
-  <div class="floating-sticker" style="bottom: 40px; right: 260px; transform: rotate(-1.5deg); z-index: 8;" id="sticker-notebook">
-    <div class="notebook-spiral" style="width: 210px; min-height: 185px;">
+  <!-- 16. Spiral Notebook — bottom right-center -->
+  <div class="floating-sticker" style="bottom: 6%; right: 19%; transform: rotate(-1.5deg); z-index: 8;" id="sticker-notebook">
+    <div class="notebook-spiral" style="width: 190px; min-height: 155px; padding: 12px 12px 12px 24px;">
       <div class="spiral-coils">
-        <span class="spiral-coil"></span>
-        <span class="spiral-coil"></span>
-        <span class="spiral-coil"></span>
-        <span class="spiral-coil"></span>
-        <span class="spiral-coil"></span>
-        <span class="spiral-coil"></span>
-        <span class="spiral-coil"></span>
-        <span class="spiral-coil"></span>
-        <span class="spiral-coil"></span>
-        <span class="spiral-coil"></span>
+        <span class="spiral-coil" style="width: 6px; height: 6px; border-width: 2px; margin: 2px 0;"></span>
+        <span class="spiral-coil" style="width: 6px; height: 6px; border-width: 2px; margin: 2px 0;"></span>
+        <span class="spiral-coil" style="width: 6px; height: 6px; border-width: 2px; margin: 2px 0;"></span>
+        <span class="spiral-coil" style="width: 6px; height: 6px; border-width: 2px; margin: 2px 0;"></span>
+        <span class="spiral-coil" style="width: 6px; height: 6px; border-width: 2px; margin: 2px 0;"></span>
+        <span class="spiral-coil" style="width: 6px; height: 6px; border-width: 2px; margin: 2px 0;"></span>
+        <span class="spiral-coil" style="width: 6px; height: 6px; border-width: 2px; margin: 2px 0;"></span>
+        <span class="spiral-coil" style="width: 6px; height: 6px; border-width: 2px; margin: 2px 0;"></span>
       </div>
-      <div style="font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700; color: #8c7a6b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px;">the struggle is real.</div>
-      <ul style="list-style: none; padding: 0; margin: 0; font-family: 'Outfit', sans-serif; font-size: 0.62rem; color: #554a42; line-height: 1.8;">
+      <div style="font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 700; color: #8c7a6b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">the struggle is real.</div>
+      <ul style="list-style: none; padding: 0; margin: 0; font-family: 'Outfit', sans-serif; font-size: 0.58rem; color: #554a42; line-height: 1.6;">
         <li>☐ overthinking</li>
         <li>☐ self-doubt</li>
         <li>☐ comparing myself</li>
@@ -2439,8 +2432,7 @@
       </ul>
       
       <!-- Ballpoint Pen element laying on top of notebook -->
-      <div style="position: absolute; top: 10px; right: 2px; width: 14px; height: 160px; transform: rotate(12deg); z-index: 15; pointer-events: none;">
-        <!-- Pen clip/body SVG -->
+      <div style="position: absolute; top: 10px; right: 2px; width: 10px; height: 130px; transform: rotate(12deg); z-index: 15; pointer-events: none;">
         <svg viewBox="0 0 14 160" width="100%" height="100%">
           <rect x="5" y="4" width="4" height="152" rx="2" fill="#18181b" />
           <rect x="4" y="25" width="6" height="4" fill="#a1a1aa" />
@@ -2451,72 +2443,59 @@
     </div>
   </div>
 
-  <!-- 18. Quote Note — bottom far-right -->
-  <div class="floating-sticker" style="bottom: 50px; right: 40px; transform: rotate(2deg); z-index: 8;" id="sticker-quote-note">
-    <div class="washi-tape-accent" style="top: -8px; left: 30%; width: 55px; height: 12px; background: rgba(235,220,215,0.45); transform: rotate(-6deg);"></div>
-    <div class="sticky-note-purple" style="width: 190px; background: #ebdcd5; border-color: #ebdcd5; padding: 14px 20px;">
-      <!-- Big double quotes -->
-      <span style="font-size: 2.2rem; color: #a18a96; line-height: 0.1; font-family: Georgia, serif; vertical-align: middle; display: inline-block; margin-top: 10px;">“</span>
-      <div style="font-family: 'Outfit', sans-serif; font-size: 0.65rem; color: #4e3843; line-height: 1.6; font-weight: 500; margin-top: -6px;">
+  <!-- 17. Quote Note — bottom far-right -->
+  <div class="floating-sticker" style="bottom: 6%; right: 4%; transform: rotate(2deg); z-index: 8;" id="sticker-quote-note">
+    <div class="washi-tape-accent" style="top: -8px; left: 30%; width: 50px; height: 10px; background: rgba(235,220,215,0.45); transform: rotate(-6deg);"></div>
+    <div class="sticky-note-purple" style="width: 170px; background: #ebdcd5; border-color: #ebdcd5; padding: 12px 16px;">
+      <span style="font-size: 1.8rem; color: #a18a96; line-height: 0.1; font-family: Georgia, serif; vertical-align: middle; display: inline-block; margin-top: 8px;">“</span>
+      <div style="font-family: 'Outfit', sans-serif; font-size: 0.62rem; color: #4e3843; line-height: 1.5; font-weight: 500; margin-top: -4px;">
         i design with empathy,<br/>
         i build with logic,<br/>
         i protect with purpose.
       </div>
-      <div style="text-align: right; margin-top: 4px; font-size: 8px; color: #a18a96;">♥</div>
+      <div style="text-align: right; margin-top: 2px; font-size: 7px; color: #a18a96;">♥</div>
     </div>
   </div>
 
-  <!-- 19. Folders (bottom right) -->
-  <div class="floating-sticker" style="bottom: 40px; right: 480px; transform: rotate(-4deg); z-index: 8; display: flex; gap: 14px;" id="sticker-folders-right">
+  <!-- 18. Folders (bottom right) -->
+  <div class="floating-sticker" style="bottom: 6%; right: 35%; transform: rotate(-4deg); z-index: 8; display: flex; gap: 10px;" id="sticker-folders-right">
     <!-- Folder 3: inspiration -->
-    <a href="#projects" class="mac-folder-sticker" style="text-decoration: none;">
-      <svg width="44" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a href="#projects" class="mac-folder-sticker" style="text-decoration: none; width: 64px;">
+      <svg width="36" height="30" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
         <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
         <circle cx="31" cy="31" r="5" fill="#fff" opacity="0.4" />
       </svg>
-      <span style="font-size: 8px; font-weight: 700; color: #705864; margin-top: 4px; font-family: sans-serif;">inspiration</span>
+      <span style="font-size: 7px; font-weight: 700; color: #705864; margin-top: 2px; font-family: sans-serif;">inspiration</span>
     </a>
     
     <!-- Folder 4: brain-dumps -->
-    <a href="#about" class="mac-folder-sticker" style="text-decoration: none;">
-      <svg width="44" height="38" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a href="#about" class="mac-folder-sticker" style="text-decoration: none; width: 64px;">
+      <svg width="36" height="30" viewBox="0 0 62 52" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 9C4 6.8 5.8 5 8 5H22L27 12H54C56.2 12 58 13.8 58 16V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V9Z" fill="#a18a96"/>
         <path d="M4 16H58V43C58 45.2 56.2 47 54 47H8C5.8 47 4 45.2 4 43V16Z" fill="#8b707c"/>
         <path d="M26 31 L36 31" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity="0.4" />
       </svg>
-      <span style="font-size: 8px; font-weight: 700; color: #705864; margin-top: 4px; font-family: sans-serif;">brain-dumps</span>
+      <span style="font-size: 7px; font-weight: 700; color: #705864; margin-top: 2px; font-family: sans-serif;">brain-dumps</span>
     </a>
   </div>
 
 
-  <!-- BORDERS & DOODLES DECORATIONS -->
-  
-  <!-- Top-left hanging ivy leaves curtain border -->
-  <div style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 3; opacity: 0.35; width: 240px; height: 300px;">
-    <svg viewBox="0 0 100 120" width="100%" height="100%" fill="none" stroke="#705864" stroke-width="1.2">
-      <path d="M0,0 Q30,40 25,120 M0,0 Q60,30 50,90 M0,0 Q90,15 80,60" />
-      <path d="M12,18 C8,14 4,14 8,24 C12,34 16,34 12,24 Z" fill="#705864" />
-      <path d="M22,38 C18,34 14,34 18,44 C22,54 26,54 22,44 Z" fill="#705864" />
-      <path d="M26,72 C22,68 18,68 22,78 C26,88 30,88 26,78 Z" fill="#705864" />
-      <path d="M35,26 C30,22 26,22 30,32 C34,42 38,42 34,32 Z" fill="#705864" />
-      <path d="M48,46 C43,42 39,42 43,52 C47,62 51,62 47,52 Z" fill="#705864" />
-      <path d="M68,16 C63,12 59,12 63,22 C67,32 71,32 67,22 Z" fill="#705864" />
-    </svg>
-  </div>
+  <!-- ── REAL BOTANICAL PHOTOS (Corners) — blended via mix-blend-mode multiply ── -->
+  <!-- Top-left eucalyptus leaves branch -->
+  <img 
+    src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=450&q=80" 
+    alt="Pinterest Eucalyptus" 
+    style="position: absolute; top: 0; left: 0; width: clamp(140px, 18vw, 240px); height: auto; mix-blend-mode: multiply; pointer-events: none; transform: rotate(-15deg) translate(-20px, -20px); z-index: 3; filter: contrast(1.05) saturate(0.95);" 
+  />
 
-  <!-- Top-right hanging ivy leaves curtain border -->
-  <div style="position: absolute; top: 0; right: 0; pointer-events: none; z-index: 3; opacity: 0.35; width: 240px; height: 300px; transform: scaleX(-1);">
-    <svg viewBox="0 0 100 120" width="100%" height="100%" fill="none" stroke="#705864" stroke-width="1.2">
-      <path d="M0,0 Q30,40 25,120 M0,0 Q60,30 50,90 M0,0 Q90,15 80,60" />
-      <path d="M12,18 C8,14 4,14 8,24 C12,34 16,34 12,24 Z" fill="#705864" />
-      <path d="M22,38 C18,34 14,34 18,44 C22,54 26,54 22,44 Z" fill="#705864" />
-      <path d="M26,72 C22,68 18,68 22,78 C26,88 30,88 26,78 Z" fill="#705864" />
-      <path d="M35,26 C30,22 26,22 30,32 C34,42 38,42 34,32 Z" fill="#705864" />
-      <path d="M48,46 C43,42 39,42 43,52 C47,62 51,62 47,52 Z" fill="#705864" />
-      <path d="M68,16 C63,12 59,12 63,22 C67,32 71,32 67,22 Z" fill="#705864" />
-    </svg>
-  </div>
+  <!-- Top-right baby's breath branch -->
+  <img 
+    src="https://images.unsplash.com/photo-1550951298-5c7b95a66bfc?w=450&q=80" 
+    alt="Pinterest Baby Breath" 
+    style="position: absolute; top: 0; right: 0; width: clamp(150px, 20vw, 260px); height: auto; mix-blend-mode: multiply; pointer-events: none; transform: scaleX(-1) rotate(-10deg) translate(-10px, -20px); z-index: 3; filter: contrast(1.05) saturate(0.95);" 
+  />
+
 
   <!-- Scattered Doodles around center title (heart, lock, moon, wifi, stars) -->
   <div style="position: absolute; top: 16%; left: 38%; pointer-events: none; z-index: 3; opacity: 0.45; width: 14px; height: 14px;">
@@ -2555,7 +2534,7 @@
     </svg>
   </div>
 
-  <!-- 20. FAR RIGHT: Functional Retro MacPaint Palette (Fixed) -->
+  <!-- 19. FAR RIGHT: Functional Retro MacPaint Palette (Fixed) -->
   <div class="floating-sticker" style="top: 25%; right: 20px; transform: none; cursor: default; z-index: 200 !important;" id="sticker-palette">
     <div class="paint-palette">
       <!-- Drag handle / Title bar -->
@@ -2729,12 +2708,11 @@
     canvas.addEventListener('touchend',   endDraw);
   })();
   </script>
-
 </section>
 
 <!-- ABOUT: CINEMATIC EDITORIAL CANVAS -->
 <section class="editorial-canvas font-sans relative z-20 overflow-hidden bg-[var(--charcoal-bg)]" id="about">
-<!-- STATIONARY WATERMARK -->
+
 <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] overflow-hidden pointer-events-none z-0">
 <span class="text-[30vw] font-black leading-none whitespace-nowrap text-white">SHAKTHI</span>
 </div>
