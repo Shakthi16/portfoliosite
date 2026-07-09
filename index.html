@@ -20,23 +20,8 @@
     /* ========================
        COLLAGE LANDING PAGE
        ======================== */
-    @keyframes roaming {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
     #home {
-      background: linear-gradient(
-        135deg, 
-        #FAF8F5 0%,
-        #f4d1df 25%, /* pink */
-        #e5c1a8 50%, /* sandal */
-        #d17697 75%, /* magenta */
-        #FAF8F5 100%
-      ) !important;
-      background-size: 300% 300% !important;
-      animation: roaming 15s ease infinite !important;
+      background: transparent !important;
       color: #27272a !important;
       position: relative;
       width: 100%;
@@ -45,6 +30,66 @@
       overflow: hidden;
       z-index: 10;
       /* No flex — children use absolute positioning */
+    }
+
+    /* Mesh Gradient Container (Richard Sancho Style) */
+    .mesh-gradient-container {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+      background: #FAF8F5 !important;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      mix-blend-mode: multiply;
+      opacity: 0.65;
+    }
+
+    .blob-pink {
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, #f4d1df 0%, rgba(244, 209, 223, 0) 70%);
+      top: -20%;
+      left: -10%;
+      animation: float-pink 22s ease-in-out infinite alternate;
+    }
+
+    .blob-sandal {
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, #e5c1a8 0%, rgba(229, 193, 168, 0) 70%);
+      bottom: -20%;
+      right: -10%;
+      animation: float-sandal 28s ease-in-out infinite alternate;
+    }
+
+    .blob-magenta {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, #d17697 0%, rgba(209, 118, 151, 0) 70%);
+      top: 25%;
+      left: 30%;
+      animation: float-magenta 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes float-pink {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(180px, 100px) scale(1.1); }
+    }
+
+    @keyframes float-sandal {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-150px, -120px) scale(0.9); }
+    }
+
+    @keyframes float-magenta {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(100px, -80px) scale(1.15); }
     }
 
     /* Grainy Noise + Grid Overlay */
@@ -3090,15 +3135,7 @@
       @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
 
       /* ═══ INTERACTIVE DESK STYLES ═══ */
-      #home::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        z-index: 1;
-        opacity: 0.04;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      }
+      /* Removed duplicate #home::before noise block */
 
       /* ID Card 3D Flip & Swing */
       .id-card-container {
@@ -3418,6 +3455,12 @@
 
 
     <section id="home">
+      <!-- Animated Mesh Gradient (Richard Sancho Style) -->
+      <div class="mesh-gradient-container">
+        <div class="blob blob-pink"></div>
+        <div class="blob blob-sandal"></div>
+        <div class="blob blob-magenta"></div>
+      </div>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
 
