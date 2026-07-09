@@ -20,12 +20,20 @@
     /* ========================
        COLLAGE LANDING PAGE
        ======================== */
+    @keyframes awwwardsGradient {
+      0% { background-position: 0 0, 0 0, 0% 50%; }
+      50% { background-position: 0 0, 0 0, 100% 50%; }
+      100% { background-position: 0 0, 0 0, 0% 50%; }
+    }
+    
     #home {
       background-color: #FAF8F5 !important;
       background-image:
-        linear-gradient(rgba(236, 231, 226, 0.4) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(236, 231, 226, 0.4) 1px, transparent 1px) !important;
-      background-size: 80px 80px !important;
+        linear-gradient(rgba(236, 231, 226, 0.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(236, 231, 226, 0.6) 1px, transparent 1px),
+        linear-gradient(120deg, #fcfaf8, #f5e6e8, #f0e6f5, #fdfbfb) !important;
+      background-size: 80px 80px, 80px 80px, 400% 400% !important;
+      animation: awwwardsGradient 20s ease infinite !important;
       color: #27272a !important;
       position: relative;
       width: 100%;
@@ -3574,7 +3582,7 @@
       </div>
 
       <!-- 5. Top Right Image Graphic -->
-      <div class="floating-sticker" style="top: 12%; right: 2%; z-index: 5; transform: rotate(4deg); width: 220px; height: auto;">
+      <div class="floating-sticker" style="top: 12%; right: 2%; z-index: 5; transform: rotate(4deg); width: 170px; height: auto;">
         <img src="topright.png" alt="Aesthetic Graphic" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.15)); border-radius: 20px;" />
       </div>
 
@@ -3831,8 +3839,8 @@
       </div>
 
       <!-- 17. Vinyl Record -->
-      <div class="floating-sticker" style="bottom: -5%; right: -5%; z-index: 5; transform: rotate(0deg); scale: 0.85;">
-        <audio id="lofi-audio" src="https://cdn.pixabay.com/download/audio/2022/01/26/audio_d0c6ff1cb8.mp3"
+      <div class="floating-sticker vinyl-container" style="bottom: -2%; right: 5%; z-index: 8; transform: rotate(0deg); scale: 0.9;">
+        <audio id="lofi-audio" src="dreaming.mp3"
           loop></audio>
         <div
           style="width: 250px; height: 250px; border-radius: 50%; box-shadow: 0 15px 40px rgba(0,0,0,0.15); overflow: hidden; position: relative;">
