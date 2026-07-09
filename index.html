@@ -20,8 +20,17 @@
     /* ========================
        COLLAGE LANDING PAGE
        ======================== */
+    /* Custom Pink Pointer Cursor (Richard Sancho Style) */
+    html, body {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M0 0v20.5l5.5-5.3 4.2 9.5 3.5-1.5-4.2-9.5h7.5L0 0z' fill='%23c382a8' stroke='white' stroke-width='1.8' stroke-linejoin='miter' stroke-miterlimit='4' style='filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.25));'/%3E%3C/svg%3E"), auto !important;
+    }
+    
+    a, button, [role="button"], input[type="submit"], input[type="button"], .cursor-hover {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M0 0v20.5l5.5-5.3 4.2 9.5 3.5-1.5-4.2-9.5h7.5L0 0z' fill='%23e08bb6' stroke='white' stroke-width='1.8' stroke-linejoin='miter' stroke-miterlimit='4' style='filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.3));'/%3E%3C/svg%3E"), pointer !important;
+    }
+
     #home {
-      background: transparent !important;
+      background: #FAF8F5 !important;
       color: #27272a !important;
       position: relative;
       width: 100%;
@@ -30,69 +39,6 @@
       overflow: hidden;
       z-index: 10;
       /* No flex — children use absolute positioning */
-    }
-
-    /* Mesh Gradient Container (Richard Sancho Style) */
-    .mesh-gradient-container {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-      background: #FAF8F5 !important;
-    }
-
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      mix-blend-mode: multiply;
-      opacity: 0.65;
-    }
-
-    .blob-pink {
-      width: 900px;
-      height: 900px;
-      background: linear-gradient(135deg, rgba(244, 209, 223, 0.85) 0%, rgba(244, 209, 223, 0) 80%);
-      top: -20%;
-      left: -10%;
-      animation: float-pink 25s ease-in-out infinite;
-    }
-
-    .blob-sandal {
-      width: 1000px;
-      height: 1000px;
-      background: linear-gradient(225deg, rgba(229, 193, 168, 0.85) 0%, rgba(229, 193, 168, 0) 80%);
-      bottom: -20%;
-      right: -10%;
-      animation: float-sandal 30s ease-in-out infinite;
-    }
-
-    .blob-magenta {
-      width: 800px;
-      height: 800px;
-      background: linear-gradient(315deg, rgba(209, 118, 151, 0.75) 0%, rgba(209, 118, 151, 0) 80%);
-      top: 15%;
-      left: 20%;
-      animation: float-magenta 27s ease-in-out infinite;
-    }
-
-    @keyframes float-pink {
-      0% { transform: translate(-10vw, -10vh) scale(1); }
-      50% { transform: translate(15vw, 10vh) scale(1.15); }
-      100% { transform: translate(-10vw, -10vh) scale(1); }
-    }
-
-    @keyframes float-sandal {
-      0% { transform: translate(10vw, 10vh) scale(1.1); }
-      50% { transform: translate(-15vw, -10vh) scale(0.9); }
-      100% { transform: translate(10vw, 10vh) scale(1.1); }
-    }
-
-    @keyframes float-magenta {
-      0% { transform: translate(-5vw, 10vh) scale(0.95); }
-      50% { transform: translate(10vw, -15vh) scale(1.1); }
-      100% { transform: translate(-5vw, 10vh) scale(0.95); }
     }
 
     /* Grainy Noise + Grid Overlay */
@@ -3458,12 +3404,7 @@
 
 
     <section id="home">
-      <!-- Animated Mesh Gradient (Richard Sancho Style) -->
-      <div class="mesh-gradient-container">
-        <div class="blob blob-pink"></div>
-        <div class="blob blob-sandal"></div>
-        <div class="blob blob-magenta"></div>
-      </div>
+      <!-- Gradients removed as requested -->
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
 
