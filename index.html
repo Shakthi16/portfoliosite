@@ -45,7 +45,7 @@
     .blob {
       position: absolute;
       border-radius: 50%;
-      filter: blur(140px);
+      filter: blur(100px);
       mix-blend-mode: multiply;
       opacity: 0.65;
     }
@@ -54,45 +54,45 @@
       width: 900px;
       height: 900px;
       background: linear-gradient(135deg, rgba(244, 209, 223, 0.85) 0%, rgba(244, 209, 223, 0) 80%);
-      top: -25%;
-      left: -15%;
-      animation: float-pink 22s linear infinite;
+      top: -20%;
+      left: -10%;
+      animation: float-pink 25s ease-in-out infinite;
     }
 
     .blob-sandal {
       width: 1000px;
       height: 1000px;
       background: linear-gradient(225deg, rgba(229, 193, 168, 0.85) 0%, rgba(229, 193, 168, 0) 80%);
-      bottom: -25%;
-      right: -15%;
-      animation: float-sandal 28s linear infinite;
+      bottom: -20%;
+      right: -10%;
+      animation: float-sandal 30s ease-in-out infinite;
     }
 
     .blob-magenta {
       width: 800px;
       height: 800px;
       background: linear-gradient(315deg, rgba(209, 118, 151, 0.75) 0%, rgba(209, 118, 151, 0) 80%);
-      top: 20%;
-      left: 25%;
-      animation: float-magenta 25s linear infinite;
+      top: 15%;
+      left: 20%;
+      animation: float-magenta 27s ease-in-out infinite;
     }
 
     @keyframes float-pink {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      50% { transform: translate(120px, 80px) rotate(180deg) scale(1.05); }
-      100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+      0% { transform: translate(-10vw, -10vh) scale(1); }
+      50% { transform: translate(15vw, 10vh) scale(1.15); }
+      100% { transform: translate(-10vw, -10vh) scale(1); }
     }
 
     @keyframes float-sandal {
-      0% { transform: translate(0, 0) rotate(360deg) scale(1); }
-      50% { transform: translate(-100px, -100px) rotate(180deg) scale(0.95); }
-      100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+      0% { transform: translate(10vw, 10vh) scale(1.1); }
+      50% { transform: translate(-15vw, -10vh) scale(0.9); }
+      100% { transform: translate(10vw, 10vh) scale(1.1); }
     }
 
     @keyframes float-magenta {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      50% { transform: translate(80px, -60px) rotate(180deg) scale(1.1); }
-      100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+      0% { transform: translate(-5vw, 10vh) scale(0.95); }
+      50% { transform: translate(10vw, -15vh) scale(1.1); }
+      100% { transform: translate(-5vw, 10vh) scale(0.95); }
     }
 
     /* Grainy Noise + Grid Overlay */
