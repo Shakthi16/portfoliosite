@@ -3424,8 +3424,7 @@
 
 
 
-    <section id="home"
-      style="position: relative; overflow: hidden; height: 100vh; min-height: 700px; width: 100vw; background-color: #fdfaf8; background-image: linear-gradient(#f0e9e4 1px, transparent 1px), linear-gradient(90deg, #f0e9e4 1px, transparent 1px); background-size: 50px 50px;">
+    <section id="home">
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
 
@@ -5149,22 +5148,7 @@
       if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero Text Reveal
-        gsap.from(".hero-title", {
-          y: 100,
-          opacity: 0,
-          duration: 1.5,
-          ease: "power4.out",
-          delay: 0.2
-        });
-
-        gsap.from(".hero-subtitle", {
-          y: 50,
-          opacity: 0,
-          duration: 1,
-          ease: "power3.out",
-          delay: 0.5
-        });
+        // Hero Text Reveal (removed unused GSAP targets)
 
         // Typewriter Animation for Hero Title
         try {
