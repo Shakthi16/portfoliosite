@@ -22,11 +22,11 @@
        ======================== */
     /* Custom Pink Pointer Cursor (Richard Sancho Style) */
     html, body {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M0 0v20.5l5.5-5.3 4.2 9.5 3.5-1.5-4.2-9.5h7.5L0 0z' fill='%23c382a8' stroke='white' stroke-width='1.8' stroke-linejoin='miter' stroke-miterlimit='4' style='filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.25));'/%3E%3C/svg%3E"), auto !important;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M0 0 L22 9 L12 12 L9 22 Z' fill='%23b55cd5' stroke='white' stroke-width='1.8' stroke-linejoin='round' style='filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.25));'/%3E%3C/svg%3E"), auto !important;
     }
     
     a, button, [role="button"], input[type="submit"], input[type="button"], .cursor-hover {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M0 0v20.5l5.5-5.3 4.2 9.5 3.5-1.5-4.2-9.5h7.5L0 0z' fill='%23e08bb6' stroke='white' stroke-width='1.8' stroke-linejoin='miter' stroke-miterlimit='4' style='filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.3));'/%3E%3C/svg%3E"), pointer !important;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M0 0 L22 9 L12 12 L9 22 Z' fill='%23c97ce5' stroke='white' stroke-width='1.8' stroke-linejoin='round' style='filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.3));'/%3E%3C/svg%3E"), pointer !important;
     }
 
     #home {
@@ -3495,9 +3495,11 @@
 
       <!-- 1. ID CARD (Top Left Corner) -->
       <div class="floating-sticker"
-        style="top: 0%; left: 0%; z-index: 10; transform: rotate(-3deg); scale: 0.95; transform-origin: top left; width: 230px;">
+        style="top: 0%; left: 0%; z-index: 10; transform: rotate(-3deg); scale: 0.95; transform-origin: top left; width: 230px; position: relative;">
         <img src="card.png" alt="Shakthi Sri ID Card"
           style="width: 100%; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.1);" />
+        <!-- Cover green status dot on the card.png image with matching pinkish red color -->
+        <div style="position: absolute; top: 3.5%; left: 3.5%; width: 4.5%; height: 4.5%; background: #e84e72; border-radius: 50%;"></div>
       </div>
 
       <!-- 2. Desk Setup Image (Top Left, beside ID card) -->
