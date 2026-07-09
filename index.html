@@ -20,14 +20,23 @@
     /* ========================
        COLLAGE LANDING PAGE
        ======================== */
-    @keyframes aurora {
-      0% { transform: rotate(0deg) scale(1) translate(0%, 0%); }
-      50% { transform: rotate(10deg) scale(1.1) translate(-2%, 2%); }
-      100% { transform: rotate(-5deg) scale(1) translate(2%, -2%); }
+    @keyframes roaming {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     
     #home {
-      background-color: #FAF8F5 !important;
+      background: linear-gradient(
+        135deg, 
+        #FAF8F5 0%,
+        #f4d1df 25%, /* pink */
+        #e5c1a8 50%, /* sandal */
+        #d17697 75%, /* magenta */
+        #FAF8F5 100%
+      ) !important;
+      background-size: 300% 300% !important;
+      animation: roaming 15s ease infinite !important;
       color: #27272a !important;
       position: relative;
       width: 100%;
@@ -38,34 +47,18 @@
       /* No flex — children use absolute positioning */
     }
 
-    /* Richard Sancho style Blurred Aurora Background */
-    #home::before {
-      content: "";
-      position: absolute;
-      top: -30%; left: -30%; width: 160%; height: 160%;
-      background: 
-        radial-gradient(circle at 40% 40%, rgba(164, 118, 143, 0.4), transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(220, 180, 190, 0.4), transparent 50%),
-        radial-gradient(circle at 30% 70%, rgba(200, 160, 180, 0.4), transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(140, 100, 120, 0.3), transparent 50%);
-      filter: blur(60px);
-      animation: aurora 25s ease infinite alternate;
-      z-index: -2;
-      pointer-events: none;
-    }
-
-    /* Grainy Noise + Grid */
+    /* Grainy Noise + Grid Overlay */
     #home::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E"),
-        linear-gradient(rgba(180, 160, 170, 0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(180, 160, 170, 0.15) 1px, transparent 1px);
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E"),
+        linear-gradient(rgba(180, 160, 170, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 160, 170, 0.25) 1px, transparent 1px);
       background-size: 200px 200px, 80px 80px, 80px 80px;
       pointer-events: none;
-      z-index: -1;
+      z-index: 1;
     }
 
     /* Full-viewport canvas inside #home for positioning all elements */
@@ -74,6 +67,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
+      z-index: 2;
     }
 
     /* Central Name */
