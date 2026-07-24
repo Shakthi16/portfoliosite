@@ -8,11 +8,11 @@
   <title>Shakthi Sri | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <!-- Premium Fonts for Awwwards Style -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <!-- Premium Fonts for Journal and Awwwards Style -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Great+Vibes&family=Patrick+Hand&family=Handlee&family=Pinyon+Script&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+  <!-- GSAP & ScrollTrigger for Awwwards Pinning -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
     /* Custom CSS for Awwwards style */
@@ -35,10 +35,10 @@
       position: relative;
       width: 100%;
       height: 100vh;
-      min-height: 600px;
+      min-height: 100vh;
       overflow: hidden;
       z-index: 10;
-      /* No flex — children use absolute positioning */
+      /* No flex ΓÇö children use absolute positioning */
     }
 
     /* Grainy Noise + Grid Overlay */
@@ -310,7 +310,7 @@
 
     .music-bar-item {
       width: 2px;
-      background: #a855f7;
+      background: #421835;
       animation: music-bar-bounce 1s ease infinite alternate;
     }
 
@@ -670,7 +670,7 @@
       }
     }
 
-    /* ═══ 3D MASTER FOLDER & SUBFOLDERS FANNING ═══ */
+    /* ΓòÉΓòÉΓòÉ 3D MASTER FOLDER & SUBFOLDERS FANNING ΓòÉΓòÉΓòÉ */
     .master-folder-container {
       position: relative;
       width: 85px;
@@ -791,7 +791,7 @@
     :root {
       --bg: #050505;
       --text: #ffffff;
-      --accent: #a855f7;
+      --accent: #421835;
     }
 
     body.light-mode {
@@ -862,7 +862,7 @@
     .typing-cursor::after {
       content: '|';
       margin-left: 2px;
-      color: #a855f7;
+      color: #421835;
       animation: blink 0.8s infinite;
     }
 
@@ -882,13 +882,19 @@
     .contact-bg-text {
       font-size: clamp(2.5rem, 11vw, 8.5rem);
       font-weight: 900;
-      color: transparent;
-      -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.18);
+      background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop');
+      background-size: 160%;
+      background-position: 50% 50%;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
+      -webkit-text-stroke: 0px transparent !important;
       text-transform: uppercase;
       letter-spacing: -0.04em;
       line-height: 0.85;
       font-family: 'Outfit', sans-serif;
-      transition: color 0.5s ease, -webkit-text-stroke 0.5s ease;
+      transition: background-position 0.1s ease-out;
     }
 
     body.light-mode .contact-bg-text {
@@ -983,7 +989,7 @@
       cursor: pointer;
       overflow: visible;
       transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
-      min-height: 380px;
+      min-height: 270px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -992,13 +998,13 @@
 
     @media (min-width: 768px) {
       .edu-card {
-        min-height: 460px;
+        min-height: 270px;
       }
     }
 
     @media (min-width: 1024px) {
       .edu-card {
-        min-height: 520px;
+        min-height: 270px;
       }
     }
 
@@ -1414,7 +1420,7 @@
     }
 
     body.light-mode .bento-item a:hover {
-      color: #a855f7 !important;
+      color: #421835 !important;
     }
 
     /* Achievements spotlight grid light mode fix */
@@ -1703,13 +1709,13 @@
     }
 
     .tech-card[data-tech="express"]:hover {
-      border-color: #a855f7 !important;
+      border-color: #421835 !important;
       box-shadow: 0 10px 25px rgba(168, 85, 247, 0.15);
       transform: translateY(-4px);
     }
 
     .tech-card[data-tech="express"]:hover .tech-icon-wrapper {
-      color: #a855f7;
+      color: #421835;
       background: rgba(168, 85, 247, 0.1);
     }
 
@@ -1791,13 +1797,13 @@
     }
 
     .tech-card[data-tech="llm"]:hover {
-      border-color: #a855f7 !important;
+      border-color: #421835 !important;
       box-shadow: 0 10px 25px rgba(168, 85, 247, 0.15);
       transform: translateY(-4px);
     }
 
     .tech-card[data-tech="llm"]:hover .tech-icon-wrapper {
-      color: #a855f7;
+      color: #421835;
       background: rgba(168, 85, 247, 0.1);
     }
 
@@ -1934,7 +1940,7 @@
 
     /* Active Node highlights (Centered correctly without translate offset) */
     .wheel-node.active {
-      border-color: #a855f7 !important;
+      border-color: #421835 !important;
       background: radial-gradient(circle, #2e1065, #18181b) !important;
       transform: scale(1.35) !important;
       box-shadow: 0 0 35px rgba(168, 85, 247, 0.6), inset 0 0 15px rgba(168, 85, 247, 0.3) !important;
@@ -2002,7 +2008,7 @@
 
     .category-btn.active {
       opacity: 1 !important;
-      color: #a855f7 !important;
+      color: #421835 !important;
       padding-left: 0.5rem;
     }
 
@@ -2085,7 +2091,7 @@
     }
 
     .wheel-card.active-card {
-      border-color: #a855f7 !important;
+      border-color: #421835 !important;
       background: rgba(168, 85, 247, 0.15) !important;
       box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
     }
@@ -2122,7 +2128,7 @@
       transform: translateY(-50%);
       width: 40px;
       height: 2px;
-      background: linear-gradient(90deg, #a855f7, transparent);
+      background: linear-gradient(90deg, #421835, transparent);
       z-index: 2;
       pointer-events: none;
     }
@@ -2186,7 +2192,7 @@
     }
 
     .skill-node:hover .node-bubble {
-      border-color: #a855f7;
+      border-color: #421835;
       background: #18181b;
     }
 
@@ -2201,7 +2207,7 @@
       --charcoal-bg: #0a0a0a;
       --charcoal-warm: #0f0d0a;
       --off-white: #f5f5f0;
-      --gold-accent: #a855f7;
+      --gold-accent: #421835;
       --gold-warm: #9333ea;
       --pearl: #f8f6f0;
     }
@@ -2347,7 +2353,7 @@
     }
 
     .academic-card .academic-accent {
-      color: #a855f7 !important;
+      color: #421835 !important;
     }
 
     body.light-mode .academic-card {
@@ -2360,7 +2366,7 @@
     }
 
     body.light-mode .academic-card .academic-accent {
-      color: #a855f7 !important;
+      color: #421835 !important;
     }
 
     /* Global Font Override for Absolute Consistency */
@@ -2416,27 +2422,25 @@
       pointer-events: none;
     }
 
-    /* Custom Cursor */
     #custom-cursor {
       position: fixed;
       top: 0;
       left: 0;
       width: 8px;
       height: 8px;
-      background-color: var(--gold-accent);
+      background-color: #d17697;
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
       transform: translate(-50%, -50%);
       transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), height 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), background-color 0.3s;
-      mix-blend-mode: difference;
     }
 
     #custom-cursor.hovering {
       width: 40px;
       height: 40px;
       background-color: transparent;
-      border: 1px solid var(--gold-accent);
+      border: 1px solid #d17697;
     }
 
     #custom-cursor.clicking {
@@ -2863,7 +2867,7 @@
 
 
   <style id="paint-interactive-styles">
-    /* ═══ INTERACTIVE FOLDER ═══ */
+    /* ΓòÉΓòÉΓòÉ INTERACTIVE FOLDER ΓòÉΓòÉΓòÉ */
     .master-folder-container {
       position: relative;
       width: 70px;
@@ -2930,7 +2934,7 @@
       transform: translate(75px, -80px) rotate(15deg);
     }
 
-    /* ═══ MACPAINT PALETTE ═══ */
+    /* ΓòÉΓòÉΓòÉ MACPAINT PALETTE ΓòÉΓòÉΓòÉ */
     .paint-palette {
       background: #e5e5e5;
       border: 2px solid #000;
@@ -3020,6 +3024,27 @@
     @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
     @import url('https://fonts.cdnfonts.com/css/brittany-signature');
   </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Great+Vibes&family=Handlee&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <style id="marquee-keyframes-style">
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-reverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0%); }
+    }
+    .animate-marquee {
+      animation: marquee 25s linear infinite !important;
+    }
+    .animate-marquee-reverse {
+      animation: marquee-reverse 30s linear infinite !important;
+    }
+  </style>
+
 </head>
 
 <body class="antialiased light-mode">
@@ -3062,8 +3087,8 @@
             automation, robust security, and seamless user experiences."</p>
         </div>
         <div class="flex gap-3 text-sm font-bold text-black/50 mb-12 flex-wrap">
-          <span class="text-black uppercase tracking-wider">Software</span> • <span
-            class="uppercase tracking-wider">Cybersecurity</span> • <span class="uppercase tracking-wider">UI/UX</span>
+          <span class="text-black uppercase tracking-wider">Software</span> ΓÇó <span
+            class="uppercase tracking-wider">Cybersecurity</span> ΓÇó <span class="uppercase tracking-wider">UI/UX</span>
         </div>
         <div class="flex flex-col gap-2 text-xl text-black/50 font-medium">
           <a class="hover:text-black transition-colors hoverable" href="#">Instagram</a>
@@ -3083,7 +3108,7 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
 
-      /* ═══ INTERACTIVE DESK STYLES ═══ */
+      /* ΓòÉΓòÉΓòÉ INTERACTIVE DESK STYLES ΓòÉΓòÉΓòÉ */
       /* Removed duplicate #home::before noise block */
 
       /* ID Card 3D Flip & Swing */
@@ -3403,7 +3428,9 @@
 
 
 
-    <section id="home">
+    
+
+<section id="home">
       <!-- Gradients removed as requested -->
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
@@ -3468,10 +3495,10 @@
       </div>
       <div
         style="position: absolute; bottom: 35%; left: 28%; font-size: 20px; color: #a4768f; font-family: 'Cormorant Garamond', serif !important;">
-        ☾</div>
+        Γÿ╛</div>
       <div
         style="position: absolute; top: 55%; right: 35%; font-size: 20px; color: #a4768f; font-family: 'Cormorant Garamond', serif !important;">
-        ♡</div>
+        ΓÖí</div>
       <div
         style="position: absolute; bottom: 25%; right: 18%; font-size: 28px; color: #a4768f; font-family: 'Great Vibes', cursive !important;">
         <svg style="width:32px; height:32px; filter: drop-shadow(0 2px 4px rgba(245,158,11,0.4));">
@@ -3487,7 +3514,7 @@
           Shakthi Sri</h1>
         <div
           style="font-family: 'Manrope', sans-serif !important; font-size: clamp(9px, 1vw, 11px); font-weight: 700; letter-spacing: 0.5em; text-transform: uppercase; color: #582a4b; margin-top: 50px;">
-          DESIGN ♡ SECURE ♡ EMPOWER</div>
+          DESIGN ΓÖí SECURE ΓÖí EMPOWER</div>
         <div
           style="font-family: 'Manrope', sans-serif !important; font-size: 10px; font-weight: 600; color: #7a3a5e; margin-top: 25px; letter-spacing: 0.08em;">
           Software Engineer &nbsp;|&nbsp; Cybersecurity Researcher &nbsp;|&nbsp; UI/UX Designer</div>
@@ -3495,7 +3522,7 @@
 
       <!-- 1. ID CARD (Top Left Corner) -->
       <div class="floating-sticker"
-        style="top: 0%; left: 0%; z-index: 10; transform: rotate(-3deg); scale: 0.95; transform-origin: top left; width: 230px; position: relative;">
+        style="position: absolute; top: 2%; left: 2%; z-index: 10; transform: rotate(-3deg); scale: 0.95; transform-origin: top left; width: 230px;">
         <img src="card.png" alt="Shakthi Sri ID Card"
           style="width: 100%; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.1);" />
         <!-- Covered green status dot on the card.png image and changed it to a custom magenta indicator dot -->
@@ -3531,11 +3558,11 @@
             today's focus</div>
           <ul
             style="list-style: none; padding: 0; margin: 0; font-size: 11px; color: #582a4b; font-family: 'Manrope', sans-serif !important; line-height: 2;">
-            <li>♡ design flow</li>
-            <li>♡ threat hunting</li>
-            <li>♡ final year project</li>
-            <li>♡ user research</li>
-            <li>♡ gym + reset</li>
+            <li>ΓÖí design flow</li>
+            <li>ΓÖí threat hunting</li>
+            <li>ΓÖí final year project</li>
+            <li>ΓÖí user research</li>
+            <li>ΓÖí gym + reset</li>
           </ul>
         </div>
       </div>
@@ -3575,7 +3602,7 @@
 
             <div
               style="font-size: 9px; font-family: 'IBM Plex Mono', monospace !important; color: #ffffff; background: #111827; display: inline-flex; align-items: center; justify-content: center; padding: 8px 16px; border-radius: 24px; font-weight: 700; width: max-content; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-              EST. 2022 — PRESENT
+              EST. 2022 ΓÇö PRESENT
             </div>
           </div>
         </div>
@@ -3599,7 +3626,7 @@
         style="top: 48%; left: 1%; z-index: 9; transform: rotate(-4deg); scale: 0.8; transform-origin: bottom left;">
         <div
           style="position: absolute; top: 15px; right: 15px; font-size: 24px; color: #7a3a5e; opacity: 0.5; transform: rotate(15deg);">
-          📎</div>
+          ≡ƒôÄ</div>
         <div
           style="width: 160px; padding: 25px; background: #ebd5e0; box-shadow: 0 8px 20px rgba(0,0,0,0.06); clip-path: polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%);">
           <div
@@ -3622,12 +3649,12 @@
           <ul
             style="list-style: none; padding: 0; margin: 0; font-size: 15px; font-weight: 600; color: #2d1023; font-family: 'Caveat', cursive !important; line-height: 1.4; text-align: left; width: 100%; max-width: 170px;">
             <li style="position: relative; padding-left: 10px; margin-bottom: 8px;"><span
-                style="position: absolute; left: 0; top: 0; color: #11040d;">•</span> not everything needs a solution
+                style="position: absolute; left: 0; top: 0; color: #11040d;">ΓÇó</span> not everything needs a solution
             </li>
             <li style="position: relative; padding-left: 10px; margin-bottom: 8px;"><span
-                style="position: absolute; left: 0; top: 0; color: #11040d;">•</span> it's okay to take breaks</li>
+                style="position: absolute; left: 0; top: 0; color: #11040d;">ΓÇó</span> it's okay to take breaks</li>
             <li style="position: relative; padding-left: 10px;"><span
-                style="position: absolute; left: 0; top: 0; color: #11040d;">•</span> balance is a continuous choice
+                style="position: absolute; left: 0; top: 0; color: #11040d;">ΓÇó</span> balance is a continuous choice
             </li>
           </ul>
         </div>
@@ -3649,7 +3676,7 @@
               shakthi@journey:~</div>
           </div>
           <div id="terminal-body"
-            style="padding: 15px; font-family: 'IBM Plex Mono', monospace !important; font-size: 9px; line-height: 1.8; color: #421835; min-height: 140px;">
+            style="padding: 15px; font-family: 'IBM Plex Mono', monospace !important; font-size: 9px; line-height: 1.8; color: #421835; min-height: 120px;">
           </div>
         </div>
       </div>
@@ -3747,7 +3774,7 @@
             <span class="color-swatch" data-color="#f59e0b" style="background:#f59e0b;" title="Amber"></span>
             <span class="color-swatch" data-color="#10b981" style="background:#10b981;" title="Green"></span>
             <span class="color-swatch" data-color="#3b82f6" style="background:#3b82f6;" title="Blue"></span>
-            <span class="color-swatch" data-color="#a855f7" style="background:#a855f7;" title="Purple"></span>
+            <span class="color-swatch" data-color="#421835" style="background:#421835;" title="Purple"></span>
             <span class="color-swatch" data-color="#ffffff" style="background:#ffffff; border: 1px solid #ccc;"
               title="White"></span>
             <span class="color-swatch" data-color="#64748b" style="background:#64748b;" title="Gray"></span>
@@ -3854,661 +3881,1431 @@
           </div>
         </div>
       </div>
-      </div>
+      
 
       <canvas id="drawing-canvas" style="position: absolute; inset: 0; z-index: 100; pointer-events: none;"></canvas>
 
     </section>
 
+<!-- REALISTIC DECKLE-EDGE TORN PAPER SEPARATION DIVIDER (TOP) -->
+<div class="w-full relative z-20 pointer-events-none -mb-1 bg-[#FAF8F5]">
+  <svg class="w-full h-7 md:h-10 text-[#FAF7F2] fill-current block" viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path d="M0,0 L0,35 L15,38 L30,32 L45,41 L60,34 L75,39 L90,31 L105,37 L120,33 L135,42 L150,36 L165,40 L180,31 L195,38 L210,33 L225,41 L240,35 L255,39 L270,32 L285,38 L300,34 L315,40 L330,31 L345,39 L360,33 L375,41 L390,35 L405,38 L420,32 L435,40 L450,34 L465,39 L480,31 L495,38 L510,33 L525,42 L540,36 L555,40 L570,32 L585,39 L600,33 L615,41 L630,35 L645,38 L660,32 L675,40 L690,34 L705,39 L720,31 L735,38 L750,33 L765,42 L780,36 L795,40 L810,32 L825,39 L840,33 L855,41 L870,35 L885,38 L900,32 L915,40 L930,34 L945,39 L960,31 L975,38 L990,33 L1005,42 L1020,36 L1035,40 L1050,32 L1065,39 L1080,33 L1095,41 L1110,35 L1125,38 L1140,32 L1155,40 L1170,34 L1185,39 L1200,31 L1200,80 L0,80 Z"></path>
+  </svg>
+</div>
 
+<!-- ABOUT ME: PHYSICAL JOURNAL BOOK (EXACT CREATIVE LAYOUT & FONTS MATCH) -->
+<section class="relative bg-[#FAF7F2] text-[#1F1F1F] py-6 md:py-10 overflow-hidden border-b border-amber-900/10 z-20" id="about-journal">
+  <div class="max-w-6xl mx-auto px-3 md:px-6 text-center">
+    
+    <!-- BOOK STAGE CONTAINER -->
+    <div class="relative w-full max-w-[890px] mx-auto min-h-[520px] md:min-h-[560px] flex items-center justify-center">
 
-
-
-
-
-
-
-
-
-
-
-
-    <!-- ABOUT: CINEMATIC EDITORIAL CANVAS -->
-    <section class="editorial-canvas font-sans relative z-20 overflow-hidden bg-[var(--charcoal-bg)]" id="about">
-
-      <div
-        class="absolute inset-0 flex items-center justify-center opacity-[0.03] overflow-hidden pointer-events-none z-0">
-        <span class="text-[30vw] font-black leading-none whitespace-nowrap text-white">SHAKTHI</span>
-      </div>
-      <!-- Cinematic glowing orbs -->
-      <div
-        class="absolute top-1/2 left-1/4 w-[40rem] h-[40rem] bg-purple-600/20 rounded-full blur-[120px] -translate-y-1/2 mix-blend-screen pointer-events-none z-0">
-      </div>
-      <!-- EDITORIAL CONTENT (CHAPTERS) -->
-      <div class="relative w-full z-10 min-h-screen" id="ed-scroll-container">
-        <!-- 1. The Pinned Center Text -->
-        <div class="absolute top-0 left-0 w-full h-screen flex items-center justify-center pointer-events-none z-30"
-          id="ed-pinned-text-container">
-          <div class="text-center transform-gpu max-w-lg px-4" id="ed-pinned-text">
-            <h1
-              class="brand font-bold text-[clamp(24px,3vw,48px)] leading-[1.0] text-white tracking-tighter mb-8 mix-blend-difference">
-              I design intelligent systems.<br />
-              I build premium interfaces.
-            </h1>
-            <p
-              class="font-sans text-[clamp(14px,1.5vw,20px)] text-white/60 leading-[1.3] tracking-tighter font-bold mix-blend-difference">
-              Class of 2026 Graduate learning scale.<br />
-              Software engineer &amp; cybersecurity researcher learning speed.<br />
-              Published researcher at <span class="text-white/80">ICTACA'26.</span>
-            </p>
+      <!-- ==================== CLOSED BOOK COVER STATE ==================== -->
+      <div id="smriti-book-cover" class="cursor-pointer transition-all duration-500 z-40 group" onclick="openSmritiBook()">
+        <div class="relative">
+          <!-- Cover Book Image (Proportional 380px x 530px) -->
+          <div class="w-[290px] md:w-[380px] h-[480px] md:h-[530px] rounded-[26px] shadow-[0_25px_65px_-15px_rgba(0,0,0,0.38)] overflow-hidden relative bg-[#3D1426] border-2 border-[#3D1426]/50">
+            <img src="cover.png" alt="Shakthi Sri Journal Cover" class="w-full h-full object-cover block"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none"></div>
           </div>
-        </div>
-        <!-- 2. The Scrolling Elements (Left and Right tracks) -->
-        <div
-          class="relative w-full max-w-[1400px] mx-auto px-6 lg:px-12 z-10 flex flex-col gap-[20vh] pt-[15vh] pb-[40vh] pointer-events-none"
-          id="ed-scroll-tracks">
-          <div class="w-full flex justify-start pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]">
-              <div
-                class="ed-parallax-item w-full aspect-[4/5] max-h-[400px] relative rounded-[2rem] overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.02]">
-                <img alt="Editorial Side" class="w-full h-full object-cover" src="bg1.png" />
-              </div>
-            </div>
-          </div>
-          <div class="w-full flex justify-end pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]">
-              <div
-                class="ed-parallax-item w-full aspect-[4/5] max-h-[400px] relative rounded-[2rem] overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.02]">
-                <img alt="Shakthi Sri" class="w-full h-full object-cover" src="me.png" />
-              </div>
-            </div>
-          </div>
-          <div class="w-full flex justify-start pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://linkedin.com/in/shakthisri"
-                target="_blank"
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-12 h-12 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-inner">
-                    <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24">
-                      <path
-                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div
-                    class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">LinkedIn</h3>
-                  <p class="text-xs text-gray-400 font-medium">Professional Network</p>
-                  <div class="flex flex-wrap gap-2 mt-4">
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Connect</span>
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Hire Me</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-bold text-md text-gray-900 truncate max-w-[120px]">@Shakthi16</span>
-                  <span
-                    class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">View
-                    Profile</span>
-                </div>
-              </a></div>
-          </div>
-          <div class="w-full flex justify-end pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://www.instagram.com/shaviraworks"
-                target="_blank"
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block -mt-[15vh]">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-12 h-12 rounded-full bg-[#a855f7] flex items-center justify-center shadow-inner">
-                    <span class="text-white font-bold font-sans text-xl">S</span>
-                  </div>
-                  <div
-                    class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Studio</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">SHAVIRA</h3>
-                  <p class="text-xs text-gray-400 font-medium mb-2">Creative Freelance &amp; Design</p>
-                  <p class="text-xs text-gray-600 leading-relaxed line-clamp-3">Designing premium web interfaces, robust
-                    backend systems, and secure applications. Available for contract collaborations.</p>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-bold text-md text-gray-900 truncate max-w-[120px]">@shaviraworks</span>
-                  <span
-                    class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">Follow</span>
-                </div>
-              </a></div>
-          </div>
-          <div class="w-full flex justify-start pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://leetcode.com/u/srishakthi799"
-                target="_blank"
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-12 h-12 rounded-full bg-[#ffa116] flex items-center justify-center shadow-inner">
-                    <span class="text-white font-bold font-sans text-xl">L</span>
-                  </div>
-                  <div
-                    class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">LeetCode</h3>
-                  <p class="text-xs text-gray-400 font-medium">Algorithm Practice</p>
-                  <div class="flex flex-wrap gap-2 mt-4">
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">DSA</span>
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Problem
-                      Solving</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-bold text-md text-gray-900 truncate max-w-[120px]">@Shakthi16</span>
-                  <span
-                    class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">View
-                    Stats</span>
-                </div>
-              </a></div>
-          </div>
-          <div class="w-full flex justify-end pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://github.com/Shakthi16"
-                target="_blank"
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-12 h-12 rounded-full bg-black flex items-center justify-center shadow-inner">
-                    <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24">
-                      <path
-                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div
-                    class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">GitHub</h3>
-                  <p class="text-xs text-gray-400 font-medium">Code Repository</p>
-                  <div class="flex flex-wrap gap-2 mt-4">
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Open
-                      Source</span>
-                    <span
-                      class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Contributions</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-bold text-md text-gray-900">@Shakthi16</span>
-                  <span
-                    class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">View
-                    Code</span>
-                </div>
-              </a></div>
-          </div>
-          <div class="w-full flex justify-start pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a
-                href="https://drive.google.com/file/d/1o2c54e05jnfnnCYniQQSK9VraQUuUwUc/view?usp=sharing"
-                target="_blank"
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-10 h-10 rounded-full bg-[#ef4444] flex items-center justify-center shadow-inner">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-                      <path
-                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                    </svg>
-                  </div>
-                  <div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Saved</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">Research</h3>
-                  <p class="text-[11px] text-gray-400 font-medium">ICTACA'26 Publication</p>
-                  <div class="flex flex-wrap gap-2 mt-3">
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Paper</span>
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Security</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-black text-4xl text-gray-900 tracking-tighter">01</span>
-                  <span
-                    class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">Details</span>
-                </div>
-              </a></div>
-          </div>
-          <div class="w-full flex justify-end pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://tryhackme.com/p/shakthisri1929"
-                target="_blank"
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-12 h-12 rounded-full bg-[#111827] flex items-center justify-center shadow-inner">
-                    <span class="text-[#a855f7] font-bold font-sans text-xl">T</span>
-                  </div>
-                  <div
-                    class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">TryHackMe</h3>
-                  <p class="text-xs text-gray-400 font-medium">Cybersecurity Training</p>
-                  <div class="flex flex-wrap gap-2 mt-4">
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">CTF</span>
-                    <span
-                      class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">PenTesting</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-bold text-md text-gray-900 truncate max-w-[120px]">@Shakthi16</span>
-                  <span
-                    class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">View
-                    Rank</span>
-                </div>
-              </a></div>
-          </div>
-          <div class="w-full flex justify-start pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://portfoliositeshakthi.netlify.app"
-                target="_blank"
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-10 h-10 rounded-full bg-[#f59e0b] flex items-center justify-center shadow-inner">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-                      <path
-                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                    </svg>
-                  </div>
-                  <div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">Projects</h3>
-                  <p class="text-[11px] text-gray-400 font-medium">Deployed Applications</p>
-                  <div class="flex flex-wrap gap-2 mt-3">
-                    <span
-                      class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Full-Stack</span>
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">AI</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-black text-4xl text-gray-900 tracking-tighter">05<span
-                      class="text-2xl opacity-50">+</span></span>
-                  <span
-                    class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">Details</span>
-                </div>
-              </a></div>
-          </div>
-          <div class="w-full flex justify-end pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]"><a href="https://rb.gy/l6f8ss" target="_blank"
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100 block">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-12 h-12 rounded-full bg-[#a855f7] flex items-center justify-center shadow-inner">
-                    <span class="text-white font-bold font-sans text-xl">C</span>
-                  </div>
-                  <div
-                    class="flex items-center gap-1 border border-gray-200 rounded-md px-3 py-1 bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Visit</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">Certifications</h3>
-                  <p class="text-xs text-gray-400 font-medium">Professional Certificates</p>
-                  <div class="flex flex-wrap gap-2 mt-4">
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Data</span>
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-bold">Cloud</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-bold text-md text-gray-900 truncate max-w-[120px]">Verified</span>
-                  <span
-                    class="bg-gray-900 text-white text-[11px] font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors inline-block">Verify</span>
-                </div>
-              </a></div>
-          </div>
-          <div class="w-full flex justify-start pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]">
-              <div
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-10 h-10 rounded-full bg-[#a855f7] flex items-center justify-center shadow-inner">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-                      <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                      </path>
-                      <path
-                        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                    </svg>
-                  </div>
-                  <div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Saved</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">CGPA</h3>
-                  <p class="text-[11px] text-gray-400 font-medium">Academic Excellence</p>
-                  <div class="flex flex-wrap gap-2 mt-3">
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">B.Tech
-                      IT</span>
-                    <span
-                      class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">2022-2026</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-black text-4xl text-gray-900 tracking-tighter">9.00</span>
-                  <button
-                    class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors">Details</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-full flex justify-end pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]">
-              <div
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-10 h-10 rounded-full bg-[#10b981] flex items-center justify-center shadow-inner">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-                      <path
-                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                    </svg>
-                  </div>
-                  <div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Saved</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">Internships</h3>
-                  <p class="text-[11px] text-gray-400 font-medium">Industry Experience</p>
-                  <div class="flex flex-wrap gap-2 mt-3">
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Remote</span>
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">On-site</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-black text-4xl text-gray-900 tracking-tighter">03</span>
-                  <button
-                    class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors">Details</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-full flex justify-start pointer-events-auto">
-            <div class="w-full md:w-[35%] lg:w-[30%] max-w-[400px]">
-              <div
-                class="ed-parallax-item bg-white rounded-[2rem] p-6 shadow-xl flex flex-col justify-between h-[300px] w-full text-black transform transition-transform hover:-translate-y-2 cursor-pointer border border-gray-100">
-                <div class="flex justify-between items-start w-full">
-                  <div class="w-10 h-10 rounded-full bg-[#3b82f6] flex items-center justify-center shadow-inner">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-                      <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2"></path>
-                    </svg>
-                  </div>
-                  <div class="flex items-center gap-1 border border-gray-200 rounded-md px-2 py-1 bg-gray-50">
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">Saved</span>
-                  </div>
-                </div>
-                <div class="mt-4 mb-auto">
-                  <h3 class="font-bold text-xl text-gray-900 mb-1">Technologies</h3>
-                  <p class="text-[11px] text-gray-400 font-medium">Frameworks &amp; Tools</p>
-                  <div class="flex flex-wrap gap-2 mt-3">
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Frontend</span>
-                    <span class="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-bold">Backend</span>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-gray-100 flex justify-between items-center mt-4">
-                  <span class="font-black text-4xl text-gray-900 tracking-tighter">20<span
-                      class="text-2xl opacity-50">+</span></span>
-                  <button
-                    class="bg-gray-900 text-white text-[11px] font-bold px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors">Details</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 3. PROFESSIONAL JOURNEY -->
-      <div class="py-[100px] relative">
-        <h2 class="font-sans text-5xl md:text-7xl mb-[120px] text-center reveal-blur">Professional Journey</h2>
-        <div class="relative pl-6 md:pl-0 max-w-5xl mx-auto" id="timeline-container">
-          <!-- The Scroll Line -->
-          <div class="timeline-line-container md:left-1/2 md:-ml-[0.5px]">
-            <div class="timeline-line-fill" id="timeline-fill"></div>
-          </div>
-          <div class="space-y-[120px]">
-            <!-- Experience 1 -->
-            <div class="relative flex flex-col md:flex-row justify-between w-full timeline-item reveal-blur">
-              <div
-                class="md:w-[45%] text-left md:text-right md:pr-16 pb-4 md:pb-0 order-2 md:order-1 sticky top-32 self-start">
-                <p class="font-sans uppercase tracking-[0.2em] text-[var(--gold-accent)] text-sm font-bold mb-2">Aug
-                  2025 -- Present</p>
-                <h3 class="font-sans text-2xl text-[var(--off-white)]">IIT Madras — CYSTAR Lab</h3>
-              </div>
-              <div
-                class="absolute left-[-24px] md:left-1/2 md:-ml-2 top-0 w-4 h-4 rounded-full bg-[var(--charcoal-bg)] border-2 border-[var(--gold-accent)] timeline-dot z-10 shadow-[0_0_15px_rgba(168,85,247,0.5)]">
-              </div>
-              <div class="md:w-[45%] md:pl-16 order-1 md:order-2 timeline-card p-8">
-                <h4 class="font-sans text-xl font-bold text-white mb-4">Cybersecurity Research Intern</h4>
-                <p class="font-sans text-[var(--off-white)] opacity-70 leading-[1.6]">Offensive security research
-                  workflows including exposure analysis, EDR/AV study, explainable security, and technical
-                  documentation.</p>
-              </div>
-            </div>
-            <!-- Experience 2 -->
-            <div class="relative flex flex-col md:flex-row justify-between w-full timeline-item reveal-blur">
-              <div
-                class="md:w-[45%] text-left md:text-right md:pr-16 pb-4 md:pb-0 order-2 md:order-1 sticky top-32 self-start">
-                <p class="font-sans uppercase tracking-[0.2em] text-[var(--gold-accent)] text-sm font-bold mb-2">Nov
-                  2025 -- Feb 2026</p>
-                <h3 class="font-sans text-2xl text-[var(--off-white)]">OpsIntellix</h3>
-              </div>
-              <div
-                class="absolute left-[-24px] md:left-1/2 md:-ml-2 top-0 w-4 h-4 rounded-full bg-[var(--charcoal-bg)] border-2 border-[var(--gold-accent)] timeline-dot z-10 shadow-[0_0_15px_rgba(168,85,247,0.5)]">
-              </div>
-              <div class="md:w-[45%] md:pl-16 order-1 md:order-2 timeline-card p-8">
-                <h4 class="font-sans text-xl font-bold text-white mb-4">Operations Intern — AP Automation</h4>
-                <p class="font-sans text-[var(--off-white)] opacity-70 leading-[1.6]">Automated banking workflows,
-                  document classification, and validation using Python, boosting pipeline efficiency by 30%.</p>
-              </div>
-            </div>
-            <!-- Experience 3 -->
-            <div class="relative flex flex-col md:flex-row justify-between w-full timeline-item reveal-blur">
-              <div
-                class="md:w-[45%] text-left md:text-right md:pr-16 pb-4 md:pb-0 order-2 md:order-1 sticky top-32 self-start">
-                <p class="font-sans uppercase tracking-[0.2em] text-[var(--gold-accent)] text-sm font-bold mb-2">Mar
-                  2025 -- May 2025</p>
-                <h3 class="font-sans text-2xl text-[var(--off-white)]">Focuslogic IT Services</h3>
-              </div>
-              <div
-                class="absolute left-[-24px] md:left-1/2 md:-ml-2 top-0 w-4 h-4 rounded-full bg-[var(--charcoal-bg)] border-2 border-[var(--gold-accent)] timeline-dot z-10 shadow-[0_0_15px_rgba(168,85,247,0.5)]">
-              </div>
-              <div class="md:w-[45%] md:pl-16 order-1 md:order-2 timeline-card p-8">
-                <h4 class="font-sans text-xl font-bold text-white mb-4">Web Development Intern</h4>
-                <p class="font-sans text-[var(--off-white)] opacity-70 leading-[1.6]">Built responsive React.js
-                  frontends from Figma, integrated REST APIs, conducted manual UI testing, and reduced load latency by
-                  25%.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="cinematic-divider my-20"></div>
-      <!-- 4. ACADEMIC BACKGROUND -->
-      <div class="py-[100px] perspective-container">
-        <h2 class="font-sans text-5xl md:text-7xl mb-[100px] text-center reveal-blur">Academic Background</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div
-            class="tilt-card academic-card cursor-hover flex flex-col justify-between min-h-[220px] backdrop-blur-2xl border rounded-[2rem] p-6 md:p-8 shadow-xl transform-gpu hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
-              style="background-image: url('https://www.transparenttextures.com/patterns/stardust.png');"></div>
-            <div class="relative z-10">
-              <p class="font-sans uppercase tracking-[0.2em] text-xs font-bold mb-2 academic-accent">2022 - 2026</p>
-              <h3 class="font-sans text-2xl md:text-3xl font-bold leading-tight mb-1 tracking-tight">B.Tech in IT</h3>
-              <p class="font-sans text-sm text-gray-500">Kingston Eng. College</p>
-            </div>
-            <div class="mt-6 text-right relative z-10">
-              <span
-                class="font-sans text-4xl md:text-5xl font-bold tracking-tighter drop-shadow-sm academic-accent">9.03</span>
-            </div>
-          </div>
-          <div
-            class="tilt-card academic-card cursor-hover flex flex-col justify-between min-h-[220px] backdrop-blur-2xl border rounded-[2rem] p-6 md:p-8 shadow-xl transform-gpu hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
-              style="background-image: url('https://www.transparenttextures.com/patterns/stardust.png');"></div>
-            <div class="relative z-10">
-              <p class="font-sans uppercase tracking-[0.2em] text-xs font-bold mb-2 academic-accent">2021 - 2022</p>
-              <h3 class="font-sans text-2xl md:text-3xl font-bold leading-tight mb-1 tracking-tight">HSC</h3>
-              <p class="font-sans text-sm text-gray-500">Sai Guruji School</p>
-            </div>
-            <div class="mt-6 text-right relative z-10">
-              <span
-                class="font-sans text-4xl md:text-5xl font-bold tracking-tighter drop-shadow-sm academic-accent">89.2%</span>
-            </div>
-          </div>
-          <div
-            class="tilt-card academic-card cursor-hover flex flex-col justify-between min-h-[220px] backdrop-blur-2xl border rounded-[2rem] p-6 md:p-8 shadow-xl transform-gpu hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
-              style="background-image: url('https://www.transparenttextures.com/patterns/stardust.png');"></div>
-            <div class="relative z-10">
-              <p class="font-sans uppercase tracking-[0.2em] text-xs font-bold mb-2 academic-accent">2019 - 2020</p>
-              <h3 class="font-sans text-2xl md:text-3xl font-bold leading-tight mb-1 tracking-tight">SSLC</h3>
-              <p class="font-sans text-sm text-gray-500">Sai Guruji School</p>
-            </div>
-            <div class="mt-6 text-right relative z-10">
-              <span
-                class="font-sans text-4xl md:text-5xl font-bold tracking-tighter drop-shadow-sm academic-accent">92%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="cinematic-divider my-20"></div>
-      <!-- 5. CERTIFICATIONS -->
-      <div class="py-[100px] pb-[160px] overflow-hidden relative">
-        <h2 class="font-sans text-5xl md:text-7xl mb-[100px] text-center reveal-blur relative z-10">Continuous Learning
-        </h2>
-        <!-- Expanded width so it bleeds off both edges -->
-        <div
-          class="marquee-container w-[150vw] ml-[-25vw] rotate-[-2deg] opacity-90 hover:opacity-100 transition-opacity mb-8">
-          <div class="marquee-track cursor-hover">
-            <!-- Row 1 Items -->
-            <div class="inline-flex gap-6 pr-6">
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">IN</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">Infosys</h4>
-                  <p class="font-sans text-[#aaa] text-sm">UI/UX, React, AI, Python</p>
-                </div>
-              </div>
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">UD</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">Udemy</h4>
-                  <p class="font-sans text-[#aaa] text-sm">Cybersecurity</p>
-                </div>
-              </div>
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">NT</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">NoviTech</h4>
-                  <p class="font-sans text-[#aaa] text-sm">Full Stack Web Dev</p>
-                </div>
-              </div>
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">GO</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">Google</h4>
-                  <p class="font-sans text-[#aaa] text-sm">Data Analytics &amp; Cloud</p>
-                </div>
-              </div>
-              <!-- Duplicate for seamless loop -->
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">IN</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">Infosys</h4>
-                  <p class="font-sans text-[#aaa] text-sm">UI/UX, React, AI, Python</p>
-                </div>
-              </div>
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">UD</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">Udemy</h4>
-                  <p class="font-sans text-[#aaa] text-sm">Cybersecurity</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="marquee-container">
-          <div class="marquee-track reverse cursor-hover">
-            <!-- Row 2 Items -->
-            <div class="inline-flex gap-6 pr-6">
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">NT</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">NoviTech</h4>
-                  <p class="font-sans text-[#aaa] text-sm">Full Stack Web Dev</p>
-                </div>
-              </div>
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">GO</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">Google</h4>
-                  <p class="font-sans text-[#aaa] text-sm">Data Analytics &amp; Cloud</p>
-                </div>
-              </div>
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">IN</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">Infosys</h4>
-                  <p class="font-sans text-[#aaa] text-sm">UI/UX, React, AI, Python</p>
-                </div>
-              </div>
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">UD</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">Udemy</h4>
-                  <p class="font-sans text-[#aaa] text-sm">Cybersecurity</p>
-                </div>
-              </div>
-              <!-- Duplicate for seamless loop -->
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">NT</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">NoviTech</h4>
-                  <p class="font-sans text-[#aaa] text-sm">Full Stack Web Dev</p>
-                </div>
-              </div>
-              <div class="cert-badge rounded-2xl px-8 py-5 inline-flex items-center gap-4">
-                <span
-                  class="w-10 h-10 rounded-full bg-[var(--gold-accent)]/20 flex items-center justify-center text-[var(--gold-accent)] font-bold">GO</span>
-                <div>
-                  <h4 class="font-sans font-bold text-white text-lg">Google</h4>
-                  <p class="font-sans text-[#aaa] text-sm">Data Analytics &amp; Cloud</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- Spine Bookmark Ribbon -->
+          <div class="w-6 h-12 bg-[#55826b] rounded-b-md shadow-md absolute -bottom-5 left-10 pointer-events-none"></div>
         </div>
       </div>
 
-    </section>
-    <!-- SKILLS -->
-    <section
+      <!-- ==================== OPENED PHYSICAL HARDCOVER BOOK ==================== -->
+      <div id="smriti-book-opened" class="hidden w-full transition-opacity duration-500 opacity-0 z-30">
+        
+        <!-- HARDCOVER FRAME: BURGUNDY #3D1426 MARGIN ENCLOSING PAGES -->
+        <div class="relative w-full max-w-[860px] mx-auto rounded-[24px] p-2.5 md:p-3 shadow-[0_25px_70px_rgba(0,0,0,0.3)] border-2 border-[#3D1426] bg-[#3D1426]">
+          
+          <!-- OUTSIDE RIGHT VERTICAL INDEX TABS -->
+          <div class="absolute top-6 -right-8 md:-right-10 flex flex-col gap-2 z-50">
+            
+            <!-- Home / Cover Tab -->
+            <button onclick="closeSmritiBook()" class="w-8 md:w-10 h-9 bg-[#EFE3D5] hover:bg-[#6B2137] text-gray-800 hover:text-white rounded-r-xl shadow-md border-t border-r border-b border-amber-900/20 flex items-center justify-center transition-all hover:translate-x-1" title="Close to Cover">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001-1.414-1.414l-7-7z"/></svg>
+            </button>
+
+            <!-- Tab 1: About Me (P. 01-02) -->
+            <button id="tab-btn-spread1" onclick="switchSmritiSpread('spread1')" class="px-1.5 md:px-2 py-4 bg-[#541C2E] text-white text-[10px] font-bold rounded-r-xl shadow-md border-t border-r border-b border-amber-900/30 flex items-center justify-center transition-all hover:translate-x-1" style="writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Outfit', sans-serif;">
+              About Me
+            </button>
+
+            <!-- Tab 2: Things I Learnt (P. 03-04) -->
+            <button id="tab-btn-spread2" onclick="switchSmritiSpread('spread2')" class="px-1.5 md:px-2 py-4 bg-[#7A364B] hover:bg-[#541C2E] text-white text-[10px] font-bold rounded-r-xl shadow-md border-t border-r border-b border-amber-900/30 flex items-center justify-center transition-all hover:translate-x-1" style="writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Outfit', sans-serif;">
+              Things I Learnt
+            </button>
+
+            <!-- Tab 3: Story Writing -->
+            <button id="tab-btn-spread3" onclick="switchSmritiSpread('spread3')" class="px-1.5 md:px-2 py-4 bg-[#A36D7D] hover:bg-[#541C2E] text-white text-[10px] font-bold rounded-r-xl shadow-md border-t border-r border-b border-amber-900/30 flex items-center justify-center transition-all hover:translate-x-1 hidden sm:flex" style="writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Outfit', sans-serif;">
+              Story Writing
+            </button>
+
+          </div>
+
+          <!-- INNER PAGES SPREAD 1 (PAGES 01 & 02 - EXACT REPLICATION OF USER REFERENCE) -->
+          <div id="smriti-spread-1" class="w-full bg-[#FAF6EE] rounded-[18px] p-5 md:p-6 relative overflow-hidden text-left h-[495px] md:h-[525px] flex flex-col justify-between" style="background-image: radial-gradient(#D8CFC3 1.2px, transparent 1.2px); background-size: 20px 20px;">
+            
+            <!-- TOP-RIGHT CLOSE BUTTON '✕' -->
+            <button onclick="closeSmritiBook()" class="absolute top-3 right-4 text-gray-500 hover:text-[#6B2137] text-lg font-bold z-40 p-1 transition-colors" title="Close Journal">
+              ✕
+            </button>
+
+            <!-- Center Spine Stitch Line -->
+            <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1.5px] bg-amber-900/15 hidden md:block"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 relative z-10 h-full overflow-y-auto md:overflow-hidden">
+              
+              <!-- PAGE 01: LEFT SIDE -->
+              <div class="flex flex-col justify-between text-left pr-0 md:pr-2">
+                <div>
+                  <!-- Header -->
+                  <h3 class="text-3xl md:text-[38px] font-extrabold text-[#1C1917] mb-0.5 tracking-tight leading-none" style="font-family: 'Outfit', 'Inter', sans-serif;">Shakthi Sri</h3>
+                  
+                  <!-- Sub-header Pill & Cursive Handwriting -->
+                  <div class="flex flex-wrap items-center gap-2.5 mb-3">
+                    <span class="px-2.5 py-0.5 bg-[#E8D5CE] text-[#6B2137] text-[9px] font-bold rounded-full border border-[#D9BEB4] tracking-wider uppercase" style="font-family: 'Outfit', sans-serif;">DEVELOPER &amp; RESEARCHER</span>
+                    <span class="text-base text-[#2C2C2C] font-semibold underline underline-offset-4 decoration-[#6B2137]/30" style="font-family: 'Patrick Hand', 'Caveat', cursive;">class of 2026</span>
+                  </div>
+
+                  <!-- Timeline List with Icons -->
+                  <div class="space-y-1.5 text-xs text-[#2C2C2C] font-medium mb-3" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <div class="flex justify-between items-center border-b border-dashed border-amber-900/20 pb-1">
+                      <span class="flex items-center gap-2 font-bold text-[#1F1F1F]">
+                        <svg class="w-3.5 h-3.5 text-[#6B2137]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        B.Tech Information Technology
+                      </span>
+                      <span class="text-gray-600 font-mono text-[11px]">2022 – 2026</span>
+                    </div>
+
+                    <div class="flex justify-between items-center border-b border-dashed border-amber-900/20 pb-1">
+                      <span class="flex items-center gap-2 font-bold text-[#1F1F1F]">
+                        <svg class="w-3.5 h-3.5 text-[#6B2137]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                        Kingston Engineering College
+                      </span>
+                      <span class="text-[#6B2137] font-bold font-mono text-[11px]">CGPA: 8.6</span>
+                    </div>
+
+                    <div class="flex justify-between items-center border-b border-dashed border-amber-900/20 pb-1">
+                      <span class="flex items-center gap-2 font-bold text-[#1F1F1F]">
+                        <svg class="w-3.5 h-3.5 text-[#6B2137]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.12a2 2 0 00-1.182.17l-1.04.52a2 2 0 00-.778 2.766l1.54 2.31a2 2 0 002.324.793l2.45-.817a6 6 0 013.79 0l2.45.817a2 2 0 002.324-.793l1.54-2.31a2 2 0 00-.592-2.738z"/></svg>
+                        IIT Madras — CYSTAR
+                      </span>
+                      <span class="text-gray-600">Research Intern</span>
+                    </div>
+
+                    <div class="flex justify-between items-center border-b border-dashed border-amber-900/20 pb-1">
+                      <span class="flex items-center gap-2 font-bold text-[#1F1F1F]">
+                        <svg class="w-3.5 h-3.5 text-[#6B2137]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        Full-Stack Developer
+                      </span>
+                      <span class="text-gray-600 font-mono text-[11px]">MERN Stack</span>
+                    </div>
+
+                    <div class="flex justify-between items-center border-b border-dashed border-amber-900/20 pb-1">
+                      <span class="flex items-center gap-2 font-bold text-[#1F1F1F]">
+                        <svg class="w-3.5 h-3.5 text-[#6B2137]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        Cybersecurity Enthusiast
+                      </span>
+                      <span class="text-gray-600">Always Learning</span>
+                    </div>
+                  </div>
+
+                  <!-- Taped Cards Row -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-2">
+                    
+                    <!-- Taped Note: about me ヾ -->
+                    <div class="bg-[#F6EFE6] p-3 rounded-xl border border-amber-900/15 shadow-sm relative">
+                      <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-7 h-2.5 bg-[#E6D7C3]/90 rotate-[-2deg] border-l border-r border-white/60"></div>
+                      <span class="text-base text-[#6B2137] font-bold block mb-0.5" style="font-family: 'Patrick Hand', 'Handlee', cursive;">about me ヾ</span>
+                      <ul class="text-[11px] text-[#2C2C2C] leading-tight space-y-0.5" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                        <li>♥ I love turning ideas into impactful digital solutions.</li>
+                        <li>♥ Curious mind with a strong drive to build, secure and innovate.</li>
+                        <li>♥ Believer in discipline, consistency &amp; growth.</li>
+                      </ul>
+                      <span class="absolute bottom-1 right-2 text-[10px] text-[#6B2137]">♡</span>
+                    </div>
+
+                    <!-- TODAY Box -->
+                    <div class="bg-[#F6EFE6] p-3 rounded-xl border border-amber-900/15 shadow-sm relative">
+                      <div class="flex items-center justify-between mb-0.5">
+                        <div class="flex items-center gap-1">
+                          <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        </div>
+                        <span class="text-[10px] text-amber-900 font-bold">☆</span>
+                      </div>
+                      <span class="text-[9px] font-mono font-bold text-gray-500 uppercase block mb-0.5">TODAY</span>
+                      <p class="text-[11px] text-[#2C2C2C] leading-tight" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                        Building skills. Solving problems.<br/>Creating solutions.<br/>Preparing for impact.<br/>One step at a time.
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Contact Memo & Great Vibes Quote -->
+                <div class="pt-2 border-t border-dashed border-amber-900/20 flex justify-between items-center gap-2">
+                  <div class="bg-[#EFE5D8] px-2.5 py-1.5 rounded-lg text-[11px] text-[#2C2C2C] border border-amber-900/15" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <p class="font-bold">srishakthi799@gmail.com</p>
+                    <p class="text-gray-600">+91 7895032098</p>
+                    <p class="text-gray-500">Chennai | Vellore</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-xl md:text-2xl text-[#541C2E] font-bold leading-tight" style="font-family: 'Great Vibes', cursive;">code with purpose,<br/>create with impact. ♡</p>
+                    <svg width="100" height="6" viewBox="0 0 100 6" class="ml-auto mt-0.5 opacity-60">
+                      <path d="M2 4 C20 1, 60 1, 98 4" stroke="#541C2E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- PAGE 02: RIGHT SIDE -->
+              <div class="flex flex-col justify-between relative text-left pl-0 md:pl-2">
+                
+                <!-- Top Row -->
+                <div class="flex justify-between items-start mb-2">
+                  <div class="text-center">
+                    <svg class="w-5 h-6 text-[#6B2137] mx-auto" viewBox="0 0 24 32" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 28V12M12 12C9 9 5 10 5 10s1 4 4 5M12 12c3-3 7-2 7-2s-1 4-4 5M12 12c-2-3-1-7-1-7s4 1 4 5"/></svg>
+                    <span class="block text-[10px] text-gray-700 mt-0.5" style="font-family: 'Patrick Hand', 'Handlee', cursive;">breathe.png</span>
+                  </div>
+                  <div class="flex items-center gap-5" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <div class="text-center">
+                      <div class="w-7 h-7 bg-[#6B2137]/10 rounded-lg flex items-center justify-center text-[#6B2137] text-xs font-bold mx-auto">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
+                      </div>
+                      <span class="block text-[10px] text-gray-600 mt-0.5">Goals</span>
+                    </div>
+                    <div class="text-center">
+                      <div class="w-7 h-7 bg-amber-900/10 rounded-lg flex items-center justify-center text-amber-900 text-xs font-bold mx-auto">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/></svg>
+                      </div>
+                      <span class="block text-[10px] text-gray-600 mt-0.5">Reminders</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Currently Box & Illustration Container -->
+                <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center mb-2">
+                  
+                  <!-- currently ヾ -->
+                  <div class="sm:col-span-6 border border-dashed border-amber-900/30 rounded-xl p-3 bg-[#F8F3EA]">
+                    <span class="text-base text-[#6B2137] font-bold block mb-1" style="font-family: 'Patrick Hand', 'Handlee', cursive;">currently ヾ</span>
+                    <ul class="text-[11px] text-[#2C2C2C] leading-tight space-y-0.5" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                      <li>♥ Exploring AI &amp; LLMs</li>
+                      <li>♥ Building secure systems</li>
+                      <li>♥ Deepening full-stack</li>
+                      <li>♥ Learning. Shipping.</li>
+                      <li>♥ Growing. Always. ♡</li>
+                    </ul>
+                  </div>
+
+                  <!-- Character Illustration / Photo with @Shakthi.16 Tag -->
+                  <div class="sm:col-span-6 flex justify-center relative">
+                    <div class="relative">
+                      <div class="w-[130px] md:w-[150px] h-[160px] md:h-[180px] rounded-[18px] overflow-hidden shadow-md border-3 border-white bg-white">
+                        <img src="girl.png" alt="Shakthi Sri Illustration" class="w-full h-full object-cover"/>
+                      </div>
+                      <div class="absolute -top-2.5 right-1 bg-[#1A1A1A] text-white font-mono text-[8px] font-bold px-2.5 py-0.5 rounded-full shadow-md z-30">
+                        @Shakthi.16
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tech I Work With -->
+                <div class="border border-dashed border-amber-900/30 rounded-xl p-2 bg-[#F8F3EA] mb-2">
+                  <span class="text-xs text-[#6B2137] font-bold block mb-1" style="font-family: 'Patrick Hand', 'Handlee', cursive;">tech i work with ヾ</span>
+                  
+                  <div class="grid grid-cols-7 gap-1.5 items-center text-center text-[9px] font-medium text-gray-700">
+                    <div class="flex flex-col items-center">
+                      <svg class="w-4 h-4 text-[#61DAFB]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm0-7c-5.52 0-10 1.79-10 4s4.48 4 10 4 10-1.79 10-4-4.48-4-10-4zm0 6c-4.41 0-8-1.34-8-2s3.59-2 8-2 8 1.34 8 2-3.59 2-8 2z"/></svg>
+                      <span>React.js</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="w-4 h-4 rounded bg-[#339933] text-white text-[8px] font-bold flex items-center justify-center">ncb</div>
+                      <span>Node.js</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <span class="font-mono font-bold text-[10px] text-gray-800">ex</span>
+                      <span>Express.js</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <svg class="w-4 h-4 text-[#47A248]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1.5C11.5 3 7 7.5 7 13c0 3 2 5.5 5 6.5 3-1 5-3.5 5-6.5 0-5.5-4.5-10-5-11.5z"/></svg>
+                      <span>MongoDB</span>
+                    </div>
+                    <div class="flex flex-col items-center border-l border-dashed border-amber-900/20 pl-1">
+                      <svg class="w-4 h-4 text-[#F24E1E]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 2h4v4H8V2zm0 6h4v4H8V8zm0 6h4v4a4 4 0 11-4-4zm8-12h4v4h-4V2zm0 6h4v4h-4V8z"/></svg>
+                      <span>Figma</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <svg class="w-4 h-4 text-[#007ACC]" fill="currentColor" viewBox="0 0 24 24"><path d="M23.15 2.587L18.21.21a1.494 1.494 0 00-1.705.291L7.548 8.69 3.4 5.564a.747.747 0 00-.986.079L.24 7.728a.747.747 0 00-.03.996l3.96 4.67-3.96 4.67a.747.747 0 00.03.996l2.174 2.085a.747.747 0 00.986.079l4.148-3.126 8.957 8.189c.498.455 1.25.412 1.705-.098l4.94-4.757a1.494 1.494 0 00.44-1.077V3.664c0-.406-.164-.796-.44-1.077z"/></svg>
+                      <span>VS Code</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <svg class="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C9.5 2 7.5 4 7.5 6.5v4c0 1.5-1 3-2.5 4 0 3 3 5.5 7 5.5s7-2.5 7-5.5c-1.5-1-2.5-2.5-2.5-4v-4C16.5 4 14.5 2 12 2z"/></svg>
+                      <span>Linux</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- What I Build Box -->
+                <div class="grid grid-cols-12 gap-2 items-center">
+                  <div class="col-span-9 border border-dashed border-amber-900/30 rounded-xl p-2 bg-[#F8F3EA]">
+                    <span class="text-xs text-[#6B2137] font-bold block mb-1 text-center" style="font-family: 'Patrick Hand', 'Handlee', cursive;">what i build ♡</span>
+                    <div class="grid grid-cols-3 gap-1.5 text-center text-[10px] font-bold text-gray-800" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                      <div class="p-1 bg-white/80 rounded-lg border border-amber-900/10 flex items-center justify-center gap-0.5">🌐 Full-Stack Apps</div>
+                      <div class="p-1 bg-white/80 rounded-lg border border-amber-900/10 flex items-center justify-center gap-0.5">🔒 Security Tools</div>
+                      <div class="p-1 bg-white/80 rounded-lg border border-amber-900/10 flex items-center justify-center gap-0.5">🧠 AI Solutions</div>
+                    </div>
+                  </div>
+
+                  <!-- Taped Botanical Card -->
+                  <div class="col-span-3 bg-[#EFE5D8] p-1.5 rounded-lg border border-amber-900/15 text-center relative shadow-sm">
+                    <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-5 h-2 bg-[#E6D7C3]/90 rotate-[-2deg]"></div>
+                    <svg class="w-4 h-5 text-[#6B2137] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22V8M12 8C9 5 5 6 5 6s1 4 4 5M12 8c3-3 7-2 7-2s-1 4-4 5"/></svg>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- INNER PAGES SPREAD 2 (EXACT IMAGE 2 FONT & CREATIVE ARRANGEMENT) -->
+          <div id="smriti-spread-2" class="hidden w-full bg-[#FAF6EE] rounded-[18px] p-5 md:p-6 relative overflow-hidden text-left h-[495px] md:h-[525px] flex flex-col justify-between" style="background-image: radial-gradient(#D8CFC3 1.2px, transparent 1.2px); background-size: 20px 20px;">
+            
+            <!-- TOP-RIGHT CLOSE BUTTON '✕' -->
+            <button onclick="closeSmritiBook()" class="absolute top-3 right-4 text-gray-500 hover:text-[#6B2137] text-lg font-bold z-40 p-1 transition-colors" title="Close Journal">
+              ✕
+            </button>
+
+            <!-- Center Spine Stitch Line -->
+            <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1.5px] bg-amber-900/15 hidden md:block"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 relative z-10 h-full overflow-y-auto md:overflow-hidden">
+              
+              <!-- PAGE 03: ON BUILDING. -->
+              <div class="flex flex-col justify-between text-left pr-0 md:pr-2">
+                <div>
+                  <div class="flex items-center gap-2 mb-0.5">
+                    <span class="px-1.5 py-0.5 bg-[#E8D5CE] text-[#6B2137] font-bold text-[10px] rounded border border-[#D9BEB4]">03</span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-[#1F1F1F]" style="font-family: 'Patrick Hand', 'Handlee', cursive;">On Building. ヾ</h3>
+                  </div>
+                  <p class="text-[11px] text-gray-500 mb-2" style="font-family: 'Patrick Hand', 'Handlee', cursive;">Journal Entry — 03</p>
+
+                  <p class="text-xs text-[#2C2C2C] leading-tight mb-1.5" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    When I first started writing software, I believed engineering was about finding answers.<br/>
+                    Over time, I realised it is far more often about <span class="underline underline-offset-2 decoration-amber-900/50 font-bold">asking better questions.</span>
+                  </p>
+
+                  <ul class="text-[11px] text-[#2C2C2C] space-y-0.5 mb-2" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <li>♥ What problem actually needs solving?</li>
+                    <li>♥ Who will depend on this system tomorrow?</li>
+                    <li>♥ What assumptions am I making today that could become failures later?</li>
+                  </ul>
+
+                  <p class="text-[11px] text-[#2C2C2C] leading-tight" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    The quality of a solution is usually determined long before the first line of code is written.<br/>
+                    <span class="underline underline-offset-2 decoration-amber-900/50 font-bold text-[#6B2137]">Good engineering begins with understanding.</span> Everything else follows.
+                  </p>
+                </div>
+
+                <!-- Taped Quote Note & Bridge Sketch -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 items-center my-1.5">
+                  <div class="bg-[#F6EFE6] p-2.5 rounded-xl border border-amber-900/15 shadow-sm text-[11px] text-[#2C2C2C] relative" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-6 h-2.5 bg-[#E6D7C3]/90 rotate-[-1deg]"></div>
+                    “ If a system becomes difficult to explain, it is usually becoming difficult to maintain. ”
+                  </div>
+
+                  <div class="text-center p-1.5 bg-white/60 rounded-xl border border-amber-900/10 shadow-sm">
+                    <svg class="w-full h-12 text-[#6B2137]/80" viewBox="0 0 120 40" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 35h100M30 10v25M90 10v25M10 25c20-10 40-10 50 0c10-10 30-10 50 0M30 10L10 25M30 10l30 15M90 10l-30 15M90 10l20 15"/><path stroke-linecap="round" stroke-width="0.5" stroke-dasharray="1 1" d="M30 18h60M30 24h60"/></svg>
+                  </div>
+                </div>
+
+                <!-- Bottom Wire Spiral Note & Reflection -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1.5 border-t border-dashed border-amber-900/20">
+                  <div class="bg-[#F8F3EA] p-2.5 rounded-xl border border-amber-900/15 relative pl-6" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <div class="absolute left-1.5 top-1.5 bottom-1.5 flex flex-col justify-between">
+                      <div class="w-2 h-2 rounded-full border border-gray-400"></div>
+                      <div class="w-2 h-2 rounded-full border border-gray-400"></div>
+                      <div class="w-2 h-2 rounded-full border border-gray-400"></div>
+                    </div>
+
+                    <p class="font-bold text-[11px] text-[#6B2137] mb-0.5">A small note I often return to</p>
+                    <ul class="text-[10px] text-[#2C2C2C] space-y-0.5">
+                      <li>👁️ Observe. 💡 Understand.</li>
+                      <li>⊖ Reduce. &lt;/&gt; Build.</li>
+                      <li>📈 Improve. ↺ Repeat. ♡</li>
+                    </ul>
+                  </div>
+
+                  <div class="text-left text-[11px] text-[#2C2C2C] flex flex-col justify-between" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <div>
+                      <span class="font-bold text-xs text-[#6B2137] block mb-0.5 underline">Reflection</span>
+                      <p class="leading-tight">
+                        I no longer measure progress by features. I measure it by <span class="bg-[#EFE5D8] px-1 rounded font-bold">how much clearer my thinking becomes</span>. ☆
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- PAGE 04: THINGS I'VE LEARNED. ♡ -->
+              <div class="flex flex-col justify-between text-left pl-0 md:pl-2">
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <div>
+                      <h3 class="text-2xl md:text-3xl font-bold text-[#1F1F1F]" style="font-family: 'Patrick Hand', 'Handlee', cursive;">Things I've Learned. ♡</h3>
+                      <div class="w-20 h-0.5 bg-[#6B2137]/40 rounded-full"></div>
+                    </div>
+                    <span class="px-1.5 py-0.5 bg-[#E8D5CE] text-[#6B2137] font-bold text-[10px] rounded border border-[#D9BEB4]">04</span>
+                  </div>
+
+                  <div class="space-y-2 text-[11px] text-[#2C2C2C] mb-2" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <div class="flex items-start gap-2">
+                      <div class="w-6 h-6 rounded-full bg-[#EFE5D8] border border-amber-900/20 flex items-center justify-center text-[10px] font-bold text-[#6B2137] shrink-0 mt-0.5">&lt;/&gt;</div>
+                      <div>
+                        <h4 class="font-bold text-xs text-[#1F1F1F]">The best code usually disappears.</h4>
+                        <p class="text-gray-600 leading-tight">Users remember experiences. Developers remember implementations. Good engineering satisfies both. ♡</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-2">
+                      <div class="w-6 h-6 rounded-full bg-[#EFE5D8] border border-amber-900/20 flex items-center justify-center text-[10px] font-bold text-[#6B2137] shrink-0 mt-0.5">🕒</div>
+                      <div>
+                        <h4 class="font-bold text-xs text-[#1F1F1F]">Speed is temporary.</h4>
+                        <p class="text-gray-600 leading-tight">Maintainability is permanent. Every shortcut introduces interest that someone must repay.</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-2">
+                      <div class="w-6 h-6 rounded-full bg-[#EFE5D8] border border-amber-900/20 flex items-center justify-center text-[10px] font-bold text-[#6B2137] shrink-0 mt-0.5">📄</div>
+                      <div>
+                        <h4 class="font-bold text-xs text-[#1F1F1F]">Documentation is respect.</h4>
+                        <p class="text-gray-600 leading-tight">For teammates, future contributors, and yourself 6 months later. ☆</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-2">
+                      <div class="w-6 h-6 rounded-full bg-[#EFE5D8] border border-amber-900/20 flex items-center justify-center text-[10px] font-bold text-[#6B2137] shrink-0 mt-0.5">🌱</div>
+                      <div>
+                        <h4 class="font-bold text-xs text-[#1F1F1F]">Learning is never finished.</h4>
+                        <p class="text-gray-600 leading-tight">Tools change. Curiosity should not. ♡</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="p-2.5 bg-[#F6EFE6] rounded-xl border border-amber-900/15 text-[11px] text-[#2C2C2C] text-center mb-2 relative shadow-sm" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-7 h-2.5 bg-[#E6D7C3]/90 rotate-[1deg]"></div>
+                    Every completed project leaves behind a better engineer than the one who started it. 🌸
+                  </div>
+                </div>
+
+                <div class="pt-1.5 border-t border-dashed border-amber-900/20">
+                  <h4 class="font-bold text-sm text-[#1F1F1F] mb-0.5" style="font-family: 'Patrick Hand', 'Handlee', cursive;">Working With Others. 👥</h4>
+                  <p class="text-[10.5px] text-gray-600 leading-tight mb-1" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    Some contributions improve communication, simplify decisions, and prevent mistakes.
+                  </p>
+
+                  <div class="bg-[#F6EFE6] p-2 rounded-lg border border-amber-900/15 text-[10.5px] text-[#2C2C2C] text-center mb-1" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    "The most valuable work is often the work no one notices because everything functions as expected. ♡"
+                  </div>
+
+                  <ul class="text-[10.5px] text-[#2C2C2C] space-y-0.5" style="font-family: 'Patrick Hand', 'Handlee', cursive;">
+                    <li>♥ Showing up prepared.</li>
+                    <li>♥ Writing clearly.</li>
+                    <li>♥ Listening carefully.</li>
+                    <li>♥ Accepting feedback without defending ego.</li>
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- INNER PAGES SPREAD 3 -->
+          <div id="smriti-spread-3" class="hidden w-full bg-[#FAF6EE] rounded-[18px] p-5 md:p-6 relative overflow-hidden text-left h-[495px] md:h-[525px]" style="background-image: radial-gradient(#D8CFC3 1.2px, transparent 1.2px); background-size: 20px 20px;">
+            <button onclick="closeSmritiBook()" class="absolute top-3 right-4 text-gray-500 hover:text-[#6B2137] text-lg font-bold z-40 p-1 transition-colors" title="Close Journal">
+              ✕
+            </button>
+            <!-- Center Spine -->
+            <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1.5px] bg-amber-900/15 hidden md:block"></div>
+
+            <!-- Page Numbers -->
+            <div class="absolute top-3 left-4 text-[10px] font-bold text-[#8b2252] border border-[#8b2252]/30 rounded-md px-1.5 py-0.5 font-mono z-20">05</div>
+            <div class="absolute top-3 right-10 text-[10px] font-bold text-[#8b2252] border border-[#8b2252]/30 rounded-md px-1.5 py-0.5 font-mono z-20">06</div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 relative z-10 h-full overflow-y-auto md:overflow-hidden">
+              
+              <!-- LEFT PAGE: Story Writing Title + Illustration -->
+              <div class="relative flex flex-col justify-between h-full">
+                
+                <!-- Title -->
+                <div class="mb-2">
+                  <h3 class="text-3xl md:text-4xl font-bold text-[#1F1F1F] leading-tight" style="font-family: 'Great Vibes', cursive;">
+                    Story <span class="text-[#8b2252] italic">Writing.</span>
+                  </h3>
+                  <!-- Underline swash -->
+                  <svg width="80" height="8" viewBox="0 0 80 8" class="mt-1 ml-12">
+                    <path d="M2 5 C15 2, 35 2, 50 5 C60 7, 72 4, 78 3" stroke="#8b2252" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                  </svg>
+                  <p class="text-xs text-gray-600 mt-2 leading-snug" style="font-family: 'Patrick Hand', cursive;">
+                    weave words.<br/>leave worlds behind. <span class="text-[#8b2252]">♡</span>
+                  </p>
+                </div>
+
+                <!-- Main Illustration -->
+                <div class="relative flex-1 min-h-0 rounded-xl overflow-hidden">
+                  <img src="story_girl.png" alt="Story Writing Illustration" class="w-full h-full object-cover rounded-xl" style="filter: saturate(0.9) contrast(1.05);"/>
+                  
+                  <!-- Polaroid photos pinned overlay (top-right area) -->
+                  <div class="absolute top-2 right-2 w-[60px] h-[55px] bg-white p-1 rounded shadow-md rotate-[8deg] border border-gray-200/60 hidden sm:block">
+                    <img src="candle desk.jpe" alt="Candle desk" class="w-full h-full object-cover rounded-sm"/>
+                  </div>
+                  <div class="absolute top-12 right-14 w-[50px] h-[45px] bg-white p-1 rounded shadow-md rotate-[-5deg] border border-gray-200/60 hidden sm:block">
+                    <img src="flowers.jpe" alt="Flowers" class="w-full h-full object-cover rounded-sm"/>
+                  </div>
+
+                  <!-- Sticky note with quote -->
+                  <div class="absolute bottom-3 right-2 w-[50px] h-[50px] bg-white p-1 rounded shadow-md rotate-[-12deg] border border-gray-200/60 hidden sm:block">
+                    <div class="text-[5px] text-gray-700 leading-tight" style="font-family: 'Patrick Hand', cursive;">
+                      the most beautiful stories come from the quiet places.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom sticky note quote -->
+                <div class="mt-2 bg-[#F5EDE0] p-2.5 rounded-lg shadow-sm border border-[#E8DCC8] max-w-[170px] rotate-[-1deg]">
+                  <p class="text-[10px] text-gray-700 leading-snug" style="font-family: 'Patrick Hand', cursive;">
+                    one page today,<br/>a whole universe<br/>tomorrow. <span class="text-[#8b2252]">♡</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- RIGHT PAGE: Story in Progress + Photo Collage + Wattpad Link -->
+              <div class="relative flex flex-col h-full">
+                
+                <!-- "my story in progress" header -->
+                <div class="text-center mb-3">
+                  <p class="text-sm text-gray-600 italic" style="font-family: 'Patrick Hand', cursive;">
+                    my story in progress <span class="text-[#8b2252]">♡</span>
+                  </p>
+                </div>
+
+                <!-- Torn paper banner with story title -->
+                <div class="relative mx-auto mb-3 px-5 py-2.5 max-w-[260px]" style="background: linear-gradient(135deg, #EDE6D8, #F3ECE0); border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                  <!-- Torn edges simulation -->
+                  <div class="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-full" style="background: repeating-linear-gradient(0deg, transparent, transparent 3px, #FAF6EE 3px, #FAF6EE 5px);"></div>
+                  <div class="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-full" style="background: repeating-linear-gradient(0deg, transparent, transparent 3px, #FAF6EE 3px, #FAF6EE 5px);"></div>
+                  <!-- Paper clip accent -->
+                  <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-5 border-2 border-[#C4A47A] rounded-full bg-transparent z-10"></div>
+                  <!-- Dried flower sprig accent -->
+                  <div class="absolute -top-3 right-4 text-[14px] opacity-60">🌿</div>
+                  
+                  <h4 class="text-center text-lg font-bold text-[#1F1F1F]" style="font-family: 'Great Vibes', cursive; letter-spacing: 0.5px;">
+                    The Threadweaver's Knot
+                  </h4>
+                </div>
+
+                <!-- Photo Collage (3 photos arranged like reference) -->
+                <div class="relative flex-1 min-h-0 grid grid-cols-3 gap-2 mb-3">
+                  <!-- Photo 1 (large, left) -->
+                  <div class="col-span-2 row-span-1 bg-white p-1 rounded shadow-md border border-gray-200/60 rotate-[-1deg] overflow-hidden">
+                    <img src="wattpad.png" alt="Story preview" class="w-full h-full object-cover rounded-sm" style="max-height: 160px;"/>
+                  </div>
+                  <!-- Photo 2 (small, top-right) -->
+                  <div class="bg-white p-1 rounded shadow-md border border-gray-200/60 rotate-[2deg] overflow-hidden">
+                    <img src="candle desk.jpe" alt="Writing atmosphere" class="w-full h-full object-cover rounded-sm" style="max-height: 75px;"/>
+                  </div>
+                  <!-- Photo 3 (small, bottom-right) — using washi tape accent -->
+                  <div class="col-span-1 bg-white p-1 rounded shadow-md border border-gray-200/60 rotate-[-2deg] overflow-hidden relative">
+                    <!-- Washi tape -->
+                    <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-2.5 bg-[#D4A574]/60 rotate-[-3deg] z-10"></div>
+                    <img src="flowers.jpe" alt="Flowers" class="w-full h-full object-cover rounded-sm" style="max-height: 65px;"/>
+                  </div>
+                  <!-- Photo 4 (bottom center) -->
+                  <div class="col-span-2 bg-white p-1 rounded shadow-md border border-gray-200/60 rotate-[1deg] overflow-hidden">
+                    <img src="notes1.png" alt="Writing notes" class="w-full h-full object-cover rounded-sm" style="max-height: 65px;"/>
+                  </div>
+                </div>
+
+                <!-- Wattpad Link Section -->
+                <div class="bg-[#F3ECE0] rounded-xl p-3 border border-[#E8DCC8] shadow-sm relative">
+                  <p class="text-[10px] text-gray-500 text-center mb-1.5 italic" style="font-family: 'Patrick Hand', cursive;">
+                    read my story on wattpad <span class="text-[#8b2252]">♡</span>
+                  </p>
+                  <a href="https://www.wattpad.com/story/411657344-the-threadweaver's-knot" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white rounded-lg px-3 py-2 border border-gray-200/80 hover:border-[#8b2252]/30 hover:shadow-md transition-all group">
+                    <span class="text-[#FF6122] text-base">🌐</span>
+                    <span class="text-[9px] md:text-[10px] text-gray-600 group-hover:text-[#8b2252] transition-colors truncate font-mono" style="letter-spacing: 0.3px;">
+                      https://www.wattpad.com/story/411657344-the-threadweaver's-knot
+                    </span>
+                  </a>
+                  <!-- Quill pen + inkwell illustration -->
+                  <div class="absolute -bottom-1 -right-1 text-2xl opacity-40 rotate-[15deg]">🪶</div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- REALISTIC DECKLE-EDGE TORN PAPER BOTTOM SEPARATION DIVIDER -->
+<div class="w-full relative z-20 pointer-events-none -mt-1 bg-[#FAF7F2]">
+  <svg class="w-full h-7 md:h-10 text-white fill-current block" viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path d="M0,0 L15,9 L30,3 L45,12 L60,5 L75,10 L90,2 L105,8 L120,4 L135,13 L150,7 L165,11 L180,2 L195,9 L210,4 L225,12 L240,6 L255,10 L270,3 L285,9 L300,5 L315,11 L330,2 L345,10 L360,4 L375,12 L390,6 L405,9 L420,3 L435,11 L450,5 L465,10 L480,2 L495,9 L510,4 L525,13 L540,7 L555,11 L570,3 L585,10 L600,4 L615,12 L630,6 L645,9 L660,3 L675,11 L690,5 L705,10 L720,2 L735,9 L750,4 L765,13 L780,7 L795,11 L810,3 L825,10 L840,4 L855,12 L870,6 L885,9 L900,3 L915,11 L930,5 L945,10 L960,2 L1005,13 L1020,7 L1035,11 L1050,3 L1065,10 L1080,4 L1095,12 L1110,6 L1125,9 L1140,3 L1155,11 L1170,5 L1185,10 L1200,2 L1200,80 L0,80 Z"></path>
+  </svg>
+</div>
+
+<!-- Smooth Physical Journal Open/Close & Spread Switch Script -->
+<script>
+  function openSmritiBook() {
+    const coverView = document.getElementById('smriti-book-cover');
+    const openedView = document.getElementById('smriti-book-opened');
+    const spread1 = document.getElementById('smriti-spread-1');
+    const spread2 = document.getElementById('smriti-spread-2');
+    const spread3 = document.getElementById('smriti-spread-3');
+
+    if (coverView && openedView) {
+      coverView.style.transition = 'transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.5s ease';
+      coverView.style.transform = 'rotateY(-90deg) scale(0.95)';
+      coverView.style.opacity = '0';
+
+      setTimeout(() => {
+        coverView.classList.add('hidden');
+        openedView.classList.remove('hidden');
+        if (spread1) spread1.classList.remove('hidden');
+        if (spread2) spread2.classList.add('hidden');
+        if (spread3) spread3.classList.add('hidden');
+
+        openedView.style.opacity = '0';
+        openedView.style.transform = 'scale(0.96)';
+
+        setTimeout(() => {
+          openedView.style.transition = 'all 0.6s ease';
+          openedView.style.opacity = '1';
+          openedView.style.transform = 'scale(1)';
+        }, 40);
+      }, 400);
+    }
+  }
+
+  function closeSmritiBook() {
+    const coverView = document.getElementById('smriti-book-cover');
+    const openedView = document.getElementById('smriti-book-opened');
+
+    if (coverView && openedView) {
+      openedView.style.transition = 'all 0.5s ease';
+      openedView.style.opacity = '0';
+      openedView.style.transform = 'scale(0.96)';
+
+      setTimeout(() => {
+        openedView.classList.add('hidden');
+        coverView.classList.remove('hidden');
+        
+        coverView.style.transform = 'rotateY(-90deg) scale(0.95)';
+        coverView.style.opacity = '0';
+
+        setTimeout(() => {
+          coverView.style.transition = 'transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.5s ease';
+          coverView.style.transform = 'rotateY(0deg) scale(1)';
+          coverView.style.opacity = '1';
+        }, 40);
+      }, 400);
+    }
+  }
+
+  function switchSmritiSpread(targetId) {
+    const spread1 = document.getElementById('smriti-spread-1');
+    const spread2 = document.getElementById('smriti-spread-2');
+    const spread3 = document.getElementById('smriti-spread-3');
+    const btn1 = document.getElementById('tab-btn-spread1');
+    const btn2 = document.getElementById('tab-btn-spread2');
+    const btn3 = document.getElementById('tab-btn-spread3');
+
+    const spreads = { 'spread1': spread1, 'spread2': spread2, 'spread3': spread3 };
+    const btns = { 'spread1': btn1, 'spread2': btn2, 'spread3': btn3 };
+
+    Object.keys(spreads).forEach(key => {
+      if (spreads[key]) {
+        if (key === targetId) {
+          spreads[key].classList.remove('hidden');
+          spreads[key].style.opacity = '1';
+        } else {
+          spreads[key].classList.add('hidden');
+        }
+      }
+      if (btns[key]) {
+        if (key === targetId) {
+          btns[key].classList.remove('bg-[#7A364B]', 'bg-[#A36D7D]');
+          btns[key].classList.add('bg-[#541C2E]');
+        } else {
+          btns[key].classList.remove('bg-[#541C2E]');
+          btns[key].classList.add(key === 'spread2' ? 'bg-[#7A364B]' : 'bg-[#A36D7D]');
+        }
+      }
+    });
+  }
+</script>
+
+<!-- EXPERIENCE & RESEARCH: PINNED SCROLL SECTION -->
+<!-- ABOUT: CINEMATIC EDITORIAL CANVAS -->
+<section class="editorial-canvas font-sans relative z-20 overflow-hidden bg-[#dbeafe] text-[#1F1F1F]" id="about" style="min-height: 2700px; background-image: linear-gradient(to bottom, rgba(219, 234, 254, 0.7), rgba(240, 249, 255, 0.85), rgba(250, 248, 245, 0.95)), url('sky_clouds_bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <!-- Subtle Grain & Grid Overlay -->
+  <div class="absolute inset-0 pointer-events-none z-0 mix-blend-multiply opacity-[0.05]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+  <div class="absolute inset-0 pointer-events-none z-0 opacity-[0.03]" style="background-size: 100px 100px; background-image: linear-gradient(to right, #1F1F1F 1px, transparent 1px), linear-gradient(to bottom, #1F1F1F 1px, transparent 1px);"></div>
+
+  <div class="relative w-full max-w-[1400px] mx-auto px-6 lg:px-12 z-10 hidden md:block" id="timeline-container" style="height: 2700px;">
+    
+    <style>
+      .interactive-node { transition: all 0.3s ease; }
+      .interactive-node:hover { stroke-width: 4; cursor: pointer; fill: rgba(255,255,255,0.8); }
+      .hover-card:hover ~ svg .interactive-node { transform: scale(1.1); transform-origin: center; }
+      .journey-path {
+        stroke: #475569 !important;
+        stroke-width: 2.8px !important;
+        stroke-dasharray: 8 8 !important;
+        stroke-opacity: 0.95 !important;
+        stroke-linecap: round !important;
+        stroke-linejoin: round !important;
+      }
+    </style>
+
+    <!-- TRAVELING FACE EMOJI STICKER ALONG ARROW PATHS -->
+    <div id="path-traveler-avatar" class="absolute pointer-events-none transition-transform duration-75" style="width: 140px; height: 140px; top: 0; left: 0; transform: translate(-50%, -50%); display: block; z-index: 100;">
+      <div class="relative w-full h-full flex items-center justify-center">
+        <!-- Face Emoji Sticker with crisp white border outline -->
+        <img src="face.png" alt="Traveling Avatar" class="w-full h-full object-contain" style="filter: drop-shadow(4px 0 0 #ffffff) drop-shadow(-4px 0 0 #ffffff) drop-shadow(0 4px 0 #ffffff) drop-shadow(0 -4px 0 #ffffff) drop-shadow(0 10px 24px rgba(0,0,0,0.35));"/>
+      </div>
+    </div>
+
+    <!-- THE ARROW SYSTEM SVG -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none z-[50]" id="timeline-svg" viewBox="0 0 1400 2700" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <!-- Arrowhead marker -->
+        <marker id="arrow-tip" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 2 2 L 9 6 L 2 10" fill="none" stroke="#475569" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+
+        <!-- Glow filter for nodes -->
+        <filter id="glow-sm" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- SEG 0: Hero card → Girl illustration -->
+      <path id="seg-0" class="journey-path" d="M 290 375 C 290 520, 1010 400, 1010 525" fill="none" stroke="#475569" stroke-width="2.8" stroke-dasharray="8 8" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-tip)" />
+      <circle id="n0-end" class="journey-node" cx="1010" cy="525" r="5" fill="#421835" stroke="white" stroke-width="1.5" filter="url(#glow-sm)" opacity="1"/>
+
+      <!-- SEG 1: Girl illustration (Outside Bottom-Left Card End) → High Arc Over Text → Orbital Circle (Top-Right Outer Edge) -->
+      <path id="seg-1" class="journey-path" d="M 950 965 C 900 760, 520 760, 310 990" fill="none" stroke="#475569" stroke-width="2.8" stroke-dasharray="8 8" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-tip)" />
+      <circle id="n1-end" class="journey-node" cx="310" cy="990" r="5" fill="#421835" stroke="white" stroke-width="1.5" filter="url(#glow-sm)" opacity="1"/>
+
+      <!-- SEG 2: Orbital Circle (Bottom-Left Outer Edge) → LinkedIn card -->
+      <path id="seg-2" class="journey-path" d="M 110 1220 C 70 1280, 140 1310, 140 1390" fill="none" stroke="#475569" stroke-width="2.8" stroke-dasharray="8 8" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-tip)" />
+      <circle id="n2-end" class="journey-node" cx="140" cy="1390" r="5" fill="#421835" stroke="white" stroke-width="1.5" filter="url(#glow-sm)" opacity="1"/>
+
+      <!-- SEG 3: LinkedIn card → GitHub card -->
+      <path id="seg-3" class="journey-path" d="M 250 1720 C 250 1860, 1260 1710, 1260 1830" fill="none" stroke="#475569" stroke-width="2.8" stroke-dasharray="8 8" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-tip)" />
+      <circle id="n3-end" class="journey-node" cx="1260" cy="1830" r="5" fill="#421835" stroke="white" stroke-width="1.5" filter="url(#glow-sm)" opacity="1"/>
+
+      <!-- SEG 4: GitHub card → Shavira card -->
+      <path id="seg-4" class="journey-path" d="M 1150 2160 C 1150 2300, 140 2150, 140 2270" fill="none" stroke="#475569" stroke-width="2.8" stroke-dasharray="8 8" stroke-opacity="0.95" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-tip)" />
+      <circle id="n4-end" class="journey-node" cx="140" cy="2270" r="5" fill="#421835" stroke="white" stroke-width="1.5" filter="url(#glow-sm)" opacity="1"/>
+    </svg>
+
+    <!-- UI ELEMENTS -->
+    <!-- 1. HERO CARD (Top Left) -->
+    <div class="absolute top-[80px] left-[80px] w-[420px] z-20 hover-card rotate-[-1.5deg] hover:rotate-0 transition-transform duration-500" id="node-hero" style="overflow: visible;">
+      <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-14 h-8 z-40 pointer-events-none" style="background: rgba(132, 204, 22, 0.88); transform: translateX(-50%) rotate(-3deg); box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 2px dashed rgba(255,255,255,0.5); border-right: 2px dashed rgba(255,255,255,0.5);"></div>
+      <div class="w-full relative rounded-[32px] overflow-hidden bg-white/60 backdrop-blur-2xl p-3 border border-white/60 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_40px_80px_-15px_rgba(66,24,53,0.1)] hover:-translate-y-2">
+        <img alt="Editorial Side" class="w-full h-auto rounded-[24px]" src="bg1.png"/>
+      </div>
+    </div>
+
+    <!-- 2. HEADLINE (Top Right) -->
+    <div class="absolute top-[120px] right-[80px] w-[480px] z-20 text-center" id="text-hero">
+      <span class="inline-block px-3.5 py-1 bg-[#1e293b] text-white font-mono text-xs font-bold rounded-full mb-3 shadow-sm tracking-wider">{01}</span>
+      <h1 class="font-bold text-[42px] leading-[1.1] text-[#1F1F1F] tracking-tighter mb-4">
+        I design intelligent<br/>systems.
+      </h1>
+      <p class="font-sans text-[15px] text-gray-600 leading-[1.6] font-medium">
+        Class of 2026 Graduate learning scale.<br/>
+        Software engineer &amp; cybersecurity researcher<br/>
+        learning speed.<br/>
+        Published researcher at <span class="text-[#421835] font-bold">ICTACA'26.</span>
+      </p>
+    </div>
+
+    <!-- 3. CENTRAL ORBITAL OBJECT (Mid Left) -->
+    <div class="absolute top-[980px] left-[80px] w-[260px] h-[260px] z-10 flex items-center justify-center" id="trigger-orbital">
+      <!-- Outer rotating ring -->
+      <div class="absolute inset-0 rounded-full border-[1px] border-gray-300/60 animate-[spin_60s_linear_infinite]"></div>
+      <!-- Middle dashed orbit -->
+      <div class="absolute inset-[25px] rounded-full border-[1.5px] border-dashed border-gray-300/80 animate-[spin_40s_linear_infinite_reverse]"></div>
+      <!-- Center Text -->
+      <div class="absolute z-20 text-center flex flex-col items-center justify-center">
+        <div class="text-[#8b2252] text-xl mb-1">✦</div>
+        <div class="font-serif italic text-lg text-[#1F1F1F] leading-tight max-w-[140px]">
+          Designing<br/>Systems<br/>That Think.
+        </div>
+      </div>
+      <!-- Orbital Labels -->
+      <div class="absolute inset-0 animate-[spin_50s_linear_infinite]">
+        <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); font-family: 'Outfit', sans-serif; font-size: 8px; font-weight: 700; color: #94a3b8; letter-spacing: 0.15em;">INTENTION</div>
+        <div style="position: absolute; top: 30%; right: -15px; transform: rotate(72deg); font-family: 'Outfit', sans-serif; font-size: 8px; font-weight: 700; color: #94a3b8; letter-spacing: 0.15em;">BUILD</div>
+        <div style="position: absolute; bottom: 5%; right: 15%; transform: rotate(144deg); font-family: 'Outfit', sans-serif; font-size: 8px; font-weight: 700; color: #94a3b8; letter-spacing: 0.15em;">ITERATE</div>
+        <div style="position: absolute; bottom: 5%; left: 15%; transform: rotate(216deg); font-family: 'Outfit', sans-serif; font-size: 8px; font-weight: 700; color: #94a3b8; letter-spacing: 0.15em;">SYSTEMS</div>
+        <div style="position: absolute; top: 30%; left: -15px; transform: rotate(288deg); font-family: 'Outfit', sans-serif; font-size: 8px; font-weight: 700; color: #94a3b8; letter-spacing: 0.15em;">RESEARCH</div>
+      </div>
+    </div>
+
+    <!-- 4. SECOND HEADING (Center) -->
+    <div class="absolute top-[940px] left-[480px] w-[440px] z-20 text-left" id="text-premium">
+      <span class="inline-block px-3.5 py-1 bg-[#1e293b] text-white font-mono text-xs font-bold rounded-full mb-3 shadow-sm tracking-wider">{02}</span>
+      <h2 class="text-[34px] font-bold text-[#1F1F1F] mb-4 tracking-tight leading-[1.1]">I build premium<br/>interfaces.</h2>
+      <p class="text-gray-600 font-medium text-[13px] leading-relaxed">
+        Focusing on micro-animations, glassmorphic styling,<br/>
+        and clean responsive layouts.<br/>
+        Striving for visual excellence that feels<br/>
+        responsive and alive.
+      </p>
+    </div>
+
+    <!-- 5. FLOATING GIRL ILLUSTRATION (Mid Right) -->
+    <div class="absolute top-[540px] right-[80px] w-[360px] z-20 hover-card rotate-[1.5deg] hover:rotate-0 transition-transform duration-500" id="trigger-girl" style="overflow: visible;">
+      <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-14 h-8 z-40 pointer-events-none" style="background: rgba(236, 72, 153, 0.88); transform: translateX(-50%) rotate(4deg); box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 2px dashed rgba(255,255,255,0.5); border-right: 2px dashed rgba(255,255,255,0.5);"></div>
+      <div class="w-full relative rounded-[32px] overflow-hidden bg-white/60 backdrop-blur-2xl p-2 border border-white/60 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_40px_80px_-15px_rgba(66,24,53,0.1)] hover:-translate-y-2">
+        <img alt="Shakthi Sri" class="w-full h-auto rounded-[28px] bg-gray-50/50 mix-blend-multiply" src="me.png"/>
+      </div>
+    </div>
+
+    <!-- 6. LINKEDIN CARD (Bottom Left) -->
+    <div class="absolute top-[1400px] left-[80px] w-[340px] z-30 hover-card rotate-[-1.2deg] hover:rotate-0 transition-transform duration-500" id="node-linkedin" style="overflow: visible;">
+      <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-14 h-8 z-40 pointer-events-none" style="background: rgba(6, 182, 212, 0.88); transform: translateX(-50%) rotate(-3deg); box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 2px dashed rgba(255,255,255,0.5); border-right: 2px dashed rgba(255,255,255,0.5);"></div>
+      <a class="bg-white/85 backdrop-blur-xl rounded-[32px] p-8 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] flex flex-col justify-between h-[320px] w-full text-black transform transition-all duration-500 hover:-translate-y-3 cursor-pointer border border-white/70 hover:shadow-[0_40px_80px_-15px_rgba(66,24,53,0.1)] block" href="https://linkedin.com/in/shakthisri" target="_blank">
+        <div class="flex justify-between items-start w-full">
+          <div class="w-14 h-14 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-[0_8px_15px_-5px_rgba(10,102,194,0.3)]">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+          </div>
+          <div class="flex items-center gap-1 border border-gray-200/50 rounded-md px-3 py-1 bg-gray-50/50">
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">VERIFIED</span>
+          </div>
+        </div>
+        <div class="mt-4 mb-auto">
+          <h3 class="font-bold text-2xl text-[#1F1F1F] mb-1">LinkedIn</h3>
+          <p class="text-[12px] text-gray-400 font-medium tracking-wide">Professional Network</p>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="text-[10px] bg-gray-100/80 text-gray-600 px-4 py-1.5 rounded-full font-bold tracking-wide">Researcher</span>
+            <span class="text-[10px] bg-gray-100/80 text-gray-600 px-4 py-1.5 rounded-full font-bold tracking-wide">Tech Enthusiast</span>
+          </div>
+        </div>
+        <div class="pt-5 border-t border-gray-100/80 flex justify-between items-center mt-4">
+          <span class="font-bold text-sm text-[#1F1F1F]">@Shakthi16</span>
+          <span class="bg-[#1F1F1F] text-white text-[11px] font-bold tracking-wide px-5 py-2.5 rounded-xl hover:bg-[#421835] transition-colors inline-block">View Profile</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- LinkedIn Side Card (Right) -->
+    <div class="absolute top-[1400px] left-[480px] w-[480px] z-20 text-left" id="text-linkedin">
+      <span class="inline-block px-3.5 py-1 bg-[#1e293b] text-white font-mono text-xs font-bold rounded-full mb-3 shadow-sm tracking-wider">{03}</span>
+      <h2 class="text-[34px] font-bold text-[#1F1F1F] mb-4 tracking-tight leading-[1.1]">Connecting with industry leaders.</h2>
+      <p class="text-gray-600 font-medium text-[13px] leading-relaxed">
+        Building a strong professional network of engineers, designers, and researchers on LinkedIn.<br/>
+        Open to contract work, summer internships, and security research collaborations.
+      </p>
+    </div>
+
+    <!-- 6b. GITHUB CARD (Mid Right) -->
+    <div class="absolute top-[1840px] right-[80px] w-[340px] z-30 hover-card rotate-[1.5deg] hover:rotate-0 transition-transform duration-500" id="node-github" style="overflow: visible;">
+      <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-14 h-8 z-40 pointer-events-none" style="background: rgba(245, 158, 11, 0.88); transform: translateX(-50%) rotate(3deg); box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 2px dashed rgba(255,255,255,0.5); border-right: 2px dashed rgba(255,255,255,0.5);"></div>
+      <a class="bg-white/85 backdrop-blur-xl rounded-[32px] p-8 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] flex flex-col justify-between h-[320px] w-full text-black transform transition-all duration-500 hover:-translate-y-3 cursor-pointer border border-white/70 hover:shadow-[0_40px_80px_-15px_rgba(66,24,53,0.1)] block" href="https://github.com/Shakthi16" target="_blank">
+        <div class="flex justify-between items-start w-full">
+          <div class="w-14 h-14 rounded-full bg-[#1a1a1a] flex items-center justify-center shadow-[0_8px_15px_-5px_rgba(0,0,0,0.3)]">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <div class="flex items-center gap-1 border border-gray-200/50 rounded-md px-3 py-1 bg-gray-50/50">
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">OPEN SOURCE</span>
+          </div>
+        </div>
+        <div class="mt-4 mb-auto">
+          <h3 class="font-bold text-2xl text-[#1F1F1F] mb-1">GitHub</h3>
+          <p class="text-[12px] text-gray-400 font-medium tracking-wide">Code & Repositories</p>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="text-[10px] bg-gray-100/80 text-gray-600 px-4 py-1.5 rounded-full font-bold tracking-wide">Web Dev</span>
+            <span class="text-[10px] bg-gray-100/80 text-gray-600 px-4 py-1.5 rounded-full font-bold tracking-wide">Security</span>
+            <span class="text-[10px] bg-gray-100/80 text-gray-600 px-4 py-1.5 rounded-full font-bold tracking-wide">AI</span>
+          </div>
+        </div>
+        <div class="pt-5 border-t border-gray-100/80 flex justify-between items-center mt-4">
+          <span class="font-bold text-sm text-[#1F1F1F]">@Shakthi16</span>
+          <span class="bg-[#1F1F1F] text-white text-[11px] font-bold tracking-wide px-5 py-2.5 rounded-xl hover:bg-[#421835] transition-colors inline-block">View Repos</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- GitHub Side Card (Left) -->
+    <div class="absolute top-[1840px] right-[480px] w-[480px] z-20 text-left" id="text-github">
+      <span class="inline-block px-3.5 py-1 bg-[#1e293b] text-white font-mono text-xs font-bold rounded-full mb-3 shadow-sm tracking-wider">{04}</span>
+      <h2 class="text-[34px] font-bold text-[#1F1F1F] mb-4 tracking-tight leading-[1.1]">Contributing to open source.</h2>
+      <p class="text-gray-600 font-medium text-[13px] leading-relaxed">
+        Pushing code, templates, and layouts to GitHub for transparent collaboration.<br/>
+        Explore my repos to view security tools, UI playgrounds, and boilerplate architectures.
+      </p>
+    </div>
+
+    <!-- 7. THIRD HEADING (Bottom Center) -->
+    <div class="absolute top-[2280px] left-[480px] w-[480px] z-20 text-left" id="trigger-crafting">
+      <span class="inline-block px-3.5 py-1 bg-[#1e293b] text-white font-mono text-xs font-bold rounded-full mb-3 shadow-sm tracking-wider">{05}</span>
+      <h2 class="text-[30px] font-bold text-[#1F1F1F] mb-4 tracking-tight leading-[1.1]">Crafting bespoke digital<br/>products.</h2>
+      <p class="text-gray-600 font-medium text-[12px] leading-relaxed">
+        Delivering design and code collaborations under the<br/>
+        studio banner SHAVIRA.<br/>
+        Creating high-performance full-stack web<br/>
+        applications with robust security.
+      </p>
+    </div>
+
+    <!-- 8. SHAVIRA CARD (Bottom Right) -->
+    <div class="absolute top-[2280px] left-[80px] w-[340px] z-30 hover-card rotate-[-1.5deg] hover:rotate-0 transition-transform duration-500" id="trigger-shavira" style="overflow: visible;">
+      <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-14 h-8 z-40 pointer-events-none" style="background: rgba(168, 85, 247, 0.88); transform: translateX(-50%) rotate(-4deg); box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 2px dashed rgba(255,255,255,0.5); border-right: 2px dashed rgba(255,255,255,0.5);"></div>
+      <div class="bg-white/85 backdrop-blur-xl rounded-[32px] p-8 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] flex flex-col justify-between h-[320px] w-full text-black transform transition-all duration-500 hover:-translate-y-3 border border-white/70 hover:shadow-[0_40px_80px_-15px_rgba(66,24,53,0.1)] block">
+        <div class="flex justify-between items-start w-full">
+          <div class="w-14 h-14 rounded-full bg-[#421835] flex items-center justify-center shadow-[0_8px_15px_-5px_rgba(66,24,53,0.3)]">
+            <span class="text-white font-bold font-sans text-2xl">S</span>
+          </div>
+          <div class="flex items-center gap-1 border border-gray-200/50 rounded-md px-3 py-1 bg-gray-50/50">
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">STUDIO</span>
+          </div>
+        </div>
+        <div class="mt-4 mb-auto">
+          <h3 class="font-bold text-2xl text-[#1F1F1F] mb-1">SHAVIRA</h3>
+          <p class="text-[12px] text-gray-400 font-medium tracking-wide mb-3">Creative Freelance &amp; Design</p>
+          <p class="text-[12px] text-gray-500 leading-relaxed line-clamp-3">Designing premium web interfaces, visual brand systems, and secure applications. Available for contract collaborations.</p>
+        </div>
+        <div class="pt-5 border-t border-gray-100/80 flex justify-between items-center mt-4">
+          <span class="font-bold text-sm text-[#1F1F1F]">@shavira.studio</span>
+          <span class="bg-[#1F1F1F] text-white text-[11px] font-bold tracking-wide px-5 py-2.5 rounded-xl hover:bg-[#421835] transition-colors inline-block">Follow</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Fallback (Hidden on Desktop) -->
+  <div class="relative w-full max-w-[1200px] mx-auto px-6 py-[10vh] flex flex-col gap-24 md:hidden z-10">
+    <div class="w-full text-center">
+      <h1 class="brand font-bold text-[40px] leading-[1.0] text-[#1F1F1F] tracking-tighter mb-4">I design intelligent<br/>systems.</h1>
+    </div>
+    <div class="w-full relative rounded-[32px] overflow-hidden shadow-2xl bg-white p-2 border border-gray-100">
+      <img alt="Editorial Side" class="w-full h-auto rounded-[24px]" src="bg1.png"/>
+    <div class="w-full text-center">
+      <h2 class="text-[32px] font-bold text-[#1F1F1F] mb-4 tracking-tight leading-[1.1]">I build premium<br/>interfaces.</h2>
+    </div>
+    <div class="w-full relative rounded-[32px] overflow-hidden shadow-2xl bg-white p-2 border border-gray-100">
+      <img alt="Shakthi Sri" class="w-full h-auto rounded-[24px]" src="me.png"/>
+    </div>
+    <div class="w-full text-center">
+      <h2 class="text-[32px] font-bold text-[#1F1F1F] mb-4 tracking-tight leading-[1.1]">Crafting bespoke digital<br/>products.</h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERIENCE & RESEARCH: PINNED SCROLL SECTION WRAPPER -->
+<div class="relative bg-[#FAFAFA] text-[#1F1F1F] border-t border-b border-gray-200/60" id="timeline-pin-wrapper" style="height: 180vh;">
+  
+  <!-- STICKY CONTENT STAGE (Locked on screen during scroll) -->
+  <section class="sticky top-0 h-screen flex flex-col justify-between py-8 md:py-12 overflow-hidden z-20" id="timeline-pin-section">
+    
+    <!-- Top Header & Milestone Indicator -->
+    <div class="max-w-7xl w-full mx-auto px-6 md:px-12 pb-4 border-b border-gray-200 flex justify-between items-center text-xs font-mono tracking-[0.2em] uppercase text-gray-400">
+      <div class="font-bold text-[#1F1F1F] tracking-widest flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#8b2252] animate-pulse"></span>
+        EXPERIENCE &amp; RESEARCH
+      </div>
+      <div class="flex items-center gap-3 font-bold text-[#8b2252]">
+        <span id="exp-step-indicator" class="font-mono tracking-widest">MILESTONE 01 / 03</span>
+      </div>
+    </div>
+
+    <!-- 3-Column Stage: Left Stacked Titles + Center iPhone Vertical Reel + Right Details -->
+    <div class="max-w-7xl w-full mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center my-auto py-4">
+      
+      <!-- LEFT COLUMN (4 Cols): Stacked Title List with Awwwards Style Active Indicator -->
+      <div class="lg:col-span-4 text-left flex flex-col justify-center space-y-6">
+        <span class="text-[11px] font-mono font-extrabold uppercase tracking-[0.25em] text-[#8b2252] block mb-1">
+          ✦ MILESTONES
+        </span>
+
+        <!-- Title Item 1: IIIT Madras CYSTAR Lab -->
+        <div onclick="setExpStage(1)" class="exp-title-item cursor-pointer transition-all duration-500 group flex items-start gap-3" id="exp-title-item-1">
+          <div class="w-1.5 h-12 bg-[#8b2252] rounded-full shrink-0 transition-all duration-500 opacity-100 item-bar"></div>
+          <div class="truncate">
+            <span class="text-[10px] font-mono font-bold block uppercase tracking-wider text-[#8b2252] mb-0.5 item-year">01 // 2025 – 2026</span>
+            <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight leading-snug transition-all duration-500 text-[#1F1F1F] item-heading">
+              IIIT Madras — CYSTAR Lab
+            </h3>
+            <p class="text-xs font-mono text-gray-500 mt-1 item-sub">Cybersecurity Research Intern</p>
+          </div>
+        </div>
+
+        <!-- Title Item 2: OpsIntellix -->
+        <div onclick="setExpStage(2)" class="exp-title-item cursor-pointer transition-all duration-500 group opacity-35 hover:opacity-80 flex items-start gap-3" id="exp-title-item-2">
+          <div class="w-1.5 h-12 bg-[#8b2252] rounded-full shrink-0 transition-all duration-500 opacity-0 item-bar"></div>
+          <div class="truncate">
+            <span class="text-[10px] font-mono font-bold block uppercase tracking-wider text-gray-400 mb-0.5 item-year">02 // 2025 – 2026</span>
+            <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight leading-snug transition-all duration-500 text-gray-300 item-heading">
+              OpsIntellix
+            </h3>
+            <p class="text-xs font-mono text-gray-400 mt-1 item-sub">AP Workflow Automation</p>
+          </div>
+        </div>
+
+        <!-- Title Item 3: Focuslogic IT Services -->
+        <div onclick="setExpStage(3)" class="exp-title-item cursor-pointer transition-all duration-500 group opacity-35 hover:opacity-80 flex items-start gap-3" id="exp-title-item-3">
+          <div class="w-1.5 h-12 bg-[#8b2252] rounded-full shrink-0 transition-all duration-500 opacity-0 item-bar"></div>
+          <div class="truncate">
+            <span class="text-[10px] font-mono font-bold block uppercase tracking-wider text-gray-400 mb-0.5 item-year">03 // 2025</span>
+            <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight leading-snug transition-all duration-500 text-gray-300 item-heading">
+              Focuslogic IT Services
+            </h3>
+            <p class="text-xs font-mono text-gray-400 mt-1 item-sub">Web Development</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CENTER COLUMN (4 Cols): Sticky iPhone Titanium Frame with Awwwards Vertical Sliding Reel -->
+      <div class="lg:col-span-4 relative flex items-center justify-center py-2">
+        
+        <!-- Outer Titanium Housing -->
+        <div class="relative w-[255px] md:w-[280px] h-[490px] md:h-[540px] bg-black rounded-[48px] p-2.5 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.28)] border-[3.5px] border-[#c0c5ce] ring-1 ring-black/40">
+          
+          <!-- Inner Phone Screen Area -->
+          <div class="relative w-full h-full bg-[#FAF6EE] rounded-[38px] overflow-hidden flex flex-col justify-between border border-black/20 text-[#1F1F1F]">
+            
+            <!-- Top Dynamic Island & Status Bar -->
+            <div class="relative z-30 pt-3 px-5 flex justify-between items-center text-[10px] font-bold text-[#1F1F1F]">
+              <span>9:41</span>
+              
+              <!-- Centered Dynamic Island Pill Notch -->
+              <div class="w-[90px] h-[20px] bg-black rounded-full flex items-center justify-end px-2 gap-1.5 shadow-sm">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#0d0d0d] border border-white/10 flex items-center justify-center">
+                  <div class="w-1 h-1 rounded-full bg-[#1e293b]"></div>
+                </div>
+                <div class="w-1 h-1 rounded-full bg-[#1c1c1e]"></div>
+              </div>
+
+              <!-- Status Icons -->
+              <div class="flex items-center gap-1 text-[#1F1F1F]">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 18.2A.996.996 0 0 0 5 19.8h14a.996.996 0 0 0 .65-1.6l-.62-.59C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/></svg>
+                <div class="w-3.5 h-2 border border-[#1F1F1F] rounded-[2px] p-[1px] flex items-center">
+                  <div class="w-full h-full bg-[#1F1F1F] rounded-[1px]"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DISPLAY SCREEN CONTENT: Vertical Sliding Reel Slider (TranslateY) -->
+            <div class="absolute inset-0 z-10 w-full h-full overflow-hidden bg-[#FAF6EE] pt-8 pb-4">
+              
+              <!-- Vertical Reel Track Container -->
+              <div class="w-full h-full relative transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" id="phone-slider-track" style="transform: translateY(0%);">
+                
+                <!-- Reel Slide 1: CYSTAR Lab -->
+                <div class="w-full h-full shrink-0 flex items-center justify-center p-3">
+                  <img src="cystar.webp" alt="IIT Madras CYSTAR Lab" class="w-full h-full object-contain rounded-2xl shadow-sm"/>
+                </div>
+
+                <!-- Reel Slide 2: OpsIntellix -->
+                <div class="w-full h-full shrink-0 flex items-center justify-center p-3">
+                  <img src="opsintellix.png" alt="OpsIntellix Automation" class="w-full h-full object-contain rounded-2xl shadow-sm"/>
+                </div>
+
+                <!-- Reel Slide 3: Focuslogic -->
+                <div class="w-full h-full shrink-0 flex items-center justify-center p-3">
+                  <img src="focuslogic.png" alt="Focuslogic IT Services" class="w-full h-full object-contain rounded-2xl shadow-sm"/>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Bottom Home Indicator Line -->
+            <div class="relative z-30 pb-2 pt-1 flex justify-center pointer-events-none">
+              <div class="w-20 h-1 bg-[#1F1F1F]/60 rounded-full"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN (4 Cols): Active Detail Panel -->
+      <div class="lg:col-span-4 relative text-left min-h-[320px] flex items-center">
+        
+        <!-- Panel 1: IIIT Madras CYSTAR Lab -->
+        <div class="exp-detail-panel transition-all duration-500 opacity-100 scale-100 block w-full" id="exp-detail-1">
+          <div class="bg-white rounded-3xl p-6 shadow-[0_15px_45px_-10px_rgba(0,0,0,0.06)] border border-gray-200/80 space-y-4">
+            
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-[10px] font-mono font-extrabold uppercase tracking-wider text-[#8b2252] bg-purple-50 px-3 py-1 rounded-full border border-[#8b2252]/15">
+                RESEARCH INTERN
+              </span>
+              <span class="text-[10px] font-mono font-bold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                JUL 2025 – MAY 2026
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-[#1F1F1F] tracking-tight leading-tight">
+              IIIT Madras — CYSTAR Lab
+            </h3>
+
+            <ul class="space-y-2.5 text-xs text-gray-600 font-normal leading-relaxed pt-2 border-t border-gray-100">
+              <li class="flex items-start gap-2">
+                <span class="text-[#8b2252] font-bold mt-0.5">✦</span>
+                <span>Conducted cybersecurity research focused on exposure analysis, EDR/AV behaviour evaluation, and secure system design.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#8b2252] font-bold mt-0.5">✦</span>
+                <span>Contributed to explainable security workflows, research documentation, and security tool evaluation.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#8b2252] font-bold mt-0.5">✦</span>
+                <span>Collaborated on threat modelling and security analysis within enterprise environments.</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-100">
+              <span class="text-[10px] font-mono bg-purple-50/80 text-[#8b2252] px-3 py-1 rounded-full font-bold">Exposure Analysis</span>
+              <span class="text-[10px] font-mono bg-purple-50/80 text-[#8b2252] px-3 py-1 rounded-full font-bold">EDR / AV Evasion</span>
+              <span class="text-[10px] font-mono bg-purple-50/80 text-[#8b2252] px-3 py-1 rounded-full font-bold">Threat Modelling</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Panel 2: OpsIntellix -->
+        <div class="exp-detail-panel transition-all duration-500 opacity-0 scale-95 hidden absolute inset-0 flex items-center w-full" id="exp-detail-2">
+          <div class="bg-white rounded-3xl p-6 shadow-[0_15px_45px_-10px_rgba(0,0,0,0.06)] border border-gray-200/80 space-y-4 w-full">
+            
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-[10px] font-mono font-extrabold uppercase tracking-wider text-amber-900 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+                OPERATIONS INTERN
+              </span>
+              <span class="text-[10px] font-mono font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                +30% EFFICIENCY
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-[#1F1F1F] tracking-tight leading-tight">
+              OpsIntellix
+            </h3>
+
+            <ul class="space-y-2.5 text-xs text-gray-600 font-normal leading-relaxed pt-2 border-t border-gray-100">
+              <li class="flex items-start gap-2">
+                <span class="text-amber-900 font-bold mt-0.5">✦</span>
+                <span>Automated mortgage and banking workflows using Python, including document classification, data extraction, validation, and reporting.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-900 font-bold mt-0.5">✦</span>
+                <span>Optimized business process automation pipelines, improving operational efficiency by 30%.</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-100">
+              <span class="text-[10px] font-mono bg-amber-50/80 text-amber-900 px-3 py-1 rounded-full font-bold">Python Automation</span>
+              <span class="text-[10px] font-mono bg-amber-50/80 text-amber-900 px-3 py-1 rounded-full font-bold">Document Classification</span>
+              <span class="text-[10px] font-mono bg-amber-50/80 text-amber-900 px-3 py-1 rounded-full font-bold">Data Extraction</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Panel 3: Focuslogic IT Services -->
+        <div class="exp-detail-panel transition-all duration-500 opacity-0 scale-95 hidden absolute inset-0 flex items-center w-full" id="exp-detail-3">
+          <div class="bg-white rounded-3xl p-6 shadow-[0_15px_45px_-10px_rgba(0,0,0,0.06)] border border-gray-200/80 space-y-4 w-full">
+            
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-[10px] font-mono font-extrabold uppercase tracking-wider text-blue-900 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                WEB DEV INTERN
+              </span>
+              <span class="text-[10px] font-mono font-extrabold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full">
+                -25% LOAD TIME
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-[#1F1F1F] tracking-tight leading-tight">
+              Focuslogic IT Services
+            </h3>
+
+            <ul class="space-y-2.5 text-xs text-gray-600 font-normal leading-relaxed pt-2 border-t border-gray-100">
+              <li class="flex items-start gap-2">
+                <span class="text-blue-900 font-bold mt-0.5">✦</span>
+                <span>Developed responsive web applications using React.js, HTML, CSS, and Tailwind CSS based on Figma designs.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-900 font-bold mt-0.5">✦</span>
+                <span>Integrated RESTful APIs and optimized frontend performance, reducing page load time by 25%.</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-100">
+              <span class="text-[10px] font-mono bg-blue-50/80 text-blue-900 px-3 py-1 rounded-full font-bold">React.js</span>
+              <span class="text-[10px] font-mono bg-blue-50/80 text-blue-900 px-3 py-1 rounded-full font-bold">Tailwind CSS</span>
+              <span class="text-[10px] font-mono bg-blue-50/80 text-blue-900 px-3 py-1 rounded-full font-bold">RESTful APIs</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Indicator -->
+    <div class="max-w-7xl w-full mx-auto px-6 md:px-12 pt-3 border-t border-gray-200 flex justify-between items-center text-[10px] font-mono text-gray-400">
+      <span>SCROLL DOWN TO REVEAL EACH MILESTONE</span>
+      <span>3 MILESTONES TOTAL</span>
+    </div>
+
+  </section>
+
+  <!-- Clean Native Scroll Listener for Stage Switching -->
+  <script>
+    let currentExpIndex = 1;
+
+    function setExpStage(index) {
+      currentExpIndex = index;
+      const indicator = document.getElementById('exp-step-indicator');
+      if (indicator) indicator.innerText = `MILESTONE 0${index} / 03`;
+
+      // 1. Move Phone Vertical Reel Track (translateY)
+      const track = document.getElementById('phone-slider-track');
+      if (track) {
+        const offsetPercent = (index - 1) * -100;
+        track.style.transform = `translateY(${offsetPercent}%)`;
+      }
+
+      // 2. Update Left Titles & Right Panels
+      for (let i = 1; i <= 3; i++) {
+        const titleItem = document.getElementById('exp-title-item-' + i);
+        const detailPanel = document.getElementById('exp-detail-' + i);
+
+        // Update Left Title Items
+        if (titleItem) {
+          const heading = titleItem.querySelector('.item-heading');
+          const year = titleItem.querySelector('.item-year');
+          const sub = titleItem.querySelector('.item-sub');
+          const bar = titleItem.querySelector('.item-bar');
+
+          if (i === index) {
+            titleItem.classList.remove('opacity-35');
+            titleItem.classList.add('opacity-100');
+            if (bar) {
+              bar.classList.remove('opacity-0');
+              bar.classList.add('opacity-100');
+            }
+            if (heading) {
+              heading.classList.remove('text-gray-300');
+              heading.classList.add('text-[#1F1F1F]');
+            }
+            if (year) {
+              year.classList.remove('text-gray-400');
+              year.classList.add('text-[#8b2252]');
+            }
+            if (sub) {
+              sub.classList.remove('text-gray-400');
+              sub.classList.add('text-gray-500');
+            }
+          } else {
+            titleItem.classList.remove('opacity-100');
+            titleItem.classList.add('opacity-35');
+            if (bar) {
+              bar.classList.remove('opacity-100');
+              bar.classList.add('opacity-0');
+            }
+            if (heading) {
+              heading.classList.remove('text-[#1F1F1F]');
+              heading.classList.add('text-gray-300');
+            }
+            if (year) {
+              year.classList.remove('text-[#8b2252]');
+              year.classList.add('text-gray-400');
+            }
+            if (sub) {
+              sub.classList.remove('text-gray-500');
+              sub.classList.add('text-gray-400');
+            }
+          }
+        }
+
+        // Update Right Detail Panel
+        if (detailPanel) {
+          if (i === index) {
+            detailPanel.classList.remove('hidden');
+            setTimeout(() => {
+              detailPanel.classList.remove('opacity-0', 'scale-95');
+              detailPanel.classList.add('opacity-100', 'scale-100');
+            }, 10);
+          } else {
+            detailPanel.classList.remove('opacity-100', 'scale-100');
+            detailPanel.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+              detailPanel.classList.add('hidden');
+            }, 300);
+          }
+        }
+      }
+    }
+
+    // Native Sticky Scroll Listener (Zero DOM Pin Spacer collisions)
+    window.addEventListener('scroll', function() {
+      const wrapper = document.getElementById('timeline-pin-wrapper');
+      if (!wrapper) return;
+
+      const rect = wrapper.getBoundingClientRect();
+      const totalScroll = wrapper.offsetHeight - window.innerHeight;
+      if (totalScroll <= 0) return;
+
+      const currentScroll = -rect.top;
+      const progress = Math.max(0, Math.min(1, currentScroll / totalScroll));
+
+      let targetIndex = 1;
+      if (progress > 0.66) {
+        targetIndex = 3;
+      } else if (progress > 0.33) {
+        targetIndex = 2;
+      } else {
+        targetIndex = 1;
+      }
+
+      if (targetIndex !== currentExpIndex) {
+        setExpStage(targetIndex);
+      }
+    });
+  </script>
+
+</div>
+
+
+
+<section class="py-16 md:py-20 bg-[#FAFAFA] text-[#1F1F1F] overflow-hidden relative border-b border-gray-200/60" id="learning-in-motion">
+  
+  <div class="max-w-4xl mx-auto text-center px-6 mb-16">
+    <h2 class="text-5xl md:text-7xl font-extrabold font-sans tracking-tight text-[#1F1F1F] mb-4">Learning in Motion</h2>
+    <div class="w-2.5 h-2.5 rounded-full bg-[#ec4899] mx-auto mb-6 shadow-sm"></div>
+    <p class="text-sm md:text-base text-gray-600 font-medium leading-relaxed max-w-lg mx-auto">
+      A mindset of curiosity. A habit of growth.<br/>Constantly exploring, building, and leveling up.
+    </p>
+  </div>
+
+  <!-- Angled Marquee Ribbons (Plum Background #3d1830) -->
+  <div class="relative w-[130vw] -ml-[15vw] space-y-6">
+    
+    <!-- RIBBON 1 (Angled -2deg) -->
+    <div class="bg-[#3d1830] text-white py-5 shadow-xl rotate-[-2deg] overflow-hidden flex items-center border-y border-white/10">
+      <div class="marquee-track flex items-center gap-12 whitespace-nowrap animate-marquee">
+        
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">IN</span>
+          <div class="text-left"><span class="font-bold text-sm block">Infosys</span><span class="text-[11px] text-pink-200/80">UI/UX, React, AI, Python</span></div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">UD</span>
+          <div class="text-left"><span class="font-bold text-sm block">Udemy</span><span class="text-[11px] text-pink-200/80">Cybersecurity</span></div>
+        </div>
+
+        <div class="flex items-center gap-2 text-pink-300 font-mono text-xs font-bold px-4">
+          <span class="text-lg">✦</span> 150+ Hours of Learning
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">GO</span>
+          <div class="text-left"><span class="font-bold text-sm block">Google</span><span class="text-[11px] text-pink-200/80">Data Analytics &amp; Cloud</span></div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">NT</span>
+          <div class="text-left"><span class="font-bold text-sm block">NoviTech</span><span class="text-[11px] text-pink-200/80">Full Stack Web Dev</span></div>
+        </div>
+
+        <span class="text-xl text-pink-300 px-2">→</span>
+
+        <!-- Duplicated items for seamless loop -->
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">IN</span>
+          <div class="text-left"><span class="font-bold text-sm block">Infosys</span><span class="text-[11px] text-pink-200/80">UI/UX, React, AI, Python</span></div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">UD</span>
+          <div class="text-left"><span class="font-bold text-sm block">Udemy</span><span class="text-[11px] text-pink-200/80">Cybersecurity</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIBBON 2 (Angled -2deg Reverse) -->
+    <div class="bg-[#3d1830] text-white py-5 shadow-xl rotate-[-2deg] overflow-hidden flex items-center border-y border-white/10">
+      <div class="marquee-track flex items-center gap-12 whitespace-nowrap animate-marquee-reverse">
+        
+        <span class="text-xl text-pink-300 px-2">→</span>
+
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">GO</span>
+          <div class="text-left"><span class="font-bold text-sm block">Google</span><span class="text-[11px] text-pink-200/80">Data Analytics &amp; Cloud</span></div>
+        </div>
+
+        <span class="text-lg text-pink-300">✦</span>
+
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">IN</span>
+          <div class="text-left"><span class="font-bold text-sm block">Infosys</span><span class="text-[11px] text-pink-200/80">UI/UX, React, AI, Python</span></div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">UD</span>
+          <div class="text-left"><span class="font-bold text-sm block">Udemy</span><span class="text-[11px] text-pink-200/80">Cybersecurity</span></div>
+        </div>
+
+        <div class="text-pink-300 font-mono text-xs font-bold px-4">
+          Always Exploring Always Evolving
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center font-bold text-xs">GO</span>
+          <div class="text-left"><span class="font-bold text-sm block">Google</span><span class="text-[11px] text-pink-200/80">Data Analytics &amp; Cloud</span></div>
+        </div>
+
+        <span class="text-xl text-pink-300 px-2">→</span>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section
       class="py-32 px-6 bg-[#0a0a0a] transition-all duration-500 overflow-hidden min-h-[90vh] flex items-center relative"
       id="skills">
       <div class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500" id="skills-bg-glow"
@@ -4563,7 +5360,7 @@
                 <button aria-label="Next Skill" class="wheel-nav-btn hoverable" onclick="rotateWheelNext()"><i
                     class="fas fa-chevron-right"></i></button>
               </div>
-              <span class="text-xs text-gray-500 uppercase tracking-widest font-sans hidden sm:inline-block">• Use mouse
+              <span class="text-xs text-gray-500 uppercase tracking-widest font-sans hidden sm:inline-block">ΓÇó Use mouse
                 scroll wheel over dial to spin</span>
             </div>
           </div>
@@ -4585,8 +5382,8 @@
         </div>
       </div>
     </section>
-    <!-- ACHIEVEMENTS -->
-    <section class="relative border-t border-white/10 px-4 md:px-6" id="achievements" style="padding: 2rem 0;">
+
+<section class="relative border-t border-white/10 px-4 md:px-6" id="achievements" style="padding: 2rem 0;">
       <div class="max-w-7xl mx-auto">
         <div
           class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12 gs-reveal gap-3 md:gap-4">
@@ -4616,7 +5413,7 @@
             </div>
             <div
               class="relative z-10 text-center pointer-events-none flex flex-col items-center justify-end h-full w-full pb-4">
-              <p class="text-xs font-sans uppercase tracking-[0.2em] text-[#a855f7] font-bold mb-3">Research</p>
+              <p class="text-xs font-sans uppercase tracking-[0.2em] text-[#421835] font-bold mb-3">Research</p>
               <h3 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">Published<br />Researcher</h3>
               <p class="text-xs text-white/60">ICTACA'26 Conference</p>
             </div>
@@ -4636,7 +5433,7 @@
             </div>
             <div
               class="relative z-10 text-center pointer-events-none flex flex-col items-center justify-end h-full w-full pb-4">
-              <p class="text-xs font-sans uppercase tracking-[0.2em] text-[#a855f7] font-bold mb-3">Intellectual
+              <p class="text-xs font-sans uppercase tracking-[0.2em] text-[#421835] font-bold mb-3">Intellectual
                 Property</p>
               <h3 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">Patent<br />Filed</h3>
               <p class="text-xs text-white/60">Nanosafe Cloak</p>
@@ -4657,7 +5454,7 @@
             </div>
             <div
               class="relative z-10 text-center pointer-events-none flex flex-col items-center justify-end h-full w-full pb-4">
-              <p class="text-xs font-sans uppercase tracking-[0.2em] text-[#a855f7] font-bold mb-3">Competition</p>
+              <p class="text-xs font-sans uppercase tracking-[0.2em] text-[#421835] font-bold mb-3">Competition</p>
               <h3 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">Hackathon<br />Winner</h3>
               <p class="text-xs text-white/60">3rd Place Vibeaithon</p>
             </div>
@@ -4677,7 +5474,7 @@
             </div>
             <div
               class="relative z-10 text-center pointer-events-none flex flex-col items-center justify-end h-full w-full pb-4">
-              <p class="text-xs font-sans uppercase tracking-[0.2em] text-[#a855f7] font-bold mb-3">Academic Excellence
+              <p class="text-xs font-sans uppercase tracking-[0.2em] text-[#421835] font-bold mb-3">Academic Excellence
               </p>
               <h3 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">Best Outgoing<br />Student</h3>
               <p class="text-xs text-white/60">Kingston Engineering College</p>
@@ -4686,8 +5483,8 @@
         </div>
       </div>
     </section>
-    <!-- TEXT MASKING SECTION -->
-    <section class="py-24 px-6 gs-reveal relative" id="text-mask-section">
+
+<section class="py-24 px-6 gs-reveal relative" id="text-mask-section">
       <div class="max-w-7xl mx-auto text-center hoverable flex justify-center items-center min-h-[40vh]">
         <h2 class="text-[12vw] font-black brand leading-none uppercase tracking-tighter w-full" id="flowing-text"
           style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=2000&amp;auto=format&amp;fit=crop'); background-size: 150%; background-position: 50% 50%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
@@ -4695,8 +5492,8 @@
         </h2>
       </div>
     </section>
-    <!-- PROJECTS -->
-    <section class="py-32 px-6" id="projects">
+
+<section class="py-32 px-6" id="projects">
       <div class="max-w-7xl mx-auto reveal-blur">
         <div class="flex flex-col md:flex-row justify-between items-end mb-16 gs-reveal gap-8">
           <h2 class="text-5xl md:text-7xl font-bold brand">Selected<br />Works</h2>
@@ -4717,7 +5514,7 @@
             <img alt="AgNIC2"
               src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" />
             <div class="project-overlay">
-              <p class="text-[10px] text-purple-400 mb-2 uppercase tracking-widest font-bold">AI • Cybersecurity •
+              <p class="text-[10px] text-purple-400 mb-2 uppercase tracking-widest font-bold">AI ΓÇó Cybersecurity ΓÇó
                 Full-Stack</p>
               <h3 class="text-3xl font-bold mb-2 brand text-white">AGNI C2</h3>
               <p class="text-sm font-bold text-gray-200 mb-2">AI-Powered Cognitive Command &amp; Control Platform</p>
@@ -4908,8 +5705,8 @@
         </div>
       </div>
     </section>
-    <!-- CONTACT -->
-    <section
+
+<section
       class="py-24 px-6 md:px-12 bg-[#050505] text-white relative overflow-hidden transition-colors duration-500 border-t border-white/10"
       id="contact">
       <!-- Dotted Grid Background -->
@@ -4969,11 +5766,12 @@
         <div
           class="flex flex-col sm:flex-row justify-between items-center p-6 text-xs text-gray-500 uppercase tracking-widest font-sans">
           <div>Designed in Figma &amp; Developed by Shakthi</div>
-          <div class="mt-2 sm:mt-0">© 2026 All Rights Reserved</div>
+          <div class="mt-2 sm:mt-0">┬⌐ 2026 All Rights Reserved</div>
         </div>
       </div>
     </section>
-    <!-- FULLSCREEN DETAILED EXPANSION OVERLAY -->
+
+<!-- FULLSCREEN DETAILED EXPANSION OVERLAY -->
     <div id="ach-detail-overlay">
       <div
         class="detail-panel w-full h-full md:w-[90vw] md:h-[85vh] md:rounded-[2rem] shadow-2xl relative grid grid-cols-1 md:grid-cols-12 overflow-y-auto md:overflow-hidden"
@@ -5904,13 +6702,13 @@
         {
           category: "Research",
           title: "Published\nResearcher",
-          subtitle: "AGNI C2 — Published at ICTACA'26",
-          desc: "Explored how AI, visualization, and explainability transform offensive security education. Built AGNI C2 — a cognitive C2 platform combining AI-assisted decision support, attack graph visualization, MITRE ATT&CK mapping, and explainable security workflows into a unified research platform. Presented and published at the International Conference on Technology and Advancement in Computing Applications.",
+          subtitle: "AGNI C2 ΓÇö Published at ICTACA'26",
+          desc: "Explored how AI, visualization, and explainability transform offensive security education. Built AGNI C2 ΓÇö a cognitive C2 platform combining AI-assisted decision support, attack graph visualization, MITRE ATT&CK mapping, and explainable security workflows into a unified research platform. Presented and published at the International Conference on Technology and Advancement in Computing Applications.",
           bg: "linear-gradient(135deg, #1e1b4b 0%, #1e293b 100%)",
           charImg: "research.png",
           meta: [
             "<strong>Published at:</strong> ICTACA'26 International Conference",
-            "<strong>Framework:</strong> AGNI C2 — Cognitive Command & Control",
+            "<strong>Framework:</strong> AGNI C2 ΓÇö Cognitive Command & Control",
             "<strong>Innovations:</strong> XOS (Explainable Offensive Security) + OEI",
             "<strong>ISBN:</strong> 978-81-685093-5-1"
           ]
@@ -5918,8 +6716,8 @@
         {
           category: "Intellectual Property",
           title: "Patent\nFiled",
-          subtitle: "NanoSafe Cloak — Privacy Innovation",
-          desc: "Developed and filed a technology patent for the NanoSafe Cloak — a wearable device generating an on-demand nano-fog privacy shield using advanced nanomaterials and smart electronics. The cloak creates a visual distortion barrier effective against hidden cameras while remaining transparent to the human eye, addressing critical privacy concerns across hospitality, retail, and personal safety sectors.",
+          subtitle: "NanoSafe Cloak ΓÇö Privacy Innovation",
+          desc: "Developed and filed a technology patent for the NanoSafe Cloak ΓÇö a wearable device generating an on-demand nano-fog privacy shield using advanced nanomaterials and smart electronics. The cloak creates a visual distortion barrier effective against hidden cameras while remaining transparent to the human eye, addressing critical privacy concerns across hospitality, retail, and personal safety sectors.",
           bg: "linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%)",
           charImg: "patent.png",
           meta: [
@@ -5932,12 +6730,12 @@
         {
           category: "Competition",
           title: "Hackathon\nWinner",
-          subtitle: "Reality-Lag Security — VIBEAITHON 2025",
-          desc: "Built Reality-Lag Security (RLS) — an adaptive cyber defense platform using AI-driven behavioral analysis, deception environments, and parallel execution timelines. Instead of blocking attacks, RLS redirects attackers into controlled environments that generate continuous threat intelligence. Secured 3rd Place at VIBEAITHON 2025, a 24-hour national-level hackathon.",
+          subtitle: "Reality-Lag Security ΓÇö VIBEAITHON 2025",
+          desc: "Built Reality-Lag Security (RLS) ΓÇö an adaptive cyber defense platform using AI-driven behavioral analysis, deception environments, and parallel execution timelines. Instead of blocking attacks, RLS redirects attackers into controlled environments that generate continuous threat intelligence. Secured 3rd Place at VIBEAITHON 2025, a 24-hour national-level hackathon.",
           bg: "linear-gradient(135deg, #064e3b 0%, #0c4a6e 100%)",
           charImg: "hackathon.png",
           meta: [
-            "<strong>Placement:</strong> 3rd Place — VIBEAITHON 2025",
+            "<strong>Placement:</strong> 3rd Place ΓÇö VIBEAITHON 2025",
             "<strong>Team:</strong> CipherStorm",
             "<strong>Innovation:</strong> Dual-Timeline Deception Defense",
             "<strong>Duration:</strong> 24-Hour National Hackathon"
@@ -5946,13 +6744,13 @@
         {
           category: "Academic Excellence",
           title: "Best Outgoing\nStudent",
-          subtitle: "Kingston Engineering College — IT Dept (2026)",
-          desc: "Recognized as the Best Outgoing Student of the Information Technology Department at Kingston Engineering College. This award reflects four years of academic excellence (CGPA 9.03), published research at ICTACA'26, a filed technology patent, hackathon victories, industry internships at IIT Madras CYSTAR Lab, OpsIntellix, and Focuslogic — combining software engineering, cybersecurity research, and UI/UX design.",
+          subtitle: "Kingston Engineering College ΓÇö IT Dept (2026)",
+          desc: "Recognized as the Best Outgoing Student of the Information Technology Department at Kingston Engineering College. This award reflects four years of academic excellence (CGPA 9.03), published research at ICTACA'26, a filed technology patent, hackathon victories, industry internships at IIT Madras CYSTAR Lab, OpsIntellix, and Focuslogic ΓÇö combining software engineering, cybersecurity research, and UI/UX design.",
           bg: "linear-gradient(135deg, #7c2d12 0%, #451a03 100%)",
           charImg: "beststudent.png",
           meta: [
-            "<strong>Award:</strong> Best Outgoing Student — IT Dept (2026)",
-            "<strong>Academic:</strong> Top Performer — CGPA 9.03/10",
+            "<strong>Award:</strong> Best Outgoing Student ΓÇö IT Dept (2026)",
+            "<strong>Academic:</strong> Top Performer ΓÇö CGPA 9.03/10",
             "<strong>Research:</strong> Published Paper at ICTACA'26",
             "<strong>Internships:</strong> IIT Madras CYSTAR, OpsIntellix, Focuslogic"
           ]
@@ -6171,7 +6969,7 @@
         const trackSteps = [
           {
             title: "I design intelligent systems.",
-            desc: "Class of 2026 Graduate learning scale.<br/>Software engineer & cybersecurity researcher learning speed.<br/>Published researcher at <span class='text-[#a855f7]'>ICTACA'26.</span>"
+            desc: "Class of 2026 Graduate learning scale.<br/>Software engineer & cybersecurity researcher learning speed.<br/>Published researcher at <span class='text-[#421835]'>ICTACA'26.</span>"
           },
           {
             title: "I build premium interfaces.",
@@ -6183,7 +6981,7 @@
           },
           {
             title: "Crafting bespoke digital products.",
-            desc: "Delivering design and code collaborations under the studio banner <span class='text-[#a855f7]'>SHAVIRA.</span><br/>Creating high-performance full-stack web applications with robust security."
+            desc: "Delivering design and code collaborations under the studio banner <span class='text-[#421835]'>SHAVIRA.</span><br/>Creating high-performance full-stack web applications with robust security."
           },
           {
             title: "Solving algorithmic challenges.",
@@ -6528,14 +7326,14 @@
           { t: "~$ focus", c: "cmd" },
           { t: "secure systems. seamless experiences.", c: "out" },
           { t: "~$ status", c: "cmd" },
-          { t: "● building | learning | growing", c: "out" }
+          { t: "ΓùÅ building | learning | growing", c: "out" }
         ];
         let lineIdx = 0;
         function typeLine() {
           if (lineIdx >= lines.length) {
             const cur = document.createElement("span");
             cur.className = "cursor-blink";
-            cur.innerHTML = "█";
+            cur.innerHTML = "Γûê";
             term.appendChild(cur);
             return;
           }
@@ -6551,8 +7349,8 @@
           let charIdx = 0;
           function typeChar() {
             if (charIdx < l.t.length) {
-              if (l.t.charAt(charIdx) === '●') {
-                div.innerHTML += '<span style="color: #421835; font-size: 10px;">●</span>';
+              if (l.t.charAt(charIdx) === 'ΓùÅ') {
+                div.innerHTML += '<span style="color: #421835; font-size: 10px;">ΓùÅ</span>';
               } else {
                 div.innerHTML += l.t.charAt(charIdx);
               }
@@ -6570,6 +7368,122 @@
     });
   </script>
 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const contactSection = document.getElementById('contact');
+    const contactBgText = document.querySelector('.contact-bg-text');
+
+    if (contactSection && contactBgText) {
+      contactSection.addEventListener('mousemove', (e) => {
+        const rect = contactSection.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+
+        const bgX = 20 + x * 60;
+        const bgY = 20 + y * 60;
+        contactBgText.style.backgroundPosition = `${bgX}% ${bgY}%`;
+      });
+      contactSection.addEventListener('mouseleave', () => {
+        contactBgText.style.backgroundPosition = '50% 50%';
+      });
+    }
+  });
+</script>
+
+
+
+
+
+<!-- TRAVELING FACE EMOJI SCROLL ANIMATION -->
+<script>
+  function updatePathAvatarScroll() {
+    try {
+      const avatar = document.getElementById('path-traveler-avatar');
+      const container = document.getElementById('timeline-container');
+      if (!avatar || !container) return;
+
+      const segIds = ['seg-0', 'seg-1', 'seg-2', 'seg-3', 'seg-4'];
+      const segs = segIds
+        .map(id => document.getElementById(id))
+        .filter(path => path && path.getAttribute('d') && path.getAttribute('d').trim() !== '');
+
+      if (segs.length === 0) {
+        avatar.style.display = 'none';
+        return;
+      }
+
+      const cRect = container.getBoundingClientRect();
+      const windowH = window.innerHeight;
+
+      // Show avatar whenever section is active or near viewport
+      if (cRect.bottom < -200 || cRect.top > windowH + 200) {
+        avatar.style.display = 'none';
+        return;
+      }
+
+      const totalDist = cRect.height - windowH;
+      let p = (-cRect.top) / (totalDist || 1);
+      p = Math.max(0, Math.min(1, p));
+
+      avatar.style.display = 'block';
+
+      // Calculate total cumulative length across all segments
+      let totalLen = 0;
+      const segLens = segs.map(s => {
+        try {
+          const l = s.getTotalLength();
+          totalLen += l;
+          return l;
+        } catch(e) { return 0; }
+      });
+
+      if (totalLen === 0) return;
+
+      let targetLen = p * totalLen;
+      let accumulated = 0;
+      let targetSeg = segs[0];
+      let distInSeg = 0;
+
+      for (let i = 0; i < segs.length; i++) {
+        if (accumulated + segLens[i] >= targetLen || i === segs.length - 1) {
+          targetSeg = segs[i];
+          distInSeg = targetLen - accumulated;
+          distInSeg = Math.max(0, Math.min(segLens[i], distInSeg));
+          break;
+        }
+        accumulated += segLens[i];
+      }
+
+      const pt = targetSeg.getPointAtLength(distInSeg);
+      const segLen = segLens[segs.indexOf(targetSeg)];
+      const ptNext = targetSeg.getPointAtLength(Math.min(segLen, distInSeg + 3));
+
+      const dx = ptNext.x - pt.x;
+      const dy = ptNext.y - pt.y;
+      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+      const cW = container.clientWidth || 1400;
+      const scaleX = cW / 1400;
+      const scaleY = (cRect.height || 2700) / 2700;
+      const cssX = pt.x * scaleX;
+      const cssY = pt.y * scaleY;
+
+      avatar.style.transform = `translate3d(${cssX}px, ${cssY}px, 0px) translate(-50%, -50%) rotate(${angle * 0.12}deg)`;
+    } catch (e) {
+      console.error("updatePathAvatarScroll error:", e);
+    }
+  }
+
+  window.addEventListener('scroll', updatePathAvatarScroll, { passive: true });
+  window.addEventListener('resize', updatePathAvatarScroll, { passive: true });
+  
+  // Instant execution on load
+  updatePathAvatarScroll();
+  setTimeout(updatePathAvatarScroll, 100);
+  setTimeout(updatePathAvatarScroll, 500);
+  document.addEventListener('DOMContentLoaded', updatePathAvatarScroll);
+</script>
 </body>
 
 </html>

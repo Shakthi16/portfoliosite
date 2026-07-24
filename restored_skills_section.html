@@ -1,0 +1,77 @@
+<section
+      class="py-32 px-6 bg-[#0a0a0a] transition-all duration-500 overflow-hidden min-h-[90vh] flex items-center relative"
+      id="skills">
+      <div class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500" id="skills-bg-glow"
+        style="background: radial-gradient(600px circle at 0px 0px, rgba(168, 85, 247, 0.07), transparent 80%); z-index: 0;">
+      </div>
+      <canvas class="absolute inset-0 pointer-events-none w-full h-full" id="skills-dot-grid"
+        style="z-index: 0;"></canvas>
+      <div class="text-white" id="active-category-indicator">PROGRAMMING</div>
+      <!-- Decorative Tech elements for Awwwards style -->
+      <div
+        class="absolute top-10 left-10 font-sans text-[10px] text-purple-500/30 select-none hidden md:block uppercase tracking-wider">
+        SYS_STATUS: ENGAGED // DETECT_MODE: ACTIVE</div>
+      <div
+        class="absolute bottom-10 left-10 font-sans text-[10px] text-purple-500/30 select-none hidden md:block uppercase tracking-wider">
+        COORDS: [53.82.11.9] // SYS_ROT: <span id="wheel-rotation-display">180deg</span></div>
+      <div
+        class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10 reveal-blur">
+        <!-- Left Column: Premium Console, Categories and Dial Nav Buttons -->
+        <div class="lg:col-span-6 flex flex-col justify-center relative">
+          <h2 class="text-xs uppercase tracking-[0.2em] text-purple-500 font-bold mb-4 font-sans">My Arsenal</h2>
+          <!-- Category Pill Buttons -->
+          <div class="flex flex-wrap gap-3 mb-10" id="skills-category-selector">
+            <button
+              class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn active"
+              onclick="spinToCategory('programming', this)">Programming</button>
+            <button
+              class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn"
+              onclick="spinToCategory('web', this)">Web &amp; Backend</button>
+            <button
+              class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn"
+              onclick="spinToCategory('cyber', this)">Cybersecurity</button>
+            <button
+              class="px-5 py-2 rounded-full border border-white/10 hoverable text-xs font-bold uppercase tracking-wider category-btn"
+              onclick="spinToCategory('ai', this)">AI &amp; Automation</button>
+          </div>
+          <!-- Big Focus Text Display (Awwwards Style) -->
+          <div class="min-h-[250px] flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-sans text-purple-500 uppercase tracking-widest block mb-2"
+                id="skill-index-display">01 / 17</span>
+              <h3 class="text-5xl md:text-7xl font-bold brand text-white leading-tight mb-6" id="active-skill-name">
+                Python</h3>
+              <p class="text-gray-400 text-lg leading-relaxed max-w-lg" id="active-skill-desc">
+                Core language for scripting, advanced malware analysis tools, automation pipelines, and API setups.
+              </p>
+            </div>
+            <!-- Wheel Navigation arrows & hint -->
+            <div class="flex items-center gap-6 mt-12">
+              <div class="flex gap-3">
+                <button aria-label="Previous Skill" class="wheel-nav-btn hoverable" onclick="rotateWheelPrev()"><i
+                    class="fas fa-chevron-left"></i></button>
+                <button aria-label="Next Skill" class="wheel-nav-btn hoverable" onclick="rotateWheelNext()"><i
+                    class="fas fa-chevron-right"></i></button>
+              </div>
+              <span class="text-xs text-gray-500 uppercase tracking-widest font-sans hidden sm:inline-block">ΓÇó Use mouse
+                scroll wheel over dial to spin</span>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column: The Circular Wheel Carousel -->
+        <div class="lg:col-span-6 overflow-visible">
+          <div data-lenis-prevent="" id="skills-wheel-container">
+            <!-- Background decorative orbit rings to fill up whitespace and make it Awwwards-worthy -->
+            <div class="skills-orbit-ring border border-purple-500/[0.01] w-[900px] h-[900px]"></div>
+            <div class="skills-orbit-ring border border-purple-500/[0.02] w-[750px] h-[750px]"></div>
+            <div class="skills-orbit-ring border border-dashed border-purple-500/[0.05] w-[600px] h-[600px]"></div>
+            <div class="skills-orbit-ring border border-purple-500/[0.04] w-[450px] h-[450px]"></div>
+            <div class="skills-orbit-ring border border-dashed border-purple-500/[0.06] w-[300px] h-[300px]"></div>
+            <div class="skills-orbit-ring border border-purple-500/[0.08] w-[180px] h-[180px]"></div>
+            <div id="skills-wheel">
+              <!-- JavaScript will populate wheel items here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

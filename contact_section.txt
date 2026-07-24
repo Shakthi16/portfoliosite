@@ -1,0 +1,64 @@
+<section
+      class="py-24 px-6 md:px-12 bg-[#050505] text-white relative overflow-hidden transition-colors duration-500 border-t border-white/10"
+      id="contact">
+      <!-- Dotted Grid Background -->
+      <div class="absolute inset-0 opacity-[0.04] md:opacity-[0.06] transition-opacity duration-500"
+        id="contact-dot-grid"
+        style="background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.15) 1.5px, transparent 0); background-size: 24px 24px;">
+      </div>
+      <div
+        class="max-w-7xl mx-auto relative z-10 flex flex-col min-h-[75vh] justify-between border-l border-r border-white/10 reveal-blur">
+        <!-- Top Section: Giant Brand text and portrait character inside a grid box -->
+        <div class="flex-grow flex flex-col justify-center items-center py-24 relative border-b border-white/10">
+          <!-- Giant outline name text -->
+          <h2 class="contact-bg-text select-none text-center tracking-tighter w-full">
+            SHAKTHI SRI T S
+          </h2>
+          <!-- Character positioned in front of outline text -->
+          <div class="absolute inset-0 flex justify-center items-center pointer-events-none"
+            style="top: 50%; transform: translateY(-50%);">
+            <img alt="Shakthi Character"
+              class="h-[250px] md:h-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500 pointer-events-auto"
+              src="img.png" style="filter: drop-shadow(0 0 35px rgba(168,85,247,0.5));" />
+          </div>
+        </div>
+        <!-- Middle Row: divided left and right by vertical border line -->
+        <div class="grid grid-cols-1 md:grid-cols-2 border-b border-white/10">
+          <!-- Left Column: Tagline -->
+          <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 flex flex-col justify-center">
+            <p class="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold mb-3 font-sans">Let's build something
+            </p>
+            <h3 class="text-3xl md:text-5xl font-bold brand text-white leading-[1.1] tracking-tight">
+              MEANINGFUL &amp;<br />MEMORABLE
+            </h3>
+          </div>
+          <!-- Right Column: Reach out & socials -->
+          <div class="p-8 md:p-12 flex flex-col justify-center">
+            <p class="text-xs uppercase tracking-[0.2em] text-purple-400 font-bold mb-5 font-sans">Reach out</p>
+            <div class="flex items-center gap-4">
+              <a aria-label="Instagram"
+                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-purple-500 hover:border-purple-500 hover:text-white hover:scale-105 transition-all text-xl"
+                href="https://www.instagram.com/shaviraworks" rel="noopener" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a aria-label="LinkedIn"
+                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-purple-500 hover:border-purple-500 hover:text-white hover:scale-105 transition-all text-xl"
+                href="https://linkedin.com/in/shakthisri" rel="noopener" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a aria-label="Email"
+                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-purple-500 hover:border-purple-500 hover:text-white hover:scale-105 transition-all text-xl"
+                href="mailto:srishakthi799@gmail.com">
+                <i class="fas fa-at"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Metadata Footer Row -->
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center p-6 text-xs text-gray-500 uppercase tracking-widest font-sans">
+          <div>Designed in Figma &amp; Developed by Shakthi</div>
+          <div class="mt-2 sm:mt-0">┬⌐ 2026 All Rights Reserved</div>
+        </div>
+      </div>
+    </section>

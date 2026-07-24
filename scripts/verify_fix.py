@@ -1,0 +1,6 @@
+content = open('index.html','r',encoding='utf-8').read()
+print('viewBox OK' if 'viewBox="0 0 1400 2200"' in content else 'VIEWBOX BROKEN')
+print('DOMContentLoaded OK' if 'SCROLL-DRAW' in content else 'SCROLL-DRAW MISSING')
+print('path-0 OK' if 'id="path-0"' in content else 'PATH-0 MISSING')
+print('arrow-head OK' if 'arrow-head' in content else 'ARROW-HEAD MISSING')
+print('dot-0-start OK' if 'dot-0-start' in content else 'DOT MISSING')

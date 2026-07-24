@@ -1,0 +1,107 @@
+<section class="py-24 px-6 relative" id="about">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-wrap justify-around mb-16 border-y border-white/10 py-8 gs-reveal">
+<div class="text-center"><h3 class="text-5xl font-bold brand">04</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">Years of Study</p></div>
+<div class="text-center"><h3 class="text-5xl font-bold brand">04+</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">Internships</p></div>
+<div class="text-center"><h3 class="text-5xl font-bold brand">05+</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">Projects</p></div>
+<div class="text-center"><h3 class="text-5xl font-bold brand">10+</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">Courses</p></div>
+<div class="text-center"><h3 class="text-5xl font-bold brand">9.03</h3><p class="text-gray-400 uppercase tracking-widest text-sm mt-2">CGPA</p></div>
+</div>
+<div class="bento-grid">
+<!-- Main Bio Card -->
+<div class="bento-item gs-bento hoverable md:col-span-2">
+<h2 class="text-5xl md:text-7xl font-bold mb-6 brand leading-tight">I design <br/><span class="text-gray-500">intelligent systems</span><br/>&amp; premium interfaces.</h2>
+<p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl">Class of 2026 Graduate. Software engineer and cybersecurity researcher with experience in automation systems, full-stack application development, and security-oriented research workflows. Published researcher at ICTACAΓÇÖ26.</p>
+</div>
+<!-- Experience Card -->
+<div class="bento-item gs-bento hoverable">
+<h3 class="text-xl font-bold mb-4 brand text-purple-400">Experience</h3>
+<div class="space-y-4">
+<div>
+<h4 class="text-lg font-semibold text-white">IIT Madras -- CYSTAR Lab</h4>
+<p class="text-gray-300 text-sm">Cybersecurity Research Intern</p>
+<p class="text-xs text-purple-400 mt-1 mb-2">Aug 2025 -- Present</p>
+<p class="text-gray-400 text-xs leading-relaxed">Offensive security research workflows including exposure analysis, EDR/AV study, explainable security, and technical documentation.</p>
+</div>
+<div class="mt-4">
+<h4 class="text-lg font-semibold text-white">OpsIntellix</h4>
+<p class="text-gray-300 text-sm">Operations Intern -- AP Automation</p>
+<p class="text-xs text-purple-400 mt-1 mb-2">Nov 2025 -- Feb 2026</p>
+<p class="text-gray-400 text-xs leading-relaxed">Automated banking workflows, document classification, and validation using Python, boosting pipeline efficiency by 30%.</p>
+</div>
+<div class="mt-4">
+<h4 class="text-lg font-semibold text-white">Focuslogic IT Services</h4>
+<p class="text-gray-300 text-sm">Web Development Intern</p>
+<p class="text-xs text-purple-400 mt-1 mb-2">Mar 2025 -- May 2025</p>
+<p class="text-gray-400 text-xs leading-relaxed">Built responsive React.js frontends from Figma, integrated REST APIs, conducted manual UI testing, and reduced load latency by 25%.</p>
+</div>
+</div>
+</div>
+<!-- Shavira Freelance Spotlight Card (Fills Widescreen Column 4 Space Perfectly!) -->
+<div class="bento-item gs-bento hoverable relative overflow-hidden flex flex-col justify-between min-h-[340px] group !p-0">
+<!-- Background visual graphic -->
+<img alt="Cyber &amp; Tech Visual Mockup" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none opacity-40" src="bento-tech.png"/>
+<!-- Dark gradient overlay for text readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/95 to-transparent z-0"></div>
+<!-- Top Row: Badge -->
+<div class="relative z-10 p-6 pb-0 flex justify-between items-start">
+<span class="text-[10px] font-mono uppercase tracking-[0.2em] bg-purple-500/20 border border-purple-500/30 text-purple-300 px-2.5 py-1 rounded-full">STUDIO // ACTIVE</span>
+</div>
+<!-- Bottom Area: Title, description & CTA -->
+<div class="relative z-10 p-6 pt-0">
+<h3 class="text-3xl font-extrabold brand text-white tracking-tight mb-1">SHAVIRA</h3>
+<p class="text-[10px] text-purple-400 font-bold uppercase tracking-wider mb-3">Creative Freelance &amp; Design</p>
+<p class="text-xs text-gray-300 leading-relaxed mb-5">
+              Designing premium web interfaces, robust backend systems, and secure applications. Available for contract collaborations.
+            </p>
+<a class="inline-flex items-center gap-2 border border-white/20 hover:border-purple-500 bg-white/5 hover:bg-purple-500 text-white rounded-full px-4 py-2.5 text-xs font-bold tracking-wider uppercase transition-all duration-300 hover:scale-105 hoverable w-full justify-center" href="https://www.instagram.com/shaviraworks" rel="noopener" target="_blank">
+<i class="fab fa-instagram text-sm"></i>
+              Follow @shaviraworks
+            </a>
+</div>
+</div>
+<!-- Education Card -->
+<div class="bento-item gs-bento hoverable md:col-span-2">
+<h3 class="text-xl font-bold mb-4 brand text-purple-400">Education</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div>
+<h4 class="text-lg font-semibold text-white">2022 - 2026</h4>
+<p class="font-medium">B.Tech in IT</p>
+<p class="text-gray-400 text-sm">Kingston Eng. College<br/>CGPA: 9.03/10</p>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-white">2021 - 2022</h4>
+<p class="font-medium">HSC</p>
+<p class="text-gray-400 text-sm">Sai Guruji School<br/>89.2%</p>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-white">2019 - 2020</h4>
+<p class="font-medium">SSLC</p>
+<p class="text-gray-400 text-sm">Sai Guruji School<br/>92%</p>
+</div>
+</div>
+</div>
+<!-- Certifications Card -->
+<div class="bento-item gs-bento hoverable">
+<h3 class="text-xl font-bold mb-4 brand text-purple-400">Certifications</h3>
+<ul class="text-gray-400 text-sm space-y-2">
+<li><i class="fas fa-certificate text-purple-500 mr-2"></i>UI/UX, React, AI, Python - Infosys</li>
+<li><i class="fas fa-certificate text-purple-500 mr-2"></i>Cybersecurity - Udemy</li>
+<li><i class="fas fa-certificate text-purple-500 mr-2"></i>Full Stack Web Dev - NoviTech</li>
+<li><i class="fas fa-certificate text-purple-500 mr-2"></i>Data Analytics &amp; Cloud - Google</li>
+</ul>
+</div>
+<!-- Profiles Card -->
+<div class="bento-item gs-bento hoverable">
+<h3 class="text-xl font-bold mb-4 brand text-purple-400">Profiles</h3>
+<ul class="text-gray-400 text-sm space-y-2">
+<li><a class="hover:text-white transition-colors hoverable" href="https://linkedin.com/in/shakthisri" target="_blank"><i class="fab fa-linkedin text-purple-500 mr-2"></i>LinkedIn</a></li>
+<li><a class="hover:text-white transition-colors hoverable" href="https://github.com/Shakthi16" target="_blank"><i class="fab fa-github text-purple-500 mr-2"></i>GitHub</a></li>
+<li><a class="hover:text-white transition-colors hoverable" href="https://leetcode.com/u/srishakthi799/" target="_blank"><i class="fab fa-code text-purple-500 mr-2"></i>LeetCode</a></li>
+<li><a class="hover:text-white transition-colors hoverable" href="https://tryhackme.com/p/shakthisri1929" target="_blank"><i class="fas fa-shield-alt text-purple-500 mr-2"></i>TryHackMe</a></li>
+<li><a class="hover:text-white transition-colors hoverable" href="https://rb.gy/l6f8ss" target="_blank"><i class="fas fa-certificate text-purple-500 mr-2"></i>Google Certs</a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
