@@ -3892,20 +3892,14 @@
 <!-- ABOUT ME: PHYSICAL JOURNAL BOOK (EXACT CREATIVE LAYOUT & FONTS MATCH) -->
 
 <style>
-      #about-journal .font-great-vibes {
-        font-family: 'Great Vibes', cursive !important;
-        font-style: normal !important;
-      }
-      #about-journal .font-caveat {
-        font-family: 'Caveat', cursive !important;
-        font-style: normal !important;
-        font-weight: 600 !important;
-      }
-      #about-journal .font-outfit {
-        font-family: 'Outfit', sans-serif !important;
-        font-style: normal !important;
-      }
-    </style>
+  #about-journal, #about-journal * {
+    font-family: 'Patrick Hand', cursive !important;
+    font-style: normal !important;
+  }
+  #about-journal h3, #about-journal h4, #about-journal .font-bold {
+    font-weight: 700 !important;
+  }
+</style>
 <section class="relative bg-[#FAF8F5] text-[#1F1F1F] py-6 md:py-10 overflow-hidden border-b border-amber-900/10 z-20" id="about-journal">
   <div class="max-w-6xl mx-auto px-3 md:px-6 text-center">
     
@@ -3940,17 +3934,17 @@
             </button>
 
             <!-- Tab 1: About Me (P. 01-02) -->
-            <button id="tab-btn-spread1" onclick="switchSmritiSpread('spread1')" class="px-1.5 md:px-2 py-4 bg-[#541C2E] text-white text-[10px] font-bold rounded-r-xl shadow-md border-t border-r border-b border-amber-900/30 flex items-center justify-center transition-all hover:translate-x-1" style="writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Outfit', sans-serif;">
+            <button id="tab-btn-spread1" onclick="switchSmritiSpread('spread1')" class="px-1.5 md:px-2 py-4 bg-[#541C2E] text-white text-[10px] font-bold rounded-r-xl shadow-md border-t border-r border-b border-amber-900/30 flex items-center justify-center transition-all hover:translate-x-1" style="writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Patrick Hand', cursive !important, sans-serif;">
               About Me
             </button>
 
             <!-- Tab 2: Things I Learnt (P. 03-04) -->
-            <button id="tab-btn-spread2" onclick="switchSmritiSpread('spread2')" class="px-1.5 md:px-2 py-4 bg-[#7A364B] hover:bg-[#541C2E] text-white text-[10px] font-bold rounded-r-xl shadow-md border-t border-r border-b border-amber-900/30 flex items-center justify-center transition-all hover:translate-x-1" style="writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Outfit', sans-serif;">
+            <button id="tab-btn-spread2" onclick="switchSmritiSpread('spread2')" class="px-1.5 md:px-2 py-4 bg-[#7A364B] hover:bg-[#541C2E] text-white text-[10px] font-bold rounded-r-xl shadow-md border-t border-r border-b border-amber-900/30 flex items-center justify-center transition-all hover:translate-x-1" style="writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Patrick Hand', cursive !important, sans-serif;">
               Things I Learnt
             </button>
 
             <!-- Tab 3: Story Writing -->
-            <button id="tab-btn-spread3" onclick="switchSmritiSpread('spread3')" class="px-1.5 md:px-2 py-4 bg-[#A36D7D] hover:bg-[#541C2E] text-white text-[10px] font-bold rounded-r-xl shadow-md border-t border-r border-b border-amber-900/30 flex items-center justify-center transition-all hover:translate-x-1 hidden sm:flex" style="writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Outfit', sans-serif;">
+            <button id="tab-btn-spread3" onclick="switchSmritiSpread('spread3')" class="px-1.5 md:px-2 py-4 bg-[#A36D7D] hover:bg-[#541C2E] text-white text-[10px] font-bold rounded-r-xl shadow-md border-t border-r border-b border-amber-900/30 flex items-center justify-center transition-all hover:translate-x-1 hidden sm:flex" style="writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Patrick Hand', cursive !important, sans-serif;">
               Story Writing
             </button>
 
@@ -3973,7 +3967,7 @@
               <div class="flex flex-col justify-between space-y-1 text-left pr-0 md:pr-2 h-full">
                 <!-- 1. Header & Sub-header -->
                 <div>
-                  <h3 class="text-3xl md:text-[38px] font-extrabold text-[#1C1917] mb-1 tracking-tight leading-none"><span class="font-great-vibes text-4xl md:text-5xl text-[#6B2137]">Shakthi Sri</span></h3>
+                  <h3 class="text-3xl md:text-[38px] font-extrabold text-[#1C1917] mb-1 tracking-tight leading-none"><span class="text-4xl md:text-5xl text-[#6B2137]">Shakthi Sri</span></h3>
                   <div class="flex flex-wrap items-center gap-2 mb-1">
                     <span class="px-2.5 py-0.5 bg-[#E8D5CE] text-[#6B2137] text-[9.5px] font-bold rounded-full border border-[#D9BEB4] tracking-wider uppercase" class="font-caveat">DEVELOPER &amp; RESEARCHER</span>
                     <span class="text-[15px] text-[#2C2C2C] font-semibold underline underline-offset-4 decoration-[#6B2137]/30" class="font-caveat">class of 2026</span>
@@ -4210,7 +4204,7 @@
                 <!-- Top Row: Page number 03 badge -->
                 <div class="flex items-center justify-between mb-1">
                   <div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-[#1F1F1F]" class="font-caveat"><span class="font-great-vibes text-3xl md:text-4xl text-[#6B2137]">On Building.</span></h3>
+                    <h3 class="text-2xl md:text-3xl font-bold text-[#1F1F1F]" class="font-caveat"><span class="text-3xl md:text-4xl text-[#6B2137]">On Building.</span></h3>
                     <p class="text-xs text-gray-500" class="font-caveat">Journal Entry — 03</p>
                   </div>
                   <span class="px-2 py-0.5 bg-[#E8D5CE] text-[#6B2137] font-bold text-[10px] rounded border border-[#D9BEB4]">03</span>
@@ -4284,7 +4278,7 @@
                 <!-- Header -->
                 <div class="flex items-center justify-between mb-1">
                   <div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-[#1F1F1F]" class="font-caveat"><span class="font-great-vibes text-3xl md:text-4xl text-[#6B2137]">Things I've Learned. ♡</span></h3>
+                    <h3 class="text-2xl md:text-3xl font-bold text-[#1F1F1F]" class="font-caveat"><span class="text-3xl md:text-4xl text-[#6B2137]">Things I've Learned. ♡</span></h3>
                     <div class="w-20 h-0.5 bg-[#6B2137]/40 rounded-full"></div>
                   </div>
                   <span class="px-2 py-0.5 bg-[#E8D5CE] text-[#6B2137] font-bold text-[10px] rounded border border-[#D9BEB4]">04</span>
