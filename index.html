@@ -3895,16 +3895,22 @@
   #about-journal, #about-journal * {
     font-family: 'Caveat', cursive !important;
     font-style: normal !important;
-  }
-  #about-journal h3, #about-journal h4, #about-journal .font-bold {
     font-weight: 700 !important;
+    color: #1C1917;
+  }
+  #about-journal h3, #about-journal h4 {
+    color: #4A1224 !important;
+    font-weight: 800 !important;
+  }
+  #about-journal .text-gray-500, #about-journal .text-gray-600 {
+    color: #374151 !important;
   }
 </style>
 <section class="relative bg-[#FAF8F5] text-[#1F1F1F] py-6 md:py-10 overflow-hidden border-b border-amber-900/10 z-20" id="about-journal">
   <div class="max-w-6xl mx-auto px-3 md:px-6 text-center">
     
     <!-- BOOK STAGE CONTAINER -->
-    <div class="relative w-full max-w-[890px] mx-auto min-h-[510px] md:min-h-[540px] flex items-center justify-center">
+    <div class="relative w-full max-w-[890px] mx-auto min-h-[520px] md:min-h-[550px] flex items-center justify-center">
 
       <!-- ==================== CLOSED BOOK COVER STATE ==================== -->
       <div id="smriti-book-cover" class="cursor-pointer transition-all duration-500 z-40 group" onclick="openSmritiBook()">
@@ -3951,7 +3957,7 @@
           </div>
 
                                         <!-- INNER PAGES SPREAD 1 (EXACT 1:1 DESIGN SYSTEM MATCH) -->
-          <div id="smriti-spread-1" class="w-full bg-[#FAF6EE] rounded-[18px] p-4 md:p-5 relative overflow-hidden text-left min-h-[510px] md:min-h-[540px] h-[510px] md:h-[540px] flex flex-col justify-between" style="background-image: radial-gradient(#D8CFC3 1.2px, transparent 1.2px); background-size: 20px 20px;">
+          <div id="smriti-spread-1" class="w-full bg-[#FAF6EE] rounded-[18px] p-4 md:p-5 relative overflow-hidden text-left min-h-[520px] md:min-h-[550px] h-[520px] md:h-[550px] flex flex-col justify-between" style="background-image: radial-gradient(#D8CFC3 1.2px, transparent 1.2px); background-size: 20px 20px;">
             
             <!-- TOP-RIGHT CLOSE BUTTON '✕' -->
             <button onclick="closeSmritiBook()" class="absolute top-3 right-4 text-gray-500 hover:text-[#6B2137] text-lg font-bold z-40 p-1 transition-colors" title="Close Journal">
@@ -3970,12 +3976,12 @@
                   <h3 class="text-3xl md:text-[38px] font-extrabold text-[#1C1917] mb-0.5 tracking-tight leading-none">Shakthi Sri</h3>
                   <div class="flex flex-wrap items-center gap-2 mb-1">
                     <span class="px-2.5 py-0.5 bg-[#E8D5CE] text-[#6B2137] text-[9.5px] font-bold rounded-full border border-[#D9BEB4] tracking-wider uppercase">DEVELOPER &amp; RESEARCHER</span>
-                    <span class="text-xs text-[#2C2C2C] font-semibold underline underline-offset-4 decoration-[#6B2137]/30">class of 2026</span>
+                    <span class="text-[16px] text-[#1C1917] font-semibold underline underline-offset-4 decoration-[#6B2137]/30">class of 2026</span>
                   </div>
                 </div>
 
                 <!-- 2. Timeline List with Icons -->
-                <div class="space-y-1 text-xs text-[#2C2C2C] font-medium">
+                <div class="space-y-1 text-[16px] text-[#1C1917] font-medium">
                   <div class="flex justify-between items-center border-b border-dashed border-amber-900/20 pb-0.5">
                     <span class="flex items-center gap-1.5 font-bold text-[#1F1F1F]">
                       <svg class="w-3.5 h-3.5 text-[#6B2137]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -4023,7 +4029,7 @@
                   <div class="bg-[#F6EFE6] p-2.5 rounded-xl border border-amber-900/15 shadow-2xs relative">
                     <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-6 h-2 bg-[#E6D7C3]/90 rotate-[-2deg] border-l border-r border-white/60"></div>
                     <span class="text-xs text-[#6B2137] font-bold block mb-0.5">about me ヾ</span>
-                    <ul class="text-[14px] text-[#2C2C2C] font-medium leading-tight space-y-0.5">
+                    <ul class="text-[16px] text-[#2C2C2C] font-medium leading-tight space-y-0.5">
                       <li>♥ I love turning ideas into impactful digital solutions.</li>
                       <li>♥ Curious mind with a strong drive to build, secure and innovate.</li>
                       <li>♥ Believer in discipline, consistency &amp; growth.</li>
@@ -4042,7 +4048,7 @@
                       <span class="text-[9px] text-amber-900 font-bold">☆</span>
                     </div>
                     <span class="text-[8.5px] font-mono font-bold text-gray-500 uppercase block mb-0.5">TODAY</span>
-                    <p class="text-[14px] text-[#2C2C2C] font-medium leading-tight">
+                    <p class="text-[16px] text-[#2C2C2C] font-medium leading-tight">
                       Building skills.<br/>Solving problems.<br/>Creating solutions.<br/>Preparing for impact.<br/>One step at a time.
                     </p>
                   </div>
@@ -4095,7 +4101,7 @@
                   <!-- currently ヾ -->
                   <div class="col-span-6 border border-dashed border-amber-900/30 rounded-xl p-2.5 bg-[#F8F3EA]">
                     <span class="text-xs text-[#6B2137] font-bold block mb-0.5">currently ヾ</span>
-                    <ul class="text-[14px] text-[#2C2C2C] font-medium leading-tight space-y-0.5">
+                    <ul class="text-[16px] text-[#2C2C2C] font-medium leading-tight space-y-0.5">
                       <li>♥ Exploring AI &amp; LLMs</li>
                       <li>♥ Building secure systems</li>
                       <li>♥ Deepening full-stack</li>
@@ -4186,7 +4192,7 @@
           </div>
 
           <!-- INNER PAGES SPREAD 2 (EXACT IMAGE REFERENCE MATCH) -->
-          <div id="smriti-spread-2" class="hidden w-full bg-[#FAF6EE] rounded-[18px] p-4 md:p-5 relative overflow-hidden text-left min-h-[510px] md:min-h-[540px] h-[510px] md:h-[540px] flex flex-col justify-between" style="background-image: radial-gradient(#D8CFC3 1.2px, transparent 1.2px); background-size: 20px 20px;">
+          <div id="smriti-spread-2" class="hidden w-full bg-[#FAF6EE] rounded-[18px] p-4 md:p-5 relative overflow-hidden text-left min-h-[520px] md:min-h-[550px] h-[520px] md:h-[550px] flex flex-col justify-between" style="background-image: radial-gradient(#D8CFC3 1.2px, transparent 1.2px); background-size: 20px 20px;">
             
             <!-- TOP-RIGHT CLOSE BUTTON '✕' -->
             <button onclick="closeSmritiBook()" class="absolute top-3 right-4 text-gray-500 hover:text-[#6B2137] text-lg font-bold z-40 p-1 transition-colors" title="Close Journal">
@@ -4250,7 +4256,7 @@
                   <div class="bg-[#F8F3EA] p-2.5 rounded-xl border border-amber-900/15 relative text-[15px] text-[#2C2C2C] shadow-2xs" class="font-caveat">
                     <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-6 h-2.5 bg-[#E6D7C3]/90"></div>
                     <span class="font-bold text-[#1F1F1F] block mb-0.5 text-xs">What matters Most</span>
-                    <ul class="space-y-0.5 text-[14px]">
+                    <ul class="space-y-0.5 text-[16px]">
                       <li>♥ The right problem</li>
                       <li>♥ The right assumptions</li>
                       <li>♥ The right people</li>
@@ -4292,7 +4298,7 @@
                       <div class="w-5 h-5 rounded-full bg-[#E8D5CE] text-[#6B2137] text-[9px] font-bold flex items-center justify-center font-mono">&lt;/&gt;</div>
                     </div>
                     <div>
-                      <h4 class="font-bold text-[14px] text-[#1F1F1F]">Code isn't everything.</h4>
+                      <h4 class="font-bold text-[16px] text-[#1F1F1F]">Code isn't everything.</h4>
                       <p class="text-[9.5px] text-gray-600 leading-tight">Good code solves problems. Great code solves the right ones.</p>
                     </div>
                     <div class="text-right text-xs opacity-70">🌸</div>
@@ -4305,7 +4311,7 @@
                       <span class="text-[9px] text-[#6B2137]">♡</span>
                     </div>
                     <div>
-                      <h4 class="font-bold text-[14px] text-[#1F1F1F]">Team over ego.</h4>
+                      <h4 class="font-bold text-[16px] text-[#1F1F1F]">Team over ego.</h4>
                       <p class="text-[9.5px] text-gray-600 leading-tight">Not every contribution is visible in commits.</p>
                     </div>
                     <div class="text-right text-xs opacity-70">🤝</div>
@@ -4317,7 +4323,7 @@
                       <div class="w-5 h-5 rounded-full bg-[#E8D5CE] text-[#6B2137] text-[9px] font-bold flex items-center justify-center">🕒</div>
                     </div>
                     <div>
-                      <h4 class="font-bold text-[14px] text-[#1F1F1F]">Speed is temporary.</h4>
+                      <h4 class="font-bold text-[16px] text-[#1F1F1F]">Speed is temporary.</h4>
                       <p class="text-[9.5px] text-gray-600 leading-tight">Maintainability is permanent.</p>
                     </div>
                     <div class="text-right text-xs opacity-70">⏱️</div>
@@ -4329,7 +4335,7 @@
                       <div class="w-5 h-5 rounded-full bg-[#E8D5CE] text-[#6B2137] text-[9px] font-bold flex items-center justify-center">📄</div>
                     </div>
                     <div>
-                      <h4 class="font-bold text-[14px] text-[#1F1F1F]">Docs matter.</h4>
+                      <h4 class="font-bold text-[16px] text-[#1F1F1F]">Docs matter.</h4>
                       <p class="text-[9.5px] text-gray-600 leading-tight">Future you will thank you.</p>
                     </div>
                     <div class="text-right text-xs opacity-70">📖</div>
@@ -4341,7 +4347,7 @@
                       <div class="w-5 h-5 rounded-full bg-[#E8D5CE] text-[#6B2137] text-[9px] font-bold flex items-center justify-center">🌱</div>
                     </div>
                     <div>
-                      <h4 class="font-bold text-[14px] text-[#1F1F1F]">Learning never ends.</h4>
+                      <h4 class="font-bold text-[16px] text-[#1F1F1F]">Learning never ends.</h4>
                       <p class="text-[9.5px] text-gray-600 leading-tight">Stay curious. Stay adaptable.</p>
                     </div>
                     <div class="text-right text-xs opacity-70">🌿</div>
@@ -4350,7 +4356,7 @@
                   <!-- Card 6: Working With Others Taped Note -->
                   <div class="p-2 bg-[#F6EFE6] rounded-xl border border-amber-900/15 shadow-2xs relative flex flex-col justify-between min-h-[75px]">
                     <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-5 h-2 bg-[#E6D7C3]/90"></div>
-                    <span class="font-bold text-[14px] text-[#6B2137] block mb-0.5">Working With Others</span>
+                    <span class="font-bold text-[16px] text-[#6B2137] block mb-0.5">Working With Others</span>
                     <ul class="text-[9px] text-gray-700 space-y-0.5 leading-tight">
                       <li>♥ Communicate clearly.</li>
                       <li>♥ Simplify decisions.</li>
@@ -4366,7 +4372,7 @@
                   <div class="col-span-8 bg-[#F6EFE6] p-2 rounded-xl border border-amber-900/15 text-[15px] text-[#2C2C2C] relative shadow-2xs" class="font-caveat">
                     <div class="flex items-center gap-1 mb-0.5">
                       <span class="text-xs">📌</span>
-                      <h4 class="font-bold text-[14px] text-[#6B2137] italic">Impact Reminder</h4>
+                      <h4 class="font-bold text-[16px] text-[#6B2137] italic">Impact Reminder</h4>
                     </div>
                     <p class="text-[10px] text-gray-700 leading-tight">
                       Every project leaves behind more than software. It leaves behind trust.
@@ -4386,7 +4392,7 @@
           </div>
 
           <!-- INNER PAGES SPREAD 3 -->
-          <div id="smriti-spread-3" class="w-full bg-[#FAF6EE] rounded-[18px] p-4 md:p-5 relative overflow-hidden text-left min-h-[510px] md:min-h-[540px] h-[510px] md:h-[540px] flex flex-col justify-between" style="background-image: radial-gradient(#D8CFC3 1.2px, transparent 1.2px); background-size: 20px 20px;">
+          <div id="smriti-spread-3" class="w-full bg-[#FAF6EE] rounded-[18px] p-4 md:p-5 relative overflow-hidden text-left min-h-[520px] md:min-h-[550px] h-[520px] md:h-[550px] flex flex-col justify-between" style="background-image: radial-gradient(#D8CFC3 1.2px, transparent 1.2px); background-size: 20px 20px;">
             <button onclick="closeSmritiBook()" class="absolute top-3 right-4 text-gray-500 hover:text-[#6B2137] text-lg font-bold z-40 p-1 transition-colors" title="Close Journal">
               ✕
             </button>
@@ -4462,7 +4468,7 @@
                   <!-- Paper clip accent -->
                   <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-5 border-2 border-[#C4A47A] rounded-full bg-transparent z-10"></div>
                   <!-- Dried flower sprig accent -->
-                  <div class="absolute -top-3 right-4 text-[14px] opacity-60">🌿</div>
+                  <div class="absolute -top-3 right-4 text-[16px] opacity-60">🌿</div>
                   
                   <h4 class="text-center text-lg font-bold text-[#1F1F1F]" class="font-caveat">
                     The Threadweaver's Knot
