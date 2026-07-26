@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+agni_light_html = '''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -367,3 +367,9 @@
   </script>
 </body>
 </html>
+'''
+
+with open('e:/portfoliosite/agni-c2.html', 'w', encoding='utf-8') as f:
+    f.write(agni_light_html)
+
+print("SUCCESSFULLY CONVERTED AGNI-C2.HTML TO CLEAN CRISP LIGHT THEME!")
