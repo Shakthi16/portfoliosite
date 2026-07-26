@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+import os
+
+html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -607,3 +609,9 @@
   </script>
 </body>
 </html>
+'''
+
+with open('e:/portfoliosite/agni-c2.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("SUCCESSFULLY WRITTEN COMPREHENSIVE LIGHT THEME AGNI-C2.HTML PAGE WITH COMPLETE REPORT CONTENT AND MAIL REQUEST BUTTONS!")
