@@ -4409,13 +4409,13 @@
           ✦ MILESTONES
         </span>
 
-        <!-- Title Item 1: IIIT Madras CYSTAR Lab -->
+        <!-- Title Item 1: IIT Madras CYSTAR Lab -->
         <div onclick="setExpStage(1)" class="exp-title-item cursor-pointer transition-all duration-500 group flex items-start gap-3" id="exp-title-item-1">
           <div class="w-1.5 h-12 bg-[#8b2252] rounded-full shrink-0 transition-all duration-500 opacity-100 item-bar"></div>
           <div class="truncate">
             <span class="text-[10px] font-mono font-bold block uppercase tracking-wider text-[#8b2252] mb-0.5 item-year">01 // 2025 – 2026</span>
             <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight leading-snug transition-all duration-500 text-[#1F1F1F] item-heading">
-              IIIT Madras — CYSTAR Lab
+              IIT Madras — CYSTAR Lab
             </h3>
             <p class="text-xs font-mono text-gray-500 mt-1 item-sub">Cybersecurity Research Intern</p>
           </div>
@@ -4514,7 +4514,7 @@
       <!-- RIGHT COLUMN (4 Cols): Active Detail Panel -->
       <div class="lg:col-span-4 relative text-left min-h-[320px] flex items-center">
         
-        <!-- Panel 1: IIIT Madras CYSTAR Lab -->
+        <!-- Panel 1: IIT Madras CYSTAR Lab -->
         <div class="exp-detail-panel transition-all duration-500 opacity-100 scale-100 block w-full" id="exp-detail-1">
           <div class="bg-white rounded-3xl p-6 shadow-[0_15px_45px_-10px_rgba(0,0,0,0.06)] border border-gray-200/80 space-y-4">
             
@@ -4528,7 +4528,7 @@
             </div>
 
             <h3 class="text-2xl font-bold text-[#1F1F1F] tracking-tight leading-tight">
-              IIIT Madras — CYSTAR Lab
+              IIT Madras — CYSTAR Lab
             </h3>
 
             <ul class="space-y-2.5 text-xs text-gray-600 font-normal leading-relaxed pt-2 border-t border-gray-100">
@@ -5411,19 +5411,8 @@
             <div class="detail-text-reveal border-t border-white/10 pt-4 md:pt-6 mt-4 md:mt-6">
               <h5 class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-3 md:mb-4 font-sans">Gallery
                 Mockups</h5>
-              <div class="grid grid-cols-3 gap-3 md:gap-4">
-                <div
-                  class="h-12 md:h-16 bg-zinc-900 border border-white/5 rounded-xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
-                  <i class="fas fa-image text-purple-500/50 text-sm md:text-base"></i>
-                </div>
-                <div
-                  class="h-12 md:h-16 bg-zinc-900 border border-white/5 rounded-xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
-                  <i class="fas fa-file-code text-purple-500/50 text-sm md:text-base"></i>
-                </div>
-                <div
-                  class="h-12 md:h-16 bg-zinc-900 border border-white/5 rounded-xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
-                  <i class="fas fa-shield-alt text-purple-500/50 text-sm md:text-base"></i>
-                </div>
+              <div class="grid grid-cols-3 gap-3 md:gap-4" id="detail-gallery-grid">
+                <!-- Dynamically populated with real photos -->
               </div>
             </div>
           </div>
@@ -6295,6 +6284,7 @@
           desc: "Explored how AI, visualization, and explainability transform offensive security education. Built AGNI C2 — a cognitive C2 platform combining AI-assisted decision support, attack graph visualization, MITRE ATT&CK mapping, and explainable security workflows into a unified research platform. Presented and published at the International Conference on Technology and Advancement in Computing Applications.",
           bg: "linear-gradient(135deg, #1e1b4b 0%, #1e293b 100%)",
           charImg: "research.png",
+          gallery: ["bg1.png", "cystar.webp"],
           meta: [
             "<strong>Published at:</strong> ICTACA'26 International Conference",
             "<strong>Framework:</strong> AGNI C2 — Cognitive Command & Control",
@@ -6309,6 +6299,7 @@
           desc: "Developed and filed a technology patent for the NanoSafe Cloak — a wearable device generating an on-demand nano-fog privacy shield using advanced nanomaterials and smart electronics. The cloak creates a visual distortion barrier effective against hidden cameras while remaining transparent to the human eye, addressing critical privacy concerns across hospitality, retail, and personal safety sectors.",
           bg: "linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%)",
           charImg: "patent.png",
+          gallery: ["patent.png"],
           meta: [
             "<strong>Inventor:</strong> Shakthi Sri T S",
             "<strong>Patent Type:</strong> Technology Utility Patent",
@@ -6323,6 +6314,7 @@
           desc: "Built Reality-Lag Security (RLS) — an adaptive cyber defense platform using AI-driven behavioral analysis, deception environments, and parallel execution timelines. Instead of blocking attacks, RLS redirects attackers into controlled environments that generate continuous threat intelligence. Secured 3rd Place at VIBEAITHON 2025, a 24-hour national-level hackathon.",
           bg: "linear-gradient(135deg, #064e3b 0%, #0c4a6e 100%)",
           charImg: "hackathon.png",
+          gallery: ["vibe_hackathon_img_2.jpg", "vibe_hackathon_img_3.jpg", "vibe_hackathon_img_4.jpg"],
           meta: [
             "<strong>Placement:</strong> 3rd Place — VIBEAITHON 2025",
             "<strong>Team:</strong> CipherStorm",
@@ -6337,6 +6329,7 @@
           desc: "Recognized as the Best Outgoing Student of the Information Technology Department at Kingston Engineering College. This award reflects four years of academic excellence (CGPA 9.03), published research at ICTACA'26, a filed technology patent, hackathon victories, industry internships at IIT Madras CYSTAR Lab, OpsIntellix, and Focuslogic — combining software engineering, cybersecurity research, and UI/UX design.",
           bg: "linear-gradient(135deg, #7c2d12 0%, #451a03 100%)",
           charImg: "beststudent.png",
+          gallery: ["beststudent.png"],
           meta: [
             "<strong>Award:</strong> Best Outgoing Student — IT Dept (2026)",
             "<strong>Academic:</strong> Top Performer — CGPA 9.03/10",
@@ -6378,6 +6371,27 @@
             li.innerHTML = `<i class="fas fa-caret-right text-purple-500"></i> ${item}`;
             metaList.appendChild(li);
           });
+
+          // Populate gallery mockups dynamically with real photos
+          const galleryGrid = document.getElementById('detail-gallery-grid');
+          if (galleryGrid) {
+            galleryGrid.innerHTML = '';
+            if (data.gallery && data.gallery.length > 0) {
+              data.gallery.forEach(imgSrc => {
+                const thumb = document.createElement('div');
+                thumb.className = 'h-16 md:h-20 bg-zinc-900 border border-white/20 rounded-xl overflow-hidden shadow-md cursor-pointer hover:border-purple-400 hover:scale-105 transition-all relative group';
+                thumb.onclick = (e) => {
+                  e.stopPropagation();
+                  window.open(imgSrc, '_blank');
+                };
+                thumb.innerHTML = `<img src="${imgSrc}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Gallery Photo"/>
+                                  <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>`;
+                galleryGrid.appendChild(thumb);
+              });
+            } else {
+              galleryGrid.innerHTML = '<p class="text-xs text-gray-500 italic">No additional gallery photos available</p>';
+            }
+          }
 
           // Lock body scrolling
           document.body.style.overflow = 'hidden';
