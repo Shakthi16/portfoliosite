@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -597,3 +597,9 @@
   </script>
 </body>
 </html>
+'''
+
+with open('e:/portfoliosite/agni-c2.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("SUCCESSFULLY REFINED MOBILE COMPATIBILITY AND FAVICON INJECTION!")

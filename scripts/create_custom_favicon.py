@@ -1,0 +1,35 @@
+svg_content = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b2252" />
+      <stop offset="100%" stop-color="#4a0e2e" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#8b2252" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer Rounded Shield Container -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#grad)" filter="url(#shadow)" />
+  
+  <!-- Sleek Minimalist 'S' Emblem -->
+  <path d="M 310 160 
+           C 270 125, 200 125, 175 165 
+           C 150 205, 185 240, 240 260 
+           C 310 285, 345 325, 320 375 
+           C 290 425, 200 425, 160 380" 
+        fill="none" 
+        stroke="#FFFFFF" 
+        stroke-width="54" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+        
+  <!-- Accent Flame Core -->
+  <circle cx="340" cy="160" r="24" fill="#FFB703"/>
+</svg>
+'''
+
+with open('e:/portfoliosite/favicon.svg', 'w', encoding='utf-8') as f:
+    f.write(svg_content)
+
+print("Created favicon.svg successfully!")
