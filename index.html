@@ -4009,10 +4009,10 @@
   <div class="max-w-6xl mx-auto px-3 md:px-6 text-center">
     
     <!-- BOOK STAGE CONTAINER -->
-    <div class="relative w-full max-w-[890px] mx-auto min-h-[520px] md:min-h-[550px] flex items-center justify-center">
+    <div class="relative w-full max-w-[1100px] mx-auto min-h-[520px] md:min-h-[550px] flex items-center justify-center">
 
       <!-- ==================== CLOSED BOOK COVER STATE (CLEAN ELEGANT HARDCOVER) ==================== -->
-      <div id="smriti-book-cover" class="cursor-pointer transition-all duration-300 z-40" onclick="openSmritiBook()">
+      <div id="smriti-book-cover" class="cursor-pointer transition-all duration-300 z-40 flex items-end gap-0 md:gap-2" onclick="openSmritiBook()">
         <div class="relative max-w-fit mx-auto">
           
           <!-- Main Hardcover Image Container (Clean rounded corners, soft shadow, zero shaking) -->
@@ -4024,7 +4024,13 @@
           <!-- Satin Gold Bookmark Ribbon Hanging Neatly at Bottom-Left -->
           <div class="w-6 h-11 bg-gradient-to-b from-[#C49A45] via-[#D4A359] to-[#A87D2A] rounded-b-md shadow-md border-b border-r border-amber-900/30 absolute -bottom-4 left-10 pointer-events-none z-50"></div>
         </div>
+
+        <!-- Aside character image — right of journal, bottom-aligned -->
+        <div id="journal-aside-img" class="flex-shrink-0 self-end pointer-events-none select-none -ml-4 md:-ml-6">
+          <img src="asidejournal.png" alt="Click Me!" class="w-[200px] md:w-[280px] drop-shadow-xl" draggable="false"/>
+        </div>
       </div>
+
 
       <!-- ==================== OPENED PHYSICAL HARDCOVER BOOK (REALISTIC 3D PAGE STACK & SHADOW) ==================== -->
       <div id="smriti-book-opened" class="hidden w-full transition-opacity duration-500 opacity-0 z-30">
